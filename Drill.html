@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TCR Expert Drill</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2ee;
+    --surface: #ffffff;
+    --surface-2: #ede9e3;
+    --border: #d4cdc4;
+    --text: #1a1410;
+    --muted: #7a6d62;
+    --accent: #c0561a;
+    --accent-dim: #fde8d8;
+    --green: #2d7a4f;
+    --red: #a03030;
+    --yellow: #a07820;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header bar */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .stat-chip {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stat-chip .val {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* Voice mode */
+  .voice-toggle {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .voice-toggle:hover { border-color: var(--accent); color: var(--text); }
+  .voice-toggle.active { background: #fde8d8; border-color: var(--accent); color: var(--accent); }
+
+  .mic-row {
+    display: none;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .mic-row.visible { display: flex; }
+
+  .mic-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 2px solid var(--border);
+    color: var(--muted);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+
+  .mic-btn:hover { border-color: var(--accent); color: var(--text); }
+
+  .mic-btn.listening {
+    background: #fde8e8;
+    border-color: var(--red);
+    color: var(--red);
+    animation: mic-pulse 1s ease-in-out infinite;
+  }
+
+  @keyframes mic-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(196, 80, 80, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(196, 80, 80, 0); }
+  }
+
+  .mic-status {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .mic-status.listening { color: var(--red); }
+  .mic-status.transcribed { color: var(--green); }
+
+  .speak-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--muted);
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+
+  .speak-btn:hover { color: var(--accent); }
+  .speak-btn.speaking { color: var(--accent); }
+
+  .speaking-wave {
+    display: none;
+    gap: 2px;
+    align-items: flex-end;
+    height: 14px;
+    margin-left: 8px;
+  }
+
+  .speaking-wave.active { display: flex; }
+
+  .speaking-wave span {
+    width: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    animation: wave 0.8s ease-in-out infinite;
+  }
+
+  .speaking-wave span:nth-child(1) { height: 4px; animation-delay: 0s; }
+  .speaking-wave span:nth-child(2) { height: 10px; animation-delay: 0.1s; }
+  .speaking-wave span:nth-child(3) { height: 7px; animation-delay: 0.2s; }
+  .speaking-wave span:nth-child(4) { height: 12px; animation-delay: 0.15s; }
+  .speaking-wave span:nth-child(5) { height: 5px; animation-delay: 0.25s; }
+
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.5; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+
+  /* Category bar */
+  .cat-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 28px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .cat-bar::-webkit-scrollbar { display: none; }
+
+  .cat-btn {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .cat-btn:hover { color: var(--text); }
+  .cat-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Main layout */
+  .drill-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 28px;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.4s ease;
+  }
+
+  /* Question display */
+  .q-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+  }
+
+  .q-meta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .q-category-badge {
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  .q-difficulty {
+    color: var(--muted);
+  }
+
+  .q-difficulty.hard { color: var(--red); }
+  .q-difficulty.medium { color: var(--yellow); }
+  .q-difficulty.easy { color: var(--green); }
+
+  .question-text {
+    font-size: 1.45rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 28px;
+    font-family: var(--sans);
+  }
+
+  .question-text strong {
+    font-weight: 600;
+    color: #0d0a06;
+  }
+
+  /* Timer */
+  .timer-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .timer-display {
+    font-family: var(--mono);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    min-width: 56px;
+  }
+
+  .timer-display.warning { color: var(--yellow); }
+  .timer-display.danger { color: var(--red); animation: flash 0.5s ease infinite; }
+
+  @keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .timer-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .timer-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 1s linear, background 0.3s;
+  }
+
+  .timer-fill.warning { background: var(--yellow); }
+  .timer-fill.danger { background: var(--red); }
+
+  /* Answer input */
+  .answer-area {
+    margin-bottom: 20px;
+  }
+
+  .answer-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: border-color 0.2s;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  textarea::placeholder { color: var(--muted); }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: black;
+  }
+
+  .btn-primary:hover { background: #f09347; }
+  .btn-primary:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+  .btn-danger {
+    background: transparent;
+    color: var(--red);
+    border: 1px solid #3a1818;
+  }
+
+  .btn-danger:hover { background: #1e0e0e; }
+
+  /* Feedback panel */
+  .feedback-panel {
+    display: none;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-top: 16px;
+    animation: slideIn 0.25s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .feedback-panel.visible { display: block; }
+
+  .feedback-header {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .score-badge {
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .score-5 { background: #d4f0e2; color: var(--green); }
+  .score-4 { background: #e4f0d0; color: #3a6a10; }
+  .score-3 { background: #f5ecd0; color: var(--yellow); }
+  .score-2 { background: #fde8d8; color: var(--accent); }
+  .score-1 { background: #f5d8d8; color: var(--red); }
+
+  .feedback-text {
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #2a231c;
+    margin-bottom: 14px;
+  }
+
+  .key-point {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--text);
+    margin-top: 12px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .key-point-label {
+    font-family: var(--mono);
+    font-size: 0.70rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* Session summary */
+  .summary-screen {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .summary-screen.visible { display: block; }
+
+  .summary-score {
+    font-family: var(--mono);
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .summary-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 420px;
+    margin: 0 auto 36px;
+  }
+
+  .summary-stat {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 12px;
+  }
+
+  .summary-stat-val {
+    font-family: var(--mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .summary-stat-label {
+    font-family: var(--mono);
+    font-size: 0.70rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  /* Start screen */
+  .start-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .start-title {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .start-headline {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    max-width: 480px;
+    color: var(--text);
+  }
+
+  .start-sub {
+    font-size: 0.93rem;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 400px;
+    margin-bottom: 36px;
+  }
+
+  .mode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    max-width: 580px;
+    width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .mode-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 16px;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-align: left;
+  }
+
+  .mode-card:hover {
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+
+  .mode-card.selected {
+    border-color: var(--accent);
+    background: #1a1008;
+  }
+
+  .mode-name {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .mode-desc {
+    font-size: 0.83rem;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .drill-area { padding: 24px 16px; }
+    .question-text { font-size: 1.2rem; }
+    .timer-display { font-size: 1.4rem; }
+    header { padding: 12px 16px; }
+    .cat-bar { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="brand">TCR // Expert Drill</span>
+  <div class="header-right">
+    <div class="stat-chip">Session <span class="val" id="sessionScore">0/0</span></div>
+    <div class="stat-chip">Avg <span class="val" id="avgScore">--</span></div>
+    <button class="voice-toggle" id="mockToggle" onclick="toggleMockMode()" title="Mock mode — no API calls">
+      <span id="mockLabel">Mock Off</span>
+    </button>
+    <button class="voice-toggle" id="voiceToggle" onclick="toggleVoiceMode()" title="Toggle voice mode">
+      <span id="voiceIcon">🎙</span>
+      <span id="voiceLabel">Voice Off</span>
+    </button>
+  </div>
+</header>
+
+<div class="cat-bar" id="catBar">
+  <button class="cat-btn active" onclick="setCategory('all')" data-cat="all">All</button>
+  <button class="cat-btn" onclick="setCategory('method')" data-cat="method">The Method</button>
+  <button class="cat-btn" onclick="setCategory('science')" data-cat="science">Science</button>
+  <button class="cat-btn" onclick="setCategory('adversarial')" data-cat="adversarial">Adversarial</button>
+  <button class="cat-btn" onclick="setCategory('credibility')" data-cat="credibility">Credibility</button>
+  <button class="cat-btn" onclick="setCategory('practical')" data-cat="practical">Practical</button>
+  <button class="cat-btn" onclick="setCategory('personal')" data-cat="personal">Personal</button>
+  <button class="cat-btn" onclick="setCategory('media')" data-cat="media">Media/Press</button>
+</div>
+
+<!-- Start screen -->
+<div class="start-screen" id="startScreen">
+  <div class="start-title">The Confidence Reset</div>
+  <h1 class="start-headline">Become the expert<br>before the camera does</h1>
+  <p class="start-sub">Rapid-fire interview prep. Real questions people will ask you. AI feedback on your answers. No softballs.</p>
+
+  <div class="mode-grid">
+    <div class="mode-card selected" id="mode-timed" onclick="selectMode('timed')">
+      <div class="mode-name">Timed</div>
+      <div class="mode-desc">90 seconds per question. Simulates live interview pressure.</div>
+    </div>
+    <div class="mode-card" id="mode-open" onclick="selectMode('open')">
+      <div class="mode-name">Open</div>
+      <div class="mode-desc">No timer. Think it through. Review and refine your answers.</div>
+    </div>
+    <div class="mode-card" id="mode-rapid" onclick="selectMode('rapid')">
+      <div class="mode-name">Rapid Fire</div>
+      <div class="mode-desc">30 seconds. One-sentence answers only. Forces clarity.</div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" onclick="startDrill()" style="font-size:0.85rem; padding:14px 32px;">Start Drill</button>
+</div>
+
+<!-- Drill screen -->
+<div class="drill-area" id="drillArea" style="display:none;">
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+
+  <div class="q-wrapper" id="qWrapper">
+    <div class="q-meta">
+      <span class="q-category-badge" id="qCategoryBadge">Method</span>
+      <span class="q-difficulty" id="qDifficulty">Medium</span>
+      <span style="margin-left:auto; font-size:0.74rem;">Q <span id="qNumber">1</span></span>
+    </div>
+    <div class="question-text" id="questionText">Loading...<button class="speak-btn" id="speakBtn" onclick="speakQuestion()" title="Read question aloud" style="display:none;">▶ Hear it</button></div>
+
+    <div id="speakingWave" class="speaking-wave"><span></span><span></span><span></span><span></span><span></span></div>
+
+    <div class="timer-row" id="timerRow">
+      <div class="timer-display" id="timerDisplay">1:30</div>
+      <div class="timer-bar">
+        <div class="timer-fill" id="timerFill" style="width:100%"></div>
+      </div>
+    </div>
+
+    <div class="mic-row" id="micRow">
+      <button class="mic-btn" id="micBtn" onclick="toggleMic()" title="Hold to speak your answer">🎙</button>
+      <span class="mic-status" id="micStatus">Press to speak your answer</span>
+    </div>
+
+    <div class="answer-area">
+      <div class="answer-label">Your answer</div>
+      <textarea id="answerInput" placeholder="Type your answer, or use the mic above..."></textarea>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-primary" id="submitBtn" onclick="submitAnswer()">Submit Answer</button>
+      <button class="btn btn-ghost" onclick="skipQuestion()">Skip</button>
+      <button class="btn btn-ghost" onclick="endSession()">End Session</button>
+    </div>
+
+    <div class="feedback-panel" id="feedbackPanel">
+      <div class="feedback-header">
+        <span>Feedback</span>
+        <span class="score-badge" id="scoreBadge"></span>
+      </div>
+      <div class="feedback-text" id="feedbackText"></div>
+      <div class="key-point" id="keyPoint">
+        <span class="key-point-label">Key point from TCR</span>
+        <span id="keyPointText"></span>
+      </div>
+      <div style="margin-top:18px;">
+        <button class="btn btn-primary" onclick="nextQuestion()">Next Question</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Summary screen -->
+<div class="drill-area" id="summaryArea" style="display:none;">
+  <div class="summary-screen visible">
+    <div class="summary-score" id="summaryScore">--</div>
+    <div class="summary-label">Average Score</div>
+    <div class="summary-grid">
+      <div class="summary-stat">
+        <div class="summary-stat-val" id="totalAnswered">0</div>
+        <div class="summary-stat-label">Answered</div>
+      </div>
+      <div class="summary-stat">
+        <div class="summary-stat-val" id="totalSkipped">0</div>
+        <div class="summary-stat-label">Skipped</div>
+      </div>
+      <div class="summary-stat">
+        <div class="summary-stat-val" id="topCategory">--</div>
+        <div class="summary-stat-label">Weak Area</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="restartDrill()" style="font-size:0.85rem; padding:14px 28px; margin-right:10px;">New Session</button>
+    <button class="btn btn-ghost" onclick="restartDrill()" style="font-size:0.85rem; padding:14px 28px;">Back to Start</button>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [
+  // THE METHOD
+  { id:1, cat:'method', diff:'easy', text:'How do you define confidence in <strong>The Confidence Reset</strong>?', keyPoint:'Confidence is a biological state, not a personality trait. It is created by safety in the body, clarity in the mind, and coherence in behaviour.' },
+  { id:2, cat:'method', diff:'medium', text:'What is the Early Code, and why is it so central to your method?', keyPoint:'The Early Code is the emotional software installed by roughly age 7 through experiences of approval and rejection. It runs in the background for decades, shaping how the body responds to exposure, performance, and visibility.' },
+  { id:3, cat:'method', diff:'medium', text:'You say "safety before strategy." What does that actually mean in practice?', keyPoint:'The nervous system must register safety before confident behaviour becomes available. All strategy — preparation, technique, mindset — runs on top of that foundation. If the body is in threat mode, no strategy works reliably.' },
+  { id:4, cat:'method', diff:'hard', text:'How is your approach different from cognitive behavioural therapy?', keyPoint:'CBT works top-down — changing thoughts to change feelings. The TCR method works bottom-up: the body comes first, then the mind. The body is not a vehicle for the brain — it is a co-equal system that shapes cognition and emotion.' },
+  { id:5, cat:'method', diff:'easy', text:'What does "body wins the race" mean?', keyPoint:'LeDoux\'s research shows the threat system activates before conscious awareness catches up. By the time you think "I\'m nervous," your pulse, breathing, and posture have already changed. Confidence work must start in the body.' },
+  { id:6, cat:'method', diff:'medium', text:'Walk me through what a typical client journey looks like with The Confidence Reset framework.', keyPoint:'It mirrors the book\'s sequence: establish safety, decode the inner critic, work with fear in the body, reclaim voice, embody confidence, update identity through future self work, address worth, build containment through boundaries, build resilience.' },
+  { id:7, cat:'method', diff:'hard', text:'The inner critic chapter suggests we should not try to silence the inner voice. Why not? Isn\'t it harmful?', keyPoint:'Silencing the critic creates internal war, which burns energy needed for expression. The critic is not a bully — it is a protective system running on old data. Translation, not silence, is the goal: under every "not good enough" is "I don\'t want you to get hurt."' },
+  { id:8, cat:'method', diff:'medium', text:'What is Future Self Integration and how is it different from ordinary visualisation?', keyPoint:'Most visualisation is vague aspiration. Future Self Integration is grounded in Pascual-Leone\'s neuroscience showing mental rehearsal produces brain changes comparable to physical practice. It gives the nervous system an experiential reference point, not just an image.' },
+  { id:9, cat:'method', diff:'hard', text:'You distinguish between worth and confidence. Why does that distinction matter?', keyPoint:'Worth is felt, not earned. Confidence can grow through skill and evidence, but if the underlying sense of worth is conditional, high achievers will always feel like imposters regardless of results. The body needs to feel enough, not just perform enough.' },
+
+  // SCIENCE
+  { id:10, cat:'science', diff:'medium', text:'What is polyvagal theory and why is it in a confidence book?', keyPoint:'Porges\' polyvagal theory explains how the vagus nerve governs three states: social engagement (safe), mobilisation (fight/flight), and shutdown (freeze). Confidence requires the social engagement system to be active. That\'s a physiological state, not a mindset.' },
+  { id:11, cat:'science', diff:'hard', text:'You cite LeDoux quite a lot. Can you explain his contribution in plain terms?', keyPoint:'LeDoux\'s work at NYU mapped the amygdala as a threat detection system that fires faster than conscious thought. It means the body is already responding to perceived danger before the mind knows what\'s happening. Intervention must happen at the body level first.' },
+  { id:12, cat:'science', diff:'hard', text:'What is the neuroscience behind your Future Self Integration exercises?', keyPoint:'Pascual-Leone\'s 1995 study showed imagined piano practice produced brain changes comparable to physical practice. This means vivid mental rehearsal creates wiring similar to real experience, which the nervous system can draw on as a reference when entering new situations.' },
+  { id:13, cat:'science', diff:'medium', text:'What is interoception and how does it relate to confidence?', keyPoint:'Interoception is the brain\'s reading of the body\'s internal signals. A tight jaw, shallow breath, or collapsed posture all generate upward signals that shift emotional state and cognitive function. Training interoception means learning to read and regulate those signals consciously.' },
+  { id:14, cat:'science', diff:'hard', text:'The book uses neuroscience. Are you a neuroscientist? How confident should readers be in the science?', keyPoint:'I am a hypnotherapist and coach, not a neuroscientist. The science cited is from peer-reviewed sources — LeDoux, Porges, Pascual-Leone, van der Kolk. I translate findings into practical application. The book is grounded in evidence, not speculation.' },
+  { id:15, cat:'science', diff:'medium', text:'How does the stress cycle work, and why does it need to complete?', keyPoint:'Stress activates the body for danger. The cycle must complete through physical discharge — movement, breath, trembling. Animals shake after threat. Humans suppress instead. Incomplete cycles create chronic dysregulation. Completion allows the body to return to baseline.' },
+
+  // ADVERSARIAL
+  { id:16, cat:'adversarial', diff:'hard', text:'Isn\'t this just another self-help book telling people to breathe and feel better? What makes it actually different?', keyPoint:'The difference is the sequencing and the mechanism. Most self-help works on belief and mindset. This works on the body\'s felt sense of safety first. The exercises are not mood management — they are nervous system training. The results are physiological, not attitudinal.' },
+  { id:17, cat:'adversarial', diff:'hard', text:'Hypnotherapy has a credibility problem. Why should anyone take a hypnotherapist\'s advice on confidence?', keyPoint:'Cognitive hypnotherapy is an evidence-informed modality used by therapists worldwide. It draws on neuroscience, NLP, and somatic approaches. My clinical experience across hundreds of high-functioning clients informs every framework in this book. The credential is the results.' },
+  { id:18, cat:'adversarial', diff:'hard', text:'You work with high-functioning professionals. Does this approach actually work for ordinary people, or is it tailored for the successful?', keyPoint:'The nervous system doesn\'t care about income or status. The Early Code, the inner critic, the somatic patterns — these form in childhood regardless of socioeconomic context. The tools in the book are designed to be accessible to anyone who can follow a guided practice.' },
+  { id:19, cat:'adversarial', diff:'hard', text:'Isn\'t the real solution to low confidence just exposure therapy? Do the hard things, get used to them, move on?', keyPoint:'Exposure without regulation can reinforce fear. If someone\'s nervous system is dysregulated when they face the feared situation, they\'re rehearsing the fear response, not overcoming it. Safety in the body must come first, then graded exposure becomes genuinely effective.' },
+  { id:20, cat:'adversarial', diff:'hard', text:'The book rejects "fake it till you make it." But research by Amy Cuddy and others suggests power posing works. Are you dismissing that?', keyPoint:'Embodiment is actually central to the book — posture and physical state do influence hormones and confidence. The rejection is of the idea that performance alone is sufficient. The book goes deeper: it asks why the body defaults to contracted postures and addresses that root.' },
+  { id:21, cat:'adversarial', diff:'hard', text:'You open the book with a personal story of not being able to get off your bed. Isn\'t that a significant vulnerability to put in a confidence book?', keyPoint:'That moment is the argument. I knew the tools. I had helped hundreds of people. And my body still needed them. That is the exact point the book makes: knowing is not the same as feeling. The opening earns the reader\'s trust because it is honest about the gap.' },
+  { id:22, cat:'adversarial', diff:'hard', text:'There is a lot of neuroscience being popularised right now. Is there a risk of oversimplifying it to sell books?', keyPoint:'That risk exists in the whole field. The approach in the book is to cite specific research accurately, then translate it plainly without exaggerating what the evidence shows. The science is a foundation, not marketing. Where the evidence is limited, I say so.' },
+
+  // CREDIBILITY
+  { id:23, cat:'credibility', diff:'hard', text:'You describe yourself as a hypnotherapist and coach. What qualifications do you have?', keyPoint:'I am a qualified hypnotherapist, trained in cognitive hypnotherapy and NLP. I have been in practice for several years working with high-functioning professionals. My clinical experience across hundreds of client hours directly informs the frameworks in this book.' },
+  { id:24, cat:'credibility', diff:'medium', text:'Are any of the client stories in the book real?', keyPoint:'All client stories are drawn from real work. Names and identifying details have been changed. The patterns, the language, the sessions — these reflect genuine therapeutic encounters, which is why they feel true. You can\'t invent that specificity.' },
+  { id:25, cat:'credibility', diff:'hard', text:'You\'re based in Sri Lanka. How does working remotely with international clients affect the work?', keyPoint:'The nervous system doesn\'t require physical presence. The tools — breath, grounding, somatic anchoring, inner dialogue — work just as well over video. My client base spans several countries. The methodology travels.' },
+  { id:26, cat:'credibility', diff:'medium', text:'How long does the Confidence Reset actually take? Is this a quick fix book?', keyPoint:'The book is explicit that this is not a quick fix. It is a practice. Some clients notice change within weeks; the deeper identity-level work takes longer. The book\'s final chapter is called The Confidence Blueprint precisely because it is a rhythm you return to, not a destination.' },
+  { id:27, cat:'credibility', diff:'hard', text:'What results do your clients actually get? Do you have data?', keyPoint:'I work clinically, not in a research context, so I don\'t have randomised controlled trial data. What I have is consistent patterns across hundreds of clients: reduced physiological anxiety responses, greater ease in high-stakes contexts, and changed behaviour that holds over time.' },
+
+  // PRACTICAL
+  { id:28, cat:'practical', diff:'easy', text:'Someone listening has low confidence. What is the single first thing they should do?', keyPoint:'Learn to exhale. An extended exhale — longer out than in — activates the parasympathetic nervous system. It is the fastest, most reliable way to shift the body out of threat mode. Every other tool builds on that foundation.' },
+  { id:29, cat:'practical', diff:'medium', text:'What is an anchor, and how do you use one?', keyPoint:'An anchor is a conditioned stimulus — a touch, a word, a gesture — paired with a particular physiological state through repetition. Once trained, activating the anchor recalls the state. Thumb and middle finger pressed together is one Chris uses personally.' },
+  { id:30, cat:'practical', diff:'medium', text:'What should someone do the night before a high-stakes presentation or meeting?', keyPoint:'Rehearse the emotional state, not just the content. Use future self integration to walk the nervous system through the experience from a regulated state. The goal is to give the body a familiar reference point so the situation doesn\'t read as novel threat.' },
+  { id:31, cat:'practical', diff:'hard', text:'How do you work with the inner critic in a live high-pressure moment?', keyPoint:'You don\'t try to silence it. You acknowledge it briefly — "I hear you" — and redirect attention to the body. Feel the feet on the floor, notice the breath. The critic loses power when you stop fighting it and return to sensation.' },
+  { id:32, cat:'practical', diff:'medium', text:'What are daily practices you recommend from the book?', keyPoint:'The book\'s Daily Practices include morning grounding, breath-based regulation, micro-evidence logging, body posture awareness, and regular inner critic dialogue. The key is consistency over intensity — small daily practice rewires faster than occasional deep dives.' },
+
+  // PERSONAL
+  { id:33, cat:'personal', diff:'medium', text:'Do you still struggle with confidence yourself?', keyPoint:'Yes. The Solomon Paradox applies to everyone, including the person writing the confidence book. The tools help — they helped on the morning described in the introduction. But the work is ongoing. That is not a failure of the method, it is the nature of nervous systems.' },
+  { id:34, cat:'personal', diff:'hard', text:'Why did you write this book now? What is the personal story behind it?', keyPoint:'It came from a period of significant personal change that forced Chris to use his own tools not as a practitioner but from genuine need. In that period he realised the framework he\'d been building through client work was more coherent and transferable than he\'d understood.' },
+  { id:35, cat:'personal', diff:'medium', text:'What has writing this book taught you that you didn\'t know going in?', keyPoint:'Open question — your genuine answer here will be one of your strongest interview moments. Authenticity beats polish every time on this kind.' },
+  { id:36, cat:'personal', diff:'medium', text:'Who is this book for? Who is your ideal reader?', keyPoint:'High-functioning people who think clearly about everything except themselves. People who are succeeding externally but feel something is off internally. The book is for people who already know what they should do and can\'t understand why their body won\'t cooperate.' },
+
+  // MEDIA
+  { id:37, cat:'media', diff:'medium', text:'In one sentence, what is The Confidence Reset?', keyPoint:'A neuroscience-grounded system for rebuilding confidence from the body outward, for people who already know what they should do but can\'t get their nervous system to cooperate.' },
+  { id:38, cat:'media', diff:'easy', text:'Who are the comparable authors or books you\'d place yourself alongside?', keyPoint:'Why Has Nobody Told Me This Before by Dr Julie Smith and Atomic Habits by James Clear are cited as comparable — accessible, evidence-informed, practical, and structured for lasting change rather than motivation.' },
+  { id:39, cat:'media', diff:'medium', text:'What do you want someone to feel after finishing the book?', keyPoint:'Seen, and equipped. Not inspired — equipped. Inspiration fades. The goal is that the reader finishes with a rhythm they can return to.' },
+  { id:40, cat:'media', diff:'hard', text:'The confidence self-help space is crowded. Why does another book in this space exist?', keyPoint:'Because most of the existing books work on belief and mindset. This one works on the body first. That is not a small distinction — it is a fundamentally different mechanism. The reason people don\'t change from mindset books is that their bodies haven\'t been addressed.' },
+  { id:41, cat:'media', diff:'medium', text:'What is the one idea in this book that you think is genuinely original?', keyPoint:'The sequencing: safety before strategy. The idea that all confidence work — all of it — depends on the nervous system registering safety first. Without that, every technique is performance on top of fear.' },
+  { id:42, cat:'media', diff:'hard', text:'If you had 90 seconds on a major podcast to make one argument, what would it be?', keyPoint:'Your answer here is your single most important prepared response. Know it cold. It should incorporate: the biological definition of confidence, the Early Code, and the safety-first mechanism. Under 90 seconds. Memorise it.' },
+];
+
+let currentCategory = 'all';
+let currentMode = 'timed';
+let sessionQuestions = [];
+let currentIndex = 0;
+let sessionScores = [];
+let skipped = 0;
+let timerInterval = null;
+let timerSeconds = 90;
+let timerMax = 90;
+let isSubmitting = false;
+let mockMode = false;
+
+function selectMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById(`mode-${mode}`).classList.add('selected');
+  if (mode === 'rapid') timerMax = 30;
+  else if (mode === 'timed') timerMax = 90;
+  else timerMax = 0;
+}
+
+function setCategory(cat) {
+  currentCategory = cat;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`[data-cat="${cat}"]`).classList.add('active');
+}
+
+function startDrill() {
+  let pool = currentCategory === 'all' ? [...QUESTIONS] : QUESTIONS.filter(q => q.cat === currentCategory);
+  sessionQuestions = shuffle(pool).slice(0, Math.min(10, pool.length));
+  currentIndex = 0;
+  sessionScores = [];
+  skipped = 0;
+  isSubmitting = false;
+
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('drillArea').style.display = 'flex';
+  document.getElementById('summaryArea').style.display = 'none';
+
+  if (currentMode === 'open') {
+    document.getElementById('timerRow').style.display = 'none';
+  } else {
+    document.getElementById('timerRow').style.display = 'flex';
+  }
+
+  loadQuestion();
+  updateStats();
+}
+
+function loadQuestion() {
+  if (currentIndex >= sessionQuestions.length) {
+    showSummary();
+    return;
+  }
+
+  const q = sessionQuestions[currentIndex];
+  document.getElementById('questionText').innerHTML = q.text;
+  document.getElementById('qCategoryBadge').textContent = q.cat.charAt(0).toUpperCase() + q.cat.slice(1);
+  document.getElementById('qNumber').textContent = `${currentIndex + 1}/${sessionQuestions.length}`;
+
+  const diffEl = document.getElementById('qDifficulty');
+  diffEl.textContent = q.diff.charAt(0).toUpperCase() + q.diff.slice(1);
+  diffEl.className = 'q-difficulty ' + q.diff;
+
+  const pct = (currentIndex / sessionQuestions.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+
+  document.getElementById('answerInput').value = '';
+  document.getElementById('feedbackPanel').classList.remove('visible');
+  document.getElementById('submitBtn').disabled = false;
+  isSubmitting = false;
+
+  if (currentMode !== 'open') {
+    startTimer();
+  }
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  timerSeconds = timerMax;
+  updateTimerDisplay();
+
+  timerInterval = setInterval(() => {
+    timerSeconds--;
+    updateTimerDisplay();
+    if (timerSeconds <= 0) {
+      clearInterval(timerInterval);
+      autoSubmit();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const mins = Math.floor(timerSeconds / 60);
+  const secs = timerSeconds % 60;
+  const display = `${mins}:${secs.toString().padStart(2,'0')}`;
+  const el = document.getElementById('timerDisplay');
+  const fill = document.getElementById('timerFill');
+  el.textContent = display;
+
+  const pct = (timerSeconds / timerMax) * 100;
+  fill.style.width = pct + '%';
+
+  el.className = 'timer-display';
+  fill.className = 'timer-fill';
+
+  if (timerSeconds <= 10) {
+    el.classList.add('danger');
+    fill.classList.add('danger');
+  } else if (timerSeconds <= 20) {
+    el.classList.add('warning');
+    fill.classList.add('warning');
+  }
+}
+
+function autoSubmit() {
+  const answer = document.getElementById('answerInput').value.trim();
+  if (!answer) {
+    skipQuestion();
+    return;
+  }
+  submitAnswer();
+}
+
+async function submitAnswer() {
+  if (isSubmitting) return;
+  const answer = document.getElementById('answerInput').value.trim();
+  if (!answer) return;
+
+  isSubmitting = true;
+  clearInterval(timerInterval);
+  document.getElementById('submitBtn').disabled = true;
+
+  const q = sessionQuestions[currentIndex];
+  const feedbackPanel = document.getElementById('feedbackPanel');
+  const feedbackText = document.getElementById('feedbackText');
+  const keyPointText = document.getElementById('keyPointText');
+  const scoreBadge = document.getElementById('scoreBadge');
+
+  feedbackText.textContent = mockMode ? 'Evaluating...' : 'Analysing...';
+  feedbackPanel.classList.add('visible');
+
+  if (mockMode) {
+    await new Promise(r => setTimeout(r, 800));
+    const mockScores = [3, 4, 3, 4, 5, 2, 4, 3];
+    const mockFeedbacks = [
+      'Solid structure. You hit the core idea but the opening was a little slow to get going. Lead with the mechanism next time, not the context.',
+      'Good. Clear and direct. The nervous system framing landed well. Push harder on why this is different from standard approaches.',
+      'You covered the basics but stayed too safe. This question is designed to challenge you — lean into the tension rather than deflecting it.',
+      'Strong answer. The biological framing was clear and you avoided jargon. Could tighten the final sentence.',
+      'Excellent. Precise, confident, and grounded in the book. That is exactly how to handle this question.',
+      'Underdeveloped. You needed to be more specific here. Vague answers on this topic will lose a sceptical interviewer quickly.',
+      'Good instinct but you lost the thread in the middle. State your position first, then support it — not the other way around.',
+      'Competent but forgettable. Find a sharper hook. What is the one thing you want them to remember from this answer?',
+    ];
+    const score = mockScores[Math.floor(Math.random() * mockScores.length)];
+    const feedback = mockFeedbacks[Math.floor(Math.random() * mockFeedbacks.length)];
+    sessionScores.push(score);
+    scoreBadge.className = \`score-badge score-\${score}\`;
+    scoreBadge.textContent = \`\${score}/5\`;
+    feedbackText.textContent = feedback;
+    keyPointText.textContent = q.keyPoint;
+    updateStats();
+    return;
+  }
+
+  try {
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 1000,
+        system: `You are a tough, fair interview coach helping Chris Murray prepare to talk about his book "The Confidence Reset." 
+
+Chris is a hypnotherapist and coach. The book argues confidence is a biological state built through nervous system regulation, not mindset tricks. Key concepts: the Early Code, safety before strategy, body wins the race, polyvagal theory, the inner critic as a protective system not an enemy, future self integration, worth vs confidence.
+
+Evaluate the answer given to the interview question. Be direct and honest. Score 1-5. Give concrete feedback — what worked, what was missing, what to sharpen. Keep it under 120 words. Do not be sycophantic.
+
+Respond ONLY in this JSON format (no preamble, no markdown):
+{"score": 4, "feedback": "Your feedback here.", "improve": "One specific thing to sharpen."}`,
+        messages: [{
+          role: "user",
+          content: `Question: ${q.text.replace(/<[^>]+>/g, '')}\n\nAnswer: ${answer}`
+        }]
+      })
+    });
+
+    const data = await response.json();
+    let raw = data.content?.[0]?.text || '{"score":3,"feedback":"Could not evaluate.","improve":"Try again."}';
+    raw = raw.replace(/```json|```/g, '').trim();
+    const result = JSON.parse(raw);
+
+    const score = result.score || 3;
+    sessionScores.push(score);
+
+    scoreBadge.className = `score-badge score-${score}`;
+    scoreBadge.textContent = `${score}/5`;
+
+    feedbackText.textContent = `${result.feedback} ${result.improve ? result.improve : ''}`;
+    keyPointText.textContent = q.keyPoint;
+
+    updateStats();
+
+  } catch(err) {
+    feedbackText.textContent = 'Could not reach API. Check connection.';
+    sessionScores.push(3);
+    keyPointText.textContent = q.keyPoint;
+  }
+}
+
+function nextQuestion() {
+  currentIndex++;
+  clearInterval(timerInterval);
+  loadQuestion();
+}
+
+function skipQuestion() {
+  clearInterval(timerInterval);
+  skipped++;
+  currentIndex++;
+  loadQuestion();
+}
+
+function endSession() {
+  clearInterval(timerInterval);
+  showSummary();
+}
+
+function showSummary() {
+  clearInterval(timerInterval);
+  document.getElementById('drillArea').style.display = 'none';
+  document.getElementById('summaryArea').style.display = 'flex';
+
+  const avg = sessionScores.length > 0
+    ? (sessionScores.reduce((a,b) => a+b, 0) / sessionScores.length).toFixed(1)
+    : '--';
+
+  document.getElementById('summaryScore').textContent = avg;
+  document.getElementById('totalAnswered').textContent = sessionScores.length;
+  document.getElementById('totalSkipped').textContent = skipped;
+
+  // Find lowest category
+  if (sessionScores.length > 0) {
+    const catScores = {};
+    sessionQuestions.slice(0, currentIndex).forEach((q, i) => {
+      if (sessionScores[i] !== undefined) {
+        if (!catScores[q.cat]) catScores[q.cat] = [];
+        catScores[q.cat].push(sessionScores[i]);
+      }
+    });
+    let weakCat = '--';
+    let weakAvg = 6;
+    Object.entries(catScores).forEach(([cat, scores]) => {
+      const avg = scores.reduce((a,b) => a+b, 0) / scores.length;
+      if (avg < weakAvg) { weakAvg = avg; weakCat = cat; }
+    });
+    document.getElementById('topCategory').textContent = weakCat;
+  }
+}
+
+function restartDrill() {
+  document.getElementById('summaryArea').style.display = 'none';
+  document.getElementById('startScreen').style.display = 'flex';
+}
+
+function updateStats() {
+  const answered = sessionScores.length;
+  const total = sessionQuestions.length;
+  document.getElementById('sessionScore').textContent = `${answered}/${total}`;
+
+  if (answered > 0) {
+    const avg = (sessionScores.reduce((a,b) => a+b, 0) / answered).toFixed(1);
+    document.getElementById('avgScore').textContent = avg;
+  }
+}
+
+function toggleMockMode() {
+  mockMode = !mockMode;
+  const toggle = document.getElementById('mockToggle');
+  const label = document.getElementById('mockLabel');
+  if (mockMode) {
+    toggle.classList.add('active');
+    label.textContent = 'Mock On';
+  } else {
+    toggle.classList.remove('active');
+    label.textContent = 'Mock Off';
+  }
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ─── VOICE ENGINE ────────────────────────────────────────────────────────────
+
+let voiceEnabled = false;
+let recognition = null;
+let synthesis = window.speechSynthesis;
+let isListening = false;
+let isSpeaking = false;
+let selectedVoice = null;
+
+function initVoice() {
+  if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    alert('Speech recognition is not supported in this browser. Use Chrome or Safari.');
+    return false;
+  }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  recognition = new SR();
+  recognition.continuous = false;
+  recognition.interimResults = true;
+  recognition.lang = 'en-GB';
+
+  recognition.onstart = () => {
+    isListening = true;
+    const btn = document.getElementById('micBtn');
+    const status = document.getElementById('micStatus');
+    if (btn) btn.classList.add('listening');
+    if (status) { status.textContent = 'Listening...'; status.className = 'mic-status listening'; }
+  };
+
+  recognition.onresult = (e) => {
+    let transcript = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      transcript += e.results[i][0].transcript;
+    }
+    const textarea = document.getElementById('answerInput');
+    if (textarea) textarea.value = transcript;
+  };
+
+  recognition.onend = () => {
+    isListening = false;
+    const btn = document.getElementById('micBtn');
+    const status = document.getElementById('micStatus');
+    if (btn) btn.classList.remove('listening');
+    const answer = document.getElementById('answerInput')?.value?.trim();
+    if (answer) {
+      if (status) { status.textContent = '✓ Got it'; status.className = 'mic-status transcribed'; }
+      setTimeout(() => {
+        if (status) { status.textContent = 'Press to speak your answer'; status.className = 'mic-status'; }
+      }, 2500);
+    } else {
+      if (status) { status.textContent = 'Press to speak your answer'; status.className = 'mic-status'; }
+    }
+  };
+
+  recognition.onerror = (e) => {
+    isListening = false;
+    const btn = document.getElementById('micBtn');
+    const status = document.getElementById('micStatus');
+    if (btn) btn.classList.remove('listening');
+    if (e.error === 'not-allowed') {
+      if (status) { status.textContent = 'Mic access denied — check browser permissions'; status.className = 'mic-status'; }
+    } else {
+      if (status) { status.textContent = 'Press to speak your answer'; status.className = 'mic-status'; }
+    }
+  };
+
+  // Pick best available voice
+  function pickVoice() {
+    const voices = synthesis.getVoices();
+    const preferred = ['Daniel', 'Karen', 'Moira', 'Samantha', 'Google UK English Male', 'Google UK English Female'];
+    for (const name of preferred) {
+      const v = voices.find(v => v.name.includes(name));
+      if (v) { selectedVoice = v; break; }
+    }
+    if (!selectedVoice) {
+      selectedVoice = voices.find(v => v.lang.startsWith('en')) || voices[0] || null;
+    }
+  }
+
+  if (synthesis.getVoices().length) pickVoice();
+  synthesis.onvoiceschanged = pickVoice;
+
+  return true;
+}
+
+function toggleVoiceMode() {
+  if (!voiceEnabled) {
+    if (!initVoice()) return;
+    voiceEnabled = true;
+    document.getElementById('voiceToggle').classList.add('active');
+    document.getElementById('voiceLabel').textContent = 'Voice On';
+    showVoiceUI();
+  } else {
+    voiceEnabled = false;
+    stopSpeaking();
+    if (recognition) { try { recognition.stop(); } catch(e) {} }
+    document.getElementById('voiceToggle').classList.remove('active');
+    document.getElementById('voiceLabel').textContent = 'Voice Off';
+    hideVoiceUI();
+  }
+}
+
+function showVoiceUI() {
+  const micRow = document.getElementById('micRow');
+  const speakBtn = document.getElementById('speakBtn');
+  if (micRow) micRow.classList.add('visible');
+  if (speakBtn) speakBtn.style.display = 'inline-flex';
+}
+
+function hideVoiceUI() {
+  const micRow = document.getElementById('micRow');
+  const speakBtn = document.getElementById('speakBtn');
+  if (micRow) micRow.classList.remove('visible');
+  if (speakBtn) speakBtn.style.display = 'none';
+}
+
+function speakQuestion() {
+  if (!synthesis) return;
+  const q = sessionQuestions[currentIndex];
+  if (!q) return;
+
+  if (isSpeaking) {
+    stopSpeaking();
+    return;
+  }
+
+  const plainText = q.text.replace(/<[^>]+>/g, '');
+  const utter = new SpeechSynthesisUtterance(plainText);
+  utter.rate = 0.9;
+  utter.pitch = 1.0;
+  utter.volume = 1.0;
+  if (selectedVoice) utter.voice = selectedVoice;
+
+  utter.onstart = () => {
+    isSpeaking = true;
+    document.getElementById('speakBtn').classList.add('speaking');
+    document.getElementById('speakBtn').textContent = '⏹ Stop';
+    document.getElementById('speakingWave').classList.add('active');
+    // Pause timer while speaking
+    if (currentMode !== 'open' && timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+  };
+
+  utter.onend = () => {
+    isSpeaking = false;
+    const btn = document.getElementById('speakBtn');
+    if (btn) { btn.classList.remove('speaking'); btn.innerHTML = '▶ Hear it'; }
+    document.getElementById('speakingWave').classList.remove('active');
+    // Resume timer
+    if (currentMode !== 'open' && !isSubmitting && timerSeconds > 0) {
+      timerInterval = setInterval(() => {
+        timerSeconds--;
+        updateTimerDisplay();
+        if (timerSeconds <= 0) { clearInterval(timerInterval); autoSubmit(); }
+      }, 1000);
+    }
+  };
+
+  synthesis.speak(utter);
+}
+
+function stopSpeaking() {
+  if (synthesis) synthesis.cancel();
+  isSpeaking = false;
+  const btn = document.getElementById('speakBtn');
+  if (btn) { btn.classList.remove('speaking'); btn.innerHTML = '▶ Hear it'; }
+  document.getElementById('speakingWave')?.classList.remove('active');
+}
+
+function toggleMic() {
+  if (!recognition) return;
+  if (isListening) {
+    recognition.stop();
+  } else {
+    document.getElementById('answerInput').value = '';
+    recognition.start();
+  }
+}
+
+// Auto-speak question when voice mode is on and question loads
+const _origLoadQuestion = loadQuestion;
+loadQuestion = function() {
+  stopSpeaking();
+  _origLoadQuestion();
+  if (voiceEnabled) {
+    // Short delay so question text renders first
+    setTimeout(() => {
+      showVoiceUI();
+      speakQuestion();
+    }, 400);
+  }
+};
+</script>
+</body>
+</html>
