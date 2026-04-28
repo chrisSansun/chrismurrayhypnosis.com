@@ -1,0 +1,55 @@
+name: Generate Sitemap
+ 
+on:
+  push:
+    branches:
+      - main
+ 
+jobs:
+  generate-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+ 
+      - name: Generate sitemap.xml
+        run: |
+          BASE_URL="https://chrismurrayhypnosis.com"
+          OUTPUT="sitemap.xml"
+          DATE=$(date +%Y-%m-%d)
+ 
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > $OUTPUT
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $OUTPUT
+ 
+          for file in $(find . -name "*.html" | sort); do
+            if echo "$file" | grep -q "^./tools/"; then
+              continue
+            fi
+ 
+            path="${file#./}"
+            if [ "$path" = "index.html" ]; then
+              url="$BASE_URL/"
+            else
+              url="$BASE_URL/${path%.html}"
+            fi
+ 
+            echo "  <url>" >> $OUTPUT
+            echo "    <loc>$url</loc>" >> $OUTPUT
+            echo "    <lastmod>$DATE</lastmod>" >> $OUTPUT
+            echo "    <changefreq>monthly</changefreq>" >> $OUTPUT
+            echo "    <priority>0.8</priority>" >> $OUTPUT
+            echo "  </url>" >> $OUTPUT
+          done
+ 
+          echo '</urlset>' >> $OUTPUT
+          echo "Sitemap generated:"
+          cat $OUTPUT
+ 
+      - name: Commit sitemap
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git diff --staged --quiet || git commit -m "Auto-generate sitemap.xml"
+          git push
+ 
