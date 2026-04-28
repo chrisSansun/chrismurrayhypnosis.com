@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /drill
+Disallow: /drill.html
+Disallow: /wiki
+Disallow: /wiki.html
+
+Sitemap: https://chrismurrayhypnosis.com/sitemap.xml
