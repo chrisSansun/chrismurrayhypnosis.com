@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Portal | Chris Murray | Precision Hypnosis</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink:     #1a1a1a;
+  --charcoal:#2e2e2e;
+  --smoke:   #f7f5f2;
+  --warm:    #ede9e3;
+  --gold:    #8a6d3b;
+  --gold2:   #b8955a;
+  --mid:     #5a5550;
+  --light:   #d0cdc8;
+  --pad:     1.5rem;
+  --error:   #c0392b;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--smoke);
+  color: var(--ink);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.4rem var(--pad);
+  background: rgba(247,245,242,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(200,195,188,0.5);
+}
+.nav-wordmark { display: flex; flex-direction: column; gap: 0.15rem; text-decoration: none; }
+.nav-wordmark-name { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.4rem; letter-spacing: 0.02em; color: var(--ink); line-height: 1; }
+.nav-wordmark-sub { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold2); line-height: 1; }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-back { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.nav-back:hover { color: var(--ink); }
+.nav-user { font-size: 0.6rem; letter-spacing: 0.14em; color: var(--mid); }
+.nav-signout { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; background: none; border: none; color: var(--mid); cursor: pointer; transition: color 0.2s; font-family: 'Raleway', sans-serif; font-weight: 300; }
+.nav-signout:hover { color: var(--ink); }
+
+/* PAGE WRAPPER */
+.page { padding-top: 5rem; min-height: 100vh; }
+
+/* AUTH SECTION */
+.auth-section {
+  display: flex; align-items: center; justify-content: center;
+  min-height: calc(100vh - 5rem);
+  padding: 3rem var(--pad);
+}
+.auth-box { width: 100%; max-width: 420px; }
+.auth-label { font-size: 0.6rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+.auth-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 7vw, 3rem); font-weight: 400; line-height: 1.05; margin-bottom: 0.6rem; color: var(--ink); }
+.auth-title em { font-style: italic; color: var(--gold2); }
+.auth-sub { font-size: 0.82rem; color: var(--mid); line-height: 1.7; margin-bottom: 2.5rem; }
+
+/* TABS */
+.auth-tabs { display: flex; border-bottom: 1px solid var(--light); margin-bottom: 2rem; }
+.auth-tab {
+  flex: 1; padding: 0.75rem; background: none; border: none;
+  font-family: 'Raleway', sans-serif; font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid);
+  cursor: pointer; transition: color 0.2s; border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.auth-tab.active { color: var(--ink); border-bottom-color: var(--gold); }
+
+/* FORMS */
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.2rem; }
+.form-group label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
+.form-group input, .form-group select, .form-group textarea {
+  background: #fff; border: 1px solid #d0cdc8;
+  color: var(--ink); padding: 0.75rem 1rem;
+  font-family: 'Raleway', sans-serif; font-size: 0.84rem; font-weight: 300;
+  outline: none; transition: border-color 0.2s; width: 100%;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-group select option { background: #fff; }
+.form-btn {
+  width: 100%; padding: 1rem 2rem; background: var(--ink); color: var(--smoke);
+  font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 400;
+  letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer;
+  transition: background 0.3s; margin-top: 0.5rem;
+}
+.form-btn:hover { background: var(--gold); }
+.form-btn:disabled { background: var(--light); cursor: not-allowed; }
+.form-error { font-size: 0.72rem; color: var(--error); margin-top: 0.5rem; min-height: 1.2em; }
+.form-link { font-size: 0.72rem; color: var(--mid); margin-top: 1rem; text-align: center; }
+.form-link button { background: none; border: none; color: var(--gold); cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.72rem; text-decoration: underline; }
+
+/* PORTAL / INTAKE SECTION */
+.portal-section { display: none; padding: 4rem var(--pad) 6rem; max-width: 760px; margin: 0 auto; }
+.portal-section.visible { display: block; }
+.portal-label { font-size: 0.6rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+.portal-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 400; line-height: 1.05; margin-bottom: 0.8rem; color: var(--ink); }
+.portal-title em { font-style: italic; color: var(--gold2); }
+.portal-sub { font-size: 0.84rem; color: var(--mid); line-height: 1.8; margin-bottom: 3rem; max-width: 52ch; }
+
+/* INTAKE FORM */
+.intake-section-title {
+  font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 400;
+  color: var(--ink); margin: 2.5rem 0 1.5rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--light);
+}
+.intake-section-title:first-of-type { margin-top: 0; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-row .form-group { margin-bottom: 0; }
+.checkbox-group { display: flex; flex-direction: column; gap: 0.6rem; }
+.checkbox-item { display: flex; align-items: center; gap: 0.7rem; cursor: pointer; }
+.checkbox-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; }
+.checkbox-item span { font-size: 0.82rem; color: var(--mid); line-height: 1.4; }
+.consent-group { background: var(--warm); padding: 1.5rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+.consent-item { display: flex; gap: 0.8rem; align-items: flex-start; }
+.consent-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; margin-top: 2px; }
+.consent-item span { font-size: 0.78rem; color: var(--mid); line-height: 1.6; }
+.intake-submit { margin-top: 2.5rem; }
+.intake-submit .form-btn { width: auto; padding: 1rem 2.8rem; }
+
+/* SUCCESS / ALREADY SUBMITTED */
+.success-box { text-align: center; padding: 4rem 2rem; }
+.success-icon { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--gold); }
+.success-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.8rem; }
+.success-body { font-size: 0.85rem; color: var(--mid); line-height: 1.9; max-width: 40ch; margin: 0 auto; }
+
+/* LOADER */
+.loader { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 5rem); }
+.loader-dots { display: flex; gap: 6px; }
+.loader-dots span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: bounce 1.2s ease-in-out infinite; }
+.loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+
+/* RESPONSIVE */
+@media (min-width: 640px) { :root { --pad: 2.5rem; } }
+@media (min-width: 1024px) { :root { --pad: 4rem; } }
+@media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-wordmark">
+    <span class="nav-wordmark-name">Chris Murray</span>
+    <span class="nav-wordmark-sub">Precision Hypnosis</span>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">&#8592; Back to site</a>
+    <span class="nav-user" id="navUserEmail" style="display:none;"></span>
+    <button class="nav-signout" id="navSignOut" style="display:none;">Sign out</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- LOADING STATE -->
+  <div class="loader" id="loader">
+    <div class="loader-dots"><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- AUTH SECTION -->
+  <div class="auth-section" id="authSection" style="display:none;">
+    <div class="auth-box">
+      <p class="auth-label">Client Portal</p>
+      <h1 class="auth-title">Welcome <em>back.</em></h1>
+      <p class="auth-sub">Sign in to access your intake form, or create an account if this is your first visit.</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="showTab('login')">Sign In</button>
+        <button class="auth-tab" id="tabRegister" onclick="showTab('register')">Create Account</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="your@email.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password">
+        </div>
+        <div class="form-error" id="loginError"></div>
+        <button class="form-btn" id="loginBtn" onclick="signIn()">Sign In</button>
+        <p class="form-link"><button onclick="showForgot()">Forgot your password?</button></p>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="registerForm" style="display:none;">
+        <div class="form-group">
+          <label for="regName">Full Name</label>
+          <input type="text" id="regName" placeholder="Your full name" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email Address</label>
+          <input type="email" id="regEmail" placeholder="your@email.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" placeholder="Choose a password (min 6 characters)" autocomplete="new-password">
+        </div>
+        <div class="form-group">
+          <label for="regConfirm">Confirm Password</label>
+          <input type="password" id="regConfirm" placeholder="Confirm your password" autocomplete="new-password">
+        </div>
+        <div class="form-error" id="registerError"></div>
+        <button class="form-btn" id="registerBtn" onclick="register()">Create Account</button>
+      </div>
+
+      <!-- FORGOT PASSWORD -->
+      <div id="forgotForm" style="display:none;">
+        <p style="font-size:0.82rem; color:var(--mid); margin-bottom:1.5rem; line-height:1.7;">Enter your email and we will send you a reset link.</p>
+        <div class="form-group">
+          <label for="forgotEmail">Email Address</label>
+          <input type="email" id="forgotEmail" placeholder="your@email.com">
+        </div>
+        <div class="form-error" id="forgotError"></div>
+        <button class="form-btn" onclick="resetPassword()">Send Reset Link</button>
+        <p class="form-link"><button onclick="showTab('login')">Back to sign in</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTAL SECTION -->
+  <div class="portal-section" id="portalSection">
+
+    <!-- INTAKE FORM (shown if not yet submitted) -->
+    <div id="intakeFormWrapper">
+      <p class="portal-label">New Client Intake</p>
+      <h2 class="portal-title">Before we <em>begin.</em></h2>
+      <p class="portal-sub">Please complete this form before your first session. Your answers help me understand your situation fully so we can work precisely from the outset. All information is confidential and stored securely.</p>
+
+      <form id="intakeForm" onsubmit="submitIntake(event)">
+
+        <h3 class="intake-section-title">Personal Details</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="iFirstName">First Name *</label>
+            <input type="text" id="iFirstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="iLastName">Last Name *</label>
+            <input type="text" id="iLastName" name="lastName" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="iDob">Date of Birth *</label>
+            <input type="date" id="iDob" name="dob" required>
+          </div>
+          <div class="form-group">
+            <label for="iPhone">Phone Number *</label>
+            <input type="tel" id="iPhone" name="phone" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="iAddress">Address</label>
+          <input type="text" id="iAddress" name="address" placeholder="Street address">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="iCity">City</label>
+            <input type="text" id="iCity" name="city">
+          </div>
+          <div class="form-group">
+            <label for="iCountry">Country *</label>
+            <input type="text" id="iCountry" name="country" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="iOccupation">Occupation</label>
+          <input type="text" id="iOccupation" name="occupation">
+        </div>
+
+        <h3 class="intake-section-title">Emergency Contact</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="iEcName">Name *</label>
+            <input type="text" id="iEcName" name="ecName" required>
+          </div>
+          <div class="form-group">
+            <label for="iEcRelation">Relationship *</label>
+            <input type="text" id="iEcRelation" name="ecRelation" placeholder="e.g. Partner, Parent" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="iEcPhone">Emergency Contact Phone *</label>
+          <input type="tel" id="iEcPhone" name="ecPhone" required>
+        </div>
+
+        <h3 class="intake-section-title">GP / Doctor Details</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="iGpName">GP Name</label>
+            <input type="text" id="iGpName" name="gpName">
+          </div>
+          <div class="form-group">
+            <label for="iGpPhone">GP Phone</label>
+            <input type="tel" id="iGpPhone" name="gpPhone">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="iGpAddress">GP Practice Address</label>
+          <input type="text" id="iGpAddress" name="gpAddress">
+        </div>
+
+        <h3 class="intake-section-title">Health Information</h3>
+        <p style="font-size:0.78rem; color:var(--mid); margin-bottom:1rem; line-height:1.6;">Please indicate if any of the following apply to you. This information is used solely to ensure the work is appropriate and safe.</p>
+        <div class="form-group">
+          <label>Please tick any that apply</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="conditions" value="epilepsy"><span>Epilepsy</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="conditions" value="bipolar"><span>Bipolar disorder</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="conditions" value="psychosis"><span>Schizophrenia or psychosis</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="conditions" value="heart"><span>Heart condition or pacemaker</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="conditions" value="diabetes"><span>Diabetes</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="conditions" value="pregnancy"><span>Pregnancy</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="conditions" value="none"><span>None of the above</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="iOtherConditions">Any other health conditions or diagnoses</label>
+          <textarea id="iOtherConditions" name="otherConditions" placeholder="Please describe"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="iMedications">Current medications (if any)</label>
+          <textarea id="iMedications" name="medications" placeholder="Name of medication and reason, or 'None'"></textarea>
+        </div>
+
+        <h3 class="intake-section-title">Mental Health and Therapy History</h3>
+        <div class="form-group">
+          <label for="iCurrentTherapy">Are you currently seeing a therapist, counsellor or psychiatrist?</label>
+          <select id="iCurrentTherapy" name="currentTherapy">
+            <option value="">Please select</option>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="iCurrentTherapyDetails">If yes, please provide details</label>
+          <input type="text" id="iCurrentTherapyDetails" name="currentTherapyDetails" placeholder="Type of therapy and how long you have been attending">
+        </div>
+        <div class="form-group">
+          <label for="iPrevTherapy">Previous therapy or counselling experience</label>
+          <textarea id="iPrevTherapy" name="prevTherapy" placeholder="What approaches have you tried, and how were they helpful or not?"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="iPrevHypno">Have you had hypnotherapy before?</label>
+          <select id="iPrevHypno" name="prevHypno">
+            <option value="">Please select</option>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="iPrevHypnoDetails">If yes, please describe your experience</label>
+          <textarea id="iPrevHypnoDetails" name="prevHypnoDetails" placeholder="Who with, what for, and what was the outcome?"></textarea>
+        </div>
+
+        <h3 class="intake-section-title">Your Presenting Issue</h3>
+        <div class="form-group">
+          <label for="iPresentingIssue">What brings you to hypnotherapy? *</label>
+          <textarea id="iPresentingIssue" name="presentingIssue" rows="5" placeholder="Please describe in as much detail as you feel comfortable sharing." required style="min-height:120px;"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="iDuration">How long has this been an issue?</label>
+          <input type="text" id="iDuration" name="duration" placeholder="e.g. 2 years, since childhood, past 6 months">
+        </div>
+        <div class="form-group">
+          <label for="iPrevAttempts">What have you tried before to address this?</label>
+          <textarea id="iPrevAttempts" name="prevAttempts" placeholder="Other approaches, therapies, strategies you have tried"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="iSuccess">What would success look like for you? *</label>
+          <textarea id="iSuccess" name="successVision" placeholder="Describe how things would be different if this work were completely successful." required></textarea>
+        </div>
+
+        <h3 class="intake-section-title">A Little More</h3>
+        <div class="form-group">
+          <label for="iReferral">How did you hear about Chris?</label>
+          <select id="iReferral" name="referral">
+            <option value="">Please select</option>
+            <option value="referral">Referred by a friend or colleague</option>
+            <option value="google">Google search</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="instagram">Instagram</option>
+            <option value="facebook">Facebook</option>
+            <option value="nch">NCH directory</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="iAnything">Anything else you would like me to know before we meet?</label>
+          <textarea id="iAnything" name="anythingElse" placeholder="Optional"></textarea>
+        </div>
+
+        <h3 class="intake-section-title">Consent</h3>
+        <div class="consent-group">
+          <label class="consent-item">
+            <input type="checkbox" id="consent1" required>
+            <span>I confirm that the information I have provided in this form is accurate and complete to the best of my knowledge.</span>
+          </label>
+          <label class="consent-item">
+            <input type="checkbox" id="consent2" required>
+            <span>I understand that hypnotherapy is a complementary approach and is not a substitute for medical or psychiatric treatment. I agree to continue any existing medical care alongside our work.</span>
+          </label>
+          <label class="consent-item">
+            <input type="checkbox" id="consent3" required>
+            <span>I give consent for the information in this form to be stored securely and used by Chris Murray solely for the purpose of providing hypnotherapy services to me.</span>
+          </label>
+        </div>
+
+        <div class="form-error" id="intakeError" style="margin-top:1rem;"></div>
+        <div class="intake-submit">
+          <button type="submit" class="form-btn" id="intakeSubmitBtn">Submit Intake Form</button>
+          <p style="font-size:0.62rem; color:#888; margin-top:0.8rem; letter-spacing:0.08em;">All information is treated with strict confidentiality.</p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ALREADY SUBMITTED -->
+    <div id="alreadySubmitted" style="display:none;" class="success-box">
+      <div class="success-icon">&#10003;</div>
+      <h2 class="success-title">Form received.</h2>
+      <p class="success-body">Your intake form has been submitted. Chris will review it before your first session. If you have any questions in the meantime, please email <a href="mailto:chris@sansuntherapy.com" style="color:var(--gold);">chris@sansuntherapy.com</a>.</p>
+    </div>
+
+  </div>
+
+</div><!-- end .page -->
+
+<!--
+=================================================================
+  FIREBASE SETUP INSTRUCTIONS
+=================================================================
+  1. Go to https://console.firebase.google.com
+  2. Click "Add project" and give it a name (e.g. "CMH Portal")
+  3. In your project, click "Web" ( </> icon ) and register the app
+  4. Copy the firebaseConfig values shown and paste them below
+     replacing the placeholder values
+
+  5. In the left menu, go to:
+     Build > Authentication > Sign-in method > Enable "Email/Password"
+
+  6. Build > Firestore Database > Create database
+     Start in "production mode", choose a region
+
+  7. In Firestore > Rules, paste this and Publish:
+     rules_version = '2';
+     service cloud.firestore {
+       match /databases/{database}/documents {
+         match /clients/{userId}/intake/{document=**} {
+           allow read, write: if request.auth != null && request.auth.uid == userId;
+         }
+       }
+     }
+
+  8. Save this file and you are done.
+=================================================================
+-->
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, signOut, updateProfile } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+  import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+  // ============================================================
+  // PASTE YOUR FIREBASE CONFIG HERE
+  // ============================================================
+  const firebaseConfig = {
+    apiKey:            "AIzaSyDQer6mLk5McOdpfHRawSUfl1OtY9f9I3M",
+    authDomain:        "cmh-database.firebaseapp.com",
+    projectId:         "cmh-database",
+    storageBucket:     "cmh-database.firebasestorage.app",
+    messagingSenderId: "130418997333",
+    appId:             "1:130418997333:web:cb6a5c72d5153fef49fcdc",
+    measurementId:     "G-JPJ6Q1GBDQ"
+  };
+  // ============================================================
+
+  const app  = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db   = getFirestore(app);
+
+  const loader        = document.getElementById('loader');
+  const authSection   = document.getElementById('authSection');
+  const portalSection = document.getElementById('portalSection');
+  const navUserEmail  = document.getElementById('navUserEmail');
+  const navSignOut    = document.getElementById('navSignOut');
+
+  // Auth state listener
+  onAuthStateChanged(auth, async (user) => {
+    loader.style.display = 'none';
+    if (user) {
+      navUserEmail.textContent = user.email;
+      navUserEmail.style.display = 'inline';
+      navSignOut.style.display = 'inline';
+      authSection.style.display = 'none';
+      portalSection.classList.add('visible');
+      await checkIntakeStatus(user.uid);
+    } else {
+      navUserEmail.style.display = 'none';
+      navSignOut.style.display = 'none';
+      authSection.style.display = 'flex';
+      portalSection.classList.remove('visible');
+    }
+  });
+
+  async function checkIntakeStatus(uid) {
+    try {
+      const ref  = doc(db, 'clients', uid, 'intake', 'form');
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        document.getElementById('intakeFormWrapper').style.display = 'none';
+        document.getElementById('alreadySubmitted').style.display  = 'block';
+      }
+    } catch (e) {
+      console.error('Error checking intake:', e);
+    }
+  }
+
+  // Sign in
+  window.signIn = async function() {
+    const btn   = document.getElementById('loginBtn');
+    const err   = document.getElementById('loginError');
+    const email = document.getElementById('loginEmail').value.trim();
+    const pass  = document.getElementById('loginPassword').value;
+    err.textContent = '';
+    if (!email || !pass) { err.textContent = 'Please enter your email and password.'; return; }
+    btn.disabled = true; btn.textContent = 'Signing in...';
+    try {
+      await signInWithEmailAndPassword(auth, email, pass);
+    } catch (e) {
+      err.textContent = friendlyError(e.code);
+      btn.disabled = false; btn.textContent = 'Sign In';
+    }
+  };
+
+  // Register
+  window.register = async function() {
+    const btn    = document.getElementById('registerBtn');
+    const err    = document.getElementById('registerError');
+    const name   = document.getElementById('regName').value.trim();
+    const email  = document.getElementById('regEmail').value.trim();
+    const pass   = document.getElementById('regPassword').value;
+    const conf   = document.getElementById('regConfirm').value;
+    err.textContent = '';
+    if (!name || !email || !pass) { err.textContent = 'Please fill in all fields.'; return; }
+    if (pass !== conf)             { err.textContent = 'Passwords do not match.'; return; }
+    if (pass.length < 6)           { err.textContent = 'Password must be at least 6 characters.'; return; }
+    btn.disabled = true; btn.textContent = 'Creating account...';
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, email, pass);
+      await updateProfile(cred.user, { displayName: name });
+    } catch (e) {
+      err.textContent = friendlyError(e.code);
+      btn.disabled = false; btn.textContent = 'Create Account';
+    }
+  };
+
+  // Reset password
+  window.resetPassword = async function() {
+    const err   = document.getElementById('forgotError');
+    const email = document.getElementById('forgotEmail').value.trim();
+    err.textContent = '';
+    if (!email) { err.textContent = 'Please enter your email address.'; return; }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      err.style.color = 'var(--gold)';
+      err.textContent = 'Reset email sent. Please check your inbox.';
+    } catch (e) {
+      err.style.color = 'var(--error)';
+      err.textContent = friendlyError(e.code);
+    }
+  };
+
+  // Sign out
+  navSignOut.addEventListener('click', () => signOut(auth));
+
+  // Submit intake form
+  window.submitIntake = async function(e) {
+    e.preventDefault();
+    const err = document.getElementById('intakeError');
+    const btn = document.getElementById('intakeSubmitBtn');
+    err.textContent = '';
+    btn.disabled = true; btn.textContent = 'Submitting...';
+
+    const user = auth.currentUser;
+    if (!user) { err.textContent = 'Session expired. Please sign in again.'; btn.disabled = false; btn.textContent = 'Submit Intake Form'; return; }
+
+    // Collect checkbox values
+    const conditions = [...document.querySelectorAll('input[name="conditions"]:checked')].map(cb => cb.value);
+
+    const data = {
+      submittedAt: serverTimestamp(),
+      email: user.email,
+      // Personal
+      firstName:   document.getElementById('iFirstName').value.trim(),
+      lastName:    document.getElementById('iLastName').value.trim(),
+      dob:         document.getElementById('iDob').value,
+      phone:       document.getElementById('iPhone').value.trim(),
+      address:     document.getElementById('iAddress').value.trim(),
+      city:        document.getElementById('iCity').value.trim(),
+      country:     document.getElementById('iCountry').value.trim(),
+      occupation:  document.getElementById('iOccupation').value.trim(),
+      // Emergency contact
+      ecName:      document.getElementById('iEcName').value.trim(),
+      ecRelation:  document.getElementById('iEcRelation').value.trim(),
+      ecPhone:     document.getElementById('iEcPhone').value.trim(),
+      // GP
+      gpName:      document.getElementById('iGpName').value.trim(),
+      gpPhone:     document.getElementById('iGpPhone').value.trim(),
+      gpAddress:   document.getElementById('iGpAddress').value.trim(),
+      // Health
+      conditions,
+      otherConditions:      document.getElementById('iOtherConditions').value.trim(),
+      medications:          document.getElementById('iMedications').value.trim(),
+      // Therapy history
+      currentTherapy:       document.getElementById('iCurrentTherapy').value,
+      currentTherapyDetails:document.getElementById('iCurrentTherapyDetails').value.trim(),
+      prevTherapy:          document.getElementById('iPrevTherapy').value.trim(),
+      prevHypno:            document.getElementById('iPrevHypno').value,
+      prevHypnoDetails:     document.getElementById('iPrevHypnoDetails').value.trim(),
+      // Presenting issue
+      presentingIssue:      document.getElementById('iPresentingIssue').value.trim(),
+      duration:             document.getElementById('iDuration').value.trim(),
+      prevAttempts:         document.getElementById('iPrevAttempts').value.trim(),
+      successVision:        document.getElementById('iSuccess').value.trim(),
+      // Referral
+      referral:             document.getElementById('iReferral').value,
+      anythingElse:         document.getElementById('iAnything').value.trim(),
+    };
+
+    try {
+      await setDoc(doc(db, 'clients', user.uid, 'intake', 'form'), data);
+      document.getElementById('intakeFormWrapper').style.display = 'none';
+      document.getElementById('alreadySubmitted').style.display  = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      console.error(e);
+      err.textContent = 'Something went wrong saving your form. Please try again or email chris@sansuntherapy.com.';
+      btn.disabled = false; btn.textContent = 'Submit Intake Form';
+    }
+  };
+
+  // UI helpers
+  window.showTab = function(tab) {
+    document.getElementById('loginForm').style.display    = tab === 'login'    ? 'block' : 'none';
+    document.getElementById('registerForm').style.display = tab === 'register' ? 'block' : 'none';
+    document.getElementById('forgotForm').style.display   = tab === 'forgot'   ? 'block' : 'none';
+    document.getElementById('tabLogin').classList.toggle('active',    tab === 'login');
+    document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
+  };
+
+  window.showForgot = function() {
+    document.getElementById('loginForm').style.display   = 'none';
+    document.getElementById('forgotForm').style.display  = 'block';
+    document.getElementById('tabLogin').classList.remove('active');
+    document.getElementById('tabRegister').classList.remove('active');
+  };
+
+  function friendlyError(code) {
+    const map = {
+      'auth/user-not-found':       'No account found with that email address.',
+      'auth/wrong-password':       'Incorrect password. Please try again.',
+      'auth/invalid-credential':   'Email or password is incorrect.',
+      'auth/email-already-in-use': 'An account with this email already exists. Please sign in.',
+      'auth/weak-password':        'Password must be at least 6 characters.',
+      'auth/invalid-email':        'Please enter a valid email address.',
+      'auth/too-many-requests':    'Too many attempts. Please wait a moment and try again.',
+    };
+    return map[code] || 'Something went wrong. Please try again.';
+  }
+
+  // Allow Enter key on auth inputs
+  ['loginEmail','loginPassword'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') window.signIn(); });
+  });
+</script>
+
+</body>
+</html>
