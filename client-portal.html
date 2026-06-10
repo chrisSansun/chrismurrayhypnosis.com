@@ -139,11 +139,48 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
 .intake-submit .submit-btn:hover { background: var(--gold); }
 .intake-submit .submit-btn:disabled { background: var(--light); cursor: not-allowed; }
 
-/* SUCCESS */
-.success-box { text-align: center; padding: 5rem 2rem; }
+/* SUCCESS + RESULTS */
+.success-box { padding: 3rem 0 5rem; }
+.success-header { margin-bottom: 3rem; }
 .success-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.8rem; }
 .success-title em { font-style: italic; color: var(--gold2); }
-.success-body { font-size: 0.85rem; color: var(--mid); line-height: 1.9; max-width: 42ch; margin: 0 auto; }
+.success-body { font-size: 0.85rem; color: var(--mid); line-height: 1.9; max-width: 52ch; }
+
+/* RESULTS SUMMARY */
+.results-label { font-size: 0.58rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
+.results-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--light); margin-bottom: 2rem; }
+@media (min-width: 640px) { .results-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.result-card { background: var(--smoke); padding: 1.8rem; }
+.result-card-label { font-size: 0.56rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.result-card-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; }
+.result-score { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 400; color: var(--ink); line-height: 1; }
+.result-max { font-size: 0.72rem; color: var(--mid); margin-left: 0.2rem; }
+.result-band { display: inline-block; margin-top: 0.5rem; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.25rem 0.7rem; }
+.band-minimal  { background: #e8f5e9; color: #2e7d32; }
+.band-mild     { background: #fff8e1; color: #f57f17; }
+.band-moderate { background: #fff3e0; color: #e65100; }
+.band-severe   { background: #fce4ec; color: #c62828; }
+.band-low      { background: #fce4ec; color: #c62828; }
+.band-medium   { background: #fff8e1; color: #f57f17; }
+.band-high     { background: #e8f5e9; color: #2e7d32; }
+.result-bar-wrap { margin-top: 0.8rem; background: var(--light); height: 4px; border-radius: 2px; overflow: hidden; }
+.result-bar { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.6s ease; }
+
+/* RST RESULTS */
+.rst-results { background: var(--charcoal); padding: 2rem; margin-bottom: 2rem; }
+.rst-results-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; color: var(--smoke); margin-bottom: 0.4rem; }
+.rst-results-sub { font-size: 0.75rem; color: var(--light); margin-bottom: 1.5rem; }
+.rst-bars { display: flex; flex-direction: column; gap: 0.9rem; }
+.rst-bar-row { display: flex; align-items: center; gap: 1rem; }
+.rst-bar-label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); width: 120px; flex-shrink: 0; }
+.rst-bar-label.dominant { color: var(--gold2); font-weight: 600; }
+.rst-bar-track { flex: 1; background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; overflow: hidden; }
+.rst-bar-fill { height: 100%; background: var(--gold); border-radius: 3px; transition: width 0.7s ease; }
+.rst-bar-fill.dominant { background: var(--gold2); }
+.rst-bar-score { font-size: 0.75rem; color: var(--light); width: 24px; text-align: right; flex-shrink: 0; }
+.rst-dominant-label { font-size: 0.72rem; color: var(--gold2); margin-top: 1.2rem; letter-spacing: 0.08em; }
+
+.results-note { font-size: 0.72rem; color: var(--mid); line-height: 1.7; padding: 1rem 1.2rem; background: var(--warm); margin-top: 0.5rem; }
 
 /* LOADER */
 .loader { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 5rem); }
@@ -531,10 +568,57 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
       </form>
     </div>
 
-    <!-- ALREADY SUBMITTED -->
+    <!-- RESULTS / ALREADY SUBMITTED -->
     <div id="alreadySubmitted" style="display:none;" class="success-box">
-      <h2 class="success-title">Forms <em>received.</em></h2>
-      <p class="success-body">Thank you. Your client forms have been submitted and I will review them before our first session. If you have any questions in the meantime, please email <a href="mailto:chris@chrismurrayhypnosis.com" style="color:var(--gold);">chris@chrismurrayhypnosis.com</a>.<br><br>I look forward to working with you.</p>
+      <div class="success-header">
+        <h2 class="success-title">Forms <em>received.</em></h2>
+        <p class="success-body">Thank you. Your results summary is below. Chris will review everything before your first session. If you have any questions in the meantime, please email <a href="mailto:chris@chrismurrayhypnosis.com" style="color:var(--gold);">chris@chrismurrayhypnosis.com</a>.</p>
+      </div>
+
+      <p class="results-label">Your Baseline Results</p>
+
+      <!-- OUTCOME SCORES -->
+      <div class="results-grid" id="resultsGrid">
+        <div class="result-card">
+          <p class="result-card-label">GAD-7</p>
+          <p class="result-card-name">Anxiety</p>
+          <div class="result-score" id="gad7Score">—</div>
+          <span class="result-max">/ 21</span>
+          <div><span class="result-band" id="gad7Band"></span></div>
+          <div class="result-bar-wrap"><div class="result-bar" id="gad7Bar" style="width:0%"></div></div>
+        </div>
+        <div class="result-card">
+          <p class="result-card-label">PHQ-9</p>
+          <p class="result-card-name">Mood</p>
+          <div class="result-score" id="phq9Score">—</div>
+          <span class="result-max">/ 27</span>
+          <div><span class="result-band" id="phq9Band"></span></div>
+          <div class="result-bar-wrap"><div class="result-bar" id="phq9Bar" style="width:0%"></div></div>
+        </div>
+        <div class="result-card">
+          <p class="result-card-label">WEMWBS</p>
+          <p class="result-card-name">Wellbeing</p>
+          <div class="result-score" id="wemwbsScore">—</div>
+          <span class="result-max">/ 35</span>
+          <div><span class="result-band" id="wemwbsBand"></span></div>
+          <div class="result-bar-wrap"><div class="result-bar" id="wemwbsBar" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <!-- RST RESULTS -->
+      <div class="rst-results">
+        <p class="rst-results-title">Representational System Profile</p>
+        <p class="rst-results-sub">How you process and communicate experience</p>
+        <div class="rst-bars" id="rstBars">
+          <div class="rst-bar-row"><span class="rst-bar-label" id="lV">Visual</span><div class="rst-bar-track"><div class="rst-bar-fill" id="barV" style="width:0%"></div></div><span class="rst-bar-score" id="scoreV">—</span></div>
+          <div class="rst-bar-row"><span class="rst-bar-label" id="lA">Auditory</span><div class="rst-bar-track"><div class="rst-bar-fill" id="barA" style="width:0%"></div></div><span class="rst-bar-score" id="scoreA">—</span></div>
+          <div class="rst-bar-row"><span class="rst-bar-label" id="lK">Kinaesthetic</span><div class="rst-bar-track"><div class="rst-bar-fill" id="barK" style="width:0%"></div></div><span class="rst-bar-score" id="scoreK">—</span></div>
+          <div class="rst-bar-row"><span class="rst-bar-label" id="lAd">Auditory Digital</span><div class="rst-bar-track"><div class="rst-bar-fill" id="barAd" style="width:0%"></div></div><span class="rst-bar-score" id="scoreAd">—</span></div>
+        </div>
+        <p class="rst-dominant-label" id="rstDominant"></p>
+      </div>
+
+      <div class="results-note">These scores are a clinical baseline only. They will be discussed in your first session and tracked across the programme to measure progress.</div>
     </div>
 
   </div>
@@ -592,6 +676,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
       if (snap.exists()) {
         document.getElementById('intakeFormWrapper').style.display = 'none';
         document.getElementById('alreadySubmitted').style.display  = 'block';
+        showResults(snap.data());
       }
     } catch (e) { console.error(e); }
   }
@@ -605,6 +690,58 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
     return el ? el.value : null;
   }
 
+  // ── SCORING HELPERS ──────────────────────────────────────────
+  function gad7Band(s)  { return s<=4?['Minimal','minimal']:s<=9?['Mild','mild']:s<=14?['Moderate','moderate']:['Severe','severe']; }
+  function phq9Band(s)  { return s<=4?['Minimal','minimal']:s<=9?['Mild','mild']:s<=14?['Moderate','moderate']:s<=19?['Mod–Severe','severe']:['Severe','severe']; }
+  function wemwbsBand(s){ return s<=14?['Low','low']:s<=21?['Medium','medium']:['High','high']; }
+
+  function renderScoreCard(scoreId, barId, bandId, score, max, bandFn) {
+    document.getElementById(scoreId).textContent = score;
+    const [label, cls] = bandFn(score);
+    const band = document.getElementById(bandId);
+    band.textContent = label;
+    band.className = 'result-band band-' + cls;
+    setTimeout(() => { document.getElementById(barId).style.width = Math.round((score/max)*100)+'%'; }, 100);
+  }
+
+  function renderRST(rst) {
+    // RST scoring key — maps each option to V/A/K/Ad
+    // Q1: a=K, b=A, c=V, d=Ad
+    // Q2: a=A, b=V, c=Ad, d=K
+    // Q3: a=V, b=K, c=Ad, d=A
+    // Q4: a=A, b=Ad, c=K, d=V
+    // Q5: a=A, b=Ad, c=K, d=V
+    const n = v => parseInt(v) || 0;
+    const V  = n(rst.q1.c) + n(rst.q2.b) + n(rst.q3.a) + n(rst.q4.d) + n(rst.q5.d);
+    const A  = n(rst.q1.b) + n(rst.q2.a) + n(rst.q3.d) + n(rst.q4.a) + n(rst.q5.a);
+    const K  = n(rst.q1.a) + n(rst.q2.d) + n(rst.q3.b) + n(rst.q4.c) + n(rst.q5.c);
+    const Ad = n(rst.q1.d) + n(rst.q2.c) + n(rst.q3.c) + n(rst.q4.b) + n(rst.q5.b);
+    const max = Math.max(V, A, K, Ad);
+    const labels = { V: 'Visual', A: 'Auditory', K: 'Kinaesthetic', Ad: 'Auditory Digital' };
+    const dominantKey = Object.entries({V,A,K,Ad}).sort((a,b)=>b[1]-a[1])[0][0];
+
+    [['V',V],['A',A],['K',K],['Ad',Ad]].forEach(([key, score]) => {
+      document.getElementById('score'+key).textContent = score;
+      const isDom = key === dominantKey;
+      document.getElementById('l'+key).classList.toggle('dominant', isDom);
+      document.getElementById('bar'+key).classList.toggle('dominant', isDom);
+      setTimeout(() => { document.getElementById('bar'+key).style.width = Math.round((score/20)*100)+'%'; }, 150);
+    });
+    document.getElementById('rstDominant').textContent =
+      'Dominant system: ' + labels[dominantKey] + ' (' + dominantKey + ') — score ' + max + '/20';
+    return { V, A, K, Ad, dominant: dominantKey };
+  }
+
+  function showResults(data) {
+    const { scores } = data;
+    if (!scores) return;
+    renderScoreCard('gad7Score','gad7Bar','gad7Band',   scores.gad7,   21, gad7Band);
+    renderScoreCard('phq9Score','phq9Bar','phq9Band',   scores.phq9,   27, phq9Band);
+    renderScoreCard('wemwbsScore','wemwbsBar','wemwbsBand', scores.wemwbs, 35, wemwbsBand);
+    if (data.rst) renderRST(data.rst);
+  }
+  // ─────────────────────────────────────────────────────────────
+
   window.submitIntake = async function(e) {
     e.preventDefault();
     const err = document.getElementById('intakeError');
@@ -615,10 +752,29 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
     const user = auth.currentUser;
     if (!user) { err.textContent = 'Session expired. Please sign in again.'; btn.disabled = false; btn.textContent = 'Submit Forms'; return; }
 
+    // Collect RST values
+    const rst = {
+      q1: { a: selectVal('rst1a'), b: selectVal('rst1b'), c: selectVal('rst1c'), d: selectVal('rst1d') },
+      q2: { a: selectVal('rst2a'), b: selectVal('rst2b'), c: selectVal('rst2c'), d: selectVal('rst2d') },
+      q3: { a: selectVal('rst3a'), b: selectVal('rst3b'), c: selectVal('rst3c'), d: selectVal('rst3d') },
+      q4: { a: selectVal('rst4a'), b: selectVal('rst4b'), c: selectVal('rst4c'), d: selectVal('rst4d') },
+      q5: { a: selectVal('rst5a'), b: selectVal('rst5b'), c: selectVal('rst5c'), d: selectVal('rst5d') },
+    };
+
+    // Calculate scores
+    const n = v => parseInt(v) || 0;
+    const gad7  = ['anx1','anx2','anx3','anx4','anx5','anx6','anx7'].reduce((s,k)=>s+n(radioVal(k)),0);
+    const phq9  = ['mood1','mood2','mood3','mood4','mood5','mood6','mood7','mood8','mood9'].reduce((s,k)=>s+n(radioVal(k)),0);
+    const wemwbs= ['wb1','wb2','wb3','wb4','wb5','wb6','wb7'].reduce((s,k)=>s+n(radioVal(k)),0);
+    const rstV  = n(rst.q1.c)+n(rst.q2.b)+n(rst.q3.a)+n(rst.q4.d)+n(rst.q5.d);
+    const rstA  = n(rst.q1.b)+n(rst.q2.a)+n(rst.q3.d)+n(rst.q4.a)+n(rst.q5.a);
+    const rstK  = n(rst.q1.a)+n(rst.q2.d)+n(rst.q3.b)+n(rst.q4.c)+n(rst.q5.c);
+    const rstAd = n(rst.q1.d)+n(rst.q2.c)+n(rst.q3.c)+n(rst.q4.b)+n(rst.q5.b);
+    const rstDom= Object.entries({V:rstV,A:rstA,K:rstK,Ad:rstAd}).sort((a,b)=>b[1]-a[1])[0][0];
+
     const data = {
       submittedAt: serverTimestamp(),
       email: user.email,
-      // Personal
       firstName:   document.getElementById('iFirstName').value.trim(),
       lastName:    document.getElementById('iLastName').value.trim(),
       dob:         document.getElementById('iDob').value,
@@ -626,7 +782,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
       phone:       document.getElementById('iPhone').value.trim(),
       nextOfKin:   document.getElementById('iNextOfKin').value.trim(),
       gp:          document.getElementById('iGP').value.trim(),
-      // Clinical yes/no
       permGP:         radioVal('permGP'),
       underCare:      radioVal('underCare'),
       substanceFree:  radioVal('substanceFree'),
@@ -635,34 +790,32 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
       mentalHistory:  document.getElementById('iMentalHistory').value.trim(),
       medications:    document.getElementById('iMedications').value.trim(),
       otherRelevant:  document.getElementById('iOther').value.trim(),
-      // Presenting issue
       presentingIssue: document.getElementById('iPresentingIssue').value.trim(),
       duration:        document.getElementById('iDuration').value.trim(),
       prevAttempts:    document.getElementById('iPrevAttempts').value.trim(),
       successVision:   document.getElementById('iSuccess').value.trim(),
       referral:        document.getElementById('iReferral').value,
-      // Agreements
       agreedTerms:    document.getElementById('agreeTerms').checked,
       agreedPrivacy:  document.getElementById('agreePrivacy').checked,
       agreedMarketing:document.getElementById('agreeMarketing').checked,
-      // RST
-      rst: {
-        q1: { a: selectVal('rst1a'), b: selectVal('rst1b'), c: selectVal('rst1c'), d: selectVal('rst1d') },
-        q2: { a: selectVal('rst2a'), b: selectVal('rst2b'), c: selectVal('rst2c'), d: selectVal('rst2d') },
-        q3: { a: selectVal('rst3a'), b: selectVal('rst3b'), c: selectVal('rst3c'), d: selectVal('rst3d') },
-        q4: { a: selectVal('rst4a'), b: selectVal('rst4b'), c: selectVal('rst4c'), d: selectVal('rst4d') },
-        q5: { a: selectVal('rst5a'), b: selectVal('rst5b'), c: selectVal('rst5c'), d: selectVal('rst5d') },
-      },
-      // Outcome measures
-      anxiety: { anx1: radioVal('anx1'), anx2: radioVal('anx2'), anx3: radioVal('anx3'), anx4: radioVal('anx4'), anx5: radioVal('anx5'), anx6: radioVal('anx6'), anx7: radioVal('anx7') },
-      mood:    { mood1: radioVal('mood1'), mood2: radioVal('mood2'), mood3: radioVal('mood3'), mood4: radioVal('mood4'), mood5: radioVal('mood5'), mood6: radioVal('mood6'), mood7: radioVal('mood7'), mood8: radioVal('mood8'), mood9: radioVal('mood9') },
+      rst,
+      anxiety:   { anx1: radioVal('anx1'), anx2: radioVal('anx2'), anx3: radioVal('anx3'), anx4: radioVal('anx4'), anx5: radioVal('anx5'), anx6: radioVal('anx6'), anx7: radioVal('anx7') },
+      mood:      { mood1: radioVal('mood1'), mood2: radioVal('mood2'), mood3: radioVal('mood3'), mood4: radioVal('mood4'), mood5: radioVal('mood5'), mood6: radioVal('mood6'), mood7: radioVal('mood7'), mood8: radioVal('mood8'), mood9: radioVal('mood9') },
       wellbeing: { wb1: radioVal('wb1'), wb2: radioVal('wb2'), wb3: radioVal('wb3'), wb4: radioVal('wb4'), wb5: radioVal('wb5'), wb6: radioVal('wb6'), wb7: radioVal('wb7') },
+      // Pre-calculated scores — easy to read in Firebase
+      scores: {
+        gad7,  gad7Band:  gad7Band(gad7)[0],
+        phq9,  phq9Band:  phq9Band(phq9)[0],
+        wemwbs,wemwbsBand:wemwbsBand(wemwbs)[0],
+        rst: { V: rstV, A: rstA, K: rstK, Ad: rstAd, dominant: rstDom }
+      },
     };
 
     try {
       await setDoc(doc(db, 'clients', user.uid, 'intake', 'form'), data);
       document.getElementById('intakeFormWrapper').style.display = 'none';
       document.getElementById('alreadySubmitted').style.display  = 'block';
+      showResults(data);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (e) {
       console.error(e);
