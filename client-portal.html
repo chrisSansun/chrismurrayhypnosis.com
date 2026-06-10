@@ -121,6 +121,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
 .rst-option-text { font-size: 0.82rem; color: var(--mid); flex: 1; }
 .rst-option select { width: 70px; padding: 0.3rem 0.5rem; border: 1px solid #d0cdc8; background: #fff; font-family: 'Raleway', sans-serif; font-size: 0.78rem; color: var(--ink); outline: none; flex-shrink: 0; }
 .rst-option select:focus { border-color: var(--gold); }
+.rst-option select.rst-dupe { border-color: #c0392b; background: #fff5f5; }
+.rst-q-error { font-size: 0.72rem; color: #c0392b; margin-top: 0.4rem; min-height: 1em; }
 
 /* OUTCOME MEASURES */
 .om-note { font-size: 0.82rem; color: var(--ink); margin-bottom: 1.2rem; line-height: 1.7; }
@@ -350,7 +352,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
           <h3 class="section-title">What brings you <em>here?</em></h3>
           <p class="section-note">There is no wrong answer to any of this. I am simply building an accurate picture before we meet.</p>
 
-          <div class="form-group"><label for="iPresentingIssue">What brings you to hypnotherapy? *</label><textarea id="iPresentingIssue" style="min-height:120px;" placeholder="Please describe in as much detail as you feel comfortable sharing." required></textarea></div>
+          <div class="form-group"><label for="iPresentingIssue">What brings you to hypnotherapy?</label><textarea id="iPresentingIssue" style="min-height:120px;" placeholder="Please describe in as much detail as you feel comfortable sharing."></textarea></div>
           <div class="form-group"><label for="iDuration">How long has this been an issue?</label><input type="text" id="iDuration" placeholder="e.g. 2 years, since childhood, past 6 months"></div>
           <div class="form-group"><label for="iPrevAttempts">What have you tried before to address this?</label><textarea id="iPrevAttempts" placeholder="Other approaches, therapies or strategies you have tried"></textarea></div>
           <div class="form-group"><label for="iSuccess">What would success look like for you? *</label><textarea id="iSuccess" placeholder="Describe how things would be different if this work were completely successful." required></textarea></div>
@@ -440,7 +442,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
             <span><strong>1</strong> = least like you</span>
           </div>
 
-          <div class="rst-question">
+          <div class="rst-question" data-rst="1">
             <div class="rst-q-label">1. I make important decisions based on:</div>
             <div class="rst-options">
               <div class="rst-option"><span class="rst-option-text">Gut level feelings</span><select name="rst1a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
@@ -448,9 +450,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
               <div class="rst-option"><span class="rst-option-text">What looks best to me</span><select name="rst1c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
               <div class="rst-option"><span class="rst-option-text">Precise review and study of the issues</span><select name="rst1d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
             </div>
+            <div class="rst-q-error" id="rstErr1"></div>
           </div>
 
-          <div class="rst-question">
+          <div class="rst-question" data-rst="2">
             <div class="rst-q-label">2. During an argument, I am most likely to be influenced by:</div>
             <div class="rst-options">
               <div class="rst-option"><span class="rst-option-text">The other person's tone of voice</span><select name="rst2a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
@@ -458,9 +461,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
               <div class="rst-option"><span class="rst-option-text">The logic of the other person's argument</span><select name="rst2c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
               <div class="rst-option"><span class="rst-option-text">How I feel about that person's argument</span><select name="rst2d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
             </div>
+            <div class="rst-q-error" id="rstErr2"></div>
           </div>
 
-          <div class="rst-question">
+          <div class="rst-question" data-rst="3">
             <div class="rst-q-label">3. I mostly communicate what is going on with me by:</div>
             <div class="rst-options">
               <div class="rst-option"><span class="rst-option-text">The look I give</span><select name="rst3a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
@@ -468,9 +472,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
               <div class="rst-option"><span class="rst-option-text">The words I choose</span><select name="rst3c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
               <div class="rst-option"><span class="rst-option-text">The tone of my voice</span><select name="rst3d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
             </div>
+            <div class="rst-q-error" id="rstErr3"></div>
           </div>
 
-          <div class="rst-question">
+          <div class="rst-question" data-rst="4">
             <div class="rst-q-label">4. It is easiest for me to:</div>
             <div class="rst-options">
               <div class="rst-option"><span class="rst-option-text">Find the ideal volume and tuning on a stereo system</span><select name="rst4a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
@@ -478,9 +483,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
               <div class="rst-option"><span class="rst-option-text">Select the most comfortable furniture</span><select name="rst4c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
               <div class="rst-option"><span class="rst-option-text">Select attractive colour combinations</span><select name="rst4d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
             </div>
+            <div class="rst-q-error" id="rstErr4"></div>
           </div>
 
-          <div class="rst-question">
+          <div class="rst-question" data-rst="5">
             <div class="rst-q-label">5. I am:</div>
             <div class="rst-options">
               <div class="rst-option"><span class="rst-option-text">Very sensitive to the sounds of my surroundings</span><select name="rst5a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
@@ -488,6 +494,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
               <div class="rst-option"><span class="rst-option-text">Very sensitive to the way clothing feels on my body</span><select name="rst5c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
               <div class="rst-option"><span class="rst-option-text">Very likely to have a strong response to colours and the way a room looks</span><select name="rst5d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
             </div>
+            <div class="rst-q-error" id="rstErr5"></div>
           </div>
         </div>
 
@@ -752,6 +759,14 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
     const user = auth.currentUser;
     if (!user) { err.textContent = 'Session expired. Please sign in again.'; btn.disabled = false; btn.textContent = 'Submit Forms'; return; }
 
+    // Validate RST — each question must use 1,2,3,4 exactly once
+    if (!validateAllRST()) {
+      err.textContent = 'Please check the Representational System Test — each question must use 1, 2, 3 and 4 once only.';
+      btn.disabled = false; btn.textContent = 'Submit Forms';
+      document.querySelector('[data-rst]').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
     // Collect RST values
     const rst = {
       q1: { a: selectVal('rst1a'), b: selectVal('rst1b'), c: selectVal('rst1c'), d: selectVal('rst1d') },
@@ -895,6 +910,33 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
     };
     return map[code] || 'Something went wrong. Please try again.';
   }
+
+  // RST live duplicate validation
+  function validateRSTQuestion(qNum) {
+    const selects = [...document.querySelectorAll(`select[name^="rst${qNum}"]`)];
+    const vals = selects.map(s => s.value).filter(v => v !== '');
+    const dupes = vals.length !== new Set(vals).size;
+    const allFilled = selects.every(s => s.value !== '');
+    selects.forEach(s => s.classList.toggle('rst-dupe', dupes && s.value !== ''));
+    const err = document.getElementById('rstErr' + qNum);
+    if (dupes) err.textContent = 'Each number (1–4) can only be used once per question.';
+    else if (allFilled) err.textContent = '';
+    else err.textContent = '';
+    return !dupes && allFilled;
+  }
+
+  function validateAllRST() {
+    let ok = true;
+    for (let q = 1; q <= 5; q++) { if (!validateRSTQuestion(q)) ok = false; }
+    return ok;
+  }
+
+  document.querySelectorAll('.rst-question').forEach(block => {
+    const qNum = block.dataset.rst;
+    block.querySelectorAll('select').forEach(sel => {
+      sel.addEventListener('change', () => validateRSTQuestion(qNum));
+    });
+  });
 
   ['loginEmail','loginPassword'].forEach(id => {
     document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') window.signIn(); });

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Dashboard | Chris Murray</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink: #1a1a1a; --charcoal: #2e2e2e; --smoke: #f7f5f2; --warm: #ede9e3;
+  --gold: #8a6d3b; --gold2: #b8955a; --mid: #5a5550; --light: #d0cdc8;
+}
+body { background: var(--smoke); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+nav { background: var(--charcoal); padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--smoke); }
+.nav-title span { font-family: 'Raleway', sans-serif; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold2); display: block; margin-top: 0.2rem; }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+#adminEmail { font-size: 0.65rem; color: var(--light); letter-spacing: 0.1em; }
+#signOutBtn { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; background: none; border: 1px solid #4a4a4a; color: var(--light); padding: 0.4rem 0.9rem; cursor: pointer; font-family: 'Raleway', sans-serif; transition: border-color 0.2s; }
+#signOutBtn:hover { border-color: var(--gold2); color: var(--gold2); }
+
+/* LOGIN */
+.login-wrap { display: flex; align-items: center; justify-content: center; min-height: 90vh; padding: 2rem; }
+.login-box { width: 100%; max-width: 380px; }
+.login-label { font-size: 0.6rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.login-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); margin-bottom: 2rem; }
+.login-title em { font-style: italic; color: var(--gold2); }
+.field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.field label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
+.field input { background: #fff; border: 1px solid var(--light); color: var(--ink); padding: 0.75rem 1rem; font-family: 'Raleway', sans-serif; font-size: 0.84rem; font-weight: 300; outline: none; }
+.field input:focus { border-color: var(--gold); }
+.login-btn { width: 100%; padding: 0.9rem; background: var(--ink); color: var(--smoke); font-family: 'Raleway', sans-serif; font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; }
+.login-btn:hover { background: var(--gold); }
+.login-err { font-size: 0.72rem; color: #c0392b; margin-top: 0.5rem; min-height: 1.2em; }
+
+/* DASHBOARD */
+.dashboard { display: none; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+.dash-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+.dash-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; }
+.dash-title em { font-style: italic; color: var(--gold2); }
+.dash-count { font-size: 0.72rem; color: var(--mid); letter-spacing: 0.1em; }
+
+/* CLIENT CARDS */
+.clients-list { display: flex; flex-direction: column; gap: 1px; background: var(--light); }
+.client-card { background: var(--smoke); cursor: pointer; transition: background 0.2s; }
+.client-card:hover { background: var(--warm); }
+.client-summary { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 1rem; align-items: center; padding: 1.2rem 1.5rem; }
+.client-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; }
+.client-meta { font-size: 0.7rem; color: var(--mid); margin-top: 0.2rem; letter-spacing: 0.06em; }
+.score-pill { text-align: center; }
+.score-pill-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+.score-pill-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--ink); }
+.score-pill-band { font-size: 0.58rem; letter-spacing: 0.1em; padding: 0.15rem 0.5rem; display: inline-block; margin-top: 0.2rem; }
+.band-minimal  { background: #e8f5e9; color: #2e7d32; }
+.band-mild     { background: #fff8e1; color: #f57f17; }
+.band-moderate { background: #fff3e0; color: #e65100; }
+.band-severe   { background: #fce4ec; color: #c62828; }
+.band-low      { background: #fce4ec; color: #c62828; }
+.band-medium   { background: #fff8e1; color: #f57f17; }
+.band-high     { background: #e8f5e9; color: #2e7d32; }
+.rst-dominant-pill { text-align: center; }
+.rst-dominant-pill .score-pill-label { color: var(--gold); }
+.rst-dominant-pill .rst-val { font-size: 0.85rem; font-weight: 600; color: var(--ink); letter-spacing: 0.08em; }
+.expand-icon { color: var(--light); font-size: 1rem; text-align: right; transition: transform 0.2s; }
+.client-card.open .expand-icon { transform: rotate(180deg); }
+
+/* EXPANDED DETAIL */
+.client-detail { display: none; border-top: 1px solid var(--light); background: #fff; padding: 2rem 1.5rem; }
+.client-card.open .client-detail { display: block; }
+.detail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem 2rem; margin-bottom: 2rem; }
+.detail-block { display: flex; flex-direction: column; gap: 0.3rem; }
+.detail-label { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+.detail-value { font-size: 0.84rem; color: var(--ink); line-height: 1.6; }
+.detail-value.long { font-size: 0.8rem; color: var(--mid); line-height: 1.8; }
+.detail-section { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--ink); margin: 1.5rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--light); }
+.yn-list { display: flex; flex-direction: column; gap: 0.4rem; }
+.yn-item { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--mid); padding: 0.3rem 0; border-bottom: 1px solid #f5f2ee; }
+.yn-item span:last-child { font-weight: 600; color: var(--ink); }
+.yn-item span.yes { color: #2e7d32; }
+.yn-item span.no  { color: #c62828; }
+
+/* SCORES DETAIL */
+.scores-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.score-card { background: var(--warm); padding: 1.2rem; }
+.score-card-label { font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+.score-card-name { font-size: 0.72rem; color: var(--mid); margin-bottom: 0.6rem; }
+.score-card-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); }
+.score-card-max { font-size: 0.7rem; color: var(--mid); }
+
+/* RST BARS */
+.rst-detail { background: var(--charcoal); padding: 1.2rem 1.5rem; margin-top: 1rem; }
+.rst-detail-title { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold2); margin-bottom: 1rem; }
+.rst-bar-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.6rem; }
+.rst-bar-label { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--light); width: 130px; flex-shrink: 0; }
+.rst-bar-label.dom { color: var(--gold2); font-weight: 600; }
+.rst-track { flex: 1; background: rgba(255,255,255,0.1); height: 5px; border-radius: 3px; overflow: hidden; }
+.rst-fill { height: 100%; background: var(--gold); border-radius: 3px; }
+.rst-fill.dom { background: var(--gold2); }
+.rst-score { font-size: 0.72rem; color: var(--light); width: 20px; text-align: right; }
+
+/* PRINT */
+@media print {
+  nav { display: none; }
+  .client-card { break-inside: avoid; }
+  .client-detail { display: block !important; }
+  .expand-icon { display: none; }
+}
+
+/* LOADER */
+.loader { text-align: center; padding: 4rem; color: var(--mid); font-size: 0.8rem; letter-spacing: 0.1em; }
+
+@media (max-width: 700px) {
+  .client-summary { grid-template-columns: 1fr 1fr; }
+  .score-pill:nth-child(n+4) { display: none; }
+  .scores-row { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-title">
+    Client Dashboard
+    <span>Precision Hypnosis · Admin</span>
+  </div>
+  <div class="nav-right">
+    <span id="adminEmail"></span>
+    <button id="signOutBtn" style="display:none;" onclick="doSignOut()">Sign Out</button>
+  </div>
+</nav>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-box">
+    <p class="login-label">Admin Access</p>
+    <h1 class="login-title">Client <em>Dashboard</em></h1>
+    <div class="field"><label>Email</label><input type="email" id="adminLoginEmail" placeholder="your@email.com" autocomplete="email"></div>
+    <div class="field"><label>Password</label><input type="password" id="adminLoginPass" placeholder="Password" autocomplete="current-password"></div>
+    <div class="login-err" id="loginErr"></div>
+    <button class="login-btn" onclick="adminSignIn()">Sign In</button>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+  <div class="dash-header">
+    <div>
+      <h2 class="dash-title">Client <em>Submissions</em></h2>
+    </div>
+    <span class="dash-count" id="clientCount"></span>
+  </div>
+  <div id="clientsList"><div class="loader">Loading clients...</div></div>
+</div>
+
+<script type="module">
+import { initializeApp }    from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+import { getFirestore, collectionGroup, getDocs, query } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey:            "AIzaSyDQer6mLk5McOdpfHRawSUfl1OtY9f9I3M",
+  authDomain:        "cmh-database.firebaseapp.com",
+  projectId:         "cmh-database",
+  storageBucket:     "cmh-database.firebasestorage.app",
+  messagingSenderId: "130418997333",
+  appId:             "1:130418997333:web:cb6a5c72d5153fef49fcdc"
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db   = getFirestore(app);
+
+const ADMIN_EMAIL = 'chris@chrismurrayhypnosis.com'; // ← update if different
+
+onAuthStateChanged(auth, async user => {
+  if (user && user.email === ADMIN_EMAIL) {
+    document.getElementById('loginWrap').style.display  = 'none';
+    document.getElementById('dashboard').style.display  = 'block';
+    document.getElementById('adminEmail').textContent   = user.email;
+    document.getElementById('signOutBtn').style.display = 'inline';
+    await loadClients();
+  } else if (user) {
+    signOut(auth);
+    document.getElementById('loginErr').textContent = 'Access restricted to admin account.';
+  } else {
+    document.getElementById('loginWrap').style.display  = 'flex';
+    document.getElementById('dashboard').style.display  = 'none';
+    document.getElementById('signOutBtn').style.display = 'none';
+  }
+});
+
+window.adminSignIn = async function() {
+  const email = document.getElementById('adminLoginEmail').value.trim();
+  const pass  = document.getElementById('adminLoginPass').value;
+  const err   = document.getElementById('loginErr');
+  err.textContent = '';
+  try { await signInWithEmailAndPassword(auth, email, pass); }
+  catch(e) { err.textContent = 'Incorrect email or password.'; }
+};
+
+window.doSignOut = () => signOut(auth);
+
+async function loadClients() {
+  const list = document.getElementById('clientsList');
+  try {
+    const snap = await getDocs(query(collectionGroup(db, 'intake')));
+    const docs = [];
+    snap.forEach(d => { if (d.id === 'form' && d.data().firstName) docs.push(d.data()); });
+    docs.sort((a,b) => (b.submittedAt?.seconds||0) - (a.submittedAt?.seconds||0));
+    document.getElementById('clientCount').textContent = docs.length + ' client' + (docs.length !== 1 ? 's' : '');
+    if (!docs.length) { list.innerHTML = '<div class="loader">No submissions yet.</div>'; return; }
+    list.innerHTML = docs.map((d,i) => renderCard(d, i)).join('');
+    list.querySelectorAll('.client-summary').forEach(el => {
+      el.addEventListener('click', () => el.closest('.client-card').classList.toggle('open'));
+    });
+  } catch(e) {
+    list.innerHTML = '<div class="loader">Error loading data. Check Firestore rules allow admin read access.</div>';
+    console.error(e);
+  }
+}
+
+function bandClass(type, score) {
+  if (type === 'gad7')  return score<=4?'minimal':score<=9?'mild':score<=14?'moderate':'severe';
+  if (type === 'phq9')  return score<=4?'minimal':score<=9?'mild':score<=14?'moderate':'severe';
+  if (type === 'wemwbs')return score<=14?'low':score<=21?'medium':'high';
+  return '';
+}
+function bandLabel(type, score) {
+  const c = bandClass(type, score);
+  return c.charAt(0).toUpperCase() + c.slice(1);
+}
+function yn(val) {
+  if (!val) return '<span>—</span>';
+  return val === 'yes' ? '<span class="yes">Yes</span>' : '<span class="no">No</span>';
+}
+function safe(v) { return v || '<span style="color:#bbb">Not provided</span>'; }
+function date(d) { return d?.seconds ? new Date(d.seconds*1000).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '—'; }
+
+function renderCard(d, i) {
+  const s = d.scores || {};
+  const rst = s.rst || {};
+  const domMap = { V:'Visual', A:'Auditory', K:'Kinaesthetic', Ad:'Auditory Digital' };
+  const dominant = rst.dominant ? domMap[rst.dominant] || rst.dominant : '—';
+  const gad7  = s.gad7  ?? '—';
+  const phq9  = s.phq9  ?? '—';
+  const wemwbs= s.wemwbs ?? '—';
+
+  return `
+  <div class="client-card" id="card${i}">
+    <div class="client-summary">
+      <div>
+        <div class="client-name">${d.firstName || ''} ${d.lastName || ''}</div>
+        <div class="client-meta">${date(d.submittedAt)} &nbsp;·&nbsp; ${d.nationality || ''}</div>
+      </div>
+      <div class="score-pill">
+        <div class="score-pill-label">GAD-7</div>
+        <div class="score-pill-val">${gad7}</div>
+        ${gad7!=='—'?`<div class="score-pill-band band-${bandClass('gad7',gad7)}">${bandLabel('gad7',gad7)}</div>`:''}
+      </div>
+      <div class="score-pill">
+        <div class="score-pill-label">PHQ-9</div>
+        <div class="score-pill-val">${phq9}</div>
+        ${phq9!=='—'?`<div class="score-pill-band band-${bandClass('phq9',phq9)}">${bandLabel('phq9',phq9)}</div>`:''}
+      </div>
+      <div class="score-pill">
+        <div class="score-pill-label">Wellbeing</div>
+        <div class="score-pill-val">${wemwbs}</div>
+        ${wemwbs!=='—'?`<div class="score-pill-band band-${bandClass('wemwbs',wemwbs)}">${bandLabel('wemwbs',wemwbs)}</div>`:''}
+      </div>
+      <div class="rst-dominant-pill">
+        <div class="score-pill-label">Rep System</div>
+        <div class="rst-val">${dominant}</div>
+      </div>
+      <div class="expand-icon">&#9660;</div>
+    </div>
+
+    <div class="client-detail">
+      <div class="detail-grid">
+        <div class="detail-block"><div class="detail-label">Full Name</div><div class="detail-value">${d.firstName} ${d.lastName}</div></div>
+        <div class="detail-block"><div class="detail-label">Date of Birth</div><div class="detail-value">${safe(d.dob)}</div></div>
+        <div class="detail-block"><div class="detail-label">Location</div><div class="detail-value">${safe(d.nationality)}</div></div>
+        <div class="detail-block"><div class="detail-label">Phone / WhatsApp</div><div class="detail-value">${safe(d.phone)}</div></div>
+        <div class="detail-block"><div class="detail-label">Email</div><div class="detail-value">${safe(d.email)}</div></div>
+        <div class="detail-block"><div class="detail-label">Next of Kin</div><div class="detail-value">${safe(d.nextOfKin)}</div></div>
+        <div class="detail-block"><div class="detail-label">GP / Doctor</div><div class="detail-value">${safe(d.gp)}</div></div>
+        <div class="detail-block"><div class="detail-label">Submitted</div><div class="detail-value">${date(d.submittedAt)}</div></div>
+      </div>
+
+      <div class="detail-section">Clinical</div>
+      <div class="yn-list">
+        <div class="yn-item"><span>Permission to contact GP</span>${yn(d.permGP)}</div>
+        <div class="yn-item"><span>Currently under medical/psychiatric care</span>${yn(d.underCare)}</div>
+        <div class="yn-item"><span>Agrees to attend sessions substance-free</span>${yn(d.substanceFree)}</div>
+        <div class="yn-item"><span>Epilepsy diagnosis</span>${yn(d.epilepsy)}</div>
+        <div class="yn-item"><span>Psychiatric diagnosis</span>${yn(d.psychiatricDx)}</div>
+      </div>
+      ${d.mentalHistory ? `<div style="margin-top:0.8rem;"><div class="detail-label" style="margin-bottom:0.3rem;">Mental health history</div><div class="detail-value long">${d.mentalHistory}</div></div>` : ''}
+      ${d.medications   ? `<div style="margin-top:0.8rem;"><div class="detail-label" style="margin-bottom:0.3rem;">Medications</div><div class="detail-value long">${d.medications}</div></div>` : ''}
+
+      <div class="detail-section">Presenting Issue</div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        ${d.presentingIssue ? `<div><div class="detail-label" style="margin-bottom:0.3rem;">What brings them here</div><div class="detail-value long">${d.presentingIssue}</div></div>` : ''}
+        ${d.duration       ? `<div><div class="detail-label" style="margin-bottom:0.3rem;">Duration</div><div class="detail-value">${d.duration}</div></div>` : ''}
+        ${d.prevAttempts   ? `<div><div class="detail-label" style="margin-bottom:0.3rem;">Previous attempts</div><div class="detail-value long">${d.prevAttempts}</div></div>` : ''}
+        ${d.successVision  ? `<div><div class="detail-label" style="margin-bottom:0.3rem;">What success looks like</div><div class="detail-value long">${d.successVision}</div></div>` : ''}
+      </div>
+
+      <div class="detail-section">Outcome Scores</div>
+      <div class="scores-row">
+        <div class="score-card">
+          <div class="score-card-label">GAD-7</div>
+          <div class="score-card-name">Anxiety</div>
+          <div class="score-card-num">${gad7} <span class="score-card-max">/ 21</span></div>
+          ${gad7!=='—'?`<div class="score-pill-band band-${bandClass('gad7',gad7)}" style="margin-top:0.5rem;">${bandLabel('gad7',gad7)}</div>`:''}
+        </div>
+        <div class="score-card">
+          <div class="score-card-label">PHQ-9</div>
+          <div class="score-card-name">Mood</div>
+          <div class="score-card-num">${phq9} <span class="score-card-max">/ 27</span></div>
+          ${phq9!=='—'?`<div class="score-pill-band band-${bandClass('phq9',phq9)}" style="margin-top:0.5rem;">${bandLabel('phq9',phq9)}</div>`:''}
+        </div>
+        <div class="score-card">
+          <div class="score-card-label">WEMWBS</div>
+          <div class="score-card-name">Wellbeing</div>
+          <div class="score-card-num">${wemwbs} <span class="score-card-max">/ 35</span></div>
+          ${wemwbs!=='—'?`<div class="score-pill-band band-${bandClass('wemwbs',wemwbs)}" style="margin-top:0.5rem;">${bandLabel('wemwbs',wemwbs)}</div>`:''}
+        </div>
+      </div>
+
+      ${rst.V !== undefined ? `
+      <div class="rst-detail">
+        <div class="rst-detail-title">Representational System Profile</div>
+        ${[['V','Visual',rst.V],['A','Auditory',rst.A],['K','Kinaesthetic',rst.K],['Ad','Auditory Digital',rst.Ad]].map(([k,label,score])=>`
+          <div class="rst-bar-row">
+            <div class="rst-bar-label ${k===rst.dominant?'dom':''}">${label} ${k===rst.dominant?'★':''}</div>
+            <div class="rst-track"><div class="rst-fill ${k===rst.dominant?'dom':''}" style="width:${Math.round((score/20)*100)}%"></div></div>
+            <div class="rst-score">${score}</div>
+          </div>`).join('')}
+        <div style="font-size:0.7rem;color:var(--gold2);margin-top:0.8rem;">Dominant: ${dominant} — score ${rst[rst.dominant]}/20</div>
+      </div>` : ''}
+    </div>
+  </div>`;
+}
+</script>
+</body>
+</html>
