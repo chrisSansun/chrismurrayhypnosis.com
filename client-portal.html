@@ -21,24 +21,10 @@
   --error:   #c0392b;
 }
 html { scroll-behavior: smooth; }
-body {
-  background: var(--smoke);
-  color: var(--ink);
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-}
+body { background: var(--smoke); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; min-height: 100vh; }
 
 /* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1.4rem var(--pad);
-  background: rgba(247,245,242,0.97);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(200,195,188,0.5);
-}
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem var(--pad); background: rgba(247,245,242,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(200,195,188,0.5); }
 .nav-wordmark { display: flex; flex-direction: column; gap: 0.15rem; text-decoration: none; }
 .nav-wordmark-name { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.4rem; letter-spacing: 0.02em; color: var(--ink); line-height: 1; }
 .nav-wordmark-sub { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold2); line-height: 1; }
@@ -49,88 +35,115 @@ nav {
 .nav-signout { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; background: none; border: none; color: var(--mid); cursor: pointer; transition: color 0.2s; font-family: 'Raleway', sans-serif; font-weight: 300; }
 .nav-signout:hover { color: var(--ink); }
 
-/* PAGE WRAPPER */
+/* PAGE */
 .page { padding-top: 5rem; min-height: 100vh; }
 
-/* AUTH SECTION */
-.auth-section {
-  display: flex; align-items: center; justify-content: center;
-  min-height: calc(100vh - 5rem);
-  padding: 3rem var(--pad);
-}
+/* AUTH */
+.auth-section { display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 5rem); padding: 3rem var(--pad); }
 .auth-box { width: 100%; max-width: 420px; }
 .auth-label { font-size: 0.6rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
 .auth-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 7vw, 3rem); font-weight: 400; line-height: 1.05; margin-bottom: 0.6rem; color: var(--ink); }
 .auth-title em { font-style: italic; color: var(--gold2); }
 .auth-sub { font-size: 0.82rem; color: var(--mid); line-height: 1.7; margin-bottom: 2.5rem; }
-
-/* TABS */
 .auth-tabs { display: flex; border-bottom: 1px solid var(--light); margin-bottom: 2rem; }
-.auth-tab {
-  flex: 1; padding: 0.75rem; background: none; border: none;
-  font-family: 'Raleway', sans-serif; font-size: 0.62rem; font-weight: 400;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid);
-  cursor: pointer; transition: color 0.2s; border-bottom: 2px solid transparent; margin-bottom: -1px;
-}
+.auth-tab { flex: 1; padding: 0.75rem; background: none; border: none; font-family: 'Raleway', sans-serif; font-size: 0.62rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); cursor: pointer; transition: color 0.2s; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .auth-tab.active { color: var(--ink); border-bottom-color: var(--gold); }
 
-/* FORMS */
+/* FORM ELEMENTS */
 .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.2rem; }
 .form-group label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
-.form-group input, .form-group select, .form-group textarea {
-  background: #fff; border: 1px solid #d0cdc8;
-  color: var(--ink); padding: 0.75rem 1rem;
-  font-family: 'Raleway', sans-serif; font-size: 0.84rem; font-weight: 300;
-  outline: none; transition: border-color 0.2s; width: 100%;
-}
+.form-group input, .form-group select, .form-group textarea { background: #fff; border: 1px solid #d0cdc8; color: var(--ink); padding: 0.75rem 1rem; font-family: 'Raleway', sans-serif; font-size: 0.84rem; font-weight: 300; outline: none; transition: border-color 0.2s; width: 100%; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
 .form-group textarea { resize: vertical; min-height: 90px; }
-.form-group select option { background: #fff; }
-.form-btn {
-  width: 100%; padding: 1rem 2rem; background: var(--ink); color: var(--smoke);
-  font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 400;
-  letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer;
-  transition: background 0.3s; margin-top: 0.5rem;
-}
+.form-btn { width: 100%; padding: 1rem 2rem; background: var(--ink); color: var(--smoke); font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.3s; margin-top: 0.5rem; }
 .form-btn:hover { background: var(--gold); }
 .form-btn:disabled { background: var(--light); cursor: not-allowed; }
 .form-error { font-size: 0.72rem; color: var(--error); margin-top: 0.5rem; min-height: 1.2em; }
 .form-link { font-size: 0.72rem; color: var(--mid); margin-top: 1rem; text-align: center; }
 .form-link button { background: none; border: none; color: var(--gold); cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.72rem; text-decoration: underline; }
-
-/* PORTAL / INTAKE SECTION */
-.portal-section { display: none; padding: 4rem var(--pad) 6rem; max-width: 760px; margin: 0 auto; }
-.portal-section.visible { display: block; }
-.portal-label { font-size: 0.6rem; letter-spacing: 0.38em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
-.portal-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 400; line-height: 1.05; margin-bottom: 0.8rem; color: var(--ink); }
-.portal-title em { font-style: italic; color: var(--gold2); }
-.portal-sub { font-size: 0.84rem; color: var(--mid); line-height: 1.8; margin-bottom: 3rem; max-width: 52ch; }
-
-/* INTAKE FORM */
-.intake-section-title {
-  font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 400;
-  color: var(--ink); margin: 2.5rem 0 1.5rem; padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--light);
-}
-.intake-section-title:first-of-type { margin-top: 0; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-row .form-group { margin-bottom: 0; }
-.checkbox-group { display: flex; flex-direction: column; gap: 0.6rem; }
-.checkbox-item { display: flex; align-items: center; gap: 0.7rem; cursor: pointer; }
-.checkbox-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; }
-.checkbox-item span { font-size: 0.82rem; color: var(--mid); line-height: 1.4; }
-.consent-group { background: var(--warm); padding: 1.5rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+
+/* PORTAL */
+.portal-section { display: none; padding: 3rem var(--pad) 6rem; max-width: 800px; margin: 0 auto; }
+.portal-section.visible { display: block; }
+
+/* WELCOME CARD */
+.welcome-card { background: var(--charcoal); color: var(--smoke); padding: 2.5rem; margin-bottom: 3rem; }
+.welcome-card-label { font-size: 0.58rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold2); margin-bottom: 1rem; }
+.welcome-card-title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 400; line-height: 1.05; margin-bottom: 1.2rem; color: var(--smoke); }
+.welcome-card-title em { font-style: italic; color: var(--gold2); }
+.welcome-card p { font-size: 0.83rem; line-height: 1.85; color: var(--light); margin-bottom: 0.8rem; }
+.welcome-card p:last-child { margin-bottom: 0; }
+.welcome-sign { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--smoke); margin-top: 1.5rem; }
+
+/* INTAKE SECTIONS */
+.intake-section { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--light); }
+.intake-section:last-of-type { border-bottom: none; }
+.section-label { font-size: 0.58rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 400; line-height: 1.05; margin-bottom: 0.6rem; color: var(--ink); }
+.section-title em { font-style: italic; color: var(--gold2); }
+.section-note { font-size: 0.8rem; color: var(--mid); line-height: 1.7; margin-bottom: 1.8rem; }
+.divider { width: 32px; height: 1px; background: var(--gold); margin: 1.5rem 0; }
+
+/* YES/NO ROWS */
+.yn-table { width: 100%; }
+.yn-row { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid #f0ede8; gap: 1rem; }
+.yn-row:last-child { border-bottom: none; }
+.yn-q { font-size: 0.83rem; color: var(--ink); flex: 1; line-height: 1.5; }
+.yn-options { display: flex; gap: 1.5rem; flex-shrink: 0; }
+.yn-opt { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: var(--mid); cursor: pointer; }
+.yn-opt input[type="radio"] { accent-color: var(--gold); width: 14px; height: 14px; cursor: pointer; }
+
+/* AGREEMENT CLAUSES */
+.clauses { display: flex; flex-direction: column; }
+.clause { display: flex; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid #f0ede8; align-items: flex-start; }
+.clause:last-child { border-bottom: none; }
+.clause-num { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold2); min-width: 1.4rem; padding-top: 0.1rem; flex-shrink: 0; }
+.clause-text { font-size: 0.8rem; color: var(--mid); line-height: 1.7; flex: 1; }
+.clause-text strong { font-weight: 600; color: var(--ink); }
+
+/* CONSENT GROUP */
+.consent-group { background: var(--warm); padding: 1.5rem; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
 .consent-item { display: flex; gap: 0.8rem; align-items: flex-start; }
 .consent-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; margin-top: 2px; }
 .consent-item span { font-size: 0.78rem; color: var(--mid); line-height: 1.6; }
-.intake-submit { margin-top: 2.5rem; }
-.intake-submit .form-btn { width: auto; padding: 1rem 2.8rem; }
 
-/* SUCCESS / ALREADY SUBMITTED */
-.success-box { text-align: center; padding: 4rem 2rem; }
-.success-icon { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--gold); }
-.success-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.8rem; }
-.success-body { font-size: 0.85rem; color: var(--mid); line-height: 1.9; max-width: 40ch; margin: 0 auto; }
+/* RST — REPRESENTATIONAL SYSTEM TEST */
+.rst-key { display: flex; flex-wrap: wrap; gap: 1rem; padding: 0.9rem 1.2rem; background: var(--warm); margin-bottom: 1.8rem; }
+.rst-key span { font-size: 0.75rem; color: var(--mid); }
+.rst-key strong { color: var(--ink); }
+.rst-question { margin-bottom: 2rem; }
+.rst-q-label { font-size: 0.85rem; font-weight: 400; color: var(--ink); margin-bottom: 0.8rem; letter-spacing: 0.01em; }
+.rst-options { display: flex; flex-direction: column; gap: 0; }
+.rst-option { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid #f0ede8; }
+.rst-option:last-child { border-bottom: none; }
+.rst-option-text { font-size: 0.82rem; color: var(--mid); flex: 1; }
+.rst-option select { width: 70px; padding: 0.3rem 0.5rem; border: 1px solid #d0cdc8; background: #fff; font-family: 'Raleway', sans-serif; font-size: 0.78rem; color: var(--ink); outline: none; flex-shrink: 0; }
+.rst-option select:focus { border-color: var(--gold); }
+
+/* OUTCOME MEASURES */
+.om-note { font-size: 0.82rem; color: var(--ink); margin-bottom: 1.2rem; line-height: 1.7; }
+.om-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: 0.8rem; }
+.om-table th { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); padding: 0.5rem 0.4rem; text-align: center; border-bottom: 1px solid var(--light); }
+.om-table th.item-col { text-align: left; padding-left: 0; }
+.om-table td { color: var(--mid); padding: 0.5rem 0.4rem; border-bottom: 1px solid #f0ede8; vertical-align: middle; line-height: 1.4; }
+.om-table td.check-cell { text-align: center; }
+.om-table tr:last-child td { border-bottom: none; }
+.om-section-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold2); padding: 0.8rem 0.4rem 0.3rem; }
+.om-table input[type="radio"] { accent-color: var(--gold); width: 14px; height: 14px; cursor: pointer; }
+
+/* SUBMIT AREA */
+.intake-submit { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--light); }
+.intake-submit .submit-btn { display: inline-block; padding: 1rem 2.8rem; background: var(--ink); color: var(--smoke); font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.3s; }
+.intake-submit .submit-btn:hover { background: var(--gold); }
+.intake-submit .submit-btn:disabled { background: var(--light); cursor: not-allowed; }
+
+/* SUCCESS */
+.success-box { text-align: center; padding: 5rem 2rem; }
+.success-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.8rem; }
+.success-title em { font-style: italic; color: var(--gold2); }
+.success-body { font-size: 0.85rem; color: var(--mid); line-height: 1.9; max-width: 42ch; margin: 0 auto; }
 
 /* LOADER */
 .loader { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 5rem); }
@@ -143,7 +156,7 @@ nav {
 /* RESPONSIVE */
 @media (min-width: 640px) { :root { --pad: 2.5rem; } }
 @media (min-width: 1024px) { :root { --pad: 4rem; } }
-@media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+@media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } .yn-q { font-size: 0.78rem; } .om-table { font-size: 0.72rem; } .rst-option select { width: 58px; } }
 </style>
 </head>
 <body>
@@ -162,7 +175,7 @@ nav {
 
 <div class="page">
 
-  <!-- LOADING STATE -->
+  <!-- LOADER -->
   <div class="loader" id="loader">
     <div class="loader-dots"><span></span><span></span><span></span></div>
   </div>
@@ -172,57 +185,35 @@ nav {
     <div class="auth-box">
       <p class="auth-label">Client Portal</p>
       <h1 class="auth-title">Welcome <em>back.</em></h1>
-      <p class="auth-sub">Sign in to access your intake form, or create an account if this is your first visit.</p>
-
+      <p class="auth-sub">Sign in to access your client forms, or create an account if this is your first visit.</p>
       <div class="auth-tabs">
         <button class="auth-tab active" id="tabLogin" onclick="showTab('login')">Sign In</button>
         <button class="auth-tab" id="tabRegister" onclick="showTab('register')">Create Account</button>
       </div>
 
-      <!-- LOGIN FORM -->
+      <!-- LOGIN -->
       <div id="loginForm">
-        <div class="form-group">
-          <label for="loginEmail">Email Address</label>
-          <input type="email" id="loginEmail" placeholder="your@email.com" autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="loginPassword">Password</label>
-          <input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password">
-        </div>
+        <div class="form-group"><label for="loginEmail">Email Address</label><input type="email" id="loginEmail" placeholder="your@email.com" autocomplete="email"></div>
+        <div class="form-group"><label for="loginPassword">Password</label><input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password"></div>
         <div class="form-error" id="loginError"></div>
         <button class="form-btn" id="loginBtn" onclick="signIn()">Sign In</button>
         <p class="form-link"><button onclick="showForgot()">Forgot your password?</button></p>
       </div>
 
-      <!-- REGISTER FORM -->
+      <!-- REGISTER -->
       <div id="registerForm" style="display:none;">
-        <div class="form-group">
-          <label for="regName">Full Name</label>
-          <input type="text" id="regName" placeholder="Your full name" autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label for="regEmail">Email Address</label>
-          <input type="email" id="regEmail" placeholder="your@email.com" autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="regPassword">Password</label>
-          <input type="password" id="regPassword" placeholder="Choose a password (min 6 characters)" autocomplete="new-password">
-        </div>
-        <div class="form-group">
-          <label for="regConfirm">Confirm Password</label>
-          <input type="password" id="regConfirm" placeholder="Confirm your password" autocomplete="new-password">
-        </div>
+        <div class="form-group"><label for="regName">Full Name</label><input type="text" id="regName" placeholder="Your full name" autocomplete="name"></div>
+        <div class="form-group"><label for="regEmail">Email Address</label><input type="email" id="regEmail" placeholder="your@email.com" autocomplete="email"></div>
+        <div class="form-group"><label for="regPassword">Password</label><input type="password" id="regPassword" placeholder="Choose a password (min 6 characters)" autocomplete="new-password"></div>
+        <div class="form-group"><label for="regConfirm">Confirm Password</label><input type="password" id="regConfirm" placeholder="Confirm your password" autocomplete="new-password"></div>
         <div class="form-error" id="registerError"></div>
         <button class="form-btn" id="registerBtn" onclick="register()">Create Account</button>
       </div>
 
-      <!-- FORGOT PASSWORD -->
+      <!-- FORGOT -->
       <div id="forgotForm" style="display:none;">
         <p style="font-size:0.82rem; color:var(--mid); margin-bottom:1.5rem; line-height:1.7;">Enter your email and we will send you a reset link.</p>
-        <div class="form-group">
-          <label for="forgotEmail">Email Address</label>
-          <input type="email" id="forgotEmail" placeholder="your@email.com">
-        </div>
+        <div class="form-group"><label for="forgotEmail">Email Address</label><input type="email" id="forgotEmail" placeholder="your@email.com"></div>
         <div class="form-error" id="forgotError"></div>
         <button class="form-btn" onclick="resetPassword()">Send Reset Link</button>
         <p class="form-link"><button onclick="showTab('login')">Back to sign in</button></p>
@@ -230,199 +221,311 @@ nav {
     </div>
   </div>
 
-  <!-- PORTAL SECTION -->
+  <!-- PORTAL -->
   <div class="portal-section" id="portalSection">
 
-    <!-- INTAKE FORM (shown if not yet submitted) -->
+    <!-- INTAKE FORM -->
     <div id="intakeFormWrapper">
-      <p class="portal-label">New Client Intake</p>
-      <h2 class="portal-title">Before we <em>begin.</em></h2>
-      <p class="portal-sub">Please complete this form before your first session. Your answers help me understand your situation fully so we can work precisely from the outset. All information is confidential and stored securely.</p>
+
+      <!-- WELCOME -->
+      <div class="welcome-card">
+        <p class="welcome-card-label">New Client Pack</p>
+        <h2 class="welcome-card-title">Good to have<br>you <em>here.</em></h2>
+        <p>Thank you for getting in touch. I'm looking forward to working with you.</p>
+        <p>The form below covers the practical and clinical information I need before we begin. It helps me make sure our work together is as precise and effective as possible from the outset. Please complete it as fully as you can before our first session.</p>
+        <p>Please find a quiet space where you won't be interrupted for sessions. If we're working online — which most clients do — a good connection and headphones make a real difference. I'll send a session link closer to the time.</p>
+        <p style="margin-top:0.5rem; font-size:0.78rem; color:#888;">Payment is due before each session. I'll confirm the method when we schedule — typically bank transfer or an invoiced payment link depending on your location.</p>
+        <div class="welcome-sign">Chris</div>
+      </div>
 
       <form id="intakeForm" onsubmit="submitIntake(event)">
 
-        <h3 class="intake-section-title">Personal Details</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="iFirstName">First Name *</label>
-            <input type="text" id="iFirstName" name="firstName" required>
+        <!-- ── SECTION 1: PERSONAL DETAILS ── -->
+        <div class="intake-section">
+          <p class="section-label">Confidential</p>
+          <h3 class="section-title">Client <em>Information</em></h3>
+          <p class="section-note">Please complete as fully as possible. All information is held in strict confidence.</p>
+
+          <div class="form-row">
+            <div class="form-group"><label for="iFirstName">First Name *</label><input type="text" id="iFirstName" required></div>
+            <div class="form-group"><label for="iLastName">Last Name *</label><input type="text" id="iLastName" required></div>
           </div>
-          <div class="form-group">
-            <label for="iLastName">Last Name *</label>
-            <input type="text" id="iLastName" name="lastName" required>
+          <div class="form-row">
+            <div class="form-group"><label for="iDob">Date of Birth *</label><input type="date" id="iDob" required></div>
+            <div class="form-group"><label for="iNationality">Nationality / Location *</label><input type="text" id="iNationality" placeholder="e.g. British, based in Dubai" required></div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="iDob">Date of Birth *</label>
-            <input type="date" id="iDob" name="dob" required>
+          <div class="form-row">
+            <div class="form-group"><label for="iEmail">Email Address *</label><input type="email" id="iEmail" required></div>
+            <div class="form-group"><label for="iPhone">Mobile / WhatsApp *</label><input type="tel" id="iPhone" required></div>
           </div>
-          <div class="form-group">
-            <label for="iPhone">Phone Number *</label>
-            <input type="tel" id="iPhone" name="phone" required>
+          <div class="form-group"><label for="iNextOfKin">Next of Kin — Name &amp; Contact Number *</label><input type="text" id="iNextOfKin" placeholder="Full name and phone number" required></div>
+          <div class="form-group"><label for="iGP">GP / Doctor Name &amp; Practice (if applicable)</label><input type="text" id="iGP" placeholder="Name and practice address"></div>
+
+          <div class="divider"></div>
+          <h4 style="font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:400; margin-bottom:1rem; color:var(--ink);">Clinical &amp; Medical</h4>
+
+          <div class="yn-table">
+            <div class="yn-row">
+              <span class="yn-q">Do you give permission to contact your doctor if this becomes clinically necessary?</span>
+              <div class="yn-options">
+                <label class="yn-opt"><input type="radio" name="permGP" value="yes" required> Yes</label>
+                <label class="yn-opt"><input type="radio" name="permGP" value="no"> No</label>
+              </div>
+            </div>
+            <div class="yn-row">
+              <span class="yn-q">Are you currently under the care of a medical or psychiatric professional?</span>
+              <div class="yn-options">
+                <label class="yn-opt"><input type="radio" name="underCare" value="yes" required> Yes</label>
+                <label class="yn-opt"><input type="radio" name="underCare" value="no"> No</label>
+              </div>
+            </div>
+            <div class="yn-row">
+              <span class="yn-q">Do you agree to attend sessions free from the effects of alcohol and non-prescribed substances?</span>
+              <div class="yn-options">
+                <label class="yn-opt"><input type="radio" name="substanceFree" value="yes" required> Yes</label>
+                <label class="yn-opt"><input type="radio" name="substanceFree" value="no"> No</label>
+              </div>
+            </div>
+            <div class="yn-row">
+              <span class="yn-q">Have you ever been diagnosed with epilepsy?</span>
+              <div class="yn-options">
+                <label class="yn-opt"><input type="radio" name="epilepsy" value="yes" required> Yes</label>
+                <label class="yn-opt"><input type="radio" name="epilepsy" value="no"> No</label>
+              </div>
+            </div>
+            <div class="yn-row">
+              <span class="yn-q">Have you ever received a diagnosis from a psychiatric or mental health professional?</span>
+              <div class="yn-options">
+                <label class="yn-opt"><input type="radio" name="psychiatricDx" value="yes" required> Yes</label>
+                <label class="yn-opt"><input type="radio" name="psychiatricDx" value="no"> No</label>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="iAddress">Address</label>
-          <input type="text" id="iAddress" name="address" placeholder="Street address">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="iCity">City</label>
-            <input type="text" id="iCity" name="city">
-          </div>
-          <div class="form-group">
-            <label for="iCountry">Country *</label>
-            <input type="text" id="iCountry" name="country" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="iOccupation">Occupation</label>
-          <input type="text" id="iOccupation" name="occupation">
+
+          <div class="form-group" style="margin-top:1.2rem;"><label for="iMentalHistory">Relevant mental health history (past or present)</label><textarea id="iMentalHistory" placeholder="Please give details of any relevant history"></textarea></div>
+          <div class="form-group"><label for="iMedications">Current prescribed medications</label><textarea id="iMedications" placeholder="Name and reason, or 'None'"></textarea></div>
+          <div class="form-group"><label for="iOther">Anything else you feel is relevant</label><textarea id="iOther" placeholder="Optional"></textarea></div>
         </div>
 
-        <h3 class="intake-section-title">Emergency Contact</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="iEcName">Name *</label>
-            <input type="text" id="iEcName" name="ecName" required>
-          </div>
-          <div class="form-group">
-            <label for="iEcRelation">Relationship *</label>
-            <input type="text" id="iEcRelation" name="ecRelation" placeholder="e.g. Partner, Parent" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="iEcPhone">Emergency Contact Phone *</label>
-          <input type="tel" id="iEcPhone" name="ecPhone" required>
-        </div>
+        <!-- ── SECTION 2: PRESENTING ISSUE ── -->
+        <div class="intake-section">
+          <p class="section-label">Your Situation</p>
+          <h3 class="section-title">What brings you <em>here?</em></h3>
+          <p class="section-note">There is no wrong answer to any of this. I am simply building an accurate picture before we meet.</p>
 
-        <h3 class="intake-section-title">GP / Doctor Details</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="iGpName">GP Name</label>
-            <input type="text" id="iGpName" name="gpName">
-          </div>
-          <div class="form-group">
-            <label for="iGpPhone">GP Phone</label>
-            <input type="tel" id="iGpPhone" name="gpPhone">
+          <div class="form-group"><label for="iPresentingIssue">What brings you to hypnotherapy? *</label><textarea id="iPresentingIssue" style="min-height:120px;" placeholder="Please describe in as much detail as you feel comfortable sharing." required></textarea></div>
+          <div class="form-group"><label for="iDuration">How long has this been an issue?</label><input type="text" id="iDuration" placeholder="e.g. 2 years, since childhood, past 6 months"></div>
+          <div class="form-group"><label for="iPrevAttempts">What have you tried before to address this?</label><textarea id="iPrevAttempts" placeholder="Other approaches, therapies or strategies you have tried"></textarea></div>
+          <div class="form-group"><label for="iSuccess">What would success look like for you? *</label><textarea id="iSuccess" placeholder="Describe how things would be different if this work were completely successful." required></textarea></div>
+          <div class="form-group"><label for="iReferral">How did you hear about Chris?</label>
+            <select id="iReferral">
+              <option value="">Please select</option>
+              <option value="referral">Referred by a friend or colleague</option>
+              <option value="google">Google search</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="nch">NCH directory</option>
+              <option value="other">Other</option>
+            </select>
           </div>
         </div>
-        <div class="form-group">
-          <label for="iGpAddress">GP Practice Address</label>
-          <input type="text" id="iGpAddress" name="gpAddress">
-        </div>
 
-        <h3 class="intake-section-title">Health Information</h3>
-        <p style="font-size:0.78rem; color:var(--mid); margin-bottom:1rem; line-height:1.6;">Please indicate if any of the following apply to you. This information is used solely to ensure the work is appropriate and safe.</p>
-        <div class="form-group">
-          <label>Please tick any that apply</label>
-          <div class="checkbox-group">
-            <label class="checkbox-item"><input type="checkbox" name="conditions" value="epilepsy"><span>Epilepsy</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="conditions" value="bipolar"><span>Bipolar disorder</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="conditions" value="psychosis"><span>Schizophrenia or psychosis</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="conditions" value="heart"><span>Heart condition or pacemaker</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="conditions" value="diabetes"><span>Diabetes</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="conditions" value="pregnancy"><span>Pregnancy</span></label>
-            <label class="checkbox-item"><input type="checkbox" name="conditions" value="none"><span>None of the above</span></label>
+        <!-- ── SECTION 3: CLIENT AGREEMENT ── -->
+        <div class="intake-section">
+          <p class="section-label">Terms &amp; Conditions</p>
+          <h3 class="section-title">Client <em>Agreement</em></h3>
+          <p class="section-note">This agreement sets out the terms and conditions of our work together. Please read each clause carefully.</p>
+
+          <div class="clauses">
+            <div class="clause"><span class="clause-num">1</span><span class="clause-text">Agreement to work on the issues presented by the client in no way guarantees a specific outcome or cure.</span></div>
+            <div class="clause"><span class="clause-num">2</span><span class="clause-text"><strong>Fees</strong> are payable in full before each session, in USD, at the agreed rate. Payment must be confirmed prior to the session commencing. Packages are valid for 12 months from date of purchase, non-refundable but transferable with consent.</span></div>
+            <div class="clause"><span class="clause-num">3</span><span class="clause-text"><strong>Cancellation and rescheduling:</strong> a minimum of 24 hours' notice is required to reschedule a session without charge. Less than 24 hours' notice, or failure to attend, will be charged at the full session rate.</span></div>
+            <div class="clause"><span class="clause-num">4</span><span class="clause-text"><strong>Between-session contact</strong> is available by email and, where included in the client's package, by WhatsApp. Contact outside agreed support hours or package inclusions is not guaranteed a same-day response.</span></div>
+            <div class="clause"><span class="clause-num">5</span><span class="clause-text">Behaviour deemed disrespectful or antisocial, in person or online, will result in the immediate termination of the session and the engagement as a whole.</span></div>
+            <div class="clause"><span class="clause-num">6</span><span class="clause-text"><strong>Confidentiality</strong> is maintained in all but the most exceptional circumstances: specifically, where a court order demands disclosure, or where there is reasonable cause to believe that not disclosing would result in serious harm to the client or others. Sharing of anonymised case material with supervisors and peer-support groups is standard professional practice and does not constitute a breach of confidentiality.</span></div>
+            <div class="clause"><span class="clause-num">7</span><span class="clause-text">Session notes are kept securely in line with professional guidelines for a minimum of 8 years. They are available for the client to view on request, but may not be removed or copied without consent.</span></div>
+            <div class="clause"><span class="clause-num">8</span><span class="clause-text">As a certified member of the <strong>National Council for Hypnotherapy (NCH)</strong>, Chris Murray is bound by their code of ethics and conduct. The NCH complaints procedure is accessible at <strong>www.hypnotherapists.org.uk</strong>.</span></div>
+            <div class="clause"><span class="clause-num">9</span><span class="clause-text">The work undertaken is governed by the <strong>laws of England and Wales</strong>, regardless of the client's location or the medium through which sessions are delivered.</span></div>
+            <div class="clause"><span class="clause-num">10</span><span class="clause-text">Your agreement below indicates consent to being contacted by email for session-related correspondence, and optionally for information about future programmes or publications. You may opt out at any time.</span></div>
+            <div class="clause"><span class="clause-num">11</span><span class="clause-text">Sessions may not be recorded, by audio or visual means, without prior written permission from Chris Murray.</span></div>
+            <div class="clause"><span class="clause-num">12</span><span class="clause-text">Chris Murray reserves the right to terminate a session without warning if it becomes apparent it has been booked for a purpose other than to receive hypnotherapy. Any session fee paid in advance in such circumstances is non-refundable.</span></div>
+          </div>
+
+          <div class="consent-group">
+            <label class="consent-item">
+              <input type="checkbox" id="agreeTerms" required>
+              <span>I have read and agree to all 12 clauses of the Client Agreement above.</span>
+            </label>
           </div>
         </div>
-        <div class="form-group">
-          <label for="iOtherConditions">Any other health conditions or diagnoses</label>
-          <textarea id="iOtherConditions" name="otherConditions" placeholder="Please describe"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="iMedications">Current medications (if any)</label>
-          <textarea id="iMedications" name="medications" placeholder="Name of medication and reason, or 'None'"></textarea>
+
+        <!-- ── SECTION 4: PRIVACY NOTICE ── -->
+        <div class="intake-section">
+          <p class="section-label">GDPR &amp; Data</p>
+          <h3 class="section-title">Privacy <em>Notice</em></h3>
+          <p class="section-note">Your privacy is taken seriously. Personal information is used only to administer your engagement and provide the services you have agreed to.</p>
+
+          <p style="font-size:0.82rem; color:var(--mid); line-height:1.8; margin-bottom:1rem;">Your Data Controller is <strong style="color:var(--ink);">Chris Murray</strong>. Information held includes your name, contact details, location, the package or programme you have engaged, and the dates of your sessions. Session notes are also held securely.</p>
+          <p style="font-size:0.82rem; color:var(--mid); line-height:1.8; margin-bottom:1rem;">All data is held confidentially except under exceptional circumstances (a court order, or a genuine concern for safety). It is kept for a minimum of <strong style="color:var(--ink);">8 years</strong> in line with professional guidelines. You have the right to request access to your data, or its removal, at any time.</p>
+
+          <p style="font-size:0.78rem; font-weight:600; color:var(--ink); margin-bottom:0.6rem; letter-spacing:0.02em;">Your information may be used for the following purposes:</p>
+          <ul style="list-style:none; margin-bottom:1.2rem;">
+            <li style="font-size:0.8rem; color:var(--mid); line-height:1.7; padding:0.35rem 0 0.35rem 1.2rem; border-bottom:1px solid #f0ede8; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">·</span>Duty of care — to contact your GP or next of kin where clinically necessary and where you have given permission.</li>
+            <li style="font-size:0.8rem; color:var(--mid); line-height:1.7; padding:0.35rem 0 0.35rem 1.2rem; border-bottom:1px solid #f0ede8; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">·</span>Accurate record-keeping for HMRC purposes, including invoicing.</li>
+            <li style="font-size:0.8rem; color:var(--mid); line-height:1.7; padding:0.35rem 0 0.35rem 1.2rem; border-bottom:1px solid #f0ede8; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">·</span>Continuity of care — to refer back to previous work should you return as a future client.</li>
+            <li style="font-size:0.8rem; color:var(--mid); line-height:1.7; padding:0.35rem 0 0.35rem 1.2rem; border-bottom:1px solid #f0ede8; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">·</span>Verification of practice hours with accrediting bodies (NCH and QCHPA). This may involve sharing your name, email and session dates with those bodies.</li>
+            <li style="font-size:0.8rem; color:var(--mid); line-height:1.7; padding:0.35rem 0 0.35rem 1.2rem; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">·</span>To send relevant information about future programmes or events — only with your explicit permission. You may opt out at any time.</li>
+          </ul>
+
+          <div class="consent-group">
+            <label class="consent-item">
+              <input type="checkbox" id="agreePrivacy" required>
+              <span>I have read and understood this Privacy Notice and agree to my information being held and used as described above.</span>
+            </label>
+            <label class="consent-item">
+              <input type="checkbox" id="agreeMarketing">
+              <span>I am happy to receive occasional information about future programmes or publications from Chris Murray. (Optional)</span>
+            </label>
+          </div>
         </div>
 
-        <h3 class="intake-section-title">Mental Health and Therapy History</h3>
-        <div class="form-group">
-          <label for="iCurrentTherapy">Are you currently seeing a therapist, counsellor or psychiatrist?</label>
-          <select id="iCurrentTherapy" name="currentTherapy">
-            <option value="">Please select</option>
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="iCurrentTherapyDetails">If yes, please provide details</label>
-          <input type="text" id="iCurrentTherapyDetails" name="currentTherapyDetails" placeholder="Type of therapy and how long you have been attending">
-        </div>
-        <div class="form-group">
-          <label for="iPrevTherapy">Previous therapy or counselling experience</label>
-          <textarea id="iPrevTherapy" name="prevTherapy" placeholder="What approaches have you tried, and how were they helpful or not?"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="iPrevHypno">Have you had hypnotherapy before?</label>
-          <select id="iPrevHypno" name="prevHypno">
-            <option value="">Please select</option>
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="iPrevHypnoDetails">If yes, please describe your experience</label>
-          <textarea id="iPrevHypnoDetails" name="prevHypnoDetails" placeholder="Who with, what for, and what was the outcome?"></textarea>
+        <!-- ── SECTION 5: REPRESENTATIONAL SYSTEM TEST ── -->
+        <div class="intake-section">
+          <p class="section-label">NLP Assessment</p>
+          <h3 class="section-title">Representational System<br><em>Preference Test</em></h3>
+          <p class="section-note">For each statement, rank every option using the scale below. Use each number <strong>once only</strong> per question.</p>
+
+          <div class="rst-key">
+            <span><strong>4</strong> = most like you</span>
+            <span><strong>3</strong> = next most like you</span>
+            <span><strong>2</strong> = next to least like you</span>
+            <span><strong>1</strong> = least like you</span>
+          </div>
+
+          <div class="rst-question">
+            <div class="rst-q-label">1. I make important decisions based on:</div>
+            <div class="rst-options">
+              <div class="rst-option"><span class="rst-option-text">Gut level feelings</span><select name="rst1a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Which way sounds best</span><select name="rst1b"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">What looks best to me</span><select name="rst1c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Precise review and study of the issues</span><select name="rst1d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+            </div>
+          </div>
+
+          <div class="rst-question">
+            <div class="rst-q-label">2. During an argument, I am most likely to be influenced by:</div>
+            <div class="rst-options">
+              <div class="rst-option"><span class="rst-option-text">The other person's tone of voice</span><select name="rst2a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Whether or not I can see the other person's argument</span><select name="rst2b"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">The logic of the other person's argument</span><select name="rst2c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">How I feel about that person's argument</span><select name="rst2d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+            </div>
+          </div>
+
+          <div class="rst-question">
+            <div class="rst-q-label">3. I mostly communicate what is going on with me by:</div>
+            <div class="rst-options">
+              <div class="rst-option"><span class="rst-option-text">The look I give</span><select name="rst3a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">The feelings I share</span><select name="rst3b"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">The words I choose</span><select name="rst3c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">The tone of my voice</span><select name="rst3d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+            </div>
+          </div>
+
+          <div class="rst-question">
+            <div class="rst-q-label">4. It is easiest for me to:</div>
+            <div class="rst-options">
+              <div class="rst-option"><span class="rst-option-text">Find the ideal volume and tuning on a stereo system</span><select name="rst4a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Select the most intellectually relevant point in an interesting discussion</span><select name="rst4b"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Select the most comfortable furniture</span><select name="rst4c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Select attractive colour combinations</span><select name="rst4d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+            </div>
+          </div>
+
+          <div class="rst-question">
+            <div class="rst-q-label">5. I am:</div>
+            <div class="rst-options">
+              <div class="rst-option"><span class="rst-option-text">Very sensitive to the sounds of my surroundings</span><select name="rst5a"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Very adept at making sense of new facts and data</span><select name="rst5b"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Very sensitive to the way clothing feels on my body</span><select name="rst5c"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+              <div class="rst-option"><span class="rst-option-text">Very likely to have a strong response to colours and the way a room looks</span><select name="rst5d"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+            </div>
+          </div>
         </div>
 
-        <h3 class="intake-section-title">Your Presenting Issue</h3>
-        <div class="form-group">
-          <label for="iPresentingIssue">What brings you to hypnotherapy? *</label>
-          <textarea id="iPresentingIssue" name="presentingIssue" rows="5" placeholder="Please describe in as much detail as you feel comfortable sharing." required style="min-height:120px;"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="iDuration">How long has this been an issue?</label>
-          <input type="text" id="iDuration" name="duration" placeholder="e.g. 2 years, since childhood, past 6 months">
-        </div>
-        <div class="form-group">
-          <label for="iPrevAttempts">What have you tried before to address this?</label>
-          <textarea id="iPrevAttempts" name="prevAttempts" placeholder="Other approaches, therapies, strategies you have tried"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="iSuccess">What would success look like for you? *</label>
-          <textarea id="iSuccess" name="successVision" placeholder="Describe how things would be different if this work were completely successful." required></textarea>
+        <!-- ── SECTION 6: OUTCOME MEASURES ── -->
+        <div class="intake-section">
+          <p class="section-label">Clinical Baseline</p>
+          <h3 class="section-title">Outcome <em>Measures</em></h3>
+          <p class="section-note">These are standard clinical measures. Your answers give us a baseline to track progress over the course of our work together.</p>
+
+          <p class="om-note">Over the last two weeks, how often have you been affected by the following?</p>
+
+          <table class="om-table">
+            <thead>
+              <tr>
+                <th class="item-col"></th>
+                <th>Not at all<br><span style="font-weight:300;">0</span></th>
+                <th>Several days<br><span style="font-weight:300;">1</span></th>
+                <th>More than half<br>the days<br><span style="font-weight:300;">2</span></th>
+                <th>Nearly every<br>day<br><span style="font-weight:300;">3</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="5" class="om-section-head">Anxiety</td></tr>
+              <tr><td>Feeling nervous, anxious or on edge</td><td class="check-cell"><input type="radio" name="anx1" value="0" required></td><td class="check-cell"><input type="radio" name="anx1" value="1"></td><td class="check-cell"><input type="radio" name="anx1" value="2"></td><td class="check-cell"><input type="radio" name="anx1" value="3"></td></tr>
+              <tr><td>Not being able to stop or control worrying</td><td class="check-cell"><input type="radio" name="anx2" value="0" required></td><td class="check-cell"><input type="radio" name="anx2" value="1"></td><td class="check-cell"><input type="radio" name="anx2" value="2"></td><td class="check-cell"><input type="radio" name="anx2" value="3"></td></tr>
+              <tr><td>Worrying too much about different things</td><td class="check-cell"><input type="radio" name="anx3" value="0" required></td><td class="check-cell"><input type="radio" name="anx3" value="1"></td><td class="check-cell"><input type="radio" name="anx3" value="2"></td><td class="check-cell"><input type="radio" name="anx3" value="3"></td></tr>
+              <tr><td>Trouble relaxing</td><td class="check-cell"><input type="radio" name="anx4" value="0" required></td><td class="check-cell"><input type="radio" name="anx4" value="1"></td><td class="check-cell"><input type="radio" name="anx4" value="2"></td><td class="check-cell"><input type="radio" name="anx4" value="3"></td></tr>
+              <tr><td>Being so restless it is hard to sit still</td><td class="check-cell"><input type="radio" name="anx5" value="0" required></td><td class="check-cell"><input type="radio" name="anx5" value="1"></td><td class="check-cell"><input type="radio" name="anx5" value="2"></td><td class="check-cell"><input type="radio" name="anx5" value="3"></td></tr>
+              <tr><td>Becoming easily annoyed or irritable</td><td class="check-cell"><input type="radio" name="anx6" value="0" required></td><td class="check-cell"><input type="radio" name="anx6" value="1"></td><td class="check-cell"><input type="radio" name="anx6" value="2"></td><td class="check-cell"><input type="radio" name="anx6" value="3"></td></tr>
+              <tr><td>Feeling afraid as if something awful might happen</td><td class="check-cell"><input type="radio" name="anx7" value="0" required></td><td class="check-cell"><input type="radio" name="anx7" value="1"></td><td class="check-cell"><input type="radio" name="anx7" value="2"></td><td class="check-cell"><input type="radio" name="anx7" value="3"></td></tr>
+              <tr><td colspan="5" class="om-section-head">Mood</td></tr>
+              <tr><td>Little interest or pleasure in doing things</td><td class="check-cell"><input type="radio" name="mood1" value="0" required></td><td class="check-cell"><input type="radio" name="mood1" value="1"></td><td class="check-cell"><input type="radio" name="mood1" value="2"></td><td class="check-cell"><input type="radio" name="mood1" value="3"></td></tr>
+              <tr><td>Feeling down, depressed or hopeless</td><td class="check-cell"><input type="radio" name="mood2" value="0" required></td><td class="check-cell"><input type="radio" name="mood2" value="1"></td><td class="check-cell"><input type="radio" name="mood2" value="2"></td><td class="check-cell"><input type="radio" name="mood2" value="3"></td></tr>
+              <tr><td>Trouble falling or staying asleep, or sleeping too much</td><td class="check-cell"><input type="radio" name="mood3" value="0" required></td><td class="check-cell"><input type="radio" name="mood3" value="1"></td><td class="check-cell"><input type="radio" name="mood3" value="2"></td><td class="check-cell"><input type="radio" name="mood3" value="3"></td></tr>
+              <tr><td>Feeling tired or having little energy</td><td class="check-cell"><input type="radio" name="mood4" value="0" required></td><td class="check-cell"><input type="radio" name="mood4" value="1"></td><td class="check-cell"><input type="radio" name="mood4" value="2"></td><td class="check-cell"><input type="radio" name="mood4" value="3"></td></tr>
+              <tr><td>Poor appetite or overeating</td><td class="check-cell"><input type="radio" name="mood5" value="0" required></td><td class="check-cell"><input type="radio" name="mood5" value="1"></td><td class="check-cell"><input type="radio" name="mood5" value="2"></td><td class="check-cell"><input type="radio" name="mood5" value="3"></td></tr>
+              <tr><td>Feeling bad about yourself, or that you are a failure</td><td class="check-cell"><input type="radio" name="mood6" value="0" required></td><td class="check-cell"><input type="radio" name="mood6" value="1"></td><td class="check-cell"><input type="radio" name="mood6" value="2"></td><td class="check-cell"><input type="radio" name="mood6" value="3"></td></tr>
+              <tr><td>Trouble concentrating on things</td><td class="check-cell"><input type="radio" name="mood7" value="0" required></td><td class="check-cell"><input type="radio" name="mood7" value="1"></td><td class="check-cell"><input type="radio" name="mood7" value="2"></td><td class="check-cell"><input type="radio" name="mood7" value="3"></td></tr>
+              <tr><td>Moving or speaking more slowly, or more restlessly, than usual</td><td class="check-cell"><input type="radio" name="mood8" value="0" required></td><td class="check-cell"><input type="radio" name="mood8" value="1"></td><td class="check-cell"><input type="radio" name="mood8" value="2"></td><td class="check-cell"><input type="radio" name="mood8" value="3"></td></tr>
+              <tr><td>Thoughts that you would be better off dead or of hurting yourself</td><td class="check-cell"><input type="radio" name="mood9" value="0" required></td><td class="check-cell"><input type="radio" name="mood9" value="1"></td><td class="check-cell"><input type="radio" name="mood9" value="2"></td><td class="check-cell"><input type="radio" name="mood9" value="3"></td></tr>
+            </tbody>
+          </table>
+
+          <p class="om-note" style="margin-top:1.5rem;">Over the last two weeks, how often have the following been true for you?</p>
+
+          <table class="om-table">
+            <thead>
+              <tr>
+                <th class="item-col"></th>
+                <th>None of<br>the time<br><span style="font-weight:300;">1</span></th>
+                <th>Rarely<br><span style="font-weight:300;">2</span></th>
+                <th>Some of<br>the time<br><span style="font-weight:300;">3</span></th>
+                <th>Often<br><span style="font-weight:300;">4</span></th>
+                <th>All of<br>the time<br><span style="font-weight:300;">5</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="6" class="om-section-head">Wellbeing</td></tr>
+              <tr><td>I've been feeling optimistic about the future</td><td class="check-cell"><input type="radio" name="wb1" value="1" required></td><td class="check-cell"><input type="radio" name="wb1" value="2"></td><td class="check-cell"><input type="radio" name="wb1" value="3"></td><td class="check-cell"><input type="radio" name="wb1" value="4"></td><td class="check-cell"><input type="radio" name="wb1" value="5"></td></tr>
+              <tr><td>I've been feeling useful</td><td class="check-cell"><input type="radio" name="wb2" value="1" required></td><td class="check-cell"><input type="radio" name="wb2" value="2"></td><td class="check-cell"><input type="radio" name="wb2" value="3"></td><td class="check-cell"><input type="radio" name="wb2" value="4"></td><td class="check-cell"><input type="radio" name="wb2" value="5"></td></tr>
+              <tr><td>I've been feeling relaxed</td><td class="check-cell"><input type="radio" name="wb3" value="1" required></td><td class="check-cell"><input type="radio" name="wb3" value="2"></td><td class="check-cell"><input type="radio" name="wb3" value="3"></td><td class="check-cell"><input type="radio" name="wb3" value="4"></td><td class="check-cell"><input type="radio" name="wb3" value="5"></td></tr>
+              <tr><td>I've been dealing with problems well</td><td class="check-cell"><input type="radio" name="wb4" value="1" required></td><td class="check-cell"><input type="radio" name="wb4" value="2"></td><td class="check-cell"><input type="radio" name="wb4" value="3"></td><td class="check-cell"><input type="radio" name="wb4" value="4"></td><td class="check-cell"><input type="radio" name="wb4" value="5"></td></tr>
+              <tr><td>I've been thinking clearly</td><td class="check-cell"><input type="radio" name="wb5" value="1" required></td><td class="check-cell"><input type="radio" name="wb5" value="2"></td><td class="check-cell"><input type="radio" name="wb5" value="3"></td><td class="check-cell"><input type="radio" name="wb5" value="4"></td><td class="check-cell"><input type="radio" name="wb5" value="5"></td></tr>
+              <tr><td>I've been feeling close to other people</td><td class="check-cell"><input type="radio" name="wb6" value="1" required></td><td class="check-cell"><input type="radio" name="wb6" value="2"></td><td class="check-cell"><input type="radio" name="wb6" value="3"></td><td class="check-cell"><input type="radio" name="wb6" value="4"></td><td class="check-cell"><input type="radio" name="wb6" value="5"></td></tr>
+              <tr><td>I've been able to make up my own mind about things</td><td class="check-cell"><input type="radio" name="wb7" value="1" required></td><td class="check-cell"><input type="radio" name="wb7" value="2"></td><td class="check-cell"><input type="radio" name="wb7" value="3"></td><td class="check-cell"><input type="radio" name="wb7" value="4"></td><td class="check-cell"><input type="radio" name="wb7" value="5"></td></tr>
+            </tbody>
+          </table>
         </div>
 
-        <h3 class="intake-section-title">A Little More</h3>
-        <div class="form-group">
-          <label for="iReferral">How did you hear about Chris?</label>
-          <select id="iReferral" name="referral">
-            <option value="">Please select</option>
-            <option value="referral">Referred by a friend or colleague</option>
-            <option value="google">Google search</option>
-            <option value="linkedin">LinkedIn</option>
-            <option value="instagram">Instagram</option>
-            <option value="facebook">Facebook</option>
-            <option value="nch">NCH directory</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="iAnything">Anything else you would like me to know before we meet?</label>
-          <textarea id="iAnything" name="anythingElse" placeholder="Optional"></textarea>
-        </div>
-
-        <h3 class="intake-section-title">Consent</h3>
-        <div class="consent-group">
-          <label class="consent-item">
-            <input type="checkbox" id="consent1" required>
-            <span>I confirm that the information I have provided in this form is accurate and complete to the best of my knowledge.</span>
-          </label>
-          <label class="consent-item">
-            <input type="checkbox" id="consent2" required>
-            <span>I understand that hypnotherapy is a complementary approach and is not a substitute for medical or psychiatric treatment. I agree to continue any existing medical care alongside our work.</span>
-          </label>
-          <label class="consent-item">
-            <input type="checkbox" id="consent3" required>
-            <span>I give consent for the information in this form to be stored securely and used by Chris Murray solely for the purpose of providing hypnotherapy services to me.</span>
-          </label>
-        </div>
-
-        <div class="form-error" id="intakeError" style="margin-top:1rem;"></div>
+        <!-- SUBMIT -->
         <div class="intake-submit">
-          <button type="submit" class="form-btn" id="intakeSubmitBtn">Submit Intake Form</button>
-          <p style="font-size:0.62rem; color:#888; margin-top:0.8rem; letter-spacing:0.08em;">All information is treated with strict confidentiality.</p>
+          <p style="font-size:0.82rem; color:var(--mid); line-height:1.8; margin-bottom:1.5rem;">By submitting this form you confirm that all information provided is accurate and complete to the best of your knowledge, and that you have read and agreed to the Client Agreement and Privacy Notice above.</p>
+          <button type="submit" class="submit-btn" id="intakeSubmitBtn">Submit Forms</button>
+          <p style="font-size:0.62rem; color:#999; margin-top:0.8rem; letter-spacing:0.08em;">All information is treated with strict confidentiality.</p>
+          <div class="form-error" id="intakeError" style="margin-top:0.8rem;"></div>
         </div>
 
       </form>
@@ -430,53 +533,19 @@ nav {
 
     <!-- ALREADY SUBMITTED -->
     <div id="alreadySubmitted" style="display:none;" class="success-box">
-      <div class="success-icon">&#10003;</div>
-      <h2 class="success-title">Form received.</h2>
-      <p class="success-body">Your intake form has been submitted. Chris will review it before your first session. If you have any questions in the meantime, please email <a href="mailto:chris@sansuntherapy.com" style="color:var(--gold);">chris@sansuntherapy.com</a>.</p>
+      <h2 class="success-title">Forms <em>received.</em></h2>
+      <p class="success-body">Thank you. Your client forms have been submitted and I will review them before our first session. If you have any questions in the meantime, please email <a href="mailto:chris@chrismurrayhypnosis.com" style="color:var(--gold);">chris@chrismurrayhypnosis.com</a>.<br><br>I look forward to working with you.</p>
     </div>
 
   </div>
 
-</div><!-- end .page -->
-
-<!--
-=================================================================
-  FIREBASE SETUP INSTRUCTIONS
-=================================================================
-  1. Go to https://console.firebase.google.com
-  2. Click "Add project" and give it a name (e.g. "CMH Portal")
-  3. In your project, click "Web" ( </> icon ) and register the app
-  4. Copy the firebaseConfig values shown and paste them below
-     replacing the placeholder values
-
-  5. In the left menu, go to:
-     Build > Authentication > Sign-in method > Enable "Email/Password"
-
-  6. Build > Firestore Database > Create database
-     Start in "production mode", choose a region
-
-  7. In Firestore > Rules, paste this and Publish:
-     rules_version = '2';
-     service cloud.firestore {
-       match /databases/{database}/documents {
-         match /clients/{userId}/intake/{document=**} {
-           allow read, write: if request.auth != null && request.auth.uid == userId;
-         }
-       }
-     }
-
-  8. Save this file and you are done.
-=================================================================
--->
+</div>
 
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged, signOut, updateProfile } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
   import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-  // ============================================================
-  // PASTE YOUR FIREBASE CONFIG HERE
-  // ============================================================
   const firebaseConfig = {
     apiKey:            "AIzaSyDQer6mLk5McOdpfHRawSUfl1OtY9f9I3M",
     authDomain:        "cmh-database.firebaseapp.com",
@@ -486,7 +555,6 @@ nav {
     appId:             "1:130418997333:web:cb6a5c72d5153fef49fcdc",
     measurementId:     "G-JPJ6Q1GBDQ"
   };
-  // ============================================================
 
   const app  = initializeApp(firebaseConfig);
   const auth = getAuth(app);
@@ -498,7 +566,6 @@ nav {
   const navUserEmail  = document.getElementById('navUserEmail');
   const navSignOut    = document.getElementById('navSignOut');
 
-  // Auth state listener
   onAuthStateChanged(auth, async (user) => {
     loader.style.display = 'none';
     if (user) {
@@ -507,6 +574,9 @@ nav {
       navSignOut.style.display = 'inline';
       authSection.style.display = 'none';
       portalSection.classList.add('visible');
+      // Pre-fill email field
+      const emailField = document.getElementById('iEmail');
+      if (emailField) emailField.value = user.email;
       await checkIntakeStatus(user.uid);
     } else {
       navUserEmail.style.display = 'none';
@@ -518,76 +588,23 @@ nav {
 
   async function checkIntakeStatus(uid) {
     try {
-      const ref  = doc(db, 'clients', uid, 'intake', 'form');
-      const snap = await getDoc(ref);
+      const snap = await getDoc(doc(db, 'clients', uid, 'intake', 'form'));
       if (snap.exists()) {
         document.getElementById('intakeFormWrapper').style.display = 'none';
         document.getElementById('alreadySubmitted').style.display  = 'block';
       }
-    } catch (e) {
-      console.error('Error checking intake:', e);
-    }
+    } catch (e) { console.error(e); }
   }
 
-  // Sign in
-  window.signIn = async function() {
-    const btn   = document.getElementById('loginBtn');
-    const err   = document.getElementById('loginError');
-    const email = document.getElementById('loginEmail').value.trim();
-    const pass  = document.getElementById('loginPassword').value;
-    err.textContent = '';
-    if (!email || !pass) { err.textContent = 'Please enter your email and password.'; return; }
-    btn.disabled = true; btn.textContent = 'Signing in...';
-    try {
-      await signInWithEmailAndPassword(auth, email, pass);
-    } catch (e) {
-      err.textContent = friendlyError(e.code);
-      btn.disabled = false; btn.textContent = 'Sign In';
-    }
-  };
+  function radioVal(name) {
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : null;
+  }
+  function selectVal(name) {
+    const el = document.querySelector(`select[name="${name}"]`);
+    return el ? el.value : null;
+  }
 
-  // Register
-  window.register = async function() {
-    const btn    = document.getElementById('registerBtn');
-    const err    = document.getElementById('registerError');
-    const name   = document.getElementById('regName').value.trim();
-    const email  = document.getElementById('regEmail').value.trim();
-    const pass   = document.getElementById('regPassword').value;
-    const conf   = document.getElementById('regConfirm').value;
-    err.textContent = '';
-    if (!name || !email || !pass) { err.textContent = 'Please fill in all fields.'; return; }
-    if (pass !== conf)             { err.textContent = 'Passwords do not match.'; return; }
-    if (pass.length < 6)           { err.textContent = 'Password must be at least 6 characters.'; return; }
-    btn.disabled = true; btn.textContent = 'Creating account...';
-    try {
-      const cred = await createUserWithEmailAndPassword(auth, email, pass);
-      await updateProfile(cred.user, { displayName: name });
-    } catch (e) {
-      err.textContent = friendlyError(e.code);
-      btn.disabled = false; btn.textContent = 'Create Account';
-    }
-  };
-
-  // Reset password
-  window.resetPassword = async function() {
-    const err   = document.getElementById('forgotError');
-    const email = document.getElementById('forgotEmail').value.trim();
-    err.textContent = '';
-    if (!email) { err.textContent = 'Please enter your email address.'; return; }
-    try {
-      await sendPasswordResetEmail(auth, email);
-      err.style.color = 'var(--gold)';
-      err.textContent = 'Reset email sent. Please check your inbox.';
-    } catch (e) {
-      err.style.color = 'var(--error)';
-      err.textContent = friendlyError(e.code);
-    }
-  };
-
-  // Sign out
-  navSignOut.addEventListener('click', () => signOut(auth));
-
-  // Submit intake form
   window.submitIntake = async function(e) {
     e.preventDefault();
     const err = document.getElementById('intakeError');
@@ -596,10 +613,7 @@ nav {
     btn.disabled = true; btn.textContent = 'Submitting...';
 
     const user = auth.currentUser;
-    if (!user) { err.textContent = 'Session expired. Please sign in again.'; btn.disabled = false; btn.textContent = 'Submit Intake Form'; return; }
-
-    // Collect checkbox values
-    const conditions = [...document.querySelectorAll('input[name="conditions"]:checked')].map(cb => cb.value);
+    if (!user) { err.textContent = 'Session expired. Please sign in again.'; btn.disabled = false; btn.textContent = 'Submit Forms'; return; }
 
     const data = {
       submittedAt: serverTimestamp(),
@@ -608,37 +622,41 @@ nav {
       firstName:   document.getElementById('iFirstName').value.trim(),
       lastName:    document.getElementById('iLastName').value.trim(),
       dob:         document.getElementById('iDob').value,
+      nationality: document.getElementById('iNationality').value.trim(),
       phone:       document.getElementById('iPhone').value.trim(),
-      address:     document.getElementById('iAddress').value.trim(),
-      city:        document.getElementById('iCity').value.trim(),
-      country:     document.getElementById('iCountry').value.trim(),
-      occupation:  document.getElementById('iOccupation').value.trim(),
-      // Emergency contact
-      ecName:      document.getElementById('iEcName').value.trim(),
-      ecRelation:  document.getElementById('iEcRelation').value.trim(),
-      ecPhone:     document.getElementById('iEcPhone').value.trim(),
-      // GP
-      gpName:      document.getElementById('iGpName').value.trim(),
-      gpPhone:     document.getElementById('iGpPhone').value.trim(),
-      gpAddress:   document.getElementById('iGpAddress').value.trim(),
-      // Health
-      conditions,
-      otherConditions:      document.getElementById('iOtherConditions').value.trim(),
-      medications:          document.getElementById('iMedications').value.trim(),
-      // Therapy history
-      currentTherapy:       document.getElementById('iCurrentTherapy').value,
-      currentTherapyDetails:document.getElementById('iCurrentTherapyDetails').value.trim(),
-      prevTherapy:          document.getElementById('iPrevTherapy').value.trim(),
-      prevHypno:            document.getElementById('iPrevHypno').value,
-      prevHypnoDetails:     document.getElementById('iPrevHypnoDetails').value.trim(),
+      nextOfKin:   document.getElementById('iNextOfKin').value.trim(),
+      gp:          document.getElementById('iGP').value.trim(),
+      // Clinical yes/no
+      permGP:         radioVal('permGP'),
+      underCare:      radioVal('underCare'),
+      substanceFree:  radioVal('substanceFree'),
+      epilepsy:       radioVal('epilepsy'),
+      psychiatricDx:  radioVal('psychiatricDx'),
+      mentalHistory:  document.getElementById('iMentalHistory').value.trim(),
+      medications:    document.getElementById('iMedications').value.trim(),
+      otherRelevant:  document.getElementById('iOther').value.trim(),
       // Presenting issue
-      presentingIssue:      document.getElementById('iPresentingIssue').value.trim(),
-      duration:             document.getElementById('iDuration').value.trim(),
-      prevAttempts:         document.getElementById('iPrevAttempts').value.trim(),
-      successVision:        document.getElementById('iSuccess').value.trim(),
-      // Referral
-      referral:             document.getElementById('iReferral').value,
-      anythingElse:         document.getElementById('iAnything').value.trim(),
+      presentingIssue: document.getElementById('iPresentingIssue').value.trim(),
+      duration:        document.getElementById('iDuration').value.trim(),
+      prevAttempts:    document.getElementById('iPrevAttempts').value.trim(),
+      successVision:   document.getElementById('iSuccess').value.trim(),
+      referral:        document.getElementById('iReferral').value,
+      // Agreements
+      agreedTerms:    document.getElementById('agreeTerms').checked,
+      agreedPrivacy:  document.getElementById('agreePrivacy').checked,
+      agreedMarketing:document.getElementById('agreeMarketing').checked,
+      // RST
+      rst: {
+        q1: { a: selectVal('rst1a'), b: selectVal('rst1b'), c: selectVal('rst1c'), d: selectVal('rst1d') },
+        q2: { a: selectVal('rst2a'), b: selectVal('rst2b'), c: selectVal('rst2c'), d: selectVal('rst2d') },
+        q3: { a: selectVal('rst3a'), b: selectVal('rst3b'), c: selectVal('rst3c'), d: selectVal('rst3d') },
+        q4: { a: selectVal('rst4a'), b: selectVal('rst4b'), c: selectVal('rst4c'), d: selectVal('rst4d') },
+        q5: { a: selectVal('rst5a'), b: selectVal('rst5b'), c: selectVal('rst5c'), d: selectVal('rst5d') },
+      },
+      // Outcome measures
+      anxiety: { anx1: radioVal('anx1'), anx2: radioVal('anx2'), anx3: radioVal('anx3'), anx4: radioVal('anx4'), anx5: radioVal('anx5'), anx6: radioVal('anx6'), anx7: radioVal('anx7') },
+      mood:    { mood1: radioVal('mood1'), mood2: radioVal('mood2'), mood3: radioVal('mood3'), mood4: radioVal('mood4'), mood5: radioVal('mood5'), mood6: radioVal('mood6'), mood7: radioVal('mood7'), mood8: radioVal('mood8'), mood9: radioVal('mood9') },
+      wellbeing: { wb1: radioVal('wb1'), wb2: radioVal('wb2'), wb3: radioVal('wb3'), wb4: radioVal('wb4'), wb5: radioVal('wb5'), wb6: radioVal('wb6'), wb7: radioVal('wb7') },
     };
 
     try {
@@ -648,23 +666,66 @@ nav {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (e) {
       console.error(e);
-      err.textContent = 'Something went wrong saving your form. Please try again or email chris@sansuntherapy.com.';
-      btn.disabled = false; btn.textContent = 'Submit Intake Form';
+      err.textContent = 'Something went wrong. Please try again or email chris@chrismurrayhypnosis.com.';
+      btn.disabled = false; btn.textContent = 'Submit Forms';
     }
   };
 
-  // UI helpers
+  window.signIn = async function() {
+    const btn = document.getElementById('loginBtn');
+    const err = document.getElementById('loginError');
+    const email = document.getElementById('loginEmail').value.trim();
+    const pass  = document.getElementById('loginPassword').value;
+    err.textContent = '';
+    if (!email || !pass) { err.textContent = 'Please enter your email and password.'; return; }
+    btn.disabled = true; btn.textContent = 'Signing in...';
+    try { await signInWithEmailAndPassword(auth, email, pass); }
+    catch (e) { err.textContent = friendlyError(e.code); btn.disabled = false; btn.textContent = 'Sign In'; }
+  };
+
+  window.register = async function() {
+    const btn  = document.getElementById('registerBtn');
+    const err  = document.getElementById('registerError');
+    const name = document.getElementById('regName').value.trim();
+    const email= document.getElementById('regEmail').value.trim();
+    const pass = document.getElementById('regPassword').value;
+    const conf = document.getElementById('regConfirm').value;
+    err.textContent = '';
+    if (!name || !email || !pass) { err.textContent = 'Please fill in all fields.'; return; }
+    if (pass !== conf)             { err.textContent = 'Passwords do not match.'; return; }
+    if (pass.length < 6)           { err.textContent = 'Password must be at least 6 characters.'; return; }
+    btn.disabled = true; btn.textContent = 'Creating account...';
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, email, pass);
+      await updateProfile(cred.user, { displayName: name });
+    } catch (e) { err.textContent = friendlyError(e.code); btn.disabled = false; btn.textContent = 'Create Account'; }
+  };
+
+  window.resetPassword = async function() {
+    const err   = document.getElementById('forgotError');
+    const email = document.getElementById('forgotEmail').value.trim();
+    err.textContent = '';
+    if (!email) { err.textContent = 'Please enter your email address.'; return; }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      err.style.color = 'var(--gold)';
+      err.textContent = 'Reset email sent. Please check your inbox.';
+    } catch (e) { err.style.color = 'var(--error)'; err.textContent = friendlyError(e.code); }
+  };
+
+  navSignOut.addEventListener('click', () => signOut(auth));
+
   window.showTab = function(tab) {
     document.getElementById('loginForm').style.display    = tab === 'login'    ? 'block' : 'none';
     document.getElementById('registerForm').style.display = tab === 'register' ? 'block' : 'none';
-    document.getElementById('forgotForm').style.display   = tab === 'forgot'   ? 'block' : 'none';
+    document.getElementById('forgotForm').style.display   = 'none';
     document.getElementById('tabLogin').classList.toggle('active',    tab === 'login');
     document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
   };
 
   window.showForgot = function() {
-    document.getElementById('loginForm').style.display   = 'none';
-    document.getElementById('forgotForm').style.display  = 'block';
+    document.getElementById('loginForm').style.display  = 'none';
+    document.getElementById('forgotForm').style.display = 'block';
     document.getElementById('tabLogin').classList.remove('active');
     document.getElementById('tabRegister').classList.remove('active');
   };
@@ -682,7 +743,6 @@ nav {
     return map[code] || 'Something went wrong. Please try again.';
   }
 
-  // Allow Enter key on auth inputs
   ['loginEmail','loginPassword'].forEach(id => {
     document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') window.signIn(); });
   });
