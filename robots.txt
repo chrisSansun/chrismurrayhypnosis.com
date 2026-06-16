@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /tools/
 
-Sitemap: https://chrismurrayhypnosis.com/sitemap.xml
+Sitemap: https://www.chrismurrayhypnosis.com/sitemap.xml
