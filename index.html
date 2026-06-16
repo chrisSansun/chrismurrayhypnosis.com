@@ -204,17 +204,24 @@ nav {
   opacity: 0; animation: up 0.8s ease 0.2s forwards;
 }
 .hero-headline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.6rem, 9vw, 7rem); font-weight: 400;
-  line-height: 1.0; letter-spacing: -0.02em; color: var(--ink);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.8rem;
   opacity: 0; animation: up 0.8s ease 0.4s forwards;
 }
-.hero-headline em { font-style: italic; color: var(--gold2); }
-.hero-subline {
-  margin-top: 1.5rem;
+.hero-punch {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1rem, 3vw, 1.3rem); font-style: italic; color: var(--mid);
-  opacity: 0; animation: up 0.8s ease 0.55s forwards;
+  font-size: clamp(2.6rem, 9vw, 7rem); font-weight: 400;
+  line-height: 1.02; letter-spacing: -0.02em; color: var(--ink);
+  margin-top: 0 !important;
+  opacity: 0; animation: up 0.8s ease 0.52s forwards;
+}
+.hero-punch em { font-style: italic; color: var(--gold2); }
+.hero-subline {
+  margin-top: 1.2rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem); color: var(--mid);
+  opacity: 0; animation: up 0.8s ease 0.65s forwards;
 }
 .hero-desc {
   margin-top: 1.5rem; font-size: 0.85rem; line-height: 1.9;
@@ -494,7 +501,7 @@ footer { background: var(--charcoal); border-top: 1px solid #3e3e3e; padding: 2.
   <div class="hero-text">
     <p class="hero-label">Precision Hypnosis<br>Sri Lanka &amp; Worldwide</p>
     <h1 class="hero-headline">Online Hypnotherapy for High Achievers</h1>
-    <p class="hero-subline hero-punch">Not relaxation. <em>Restructuring.</em></p>
+    <p class="hero-punch">Not relaxation.<br><em>Restructuring.</em></p>
     <p class="hero-subline">For high-functioning individuals who think well, but know something structural must change.</p>
     <p class="hero-desc">Most people I work with are not struggling in obvious ways. They are competent, often exceptional. The pattern simply does not live at the level thinking can reach.</p>
     <div class="hero-actions">
