@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypnotherapy Articles | Christopher Murray</title>
+<meta name="description" content="Articles on cognitive hypnotherapy, anxiety, confidence, performance, sleep and more. Written by Christopher Murray, cognitive hypnotherapist, working online worldwide.">
+<link rel="canonical" href="https://www.chrismurrayhypnosis.com/articles/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.chrismurrayhypnosis.com/articles/">
+<meta property="og:title" content="Hypnotherapy Articles | Christopher Murray">
+<meta property="og:description" content="Articles on cognitive hypnotherapy, anxiety, confidence, performance, sleep and more. Written by Christopher Murray, cognitive hypnotherapist.">
+<meta property="og:image" content="https://www.chrismurrayhypnosis.com/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hypnotherapy Articles | Christopher Murray">
+<meta name="twitter:description" content="Articles on cognitive hypnotherapy, anxiety, confidence, performance, sleep and more.">
+<meta name="twitter:image" content="https://www.chrismurrayhypnosis.com/images/og-image.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink: #1a1a1a; --charcoal: #2e2e2e; --smoke: #f7f5f2;
+  --warm: #ede9e3; --gold: #8a6d3b; --gold2: #b8955a;
+  --mid: #5a5550; --light: #d0cdc8; --pad: 1.5rem;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--smoke); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.4rem var(--pad);
+  background: rgba(247,245,242,0.97); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(200,195,188,0.5);
+}
+.nav-wordmark { display: flex; flex-direction: column; gap: 0.25rem; text-decoration: none; }
+.nav-wordmark-name { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.4rem; letter-spacing: 0.02em; color: var(--ink); line-height: 1; }
+.nav-wordmark-sub { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold2); line-height: 1; }
+.nav-links { display: none; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.62rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-book { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 400; color: var(--smoke) !important; background: var(--ink); padding: 0.65rem 1.3rem; text-decoration: none; transition: background 0.25s; }
+.nav-book:hover { background: var(--gold) !important; }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1px; background: var(--ink); }
+.menu-backdrop { display: none; position: fixed; inset: 0; z-index: 98; background: rgba(0,0,0,0.45); backdrop-filter: blur(2px); }
+.menu-backdrop.open { display: block; }
+.mobile-menu { position: fixed; top: 0; right: 0; bottom: 0; z-index: 99; width: min(300px, 82vw); background: var(--charcoal); flex-direction: column; justify-content: center; padding: 3rem 2.5rem; gap: 0; transform: translateX(100%); transition: transform 0.3s ease; display: flex; }
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 400; color: var(--smoke); text-decoration: none; transition: color 0.2s; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--gold2); }
+.mobile-menu-close { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; color: var(--light); font-size: 1.4rem; cursor: pointer; padding: 0.4rem; line-height: 1; }
+
+/* PAGE */
+.page-header {
+  padding: 9rem var(--pad) 3.5rem;
+  background: var(--charcoal); color: var(--smoke);
+}
+.page-header h1 {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(2rem, 6vw, 3.8rem); line-height: 1.1;
+  letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+.page-header h1 em { font-style: italic; color: var(--gold2); }
+.page-header p {
+  font-size: 0.88rem; color: var(--light); max-width: 52ch; line-height: 1.8;
+}
+.page-count {
+  font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+}
+
+.articles-body { max-width: 1100px; margin: 0 auto; padding: 4rem var(--pad) 6rem; }
+
+.cat-block { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--warm); }
+.cat-block:last-child { border-bottom: none; margin-bottom: 0; }
+.cat-block h2 {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 0.6rem; letter-spacing: -0.01em;
+}
+.cat-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.75; max-width: 60ch; margin-bottom: 1.8rem; }
+
+.article-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.4rem 2rem;
+}
+.article-list li a {
+  display: block; padding: 0.55rem 0;
+  font-size: 0.88rem; font-weight: 400; color: var(--ink);
+  text-decoration: none; border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  line-height: 1.45;
+}
+.article-list li a:hover { color: var(--gold); border-color: var(--gold2); }
+
+footer {
+  padding: 2rem var(--pad); background: var(--charcoal); color: var(--light);
+  font-size: 0.72rem; letter-spacing: 0.1em; text-align: center;
+}
+footer a { color: var(--light); text-decoration: none; }
+
+@media (min-width: 768px) {
+  :root { --pad: 2.5rem; }
+}
+@media (min-width: 1024px) {
+  :root { --pad: 4rem; }
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
+  .page-header { padding: 10rem var(--pad) 4rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-wordmark">
+    <span class="nav-wordmark-name">Christopher Murray</span>
+    <span class="nav-wordmark-sub">Precision Hypnosis</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#services">Services</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#process">Method</a></li>
+    <li><a href="../index.html#pricing">Investment</a></li>
+    <li><a href="index.html" class="active">Articles</a></li>
+    <li><a href="../client-portal.html">Client Portal</a></li>
+    <li><a href="../index.html#contact" class="nav-book">Book a Call</a></li>
+  </ul>
+  <button class="hamburger" id="menuBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose">&#x2715;</button>
+  <a href="../index.html#services">Services</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#process">Method</a>
+  <a href="../index.html#pricing">Investment</a>
+  <a href="index.html">Articles</a>
+  <a href="../client-portal.html">Client Portal</a>
+  <a href="../index.html#contact" style="color:var(--gold2)">Book a Call</a>
+</div>
+
+<header class="page-header">
+  <p class="page-count">103 articles</p>
+  <h1>Reading before you<br><em>decide anything</em> is smart.</h1>
+  <p>Everything here is written by Christopher Murray. No guest posts, no SEO filler. If you have a question that isn't answered, get in touch.</p>
+</header>
+
+<main class="articles-body">
+  <section class="cat-block">
+    <h2>Online Hypnotherapy by City</h2>
+    <p class="cat-desc">Working online means geography is no barrier. These pages cover what working with Christopher looks like from wherever you are.</p>
+    <ul class="article-list">
+        <li><a href="online-hypnotherapy-london.html">Online Hypnotherapy in London</a></li>
+        <li><a href="online-hypnotherapy-new-york.html">Online Hypnotherapy in New York</a></li>
+        <li><a href="online-hypnotherapy-singapore.html">Online Hypnotherapy in Singapore</a></li>
+        <li><a href="online-hypnotherapy-hong-kong.html">Online Hypnotherapy in Hong Kong</a></li>
+        <li><a href="online-hypnotherapy-dubai.html">Online Hypnotherapy in Dubai</a></li>
+        <li><a href="online-hypnotherapy-sydney.html">Online Hypnotherapy in Sydney</a></li>
+        <li><a href="online-hypnotherapy-los-angeles.html">Online Hypnotherapy in Los Angeles</a></li>
+        <li><a href="online-hypnotherapy-paris.html">Online Hypnotherapy in Paris</a></li>
+        <li><a href="online-hypnotherapy-zurich.html">Online Hypnotherapy in Zurich</a></li>
+        <li><a href="online-hypnotherapy-geneva.html">Online Hypnotherapy in Geneva</a></li>
+        <li><a href="online-hypnotherapy-monaco.html">Online Hypnotherapy in Monaco</a></li>
+        <li><a href="online-hypnotherapy-nice.html">Online Hypnotherapy in Nice</a></li>
+        <li><a href="online-hypnotherapy-cannes.html">Online Hypnotherapy in Cannes</a></li>
+        <li><a href="online-hypnotherapy-marbella.html">Online Hypnotherapy in Marbella</a></li>
+        <li><a href="online-hypnotherapy-lugano.html">Online Hypnotherapy in Lugano</a></li>
+        <li><a href="online-hypnotherapy-andorra.html">Online Hypnotherapy in Andorra</a></li>
+        <li><a href="online-hypnotherapy-vienna.html">Online Hypnotherapy in Vienna</a></li>
+        <li><a href="online-hypnotherapy-luxembourg.html">Online Hypnotherapy in Luxembourg</a></li>
+        <li><a href="online-hypnotherapy-dublin.html">Online Hypnotherapy in Dublin</a></li>
+        <li><a href="online-hypnotherapy-edinburgh.html">Online Hypnotherapy in Edinburgh</a></li>
+        <li><a href="online-hypnotherapy-abu-dhabi.html">Online Hypnotherapy in Abu Dhabi</a></li>
+        <li><a href="online-hypnotherapy-doha.html">Online Hypnotherapy in Doha</a></li>
+        <li><a href="online-hypnotherapy-bahrain.html">Online Hypnotherapy in Bahrain</a></li>
+        <li><a href="online-hypnotherapy-riyadh.html">Online Hypnotherapy in Riyadh</a></li>
+        <li><a href="online-hypnotherapy-tokyo.html">Online Hypnotherapy in Tokyo</a></li>
+        <li><a href="online-hypnotherapy-kuala-lumpur.html">Online Hypnotherapy in Kuala Lumpur</a></li>
+        <li><a href="online-hypnotherapy-bangkok.html">Online Hypnotherapy in Bangkok</a></li>
+        <li><a href="online-hypnotherapy-bali.html">Online Hypnotherapy in Bali</a></li>
+        <li><a href="online-hypnotherapy-melbourne.html">Online Hypnotherapy in Melbourne</a></li>
+        <li><a href="online-hypnotherapy-auckland.html">Online Hypnotherapy in Auckland</a></li>
+        <li><a href="online-hypnotherapy-san-francisco.html">Online Hypnotherapy in San Francisco</a></li>
+        <li><a href="online-hypnotherapy-miami.html">Online Hypnotherapy in Miami</a></li>
+        <li><a href="online-hypnotherapy-toronto.html">Online Hypnotherapy in Toronto</a></li>
+        <li><a href="online-hypnotherapy-vancouver.html">Online Hypnotherapy in Vancouver</a></li>
+        <li><a href="online-hypnotherapy-boston.html">Online Hypnotherapy in Boston</a></li>
+        <li><a href="online-hypnotherapy-colombo.html">Online Hypnotherapy in Colombo</a></li>
+        <li><a href="online-hypnotherapy-cayman-islands.html">Online Hypnotherapy in the Cayman Islands</a></li>
+        <li><a href="online-hypnotherapy-jersey.html">Online Hypnotherapy in Jersey</a></li>
+        <li><a href="online-hypnotherapy-bermuda.html">Online Hypnotherapy in Bermuda</a></li>
+        <li><a href="online-hypnotherapy-barbados.html">Online Hypnotherapy in Barbados</a></li>
+        <li><a href="online-hypnotherapy-nassau.html">Online Hypnotherapy in Nassau</a></li>
+    </ul>
+  </section>
+
+  <section class="cat-block">
+    <h2>Conditions and Presenting Issues</h2>
+    <p class="cat-desc">Most people come with something specific. These articles cover the most common presenting issues and how cognitive hypnotherapy approaches each one.</p>
+    <ul class="article-list">
+        <li><a href="hypnotherapy-for-anxiety.html">Hypnotherapy for Anxiety</a></li>
+        <li><a href="hypnotherapy-for-social-anxiety.html">Hypnotherapy for Social Anxiety</a></li>
+        <li><a href="hypnotherapy-for-health-anxiety.html">Hypnotherapy for Health Anxiety</a></li>
+        <li><a href="hypnotherapy-for-panic-attacks.html">Hypnotherapy for Panic Attacks</a></li>
+        <li><a href="hypnotherapy-for-confidence.html">Hypnotherapy for Low Confidence</a></li>
+        <li><a href="hypnotherapy-for-public-speaking.html">Hypnotherapy for Public Speaking Anxiety</a></li>
+        <li><a href="hypnotherapy-for-imposter-syndrome.html">Hypnotherapy for Imposter Syndrome</a></li>
+        <li><a href="hypnotherapy-for-phobias.html">Hypnotherapy for Phobias</a></li>
+        <li><a href="hypnotherapy-for-fear-of-flying.html">Hypnotherapy for Fear of Flying</a></li>
+        <li><a href="hypnotherapy-for-needle-phobia.html">Hypnotherapy for Needle Phobia</a></li>
+        <li><a href="hypnotherapy-for-claustrophobia.html">Hypnotherapy for Claustrophobia</a></li>
+        <li><a href="hypnotherapy-for-sleep.html">Hypnotherapy for Sleep Problems</a></li>
+        <li><a href="hypnotherapy-for-insomnia.html">Hypnotherapy for Insomnia</a></li>
+        <li><a href="hypnotherapy-to-stop-smoking.html">Hypnotherapy to Stop Smoking</a></li>
+        <li><a href="hypnotherapy-for-binge-eating.html">Hypnotherapy for Binge Eating</a></li>
+        <li><a href="hypnotherapy-for-alcohol.html">Hypnotherapy for Alcohol Reduction</a></li>
+        <li><a href="hypnotherapy-for-performance-anxiety.html">Hypnotherapy for Performance Anxiety</a></li>
+        <li><a href="hypnotherapy-for-athletes.html">Hypnotherapy for Athletes</a></li>
+        <li><a href="hypnotherapy-for-exam-nerves.html">Hypnotherapy for Exam Nerves</a></li>
+        <li><a href="hypnotherapy-for-relationship-patterns.html">Hypnotherapy for Relationship Patterns</a></li>
+        <li><a href="hypnotherapy-for-attachment-anxiety.html">Hypnotherapy for Attachment Anxiety</a></li>
+        <li><a href="hypnotherapy-for-life-transitions.html">Hypnotherapy for Life Transitions</a></li>
+        <li><a href="hypnotherapy-for-career-change.html">Hypnotherapy for Career Change</a></li>
+        <li><a href="hypnotherapy-for-grief.html">Hypnotherapy for Grief and Loss</a></li>
+        <li><a href="hypnotherapy-for-adhd.html">Hypnotherapy for ADHD and Focus</a></li>
+        <li><a href="hypnotherapy-for-burnout.html">Hypnotherapy for Burnout</a></li>
+    </ul>
+  </section>
+
+  <section class="cat-block">
+    <h2>For High Performers and Executives</h2>
+    <p class="cat-desc">The people I work with most are already functioning at a high level. Something specific isn't working the way it should. These articles are for them.</p>
+    <ul class="article-list">
+        <li><a href="hypnotherapy-for-executives.html">Hypnotherapy for Executives</a></li>
+        <li><a href="hypnotherapy-for-high-performers.html">Hypnotherapy for High Performers</a></li>
+        <li><a href="hypnotherapy-for-entrepreneurs.html">Hypnotherapy for Entrepreneurs</a></li>
+        <li><a href="hypnotherapy-for-executive-burnout.html">Hypnotherapy for Burnout Recovery in Leaders</a></li>
+        <li><a href="hypnotherapy-for-presentation-confidence.html">Hypnotherapy for Presentation Confidence</a></li>
+        <li><a href="hypnotherapy-for-decision-fatigue.html">Hypnotherapy for Decision Fatigue</a></li>
+        <li><a href="hypnotherapy-for-creative-blocks.html">Hypnotherapy for Creative Blocks</a></li>
+        <li><a href="hypnotherapy-for-expats.html">Hypnotherapy for Expats</a></li>
+        <li><a href="hypnotherapy-for-sports-performance.html">Hypnotherapy for Sports Performance</a></li>
+        <li><a href="hypnotherapy-for-fear-of-failure.html">Hypnotherapy for Fear of Failure</a></li>
+        <li><a href="hypnotherapy-for-procrastination.html">Hypnotherapy for Procrastination</a></li>
+        <li><a href="hypnotherapy-for-work-life-balance.html">Hypnotherapy for Work-Life Balance</a></li>
+    </ul>
+  </section>
+
+  <section class="cat-block">
+    <h2>How Hypnotherapy Works</h2>
+    <p class="cat-desc">The science, the process, the common questions. If you want to understand what's actually happening before you commit to anything, start here.</p>
+    <ul class="article-list">
+        <li><a href="what-is-hypnosis.html">What Is Hypnosis? The Science Behind the State</a></li>
+        <li><a href="what-is-cognitive-hypnotherapy.html">What Is Cognitive Hypnotherapy?</a></li>
+        <li><a href="is-hypnotherapy-evidence-based.html">Is Hypnotherapy Evidence-Based?</a></li>
+        <li><a href="what-is-nlp.html">What Is NLP and How Does It Work?</a></li>
+        <li><a href="hypnosis-vs-meditation.html">Hypnosis vs Meditation: What Is the Difference?</a></li>
+        <li><a href="the-unconscious-mind.html">The Unconscious Mind: Why Thinking Isn't Enough</a></li>
+        <li><a href="can-you-be-hypnotised.html">Can You Be Hypnotised?</a></li>
+        <li><a href="hypnotherapy-vs-cbt.html">Hypnotherapy vs CBT: Which Is Right for You?</a></li>
+        <li><a href="hypnotherapy-vs-counselling.html">Hypnotherapy vs Counselling: What Is the Difference?</a></li>
+        <li><a href="hypnosis-myths.html">Common Myths About Hypnosis, Debunked</a></li>
+        <li><a href="self-hypnosis.html">Self-Hypnosis: What It Is and Whether It Works</a></li>
+        <li><a href="how-online-hypnotherapy-works.html">How Online Hypnotherapy Works</a></li>
+    </ul>
+  </section>
+
+  <section class="cat-block">
+    <h2>What to Expect</h2>
+    <p class="cat-desc">Practical guides for people who are seriously considering working with a hypnotherapist and want to know what they're getting into.</p>
+    <ul class="article-list">
+        <li><a href="first-hypnotherapy-session.html">Your First Hypnotherapy Session: What to Expect</a></li>
+        <li><a href="how-many-hypnotherapy-sessions.html">How Many Hypnotherapy Sessions Do You Need?</a></li>
+        <li><a href="what-happens-in-a-hypnotherapy-session.html">What Happens During a Hypnotherapy Session?</a></li>
+        <li><a href="how-to-prepare-for-hypnotherapy.html">How to Prepare for a Hypnotherapy Session</a></li>
+        <li><a href="between-hypnotherapy-sessions.html">What to Do Between Hypnotherapy Sessions</a></li>
+        <li><a href="online-vs-in-person-hypnotherapy.html">Online Hypnotherapy vs In-Person: Which Is Better?</a></li>
+        <li><a href="find-hypnotherapist-online.html">How to Find a Hypnotherapist Online</a></li>
+        <li><a href="questions-to-ask-hypnotherapist.html">Questions to Ask Before Booking a Hypnotherapist</a></li>
+        <li><a href="is-hypnotherapy-right-for-me.html">Is Hypnotherapy Right for Me?</a></li>
+        <li><a href="how-much-does-hypnotherapy-cost.html">How Much Does Hypnotherapy Cost?</a></li>
+        <li><a href="is-hypnotherapy-safe.html">Is Hypnotherapy Safe?</a></li>
+        <li><a href="hypnotherapy-for-sceptics.html">Hypnotherapy for Sceptics: What the Research Says</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Christopher Murray | Precision Hypnosis &middot; <a href="../index.html">Home</a> &middot; <a href="../index.html#contact">Book a Call</a></p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const menuClose = document.getElementById('menuClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuBackdrop = document.getElementById('menuBackdrop');
+function openMenu() { mobileMenu.classList.add('open'); menuBackdrop.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMenu() { mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open'); document.body.style.overflow = ''; }
+menuBtn.addEventListener('click', openMenu);
+menuClose.addEventListener('click', closeMenu);
+menuBackdrop.addEventListener('click', closeMenu);
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+</script>
+</body>
+</html>
