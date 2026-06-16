@@ -446,66 +446,13 @@ footer { background: var(--charcoal); border-top: 1px solid #3e3e3e; padding: 2.
   footer { padding: 2.5rem var(--pad); }
 }
 
-/* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.4rem var(--pad);
-  background: rgba(247,245,242,0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(204,199,190,0.4);
-}
-.nav-wordmark {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  text-decoration: none;
-}
-
-.nav-links { display: none; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  font-size: 0.6rem;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--mid);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--ink); }
-.nav-book {
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: var(--smoke) !important;
-  background: var(--ink);
-  padding: 0.6rem 1.2rem;
-  text-decoration: none;
-  transition: background 0.25s;
-}
-.nav-book:hover { background: var(--gold) !important; }
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 4px;
-}
-.hamburger span { display: block; width: 22px; height: 1px; background: var(--ink); }
 </style>
 </head>
 <body>
 
 <nav id="nav">
   <div class="nav-wordmark">
-    <span class="nav-wordmark-name">Chris Murray</span>
+    <span class="nav-wordmark-name">Christopher Murray</span>
     <span class="nav-wordmark-sub">Precision Hypnosis</span>
   </div>
   <ul class="nav-links">
@@ -513,6 +460,7 @@ nav {
     <li><a href="#about">About</a></li>
     <li><a href="#process">Method</a></li>
     <li><a href="#pricing">Investment</a></li>
+    <li><a href="articles/hypnotherapy-for-anxiety.html">Articles</a></li>
     <li><a href="client-portal.html">Client Portal</a></li>
     <li><a href="#contact" class="nav-book">Book a Call</a></li>
   </ul>
@@ -529,6 +477,7 @@ nav {
   <a href="#process" class="menu-link">Method</a>
   <a href="#testimonials" class="menu-link">Results</a>
   <a href="#pricing" class="menu-link">Investment</a>
+  <a href="articles/hypnotherapy-for-anxiety.html" class="menu-link">Articles</a>
   <a href="client-portal.html" class="menu-link">Client Portal</a>
   <a href="#contact" class="menu-link" style="color:var(--gold2)">Book a Call</a>
 </div>
