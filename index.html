@@ -246,6 +246,56 @@ nav {
 }
 .btn-ghost:hover { color: var(--ink); }
 
+
+/* ARTICLES TEASER */
+.articles-teaser {
+  padding: 7rem var(--pad);
+  background: var(--warm);
+}
+.articles-teaser-label {
+  font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+}
+.articles-teaser-heading {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.2;
+  letter-spacing: -0.02em; margin-bottom: 2.5rem; color: var(--ink);
+}
+.articles-teaser-heading em { font-style: italic; color: var(--gold2); }
+.articles-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.teaser-card {
+  display: flex; flex-direction: column; gap: 0.5rem;
+  padding: 1.6rem 1.4rem;
+  background: var(--smoke); text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.teaser-card:hover { border-color: var(--gold2); transform: translateY(-2px); }
+.teaser-cat {
+  font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; font-family: 'Raleway', sans-serif;
+}
+.teaser-title {
+  font-family: 'Playfair Display', serif; font-size: 1rem;
+  color: var(--ink); line-height: 1.4;
+}
+.teaser-count {
+  font-size: 0.72rem; color: var(--mid); margin-top: auto; padding-top: 0.5rem;
+}
+.teaser-all {
+  display: inline-block;
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none; font-weight: 600;
+  border-bottom: 1px solid var(--ink); padding-bottom: 0.2rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.teaser-all:hover { color: var(--gold); border-color: var(--gold); }
+
 /* STRIP - charcoal */
 .strip { background: var(--charcoal); display: grid; grid-template-columns: 1fr; align-items: start; }
 .strip-item { padding: 2.2rem var(--pad); border-bottom: 1px solid #3e3e3e; display: flex; flex-direction: column; justify-content: center; }
@@ -766,6 +816,36 @@ footer { background: var(--charcoal); border-top: 1px solid #3e3e3e; padding: 2.
   </div>
 </section>
 
+
+<!-- ARTICLES -->
+<section class="articles-teaser" id="articles">
+  <p class="articles-teaser-label reveal">From the Blog</p>
+  <h2 class="articles-teaser-heading reveal">103 articles on hypnotherapy,<br><em>written by Christopher Murray.</em></h2>
+  <div class="articles-teaser-grid reveal">
+    <a href="articles/index.html#conditions" class="teaser-card">
+      <span class="teaser-cat">Conditions</span>
+      <span class="teaser-title">Anxiety, confidence, phobias, sleep, burnout and more</span>
+      <span class="teaser-count">26 articles</span>
+    </a>
+    <a href="articles/index.html#high-performers" class="teaser-card">
+      <span class="teaser-cat">High Performers</span>
+      <span class="teaser-title">For executives, entrepreneurs and athletes</span>
+      <span class="teaser-count">12 articles</span>
+    </a>
+    <a href="articles/index.html#how-it-works" class="teaser-card">
+      <span class="teaser-cat">How It Works</span>
+      <span class="teaser-title">The science, the process, the common questions</span>
+      <span class="teaser-count">12 articles</span>
+    </a>
+    <a href="articles/index.html#what-to-expect" class="teaser-card">
+      <span class="teaser-cat">What to Expect</span>
+      <span class="teaser-title">Practical guides before you book anything</span>
+      <span class="teaser-count">12 articles</span>
+    </a>
+  </div>
+  <a href="articles/index.html" class="teaser-all reveal">Browse all articles &nbsp;&rarr;</a>
+</section>
+
 <!-- CTA -->
 <section class="cta" id="contact">
   <div class="cta-watermark">Precision</div>
@@ -822,7 +902,7 @@ footer { background: var(--charcoal); border-top: 1px solid #3e3e3e; padding: 2.
   <img src="nch-logow.png" alt="Certified Registered NCH Member" style="height:50px; width:auto; opacity:0.6;">
 </div>
 <footer>
-  <div class="footer-mark">Chris Murray | Precision Hypnosis</div>
+  <div class="footer-mark">Christopher Murray | Precision Hypnosis</div>
   <ul class="footer-links">
       <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
@@ -842,7 +922,7 @@ footer { background: var(--charcoal); border-top: 1px solid #3e3e3e; padding: 2.
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     </a>
   </div>
-  <p class="footer-copy">&copy; 2025 Chris Murray | Precision Hypnosis. All rights reserved.</p>
+  <p class="footer-copy">&copy; 2025 Christopher Murray | Precision Hypnosis. All rights reserved.</p>
 </footer>
 
 <script>
