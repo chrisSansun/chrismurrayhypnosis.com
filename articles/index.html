@@ -52,51 +52,86 @@ nav {
 .mobile-menu a:hover { color: var(--gold2); }
 .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; color: var(--light); font-size: 1.4rem; cursor: pointer; padding: 0.4rem; line-height: 1; }
 
+/* PAGE HEADER */
 .page-header {
-  padding: 9rem var(--pad) 3.5rem;
+  padding: 9rem var(--pad) 4rem;
   background: var(--charcoal); color: var(--smoke);
+}
+.page-header-inner { max-width: 1100px; margin: 0 auto; }
+.page-count {
+  font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem; display: block;
 }
 .page-header h1 {
   font-family: 'Playfair Display', serif; font-weight: 400;
   font-size: clamp(2rem, 6vw, 3.8rem); line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.02em; margin-bottom: 1.2rem;
 }
 .page-header h1 em { font-style: italic; color: var(--gold2); }
-.page-count {
-  font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.2rem; display: block;
+.page-header p {
+  font-size: 0.9rem; color: var(--light); line-height: 1.7; max-width: 520px;
 }
 
+/* CATEGORY CARDS */
+.cat-grid-wrap { background: var(--charcoal); border-top: 1px solid rgba(255,255,255,0.07); }
+.cat-grid { max-width: 1100px; margin: 0 auto; padding: 0 var(--pad) 4rem;
+  display: grid; grid-template-columns: 1fr; gap: 1px; }
+.cat-card {
+  display: block; text-decoration: none; color: inherit;
+  padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: background 0.2s;
+}
+.cat-card:last-child { border-bottom: none; }
+.cat-card:hover .cat-card-title { color: var(--gold2); }
+.cat-card-count {
+  font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.6rem;
+}
+.cat-card-title {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--smoke);
+  margin-bottom: 0.5rem; transition: color 0.2s;
+}
+.cat-card-desc { font-size: 0.85rem; color: var(--light); line-height: 1.65; max-width: 600px; }
+.cat-card-arrow { display: inline-block; margin-top: 0.9rem; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+
+/* ARTICLE LISTS */
 .articles-body { max-width: 1100px; margin: 0 auto; padding: 4rem var(--pad) 6rem; }
 
-.cat-block { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--warm); }
+.cat-block { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--warm); scroll-margin-top: 6rem; }
 .cat-block:last-child { border-bottom: none; margin-bottom: 0; }
-.cat-header {
-  display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem;
-  flex-wrap: wrap;
+.cat-block-header {
+  display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.8rem; flex-wrap: wrap;
+  padding-bottom: 1rem; border-bottom: 1px solid var(--warm);
 }
-.cat-header h2 {
+.cat-block-header h2 {
   font-family: 'Playfair Display', serif; font-weight: 400;
-  font-size: clamp(1.4rem, 3vw, 1.9rem); letter-spacing: -0.01em;
+  font-size: clamp(1.3rem, 3vw, 1.8rem); letter-spacing: -0.01em;
 }
-.cat-count {
-  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); font-family: 'Raleway', sans-serif; font-weight: 600;
+.cat-block-count {
+  font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600;
 }
 
 .article-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.3rem 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0;
 }
+.article-list li { border-bottom: 1px solid var(--warm); }
 .article-list li a {
-  display: block; padding: 0.5rem 0;
+  display: block; padding: 0.75rem 0;
   font-size: 0.88rem; font-weight: 400; color: var(--ink);
-  text-decoration: none; border-bottom: 1px solid transparent;
-  transition: color 0.15s, border-color 0.15s; line-height: 1.45;
+  text-decoration: none; line-height: 1.45;
+  transition: color 0.15s;
 }
-.article-list li a:hover { color: var(--gold); border-color: var(--gold2); }
+.article-list li a:hover { color: var(--gold); }
+.article-list li a::before {
+  content: ''; display: inline-block; width: 4px; height: 4px;
+  background: var(--gold2); border-radius: 50%;
+  margin-right: 0.6rem; vertical-align: middle; opacity: 0.6;
+}
 
 footer {
   padding: 2rem var(--pad); background: var(--charcoal); color: var(--light);
@@ -104,12 +139,16 @@ footer {
 }
 footer a { color: var(--light); text-decoration: none; }
 
-@media (min-width: 768px) { :root { --pad: 2.5rem; } }
+@media (min-width: 768px) {
+  :root { --pad: 2.5rem; }
+  .cat-grid { grid-template-columns: 1fr 1fr; }
+}
 @media (min-width: 1024px) {
   :root { --pad: 4rem; }
   .nav-links { display: flex; }
   .hamburger { display: none; }
   .page-header { padding: 10rem var(--pad) 4rem; }
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
 </head>
@@ -124,9 +163,7 @@ footer a { color: var(--light); text-decoration: none; }
     <li><a href="../index.html#services">Services</a></li>
     <li><a href="../index.html#about">About</a></li>
     <li><a href="../index.html#process">Method</a></li>
-    <li><a href="../index.html#pricing">Investment</a></li>
     <li><a href="index.html" class="active">Articles</a></li>
-    <li><a href="../client-portal.html">Client Portal</a></li>
     <li><a href="../index.html#contact" class="nav-book">Book a Call</a></li>
   </ul>
   <button class="hamburger" id="menuBtn" aria-label="Open menu">
@@ -140,165 +177,203 @@ footer a { color: var(--light); text-decoration: none; }
   <a href="../index.html#services">Services</a>
   <a href="../index.html#about">About</a>
   <a href="../index.html#process">Method</a>
-  <a href="../index.html#pricing">Investment</a>
   <a href="index.html">Articles</a>
-  <a href="../client-portal.html">Client Portal</a>
   <a href="../index.html#contact" style="color:var(--gold2)">Book a Call</a>
 </div>
 
 <header class="page-header">
-  <span class="page-count">103 articles</span>
-  <h1>Reading before you<br><em>decide anything</em> is smart.</h1>
+  <div class="page-header-inner">
+    <span class="page-count">103 articles</span>
+    <h1>Reading before you<br><em>decide anything</em> is smart.</h1>
+    <p>Evidence-based guides on hypnotherapy, anxiety, performance, and the unconscious mind. Written by Christopher Murray.</p>
+  </div>
 </header>
 
+<div class="cat-grid-wrap">
+  <div class="cat-grid">
+    <a href="#conditions" class="cat-card">
+      <span class="cat-card-count">26 articles</span>
+      <p class="cat-card-title">Conditions &amp; Presenting Issues</p>
+      <p class="cat-card-desc">Anxiety, phobias, sleep, confidence, grief, ADHD, alcohol, smoking and more.</p>
+      <span class="cat-card-arrow">Browse &rarr;</span>
+    </a>
+    <a href="#high-performers" class="cat-card">
+      <span class="cat-card-count">12 articles</span>
+      <p class="cat-card-title">High Performers &amp; Executives</p>
+      <p class="cat-card-desc">Burnout, decision fatigue, imposter syndrome, procrastination, creative blocks.</p>
+      <span class="cat-card-arrow">Browse &rarr;</span>
+    </a>
+    <a href="#how-it-works" class="cat-card">
+      <span class="cat-card-count">14 articles</span>
+      <p class="cat-card-title">How Hypnotherapy Works</p>
+      <p class="cat-card-desc">What hypnosis actually is, the evidence base, how it differs from CBT and meditation.</p>
+      <span class="cat-card-arrow">Browse &rarr;</span>
+    </a>
+    <a href="#what-to-expect" class="cat-card">
+      <span class="cat-card-count">10 articles</span>
+      <p class="cat-card-title">What to Expect</p>
+      <p class="cat-card-desc">Your first session, cost, how to prepare, what happens in the room, and how long it takes.</p>
+      <span class="cat-card-arrow">Browse &rarr;</span>
+    </a>
+    <a href="#locations" class="cat-card">
+      <span class="cat-card-count">41 articles</span>
+      <p class="cat-card-title">Online Hypnotherapy by Location</p>
+      <p class="cat-card-desc">Working online worldwide. City-specific guides for London, Dubai, Singapore, New York and more.</p>
+      <span class="cat-card-arrow">Browse &rarr;</span>
+    </a>
+  </div>
+</div>
+
 <main class="articles-body">
-  <section class="cat-block">
-    <div class="cat-header">
-      <h2>Conditions and Presenting Issues</h2>
-      <span class="cat-count">26 articles</span>
+
+  <section class="cat-block" id="conditions">
+    <div class="cat-block-header">
+      <h2>Conditions &amp; Presenting Issues</h2>
+      <span class="cat-block-count">26 articles</span>
     </div>
     <ul class="article-list">
-        <li><a href="hypnotherapy-for-anxiety.html">Hypnotherapy for Anxiety</a></li>
-        <li><a href="hypnotherapy-for-social-anxiety.html">Hypnotherapy for Social Anxiety</a></li>
-        <li><a href="hypnotherapy-for-health-anxiety.html">Hypnotherapy for Health Anxiety</a></li>
-        <li><a href="hypnotherapy-for-panic-attacks.html">Hypnotherapy for Panic Attacks</a></li>
-        <li><a href="hypnotherapy-for-confidence.html">Hypnotherapy for Low Confidence</a></li>
-        <li><a href="hypnotherapy-for-public-speaking.html">Hypnotherapy for Public Speaking Anxiety</a></li>
-        <li><a href="hypnotherapy-for-imposter-syndrome.html">Hypnotherapy for Imposter Syndrome</a></li>
-        <li><a href="hypnotherapy-for-phobias.html">Hypnotherapy for Phobias</a></li>
-        <li><a href="hypnotherapy-for-fear-of-flying.html">Hypnotherapy for Fear of Flying</a></li>
-        <li><a href="hypnotherapy-for-needle-phobia.html">Hypnotherapy for Needle Phobia</a></li>
-        <li><a href="hypnotherapy-for-claustrophobia.html">Hypnotherapy for Claustrophobia</a></li>
-        <li><a href="hypnotherapy-for-sleep.html">Hypnotherapy for Sleep Problems</a></li>
-        <li><a href="hypnotherapy-for-insomnia.html">Hypnotherapy for Insomnia</a></li>
-        <li><a href="hypnotherapy-to-stop-smoking.html">Hypnotherapy to Stop Smoking</a></li>
-        <li><a href="hypnotherapy-for-binge-eating.html">Hypnotherapy for Binge Eating</a></li>
-        <li><a href="hypnotherapy-for-alcohol.html">Hypnotherapy for Alcohol Reduction</a></li>
-        <li><a href="hypnotherapy-for-performance-anxiety.html">Hypnotherapy for Performance Anxiety</a></li>
-        <li><a href="hypnotherapy-for-athletes.html">Hypnotherapy for Athletes</a></li>
-        <li><a href="hypnotherapy-for-exam-nerves.html">Hypnotherapy for Exam Nerves</a></li>
-        <li><a href="hypnotherapy-for-relationship-patterns.html">Hypnotherapy for Relationship Patterns</a></li>
-        <li><a href="hypnotherapy-for-attachment-anxiety.html">Hypnotherapy for Attachment Anxiety</a></li>
-        <li><a href="hypnotherapy-for-life-transitions.html">Hypnotherapy for Life Transitions</a></li>
-        <li><a href="hypnotherapy-for-career-change.html">Hypnotherapy for Career Change</a></li>
-        <li><a href="hypnotherapy-for-grief.html">Hypnotherapy for Grief and Loss</a></li>
-        <li><a href="hypnotherapy-for-adhd.html">Hypnotherapy for ADHD and Focus</a></li>
-        <li><a href="hypnotherapy-for-burnout.html">Hypnotherapy for Burnout</a></li>
+      <li><a href="hypnotherapy-for-anxiety.html">Hypnotherapy for Anxiety</a></li>
+      <li><a href="hypnotherapy-for-social-anxiety.html">Hypnotherapy for Social Anxiety</a></li>
+      <li><a href="hypnotherapy-for-health-anxiety.html">Hypnotherapy for Health Anxiety</a></li>
+      <li><a href="hypnotherapy-for-panic-attacks.html">Hypnotherapy for Panic Attacks</a></li>
+      <li><a href="hypnotherapy-for-confidence.html">Hypnotherapy for Low Confidence</a></li>
+      <li><a href="hypnotherapy-for-public-speaking.html">Hypnotherapy for Public Speaking Anxiety</a></li>
+      <li><a href="hypnotherapy-for-imposter-syndrome.html">Hypnotherapy for Imposter Syndrome</a></li>
+      <li><a href="hypnotherapy-for-phobias.html">Hypnotherapy for Phobias</a></li>
+      <li><a href="hypnotherapy-for-fear-of-flying.html">Hypnotherapy for Fear of Flying</a></li>
+      <li><a href="hypnotherapy-for-needle-phobia.html">Hypnotherapy for Needle Phobia</a></li>
+      <li><a href="hypnotherapy-for-claustrophobia.html">Hypnotherapy for Claustrophobia</a></li>
+      <li><a href="hypnotherapy-for-sleep.html">Hypnotherapy for Sleep Problems</a></li>
+      <li><a href="hypnotherapy-for-insomnia.html">Hypnotherapy for Insomnia</a></li>
+      <li><a href="hypnotherapy-to-stop-smoking.html">Hypnotherapy to Stop Smoking</a></li>
+      <li><a href="hypnotherapy-for-binge-eating.html">Hypnotherapy for Binge Eating</a></li>
+      <li><a href="hypnotherapy-for-alcohol.html">Hypnotherapy for Alcohol Reduction</a></li>
+      <li><a href="hypnotherapy-for-performance-anxiety.html">Hypnotherapy for Performance Anxiety</a></li>
+      <li><a href="hypnotherapy-for-athletes.html">Hypnotherapy for Athletes</a></li>
+      <li><a href="hypnotherapy-for-exam-nerves.html">Hypnotherapy for Exam Nerves</a></li>
+      <li><a href="hypnotherapy-for-relationship-patterns.html">Hypnotherapy for Relationship Patterns</a></li>
+      <li><a href="hypnotherapy-for-attachment-anxiety.html">Hypnotherapy for Attachment Anxiety</a></li>
+      <li><a href="hypnotherapy-for-life-transitions.html">Hypnotherapy for Life Transitions</a></li>
+      <li><a href="hypnotherapy-for-career-change.html">Hypnotherapy for Career Change</a></li>
+      <li><a href="hypnotherapy-for-grief.html">Hypnotherapy for Grief and Loss</a></li>
+      <li><a href="hypnotherapy-for-adhd.html">Hypnotherapy for ADHD and Focus</a></li>
+      <li><a href="hypnotherapy-for-burnout.html">Hypnotherapy for Burnout</a></li>
     </ul>
   </section>
 
-  <section class="cat-block">
-    <div class="cat-header">
-      <h2>For High Performers and Executives</h2>
-      <span class="cat-count">12 articles</span>
+  <section class="cat-block" id="high-performers">
+    <div class="cat-block-header">
+      <h2>High Performers &amp; Executives</h2>
+      <span class="cat-block-count">12 articles</span>
     </div>
     <ul class="article-list">
-        <li><a href="hypnotherapy-for-executives.html">Hypnotherapy for Executives</a></li>
-        <li><a href="hypnotherapy-for-high-performers.html">Hypnotherapy for High Performers</a></li>
-        <li><a href="hypnotherapy-for-entrepreneurs.html">Hypnotherapy for Entrepreneurs</a></li>
-        <li><a href="hypnotherapy-for-executive-burnout.html">Hypnotherapy for Burnout Recovery in Leaders</a></li>
-        <li><a href="hypnotherapy-for-presentation-confidence.html">Hypnotherapy for Presentation Confidence</a></li>
-        <li><a href="hypnotherapy-for-decision-fatigue.html">Hypnotherapy for Decision Fatigue</a></li>
-        <li><a href="hypnotherapy-for-creative-blocks.html">Hypnotherapy for Creative Blocks</a></li>
-        <li><a href="hypnotherapy-for-expats.html">Hypnotherapy for Expats</a></li>
-        <li><a href="hypnotherapy-for-sports-performance.html">Hypnotherapy for Sports Performance</a></li>
-        <li><a href="hypnotherapy-for-fear-of-failure.html">Hypnotherapy for Fear of Failure</a></li>
-        <li><a href="hypnotherapy-for-procrastination.html">Hypnotherapy for Procrastination</a></li>
-        <li><a href="hypnotherapy-for-work-life-balance.html">Hypnotherapy for Work-Life Balance</a></li>
+      <li><a href="hypnotherapy-for-executives.html">Hypnotherapy for Executives</a></li>
+      <li><a href="hypnotherapy-for-high-performers.html">Hypnotherapy for High Performers</a></li>
+      <li><a href="hypnotherapy-for-entrepreneurs.html">Hypnotherapy for Entrepreneurs</a></li>
+      <li><a href="hypnotherapy-for-executive-burnout.html">Hypnotherapy for Burnout Recovery in Leaders</a></li>
+      <li><a href="hypnotherapy-for-presentation-confidence.html">Hypnotherapy for Presentation Confidence</a></li>
+      <li><a href="hypnotherapy-for-decision-fatigue.html">Hypnotherapy for Decision Fatigue</a></li>
+      <li><a href="hypnotherapy-for-creative-blocks.html">Hypnotherapy for Creative Blocks</a></li>
+      <li><a href="hypnotherapy-for-expats.html">Hypnotherapy for Expats</a></li>
+      <li><a href="hypnotherapy-for-sports-performance.html">Hypnotherapy for Sports Performance</a></li>
+      <li><a href="hypnotherapy-for-fear-of-failure.html">Hypnotherapy for Fear of Failure</a></li>
+      <li><a href="hypnotherapy-for-procrastination.html">Hypnotherapy for Procrastination</a></li>
+      <li><a href="hypnotherapy-for-work-life-balance.html">Hypnotherapy for Work-Life Balance</a></li>
     </ul>
   </section>
 
-  <section class="cat-block">
-    <div class="cat-header">
+  <section class="cat-block" id="how-it-works">
+    <div class="cat-block-header">
       <h2>How Hypnotherapy Works</h2>
-      <span class="cat-count">12 articles</span>
+      <span class="cat-block-count">14 articles</span>
     </div>
     <ul class="article-list">
-        <li><a href="what-is-hypnosis.html">What Is Hypnosis? The Science Behind the State</a></li>
-        <li><a href="what-is-cognitive-hypnotherapy.html">What Is Cognitive Hypnotherapy?</a></li>
-        <li><a href="is-hypnotherapy-evidence-based.html">Is Hypnotherapy Evidence-Based?</a></li>
-        <li><a href="what-is-nlp.html">What Is NLP and How Does It Work?</a></li>
-        <li><a href="hypnosis-vs-meditation.html">Hypnosis vs Meditation: What Is the Difference?</a></li>
-        <li><a href="the-unconscious-mind.html">The Unconscious Mind: Why Thinking Isn't Enough</a></li>
-        <li><a href="can-you-be-hypnotised.html">Can You Be Hypnotised?</a></li>
-        <li><a href="hypnotherapy-vs-cbt.html">Hypnotherapy vs CBT: Which Is Right for You?</a></li>
-        <li><a href="hypnotherapy-vs-counselling.html">Hypnotherapy vs Counselling: What Is the Difference?</a></li>
-        <li><a href="hypnosis-myths.html">Common Myths About Hypnosis, Debunked</a></li>
-        <li><a href="self-hypnosis.html">Self-Hypnosis: What It Is and Whether It Works</a></li>
-        <li><a href="how-online-hypnotherapy-works.html">How Online Hypnotherapy Works</a></li>
+      <li><a href="what-is-hypnosis.html">What Is Hypnosis? The Science Behind the State</a></li>
+      <li><a href="what-is-cognitive-hypnotherapy.html">What Is Cognitive Hypnotherapy?</a></li>
+      <li><a href="is-hypnotherapy-evidence-based.html">Is Hypnotherapy Evidence-Based?</a></li>
+      <li><a href="what-is-nlp.html">What Is NLP and How Does It Work?</a></li>
+      <li><a href="hypnosis-vs-meditation.html">Hypnosis vs Meditation: What Is the Difference?</a></li>
+      <li><a href="the-unconscious-mind.html">The Unconscious Mind: Why Thinking Isn't Enough</a></li>
+      <li><a href="can-you-be-hypnotised.html">Can You Be Hypnotised?</a></li>
+      <li><a href="hypnotherapy-vs-cbt.html">Hypnotherapy vs CBT: Which Is Right for You?</a></li>
+      <li><a href="hypnotherapy-vs-counselling.html">Hypnotherapy vs Counselling: What Is the Difference?</a></li>
+      <li><a href="hypnosis-myths.html">Common Myths About Hypnosis, Debunked</a></li>
+      <li><a href="self-hypnosis.html">Self-Hypnosis: What It Is and Whether It Works</a></li>
+      <li><a href="how-online-hypnotherapy-works.html">How Online Hypnotherapy Works</a></li>
+      <li><a href="how-many-hypnotherapy-sessions.html">How Many Hypnotherapy Sessions Do You Need?</a></li>
+      <li><a href="what-happens-in-a-hypnotherapy-session.html">What Happens During a Hypnotherapy Session?</a></li>
     </ul>
   </section>
 
-  <section class="cat-block">
-    <div class="cat-header">
+  <section class="cat-block" id="what-to-expect">
+    <div class="cat-block-header">
       <h2>What to Expect</h2>
-      <span class="cat-count">12 articles</span>
+      <span class="cat-block-count">10 articles</span>
     </div>
     <ul class="article-list">
-        <li><a href="first-hypnotherapy-session.html">Your First Hypnotherapy Session: What to Expect</a></li>
-        <li><a href="how-many-hypnotherapy-sessions.html">How Many Hypnotherapy Sessions Do You Need?</a></li>
-        <li><a href="what-happens-in-a-hypnotherapy-session.html">What Happens During a Hypnotherapy Session?</a></li>
-        <li><a href="how-to-prepare-for-hypnotherapy.html">How to Prepare for a Hypnotherapy Session</a></li>
-        <li><a href="between-hypnotherapy-sessions.html">What to Do Between Hypnotherapy Sessions</a></li>
-        <li><a href="online-vs-in-person-hypnotherapy.html">Online Hypnotherapy vs In-Person: Which Is Better?</a></li>
-        <li><a href="find-hypnotherapist-online.html">How to Find a Hypnotherapist Online</a></li>
-        <li><a href="questions-to-ask-hypnotherapist.html">Questions to Ask Before Booking a Hypnotherapist</a></li>
-        <li><a href="is-hypnotherapy-right-for-me.html">Is Hypnotherapy Right for Me?</a></li>
-        <li><a href="how-much-does-hypnotherapy-cost.html">How Much Does Hypnotherapy Cost?</a></li>
-        <li><a href="is-hypnotherapy-safe.html">Is Hypnotherapy Safe?</a></li>
-        <li><a href="hypnotherapy-for-sceptics.html">Hypnotherapy for Sceptics: What the Research Says</a></li>
+      <li><a href="first-hypnotherapy-session.html">Your First Hypnotherapy Session: What to Expect</a></li>
+      <li><a href="how-to-prepare-for-hypnotherapy.html">How to Prepare for a Hypnotherapy Session</a></li>
+      <li><a href="between-hypnotherapy-sessions.html">What to Do Between Hypnotherapy Sessions</a></li>
+      <li><a href="online-vs-in-person-hypnotherapy.html">Online Hypnotherapy vs In-Person: Which Is Better?</a></li>
+      <li><a href="find-hypnotherapist-online.html">How to Find a Hypnotherapist Online</a></li>
+      <li><a href="questions-to-ask-hypnotherapist.html">Questions to Ask Before Booking a Hypnotherapist</a></li>
+      <li><a href="is-hypnotherapy-right-for-me.html">Is Hypnotherapy Right for Me?</a></li>
+      <li><a href="how-much-does-hypnotherapy-cost.html">How Much Does Hypnotherapy Cost?</a></li>
+      <li><a href="is-hypnotherapy-safe.html">Is Hypnotherapy Safe?</a></li>
+      <li><a href="hypnotherapy-for-sceptics.html">Hypnotherapy for Sceptics: What the Research Says</a></li>
     </ul>
   </section>
 
-  <section class="cat-block">
-    <div class="cat-header">
+  <section class="cat-block" id="locations">
+    <div class="cat-block-header">
       <h2>Online Hypnotherapy by Location</h2>
-      <span class="cat-count">41 articles</span>
+      <span class="cat-block-count">41 articles</span>
     </div>
     <ul class="article-list">
-        <li><a href="online-hypnotherapy-london.html">Online Hypnotherapy in London</a></li>
-        <li><a href="online-hypnotherapy-new-york.html">Online Hypnotherapy in New York</a></li>
-        <li><a href="online-hypnotherapy-singapore.html">Online Hypnotherapy in Singapore</a></li>
-        <li><a href="online-hypnotherapy-hong-kong.html">Online Hypnotherapy in Hong Kong</a></li>
-        <li><a href="online-hypnotherapy-dubai.html">Online Hypnotherapy in Dubai</a></li>
-        <li><a href="online-hypnotherapy-sydney.html">Online Hypnotherapy in Sydney</a></li>
-        <li><a href="online-hypnotherapy-los-angeles.html">Online Hypnotherapy in Los Angeles</a></li>
-        <li><a href="online-hypnotherapy-paris.html">Online Hypnotherapy in Paris</a></li>
-        <li><a href="online-hypnotherapy-zurich.html">Online Hypnotherapy in Zurich</a></li>
-        <li><a href="online-hypnotherapy-geneva.html">Online Hypnotherapy in Geneva</a></li>
-        <li><a href="online-hypnotherapy-monaco.html">Online Hypnotherapy in Monaco</a></li>
-        <li><a href="online-hypnotherapy-nice.html">Online Hypnotherapy in Nice</a></li>
-        <li><a href="online-hypnotherapy-cannes.html">Online Hypnotherapy in Cannes</a></li>
-        <li><a href="online-hypnotherapy-marbella.html">Online Hypnotherapy in Marbella</a></li>
-        <li><a href="online-hypnotherapy-lugano.html">Online Hypnotherapy in Lugano</a></li>
-        <li><a href="online-hypnotherapy-andorra.html">Online Hypnotherapy in Andorra</a></li>
-        <li><a href="online-hypnotherapy-vienna.html">Online Hypnotherapy in Vienna</a></li>
-        <li><a href="online-hypnotherapy-luxembourg.html">Online Hypnotherapy in Luxembourg</a></li>
-        <li><a href="online-hypnotherapy-dublin.html">Online Hypnotherapy in Dublin</a></li>
-        <li><a href="online-hypnotherapy-edinburgh.html">Online Hypnotherapy in Edinburgh</a></li>
-        <li><a href="online-hypnotherapy-abu-dhabi.html">Online Hypnotherapy in Abu Dhabi</a></li>
-        <li><a href="online-hypnotherapy-doha.html">Online Hypnotherapy in Doha</a></li>
-        <li><a href="online-hypnotherapy-bahrain.html">Online Hypnotherapy in Bahrain</a></li>
-        <li><a href="online-hypnotherapy-riyadh.html">Online Hypnotherapy in Riyadh</a></li>
-        <li><a href="online-hypnotherapy-tokyo.html">Online Hypnotherapy in Tokyo</a></li>
-        <li><a href="online-hypnotherapy-kuala-lumpur.html">Online Hypnotherapy in Kuala Lumpur</a></li>
-        <li><a href="online-hypnotherapy-bangkok.html">Online Hypnotherapy in Bangkok</a></li>
-        <li><a href="online-hypnotherapy-bali.html">Online Hypnotherapy in Bali</a></li>
-        <li><a href="online-hypnotherapy-melbourne.html">Online Hypnotherapy in Melbourne</a></li>
-        <li><a href="online-hypnotherapy-auckland.html">Online Hypnotherapy in Auckland</a></li>
-        <li><a href="online-hypnotherapy-san-francisco.html">Online Hypnotherapy in San Francisco</a></li>
-        <li><a href="online-hypnotherapy-miami.html">Online Hypnotherapy in Miami</a></li>
-        <li><a href="online-hypnotherapy-toronto.html">Online Hypnotherapy in Toronto</a></li>
-        <li><a href="online-hypnotherapy-vancouver.html">Online Hypnotherapy in Vancouver</a></li>
-        <li><a href="online-hypnotherapy-boston.html">Online Hypnotherapy in Boston</a></li>
-        <li><a href="online-hypnotherapy-colombo.html">Online Hypnotherapy in Colombo</a></li>
-        <li><a href="online-hypnotherapy-cayman-islands.html">Online Hypnotherapy in the Cayman Islands</a></li>
-        <li><a href="online-hypnotherapy-jersey.html">Online Hypnotherapy in Jersey</a></li>
-        <li><a href="online-hypnotherapy-bermuda.html">Online Hypnotherapy in Bermuda</a></li>
-        <li><a href="online-hypnotherapy-barbados.html">Online Hypnotherapy in Barbados</a></li>
-        <li><a href="online-hypnotherapy-nassau.html">Online Hypnotherapy in Nassau</a></li>
+      <li><a href="online-hypnotherapy-london.html">Online Hypnotherapy in London</a></li>
+      <li><a href="online-hypnotherapy-new-york.html">Online Hypnotherapy in New York</a></li>
+      <li><a href="online-hypnotherapy-singapore.html">Online Hypnotherapy in Singapore</a></li>
+      <li><a href="online-hypnotherapy-hong-kong.html">Online Hypnotherapy in Hong Kong</a></li>
+      <li><a href="online-hypnotherapy-dubai.html">Online Hypnotherapy in Dubai</a></li>
+      <li><a href="online-hypnotherapy-sydney.html">Online Hypnotherapy in Sydney</a></li>
+      <li><a href="online-hypnotherapy-los-angeles.html">Online Hypnotherapy in Los Angeles</a></li>
+      <li><a href="online-hypnotherapy-paris.html">Online Hypnotherapy in Paris</a></li>
+      <li><a href="online-hypnotherapy-zurich.html">Online Hypnotherapy in Zurich</a></li>
+      <li><a href="online-hypnotherapy-geneva.html">Online Hypnotherapy in Geneva</a></li>
+      <li><a href="online-hypnotherapy-monaco.html">Online Hypnotherapy in Monaco</a></li>
+      <li><a href="online-hypnotherapy-nice.html">Online Hypnotherapy in Nice</a></li>
+      <li><a href="online-hypnotherapy-cannes.html">Online Hypnotherapy in Cannes</a></li>
+      <li><a href="online-hypnotherapy-marbella.html">Online Hypnotherapy in Marbella</a></li>
+      <li><a href="online-hypnotherapy-lugano.html">Online Hypnotherapy in Lugano</a></li>
+      <li><a href="online-hypnotherapy-andorra.html">Online Hypnotherapy in Andorra</a></li>
+      <li><a href="online-hypnotherapy-vienna.html">Online Hypnotherapy in Vienna</a></li>
+      <li><a href="online-hypnotherapy-luxembourg.html">Online Hypnotherapy in Luxembourg</a></li>
+      <li><a href="online-hypnotherapy-dublin.html">Online Hypnotherapy in Dublin</a></li>
+      <li><a href="online-hypnotherapy-edinburgh.html">Online Hypnotherapy in Edinburgh</a></li>
+      <li><a href="online-hypnotherapy-abu-dhabi.html">Online Hypnotherapy in Abu Dhabi</a></li>
+      <li><a href="online-hypnotherapy-doha.html">Online Hypnotherapy in Doha</a></li>
+      <li><a href="online-hypnotherapy-bahrain.html">Online Hypnotherapy in Bahrain</a></li>
+      <li><a href="online-hypnotherapy-riyadh.html">Online Hypnotherapy in Riyadh</a></li>
+      <li><a href="online-hypnotherapy-tokyo.html">Online Hypnotherapy in Tokyo</a></li>
+      <li><a href="online-hypnotherapy-kuala-lumpur.html">Online Hypnotherapy in Kuala Lumpur</a></li>
+      <li><a href="online-hypnotherapy-bangkok.html">Online Hypnotherapy in Bangkok</a></li>
+      <li><a href="online-hypnotherapy-bali.html">Online Hypnotherapy in Bali</a></li>
+      <li><a href="online-hypnotherapy-melbourne.html">Online Hypnotherapy in Melbourne</a></li>
+      <li><a href="online-hypnotherapy-auckland.html">Online Hypnotherapy in Auckland</a></li>
+      <li><a href="online-hypnotherapy-san-francisco.html">Online Hypnotherapy in San Francisco</a></li>
+      <li><a href="online-hypnotherapy-miami.html">Online Hypnotherapy in Miami</a></li>
+      <li><a href="online-hypnotherapy-toronto.html">Online Hypnotherapy in Toronto</a></li>
+      <li><a href="online-hypnotherapy-vancouver.html">Online Hypnotherapy in Vancouver</a></li>
+      <li><a href="online-hypnotherapy-boston.html">Online Hypnotherapy in Boston</a></li>
+      <li><a href="online-hypnotherapy-colombo.html">Online Hypnotherapy in Colombo</a></li>
+      <li><a href="online-hypnotherapy-cayman-islands.html">Online Hypnotherapy in the Cayman Islands</a></li>
+      <li><a href="online-hypnotherapy-jersey.html">Online Hypnotherapy in Jersey</a></li>
+      <li><a href="online-hypnotherapy-bermuda.html">Online Hypnotherapy in Bermuda</a></li>
+      <li><a href="online-hypnotherapy-barbados.html">Online Hypnotherapy in Barbados</a></li>
+      <li><a href="online-hypnotherapy-nassau.html">Online Hypnotherapy in Nassau</a></li>
     </ul>
   </section>
+
 </main>
 
 <footer>
