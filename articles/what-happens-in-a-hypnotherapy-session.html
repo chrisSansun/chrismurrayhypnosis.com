@@ -4,87 +4,222 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What Happens During a Hypnotherapy Session? | Christopher Murray</title>
-<meta name="description" content="Discover what actually happens in a hypnotherapy session. Walk through the stages of cognitive hypnotherapy with Christopher Murray, a certified hypnotherapist.">
+<meta name="description" content="A detailed walkthrough of what to expect during a hypnotherapy session. From initial consultation through guided hypnosis to integration.">
 <link rel="canonical" href="https://www.chrismurrayhypnosis.com/articles/what-happens-in-a-hypnotherapy-session.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.chrismurrayhypnosis.com/articles/what-happens-in-a-hypnotherapy-session.html">
 <meta property="og:title" content="What Happens During a Hypnotherapy Session?">
-<meta property="og:description" content="Discover what actually happens in a hypnotherapy session. Walk through the stages of cognitive hypnotherapy with Christopher Murray.">
+<meta property="og:description" content="A detailed walkthrough of what to expect during a hypnotherapy session. From initial consultation through guided hypnosis to integration.">
 <meta property="og:image" content="https://www.chrismurrayhypnosis.com/images/articles/what-happens-in-a-hypnotherapy-session.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="What Happens During a Hypnotherapy Session?">
-<meta name="twitter:description" content="Discover what actually happens in a hypnotherapy session. Walk through the stages of cognitive hypnotherapy.">
+<meta name="twitter:description" content="A detailed walkthrough of what to expect during a hypnotherapy session. From initial consultation through guided hypnosis to integration.">
 <meta name="twitter:image" content="https://www.chrismurrayhypnosis.com/images/articles/what-happens-in-a-hypnotherapy-session.jpg">
-<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
 <style>
-  .article-wrap { max-width: 740px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-  .article-wrap h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 1.2rem; }
-  .article-wrap h2 { font-size: 1.3rem; margin-top: 2.2rem; margin-bottom: 0.7rem; }
-  .article-wrap p { line-height: 1.75; margin-bottom: 1.1rem; }
-  .key-takeaways { background: #f5f3ef; border-left: 4px solid #2c2c2c; padding: 1.2rem 1.5rem; margin: 2rem 0; border-radius: 0 6px 6px 0; }
-  .key-takeaways h3 { margin: 0 0 0.8rem; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .key-takeaways ul { margin: 0; padding-left: 1.2rem; }
-  .key-takeaways li { margin-bottom: 0.4rem; line-height: 1.6; }
-  .article-sources { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.85rem; }
-  .article-sources h3 { font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .article-sources ul { padding-left: 1.2rem; }
-  .article-sources li { margin-bottom: 0.4rem; }
-  .back-link { display: inline-block; margin: 2rem 1.5rem 0; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: #2c2c2c; text-decoration: none; opacity: 0.6; }
-  .back-link:hover { opacity: 1; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --ink:#1a1a1a; --charcoal:#2e2e2e; --smoke:#f7f5f2; --warm:#ede9e3; --gold:#8a6d3b; --gold2:#b8955a; --mid:#5a5550; --light:#d0cdc8; --pad:1.5rem; }
+body { background: var(--smoke); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem var(--pad); background: rgba(247,245,242,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(200,195,188,0.5); }
+.nav-wordmark { display: flex; flex-direction: column; gap: 0.25rem; text-decoration: none; }
+.nav-wordmark-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--ink); line-height: 1; }
+.nav-wordmark-sub { font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold2); }
+.nav-links { display: none; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); text-decoration: none; }
+.nav-links a:hover { color: var(--ink); }
+.nav-book { color: var(--smoke) !important; background: var(--ink); padding: 0.65rem 1.3rem; }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1px; background: var(--ink); }
+.menu-backdrop { display: none; position: fixed; inset: 0; z-index: 98; background: rgba(0,0,0,0.45); }
+.menu-backdrop.open { display: block; }
+.mobile-menu { position: fixed; top: 0; right: 0; bottom: 0; z-index: 99; width: min(300px,82vw); background: var(--charcoal); flex-direction: column; justify-content: center; padding: 3rem 2.5rem; transform: translateX(100%); transition: transform 0.3s ease; display: flex; }
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--smoke); text-decoration: none; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu-close { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; color: var(--light); font-size: 1.4rem; cursor: pointer; }
+.article-wrap { max-width: 740px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+.article-hero { width: 100%; aspect-ratio: 16/9; background: #ede9e3; margin-bottom: 2rem; overflow: hidden; }
+.article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.article-cat { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: #8a6d3b; font-weight: 600; margin-bottom: 0.8rem; display: block; }
+.article-wrap h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 1.5rem; font-weight: 400; letter-spacing: -0.01em; }
+.article-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-top: 2.4rem; margin-bottom: 0.8rem; font-weight: 400; }
+.article-wrap p { line-height: 1.8; margin-bottom: 1.1rem; font-size: 0.95rem; }
+.article-wrap ul, .article-wrap ol { padding-left: 1.4rem; margin-bottom: 1.1rem; }
+.article-wrap li { line-height: 1.75; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.toc { background: #f5f3ef; border: 1px solid #e0ddd8; padding: 1.3rem 1.6rem; margin-bottom: 2.2rem; border-radius: 4px; }
+.toc-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8a6d3b; font-weight: 600; margin-bottom: 0.8rem; display: block; }
+.toc ol { padding-left: 1.2rem; margin: 0; }
+.toc li { margin-bottom: 0.3rem; }
+.toc a { font-size: 0.88rem; color: #1a1a1a; text-decoration: none; }
+.key-takeaways { background: #1a1a1a; color: #f7f5f2; padding: 1.5rem 1.8rem; margin: 2.2rem 0; border-radius: 4px; }
+.key-takeaways h3 { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #b8955a; margin-bottom: 1rem; font-family: 'Raleway', sans-serif; font-weight: 600; }
+.key-takeaways ul { margin: 0; padding-left: 1.2rem; }
+.key-takeaways li { margin-bottom: 0.55rem; line-height: 1.65; font-size: 0.9rem; color: #e8e5e0; }
+.callout { background: #fdf9f0; border-left: 3px solid #b8955a; padding: 1rem 1.3rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; font-size: 0.9rem; line-height: 1.7; }
+.inline-cta { background: #2e2e2e; color: #f7f5f2; padding: 1.4rem 1.6rem; margin: 2rem 0; border-radius: 4px; display: flex; flex-direction: column; gap: 0.8rem; }
+.inline-cta p { margin: 0; font-size: 0.9rem; color: #d0cdc8; line-height: 1.6; }
+.inline-cta a { display: inline-block; background: #8a6d3b; color: #fff; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; padding: 0.7rem 1.4rem; text-decoration: none; border-radius: 2px; align-self: flex-start; }
+.share-bar { margin: 2.5rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid #e0ddd8; }
+.share-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #5a5550; font-weight: 600; margin-bottom: 0.8rem; display: block; }
+.share-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.share-links a { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: #1a1a1a; border: 1px solid #ccc; padding: 0.4rem 0.9rem; text-decoration: none; border-radius: 2px; }
+.author-box { margin-top: 2.5rem; padding: 1.5rem; background: #f5f3ef; border: 1px solid #e0ddd8; border-radius: 4px; }
+.author-box-inner { display: flex; gap: 1.2rem; align-items: flex-start; }
+.author-avatar { width: 52px; height: 52px; min-width: 52px; border-radius: 50%; background: #2e2e2e; color: #f7f5f2; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1rem; }
+.author-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; margin-bottom: 0.2rem; }
+.author-creds { font-size: 0.7rem; letter-spacing: 0.12em; color: #8a6d3b; margin-bottom: 0.6rem; }
+.author-bio { font-size: 0.85rem; line-height: 1.7; color: #5a5550; margin-bottom: 0.5rem; }
+.author-links a { font-size: 0.78rem; color: #1a1a1a; }
+.article-sources { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid #e0ddd8; font-size: 0.82rem; }
+.article-sources h3 { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #5a5550; margin-bottom: 0.7rem; font-family: 'Raleway', sans-serif; font-weight: 600; }
+.article-sources ul { padding-left: 1.2rem; }
+.article-sources li { margin-bottom: 0.4rem; color: #5a5550; }
+.article-sources a { color: #5a5550; }
+.back-link { display: inline-block; margin: 5rem 1.5rem 0; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5550; text-decoration: none; }
+@media (min-width: 1024px) { .nav-links { display: flex; } .hamburger { display: none; } .article-wrap { padding: 5rem 2rem 5rem; } }
 </style>
 </head>
 <body>
-<a href="../index.html" class="back-link">&#8592; Christopher Murray Hypnosis</a>
+<nav>
+  <a href="../index.html" class="nav-wordmark">
+    <span class="nav-wordmark-name">Christopher Murray</span>
+    <span class="nav-wordmark-sub">Precision Hypnosis</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#services">Services</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#process">Method</a></li>
+    <li><a href="index.html">Articles</a></li>
+    <li><a href="../index.html#contact" class="nav-book">Book a Call</a></li>
+  </ul>
+  <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+</nav>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose">&#x2715;</button>
+  <a href="../index.html#services">Services</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#process">Method</a>
+  <a href="index.html">Articles</a>
+  <a href="../index.html#contact" style="color:var(--gold2)">Book a Call</a>
+</div>
+
+<a href="index.html" class="back-link">&#8592; All Articles</a>
+
 <main class="article-wrap">
   <article>
+    <div class="article-hero">
+      <img src="https://www.chrismurrayhypnosis.com/images/articles/what-happens-in-a-hypnotherapy-session.jpg" alt="Hypnotherapy session in progress">
+    </div>
+
+    <span class="article-cat">How It Works</span>
     <h1>What Happens During a Hypnotherapy Session?</h1>
-
-    <p>A lot of people come to me asking what happens in hypnotherapy, and they're often surprised by the answer. There's no swinging watch. No moment where you suddenly go blank. What actually happens in a hypnotherapy session is far more straightforward, and honestly, far more useful. You'll be awake the entire time, aware of everything around you, in control. The goal isn't to put you under - it's to help your mind work differently so you can change patterns that aren't serving you.</p>
-
-    <h2>The Opening Conversation</h2>
-
-    <p>Every session starts the same way: we talk. I want to understand what's brought you in, what you've already tried, and what success actually looks like for you. This isn't small talk. I'm gathering information about your history, your triggers, and the specific ways your mind tends to get stuck. Most people find this part relaxing simply because someone's actually listening - not judging, not jumping to solutions, just understanding the shape of your problem.</p>
-
-    <p>We'll discuss your expectations too. Some clients think hypnotherapy works like a magic switch. Others are deeply skeptical. Both are fine. Belief isn't a prerequisite, but willingness is. I need to know you're genuinely willing to engage with the process, even if you don't fully understand it yet. This is also when I explain what <a href="../articles/what-is-hypnosis.html">hypnosis actually is</a>, cutting through the Hollywood nonsense so you know what to expect.</p>
-
-    <h2>Induction and Deepening</h2>
-
-    <p>Once we've talked through everything, I'll guide you into what's called the inductive state. This sounds technical, but it's really just a guided relaxation. I'll ask you to focus on something - your breathing, a point in the room, or an imagined scene. Your eyes typically close, your muscles relax, and your conscious mind steps back a bit. You're not asleep. You're not unconscious. You're in a state where your thinking mind is quieter and your receptive mind is more active.</p>
-
-    <p>The deepening phase follows. I'll use specific language and techniques to help you move deeper into this focused, receptive state. Your body might feel heavier or lighter. You might notice your breathing slow. This is all normal. Some people describe it as being aware but not caring about the outside world. Others say it's like daydreaming except you know exactly where you are. The variation is huge - hypnosis looks different for everyone.</p>
-
-    <h2>The Therapeutic Work</h2>
-
-    <p>Now we get to the actual work. This is where <a href="../articles/what-is-cognitive-hypnotherapy.html">cognitive hypnotherapy</a> differs from traditional hypnosis. Rather than simple suggestions ("you will never want to smoke"), I work with the patterns your mind has built. We explore the beliefs underlying your behaviours. We identify the function that symptom is serving - what does anxiety protect you from? What does procrastination allow you to avoid? Once we understand that, we can work with it differently.</p>
-
-    <p>I might use metaphors, visualisations, or direct suggestion depending on what's relevant for you. The key is that your deeper mind is listening in this state. We're bypassing the critical conscious mind that often resists change or over-analyses. Research shows that suggestions and insights accepted during hypnosis have a stronger lasting effect than simply talking about change in ordinary conversation. Your mind is in a state where it's genuinely more open to new patterns, new responses, new possibilities.</p>
-
-    <h2>Emergence and Integration</h2>
-
-    <p>When we've done the therapeutic work, I'll guide you back to full wakefulness. This happens gradually, never abruptly. I might count upwards or describe you returning your awareness to the room. You'll open your eyes, feel refreshed, and be completely aware of everything that just happened. You'll remember the key points we worked on - this isn't amnesia. You're simply returning to your normal conscious state with new resources accessible to you.</p>
-
-    <p>The final part of the session is integration. We talk about what happened, what you noticed, and how this work will develop over the coming days. Sometimes the shift is immediate. Sometimes it unfolds over a week or two as your mind processes and applies what we've done. Most people find that returning for another session extends and deepens the work - this isn't normally a one-session fix for complex patterns. That's honest, not disappointing. Real change takes engagement, and multiple sessions give your mind more opportunity to cement new ways of responding.</p>
 
     <div class="key-takeaways">
       <h3>Key Takeaways</h3>
       <ul>
-        <li>You're conscious and in control throughout a hypnotherapy session - it's guided relaxation, not unconsciousness.</li>
-        <li>The opening conversation is essential, not filler - understanding your specific pattern is what makes the work effective.</li>
-        <li>Cognitive hypnotherapy works with the beliefs and functions underlying your behaviours, not just surface suggestions.</li>
-        <li>Integration happens gradually after the session as your mind applies new patterns in real life.</li>
-        <li>Multiple sessions typically deepen results because sustained engagement creates lasting neurological change.</li>
+        <li>A typical session is 50-90 minutes of focused, guided work tailored specifically to your issue</li>
+        <li>You remain aware and in control throughout, not asleep or under someone's spell</li>
+        <li>The session has distinct phases: discussion, induction, deepening, therapeutic work, emergence, and integration</li>
+        <li>You're fully collaborative, not a passive recipient, throughout the entire process</li>
+        <li>Most people feel noticeably calmer, clearer, and more resourceful immediately after a session</li>
       </ul>
     </div>
 
+    <nav class="toc" aria-label="In this article">
+      <span class="toc-label">In This Article</span>
+      <ol>
+        <li><a href="#session-length">How Long Is a Session</a></li>
+        <li><a href="#initial-discussion">The Initial Discussion</a></li>
+        <li><a href="#induction">Entering Hypnosis</a></li>
+        <li><a href="#therapeutic-work">The Therapeutic Work</a></li>
+        <li><a href="#emerging">Coming Back</a></li>
+        <li><a href="#post-session">After the Session</a></li>
+        <li><a href="#home-practice">Between Session Practice</a></li>
+        <li><a href="#common-misconceptions">What Doesn't Happen</a></li>
+      </ol>
+    </nav>
+
+    <p>A hypnotherapy session feels different from a doctor's visit or talk therapy. It's more intimate, more guided, and more collaborative. Most sessions run 60 to 90 minutes depending on the complexity of the issue and what emerges in the work. There's no standard script. Each session is tailored to you and your specific situation. What unfolds in your session depends on what you bring, what your unconscious mind reveals, and how the process naturally develops.</p>
+
+    <h2 id="session-length">How Long Is a Session</h2>
+    <p>Initial sessions often run 90 minutes because there's assessment and history-taking alongside the therapeutic work. Follow-up sessions typically run 50-75 minutes. The length gives enough time for your nervous system to fully relax into hypnosis, for the therapeutic work to have depth and impact, and for proper emergence and integration at the end. Rushing the process reduces effectiveness.</p>
+    <p>Some practitioners use a standard time. Others adjust based on what's emerging. A good hypnotherapist will explain their approach and be flexible when the work requires adjustment. Time is held as a container, but not rigidly if something important is happening.</p>
+
+    <h2 id="initial-discussion">The Initial Discussion</h2>
+    <p>Before you enter hypnosis, you and your therapist talk. This isn't casual chitchat. It's focused assessment. Your therapist asks about your issue: when it started, how it manifests, what's already been tried, what you want to change. They ask about your history, relevant experiences, and the context around the problem. They're mapping the territory so they know where to go once you're in hypnosis.</p>
+    <p>You also discuss expectations and check for any concerns. Your therapist explains what will happen, what you'll experience, and answers your questions. This conversation builds trust and ensures you're fully informed. It also gives your conscious mind a chance to understand the frame before your unconscious goes into the work.</p>
+
+    <h2 id="induction">Entering Hypnosis</h2>
+    <p>Your therapist then guides you into a relaxed state of focused attention. This is called induction. They use their voice, language patterns, and sometimes imagery to help your mind settle. You're not forced into anything. You're guided. Most people find the experience pleasant and calming. Your eyelids might feel heavy or your body might feel heavier. You might see colours or images. These are all normal.</p>
+    <p>You remain aware throughout. You can hear your therapist's voice clearly. You know where you are. You're not asleep, though the state is deeply relaxing. It's more like focused attention than ordinary thinking. Your critical mind steps back slightly, and your unconscious becomes more available. This is the state that allows change to happen.</p>
+
+    <h2 id="therapeutic-work">The Therapeutic Work</h2>
+    <p>Once you're in the hypnotic state, your therapist begins the therapeutic work. This might involve exploring the roots of your pattern, understanding what belief is driving it, or accessing resources you already possess but haven't accessed. It might involve working directly with emotion, imagery, or sensation. It might involve revisiting a formative moment, not to re-traumatise you, but to help your unconscious mind reprocess it with new understanding.</p>
+    <div class="callout">
+      <strong>What makes this different:</strong> Unlike talk therapy, where you describe experiences to your conscious mind, hypnotherapy allows you to access and experience things at an unconscious level. Your therapist's language is chosen to speak to your unconscious, to bypass conscious filters and resistance, and to facilitate genuine shift.
+    </div>
+
+    <h2 id="emerging">Coming Back</h2>
+    <p>When the therapeutic work is complete, your therapist brings you back to ordinary consciousness. This is called emergence. It's never abrupt. They gradually increase sensory awareness, maybe counting down from ten, or slowly mentioning the room around you, or inviting you to notice sounds. You emerge gently, feeling calm and resourceful. Some people emerge immediately alert. Others take a minute to fully return. Both are normal.</p>
+    <p>As you fully come back to ordinary awareness, your therapist spends a few minutes discussing what happened, what you noticed, and what you might expect in the coming days. This consolidates the work and gives you context for what unfolds next.</p>
+
+    <h2 id="post-session">After the Session</h2>
+    <p>Most people feel noticeably different immediately after a session. Calmer. Lighter. Clearer. More resourceful. This sense of calm often lasts hours or even days. Some people report insights emerge over the following days as their unconscious mind continues to process. Others notice they're responding differently in situations that usually trigger their old pattern.</p>
+    <p>It's important not to overanalyze what happened in the session. Your conscious mind will want to make sense of it intellectually. Resist that urge. The work happened at an unconscious level. That's the point. Your job is to notice what shifts, not to understand it logically.</p>
+
+    <h2 id="home-practice">Between Session Practice</h2>
+    <p>Your therapist usually provides something to do between sessions. This might be a recording to listen to, a specific practice to engage in, or simply suggestions for how to reinforce the work. These aren't optional extras. They're integral to the process. The session opens the door. The between-session practice walks through it. Consistency with this practice dramatically affects how fast you progress.</p>
+    <p>Most people find the between-session work takes 10-20 minutes daily. It becomes a meditation-like practice, reinforcing the new ways of thinking and responding. By the time you return for your next session, you've already begun integrating the shifts that started in the previous session.</p>
+
+    <h2 id="common-misconceptions">What Doesn't Happen</h2>
+    <p>You don't lose consciousness. You don't lose control. You don't become someone else's puppet. You don't do things you don't want to do. You're not forced to relive trauma. You can come out of hypnosis anytime you want. Nothing happens that you don't consent to. Your therapist doesn't have secret power over you. They're a guide. You remain the architect of your own change.</p>
+    <p>You won't necessarily remember everything that happened in hypnosis. Sometimes the conscious mind doesn't hold the details. That's fine. The unconscious mind holds what's important. The work lands regardless of whether you consciously remember it. What matters is what shifts afterwards in your actual life. Learn more about <a href="what-is-cognitive-hypnotherapy.html">how cognitive hypnotherapy works</a> to understand the methodology behind the process.</p>
+
+    <div class="inline-cta">
+      <p>Ready to experience what a hypnotherapy session is actually like? Book your first session with Christopher Murray and discover how this process can catalyze real change in your life.</p>
+      <a href="../index.html#contact">Book a session</a>
+    </div>
+
   </article>
+
+  <div class="share-bar">
+    <span class="share-label">Share This Article</span>
+    <div class="share-links">
+      <a href="https://wa.me/?text=https://www.chrismurrayhypnosis.com/articles/what-happens-in-a-hypnotherapy-session.html" target="_blank">WhatsApp</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.chrismurrayhypnosis.com/articles/what-happens-in-a-hypnotherapy-session.html" target="_blank">LinkedIn</a>
+      <a href="https://twitter.com/intent/tweet?url=https://www.chrismurrayhypnosis.com/articles/what-happens-in-a-hypnotherapy-session.html" target="_blank">X</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.chrismurrayhypnosis.com/articles/what-happens-in-a-hypnotherapy-session.html" target="_blank">Facebook</a>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-box-inner">
+      <div class="author-avatar">CM</div>
+      <div class="author-info">
+        <p class="author-name">Christopher Murray</p>
+        <p class="author-creds">Dip.C.Hyp &middot; HPD &middot; NLP &middot; MNCH</p>
+        <p class="author-bio">Christopher Murray is a cognitive hypnotherapist, NLP practitioner and author of The Confidence Reset. He works with high-functioning individuals internationally from his base in Galle, Sri Lanka.</p>
+        <p class="author-links"><a href="https://www.chrismurrayhypnosis.com">chrismurrayhypnosis.com</a></p>
+      </div>
+    </div>
+  </div>
+
   <div class="article-sources">
     <h3>Sources</h3>
     <ul>
-      <li>British Society of Clinical Hypnosis - Clinical Hypnotherapy: <a href="https://www.bscah.com/what-is-hypnotherapy" target="_blank">https://www.bscah.com/what-is-hypnotherapy</a></li>
-      <li>American Society of Clinical Hypnosis - Efficacy of Hypnosis: <a href="https://www.asch.net/research" target="_blank">https://www.asch.net/research</a></li>
-      <li>National Centre for Hypnotherapy - Understanding the Hypnotic Process: <a href="https://www.nch.org.uk/hypnotherapy" target="_blank">https://www.nch.org.uk/hypnotherapy</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/18308896/">Clinical hypnosis protocols and neurophysiological response - Rainville & Price, International Journal of Clinical and Experimental Hypnosis (2003)</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/29980866/">Hypnotic induction alters default mode activity - Igelstrom et al., Human Brain Mapping (2015)</a></li>
+      <li><a href="https://www.bscah.com/page/CBT-and-Hypnotherapy">British Society of Clinical and Academic Hypnosis - Clinical Applications</a></li>
     </ul>
   </div>
 </main>
+
+<script>
+const menuBtn=document.getElementById('menuBtn'),menuClose=document.getElementById('menuClose'),mobileMenu=document.getElementById('mobileMenu'),menuBackdrop=document.getElementById('menuBackdrop');
+function openMenu(){mobileMenu.classList.add('open');menuBackdrop.classList.add('open');document.body.style.overflow='hidden';}
+function closeMenu(){mobileMenu.classList.remove('open');menuBackdrop.classList.remove('open');document.body.style.overflow='';}
+menuBtn.addEventListener('click',openMenu);menuClose.addEventListener('click',closeMenu);menuBackdrop.addEventListener('click',closeMenu);
+</script>
 </body>
 </html>

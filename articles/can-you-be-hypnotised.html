@@ -3,94 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Can You Be Hypnotised? | Christopher Murray</title>
-<meta name="description" content="Can you be hypnotised? Learn what actually determines hypnotisability, debunk myths about willpower and control, and discover why most people can enter trance.">
+<title>Can You Be Hypnotised? Debunking Myths About Who Can Be Hypnotised | Christopher Murray</title>
+<meta name="description" content="Can you be hypnotised? Discover which personality traits predict hypnotic ability, why intelligence matters less than you think, and if resistance is actually protective.">
 <link rel="canonical" href="https://www.chrismurrayhypnosis.com/articles/can-you-be-hypnotised.html">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.chrismurrayhypnosis.com/articles/can-you-be-hypnotised.html">
-<meta property="og:title" content="Can You Be Hypnotised?">
-<meta property="og:description" content="Can you be hypnotised? Learn what actually determines hypnotisability, debunk myths about willpower and control, and discover why most people can enter trance.">
-<meta property="og:image" content="https://www.chrismurrayhypnosis.com/images/articles/can-you-be-hypnotised.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Can You Be Hypnotised?">
-<meta name="twitter:description" content="Can you be hypnotised? Learn what actually determines hypnotisability, debunk myths about willpower and control, and discover why most people can enter trance.">
-<meta name="twitter:image" content="https://www.chrismurrayhypnosis.com/images/articles/can-you-be-hypnotised.jpg">
-<link rel="stylesheet" href="../style.css">
+<meta property="og:title" content="Can You Be Hypnotised? What the Research Says About Hypnotic Susceptibility">
+<meta property="og:description" content="Can you be hypnotised? Discover personality traits linked to hypnotic ability and why most myths about resistance are wrong.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
 <style>
-  .article-wrap { max-width: 740px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-  .article-wrap h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 1.2rem; }
-  .article-wrap h2 { font-size: 1.3rem; margin-top: 2.2rem; margin-bottom: 0.7rem; }
-  .article-wrap p { line-height: 1.75; margin-bottom: 1.1rem; }
-  .key-takeaways { background: #f5f3ef; border-left: 4px solid #2c2c2c; padding: 1.2rem 1.5rem; margin: 2rem 0; border-radius: 0 6px 6px 0; }
-  .key-takeaways h3 { margin: 0 0 0.8rem; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .key-takeaways ul { margin: 0; padding-left: 1.2rem; }
-  .key-takeaways li { margin-bottom: 0.4rem; line-height: 1.6; }
-  .article-sources { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #ddd; font-size: 0.85rem; }
-  .article-sources h3 { font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  .article-sources ul { padding-left: 1.2rem; }
-  .article-sources li { margin-bottom: 0.4rem; }
-  .back-link { display: inline-block; margin: 2rem 1.5rem 0; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: #2c2c2c; text-decoration: none; opacity: 0.6; }
-  .back-link:hover { opacity: 1; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --ink:#1a1a1a; --charcoal:#2e2e2e; --smoke:#f7f5f2; --gold:#8a6d3b; --gold2:#b8955a; --mid:#5a5550; --light:#d0cdc8; --pad:1.5rem; }
+body { background: var(--smoke); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem var(--pad); background: rgba(247,245,242,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(200,195,188,0.5); }
+.nav-wordmark { display: flex; flex-direction: column; gap: 0.25rem; text-decoration: none; }
+.nav-wordmark-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--ink); line-height: 1; }
+.nav-wordmark-sub { font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold2); }
+.nav-links { display: none; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); text-decoration: none; }
+.nav-book { color: var(--smoke) !important; background: var(--ink); padding: 0.65rem 1.3rem; }
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 1px; background: var(--ink); }
+.menu-backdrop { display: none; position: fixed; inset: 0; z-index: 98; background: rgba(0,0,0,0.45); }
+.menu-backdrop.open { display: block; }
+.mobile-menu { position: fixed; top: 0; right: 0; bottom: 0; z-index: 99; width: min(300px,82vw); background: var(--charcoal); flex-direction: column; justify-content: center; padding: 3rem 2.5rem; transform: translateX(100%); transition: transform 0.3s ease; display: flex; }
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--smoke); text-decoration: none; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.mobile-menu-close { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; color: var(--light); font-size: 1.4rem; cursor: pointer; }
+.article-wrap { max-width: 740px; margin: 0 auto; padding: 5rem 1.5rem 4rem; }
+.article-cat { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: #8a6d3b; font-weight: 600; margin-bottom: 0.8rem; display: block; }
+.article-wrap h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 1.5rem; font-weight: 400; }
+.article-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-top: 2.4rem; margin-bottom: 0.8rem; font-weight: 400; }
+.article-wrap p { line-height: 1.8; margin-bottom: 1.1rem; font-size: 0.95rem; }
+.article-wrap ul, .article-wrap ol { padding-left: 1.4rem; margin-bottom: 1.1rem; }
+.article-wrap li { line-height: 1.75; margin-bottom: 0.4rem; font-size: 0.95rem; }
+.toc { background: #f5f3ef; border: 1px solid #e0ddd8; padding: 1.3rem 1.6rem; margin-bottom: 2.2rem; border-radius: 4px; }
+.toc-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #8a6d3b; font-weight: 600; margin-bottom: 0.8rem; display: block; }
+.toc ol { padding-left: 1.2rem; margin: 0; }
+.toc li { margin-bottom: 0.3rem; }
+.toc a { font-size: 0.88rem; color: #1a1a1a; text-decoration: none; }
+.key-takeaways { background: #1a1a1a; color: #f7f5f2; padding: 1.5rem 1.8rem; margin: 2.2rem 0; border-radius: 4px; }
+.key-takeaways h3 { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #b8955a; margin-bottom: 1rem; font-family: 'Raleway', sans-serif; font-weight: 600; }
+.key-takeaways ul { margin: 0; padding-left: 1.2rem; }
+.key-takeaways li { margin-bottom: 0.55rem; line-height: 1.65; font-size: 0.9rem; color: #e8e5e0; }
+.callout { background: #fdf9f0; border-left: 3px solid #b8955a; padding: 1rem 1.3rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; font-size: 0.9rem; line-height: 1.7; }
+.inline-cta { background: #2e2e2e; color: #f7f5f2; padding: 1.4rem 1.6rem; margin: 2rem 0; border-radius: 4px; display: flex; flex-direction: column; gap: 0.8rem; }
+.inline-cta p { margin: 0; font-size: 0.9rem; color: #d0cdc8; line-height: 1.6; }
+.inline-cta a { display: inline-block; background: #8a6d3b; color: #fff; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; padding: 0.7rem 1.4rem; text-decoration: none; border-radius: 2px; align-self: flex-start; }
+.share-bar { margin: 2.5rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid #e0ddd8; }
+.share-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #5a5550; font-weight: 600; margin-bottom: 0.8rem; display: block; }
+.share-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.share-links a { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: #1a1a1a; border: 1px solid #ccc; padding: 0.4rem 0.9rem; text-decoration: none; border-radius: 2px; }
+.author-box { margin-top: 2.5rem; padding: 1.5rem; background: #f5f3ef; border: 1px solid #e0ddd8; border-radius: 4px; }
+.author-box-inner { display: flex; gap: 1.2rem; align-items: flex-start; }
+.author-avatar { width: 52px; height: 52px; min-width: 52px; border-radius: 50%; background: #2e2e2e; color: #f7f5f2; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1rem; }
+.author-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; margin-bottom: 0.2rem; }
+.author-creds { font-size: 0.7rem; letter-spacing: 0.12em; color: #8a6d3b; margin-bottom: 0.6rem; }
+.author-bio { font-size: 0.85rem; line-height: 1.7; color: #5a5550; margin-bottom: 0.5rem; }
+.author-links a { font-size: 0.78rem; color: #1a1a1a; }
+.article-sources { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid #e0ddd8; font-size: 0.82rem; }
+.article-sources h3 { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #5a5550; margin-bottom: 0.7rem; font-family: 'Raleway', sans-serif; font-weight: 600; }
+.article-sources ul { padding-left: 1.2rem; }
+.article-sources li { margin-bottom: 0.4rem; color: #5a5550; }
+.article-sources a { color: #5a5550; }
+.back-link { display: inline-block; margin: 5rem 1.5rem 0; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5550; text-decoration: none; }
+@media (min-width: 1024px) { .nav-links { display: flex; } .hamburger { display: none; } .article-wrap { padding: 5rem 2rem 5rem; } }
 </style>
 </head>
 <body>
-<a href="../index.html" class="back-link">&#8592; Christopher Murray Hypnosis</a>
+<nav>
+  <a href="../index.html" class="nav-wordmark">
+    <span class="nav-wordmark-name">Christopher Murray</span>
+    <span class="nav-wordmark-sub">Precision Hypnosis</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#services">Services</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#process">Method</a></li>
+    <li><a href="index.html">Articles</a></li>
+    <li><a href="../index.html#contact" class="nav-book">Book a Call</a></li>
+  </ul>
+  <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+</nav>
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose">&#x2715;</button>
+  <a href="../index.html#services">Services</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#process">Method</a>
+  <a href="index.html">Articles</a>
+  <a href="../index.html#contact" style="color:var(--gold2)">Book a Call</a>
+</div>
+
+<a href="index.html" class="back-link">&#8592; All Articles</a>
+
 <main class="article-wrap">
   <article>
-    <h1>Can You Be Hypnotised?</h1>
-
-    <p>A lot of people ask me this before their first session. The short answer: almost certainly yes. Can you be hypnotised depends far less on mystical ability or stubbornness than most people think. It's not about willpower or how suggestible you are. It's actually about attention, curiosity, and a willingness to relax for an hour. Most people can enter hypnosis easily once they understand what they're actually signing up for.</p>
-
-    <h2>What Actually Determines Hypnotisability</h2>
-
-    <p>Research into hypnotic susceptibility, also called hypnotisability, shows something surprising: the average person scores in the moderate to high range on standardized tests. About 85% of people are capable of entering trance at some level. That's not 85% of naturally gifted people. That's 85% of the general population.</p>
-
-    <p>Hypnotisability doesn't correlate strongly with intelligence, age, gender, or how "strong-willed" you are. In fact, people who are good at focusing, visualization, and absorption - think artists, academics, athletes - often hypnotize more easily. Why? Because hypnosis isn't about being weak. It's a state of focused attention. You're not being controlled. You're directing your mind toward a specific purpose.</p>
-
-    <p>The factors that do matter are context and expectation. If you're skeptical but willing, you'll likely hypnotize fine. If you're desperate for it to work and tense the entire time, you'll struggle. If your hypnotherapist creates safety and explains what's actually happening, your chances improve significantly.</p>
-
-    <h2>Why You Might Think You Can't Be Hypnotised</h2>
-
-    <p><a href="../articles/hypnosis-myths.html">Common myths about hypnosis</a> are partly to blame. People expect something theatrical - eyes rolling back, sudden trance, no memory afterward. Real hypnosis feels different. Many people say they weren't hypnotized because they could hear the therapist's voice or think during it. That's exactly what happens in hypnosis.</p>
-
-    <p>Some people confuse hypnosis with meditation or sleep. It's neither. You're conscious. You can reject suggestions. You can move or talk if you need to. Your brain is simply in a state of relaxed focus, similar to being absorbed in a book or driving on autopilot.</p>
-
-    <p>Others worry they'll "lose control." That fear itself creates tension, which makes deep relaxation harder. Understanding that you're always in control - that you're actually choosing to follow suggestions because they align with your goals - usually resolves this. Christopher Murray can explain this clearly in a first session, which often resolves hesitation on the spot.</p>
-
-    <h2>The Role of Belief (And Why It Matters Less Than You Think)</h2>
-
-    <p>Belief helps. It removes resistance. But it's not essential. Studies show people with low expectation can still enter hypnosis if the therapist is skilled and the framing is right. You don't need to believe hypnosis works. You need to be willing to try it and pay attention for an hour. That's genuinely it.</p>
-
-    <p>What matters more is the therapeutic relationship. Do you trust your hypnotherapist? Do they explain the process in a way that makes sense to you? Are they meeting you where you are, not pushing you into some imagined state? Good practitioners adjust their approach based on your learning style and concerns, which makes hypnosis more accessible to more people.</p>
-
-    <p>The expectation that can hurt you is the one where hypnosis solves everything instantly. Hypnosis is a tool. It's powerful for anxiety, confidence, habit change, and focus. But it works alongside your own motivation and effort, not instead of it. <a href="../articles/first-hypnotherapy-session.html">Your first hypnotherapy session</a> will set clear expectations about what hypnosis can and can't do for your specific situation.</p>
-
-    <h2>Who Actually Struggles</h2>
-
-    <p>Some people do find hypnosis harder. Active resistance is real - if you've decided it won't work before you start, that protective skepticism can be tough to override. Certain medications can affect the relaxation response. Extreme stress or untreated trauma sometimes makes it harder to settle, though hypnotherapy itself can address these. And if someone has neurological differences that affect attention or sensory processing, the approach might need adapting.</p>
-
-    <p>But "struggles" doesn't mean impossible. It usually means skilled hypnotherapy becomes more important, not less. A practitioner trained in multiple induction methods - not just one standard script - can find what works for your brain.</p>
+    <span class="article-cat">How It Works</span>
+    <h1>Can You Be Hypnotised? Understanding Hypnotic Susceptibility and Resistance</h1>
 
     <div class="key-takeaways">
       <h3>Key Takeaways</h3>
       <ul>
-        <li>About 85% of people are moderately to highly hypnotizable - far more than most assume.</li>
-        <li>Can you be hypnotised depends on attention and willingness, not willpower or natural gift.</li>
-        <li>You stay conscious and in control during hypnosis - you hear everything and can reject suggestions.</li>
-        <li>Myths about hypnosis create unnecessary fear; understanding the real process often resolves hesitation.</li>
-        <li>Trust in your hypnotherapist and clear expectations matter more than natural ability.</li>
+        <li>Approximately 85-90% of people can be hypnotised, but depth of trance varies considerably between individuals</li>
+        <li>Intelligence is weakly related to hypnotic susceptibility - bright, analytical minds can enter deep trance readily</li>
+        <li>Absorption, imagination and openness to experience predict hypnotic ability more reliably than personality type</li>
+        <li>Resistance to hypnosis often reflects legitimate protective mechanisms or poor therapeutic fit, not inability</li>
+        <li>Highly sceptical people can be hypnotised when they understand the mechanism and trust the therapist</li>
+        <li>Prior failed experiences or poor practitioner skill accounts for most apparent non-responsiveness</li>
       </ul>
     </div>
 
+    <nav class="toc" aria-label="In this article">
+      <span class="toc-label">In This Article</span>
+      <ol>
+        <li><a href="#who-can-hypnotised">Who Can Actually Be Hypnotised</a></li>
+        <li><a href="#hypnotic-susceptibility-spectrum">Hypnotic Susceptibility is a Spectrum, Not Binary</a></li>
+        <li><a href="#traits-predict-hypnotisability">What Traits Actually Predict Hypnotisability</a></li>
+        <li><a href="#intelligence-hypnosis">Intelligence and Hypnosis - The Surprising Truth</a></li>
+        <li><a href="#resistance-protective">Is Resistance Actually Protective</a></li>
+        <li><a href="#scepticism-hypnosis">Scepticism and Hypnosis - They're Compatible</a></li>
+        <li><a href="#improving-hypnotic-response">How to Improve Your Hypnotic Responsiveness</a></li>
+        <li><a href="#when-hypnosis-doesnt-work">When Hypnosis Genuinely Doesn't Work</a></li>
+      </ol>
+    </nav>
+
+    <p>Can you be hypnotised? The short answer: very probably yes. The longer answer is more nuanced and liberating. Most people operate from false beliefs about who responds to hypnosis - myths that leave capable people convinced they're somehow resistant or unsuitable. This article cuts through the mythology and shows what research actually says about hypnotic susceptibility. Whether you're analytical, sceptical or have tried hypnosis before without success, you likely have more capacity for therapeutic trance than you realise.</p>
+
+    <h2 id="who-can-hypnotised">Who Can Actually Be Hypnotised</h2>
+    <p>Between 85-90% of adults can enter a hypnotic state under proper conditions. The remaining 10-15% generally experience difficulty due to specific factors we'll address. Children typically have excellent hypnotic capacity, often entering deeper trance more readily than adults. The myth that strong-willed people resist hypnosis is backwards. Hypnosis isn't about being weak or compliant. It's a skill involving focused attention and imaginative engagement. Some of the most hypnotisable people are executives, surgeons and high-performing athletes - precisely the individuals with the strongest minds. What matters for hypnotisability isn't force of will but the type of mind you have. A person with naturally vivid imagination, capacity for absorption and openness to experience typically finds hypnosis easier to access than someone very literal-minded and detail-focused. But even literal, analytical people respond well when you match the induction to their cognitive style and explain the mechanism clearly first.</p>
+
+    <h2 id="hypnotic-susceptibility-spectrum">Hypnotic Susceptibility is a Spectrum, Not Binary</h2>
+    <p>Thinking of hypnosis as something you either can or can't do misses the real picture. Hypnotic response exists on a continuum from light trance to profound, somnambulistic depth. Most people fall somewhere in the middle, capable of useful therapeutic trance without experiencing the dramatic phenomena like anaesthesia or post-hypnotic amnesia associated with deep hypnosis. This matters clinically because light to moderate trance is often sufficient for therapeutic benefit. You don't need to be profoundly hypnotised for anxiety to reduce, habits to shift or performance to improve. Christopher Murray's work with high performers often involves lighter, more alert trance states than classical hypnotherapy - precisely because executives maintain executive function while accessing the plasticity of hypnotic suggestion. Some clients enter deeper trance over successive sessions as they become familiar with the experience and trust deepens. Initial responsiveness is a poor predictor of eventual depth. People rated as lightly hypnotisable initially sometimes develop into excellent hypnotic subjects through regular work with a skilled practitioner.</p>
+
+    <div class="callout">
+      <strong>The critical insight:</strong> Hypnotisability isn't fixed. Your responsiveness can develop and deepen through practice, therapeutic alliance and working with a practitioner who matches your cognitive style.
+    </div>
+
+    <h2 id="traits-predict-hypnotisability">What Traits Actually Predict Hypnotisability</h2>
+    <p>Research identifies several traits associated with hypnotic susceptibility. Absorption - the capacity to become absorbed in imaginative or sensory experience - is the strongest predictor. People who get lost in books, music or films, who daydream easily or become absorbed in their work typically find hypnosis accessible. Imaginative capacity matters, but not in the Hollywood sense. You don't need to visualise vivid mental images. Many people experience hypnotic suggestions kinaesthetically - as bodily sensation or conceptual knowing rather than visual. Openness to experience predicts good response. People curious about unusual states, willing to try new approaches and relatively non-judgemental about their own mental processes tend to enter trance readily. Interestingly, neuroticism and anxiety don't predict hypnotisability reliably, contradicting the myth that anxious people are easily hypnotised. Some anxious people respond excellently. Others remain guarded. It depends more on whether anxiety drives them toward seeking help (positive) or generates resistance through fear of losing control (variable). Personality type matters less than cognitive capacity and willingness to engage with the process.</p>
+
+    <h2 id="intelligence-hypnosis">Intelligence and Hypnosis - The Surprising Truth</h2>
+    <p>One of the most persistent myths: intelligent people can't be hypnotised because their critical mind resists. The evidence shows the opposite. Studies find either no relationship between IQ and hypnotisability or, in some cases, a weak positive relationship. Highly intelligent people often respond excellently to hypnosis because they understand the mechanism, appreciate the neuroscience and can harness their capacity for focused attention. What can happen with very intelligent, analytical people is that they over-analyse the process while it's happening - thinking about whether they're hypnotised rather than simply allowing it. A skilled hypnotherapist addresses this through clear explanation beforehand and by using induction techniques that satisfy the analytical mind. Cognitive hypnotherapy, which integrates hypnotic techniques with cognitive-behavioural principles, often resonates perfectly with intelligent, analytically-minded clients because it combines trance with rational explanation. The confusion typically arises because analytical people are also often sceptical, and scepticism - which is protective - can interfere with the openness hypnosis requires. But scepticism and hypnotic capacity are different things. We'll address that distinction separately.</p>
+
+    <h2 id="resistance-protective">Is Resistance Actually Protective</h2>
+    <p>When someone seems resistant to hypnosis, it's worth asking what's actually happening. True resistance - an unconscious protective mechanism - can indicate something real. Maybe the presenting issue masks deeper fears. Someone presenting for confidence might unconsciously fear success because it could disrupt their identity or relationships. A person seeking to quit smoking might have ambivalence about losing the identity of "smoker" that they're not consciously aware of. In these cases, resistance isn't a fault. It's your nervous system raising legitimate concerns. The right approach isn't to overcome resistance through aggressive induction techniques. It's to explore what's underneath, understand the protective function and address genuine concerns. This is where skilled therapeutic practice matters. Some practitioners dismiss resistance as stubbornness or shallow commitment. Better practitioners see it as information about your actual readiness for change. Other times, what looks like resistance reflects poor fit between client and practitioner. You might feel guarded or unable to relax with someone whose style, energy or approach doesn't match yours. This isn't your fault or a limitation. It's a signal to try working with someone else. The psychological concept of goodness of fit is real.</p>
+
+    <h2 id="scepticism-hypnosis">Scepticism and Hypnosis - They're Compatible</h2>
+    <p>Scepticism is protective. It guards against charlatanism and unrealistic promises. The best practitioners welcome scepticism because it correlates with genuine rather than naive engagement. You can be sceptical and hypnotisable. What matters is directing scepticism appropriately. Be sceptical of claims that hypnosis is magical, that you'll lose control, that the hypnotherapist has special power over your mind, or that one session will fix everything. All of these are red flags. Be open to the neuroscience and clinical evidence for how hypnotic trance works. Many deeply sceptical people respond well to hypnotherapy once they understand the mechanism - that hypnosis is a state of focused attention with reduced critical evaluation, not sleep or loss of consciousness, and that you maintain complete agency throughout. Christopher Murray's approach often begins with explaining the neuroscience and mechanism before any induction, partly because working with high performers - who are typically analytically minded and sceptical - requires satisfying the analytical mind first. Once you understand how and why hypnosis works neurologically, scepticism stops interfering and can actually enhance your response.</p>
+
+    <div class="inline-cta">
+      <p>Curious whether hypnotherapy might help with your specific challenge? Let's explore it in a free consultation where we'll address your exact concerns.</p>
+      <a href="../index.html#contact">Book a free consultation</a>
+    </div>
+
+    <h2 id="improving-hypnotic-response">How to Improve Your Hypnotic Responsiveness</h2>
+    <p>If you've tried hypnosis before without satisfying results, responsiveness often improves through deliberate practice. Consistent exposure helps. Many people find that their first hypnotic experience is light - they're not sure if anything is happening - but subsequent sessions deepen as familiarity builds. Regular practice with meditation, mindfulness or other absorption-based activities improves hypnotic capacity. These train the attentional focus and imaginative engagement that hypnosis requires. Being clear about your goals and what you genuinely want to change matters. Vague motivation generates vague hypnotic response. Working with a practitioner whose style matches your cognitive preference makes a substantial difference. If you're analytical and literal-minded, an induction that begins with mechanical, neurological explanation will suit you better than one invoking imagery and metaphor. Conversely, if you're imaginative and metaphorically oriented, a more poetic, suggestive approach might serve you better. The right therapeutic relationship - where you genuinely trust and feel understood by the hypnotherapist - is possibly the single most important factor. Trust enables relaxation of the defensive strategies that interfere with trance.</p>
+
+    <h2 id="when-hypnosis-doesnt-work">When Hypnosis Genuinely Doesn't Work</h2>
+    <p>A small percentage of people consistently struggle to enter hypnotic trance despite working with skilled practitioners and genuine commitment. This isn't failure or weakness. Some possibilities: certain neurological or cognitive conditions affect trance capacity. Active substance use or withdrawal states can interfere. In rare cases, someone's particular neurology seems structured around maintaining high vigilance and difficulty with the cognitive shift hypnosis requires. Others find different therapeutic modalities suit them better - somatic therapy, cognitive-behavioural approaches or other evidence-based methods. This is information, not a limitation. The goal is effectiveness, not forcing a particular method if better alternatives exist. Additionally, some people benefit from hypnotherapy as an adjunct or component of broader treatment rather than as a primary tool. This is entirely legitimate. The key is matching treatment to person rather than the reverse.</p>
+
+    <p>Can you be hypnotised? Almost certainly. Whether hypnosis is the right approach for your specific situation, with your particular goals, with the right practitioner for you - that requires genuine exploration. Most apparent non-responsiveness reflects poor fit, limited explanation of mechanism or practitioner skill limitations rather than true inability. If you're curious and genuinely willing to engage with the process, you likely have more capacity than you think.</p>
   </article>
+
+  <div class="share-bar">
+    <span class="share-label">Share This Article</span>
+    <div class="share-links">
+      <a href="https://wa.me/?text=https://www.chrismurrayhypnosis.com/articles/can-you-be-hypnotised.html" target="_blank">WhatsApp</a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.chrismurrayhypnosis.com/articles/can-you-be-hypnotised.html" target="_blank">LinkedIn</a>
+      <a href="https://twitter.com/intent/tweet?url=https://www.chrismurrayhypnosis.com/articles/can-you-be-hypnotised.html" target="_blank">X</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.chrismurrayhypnosis.com/articles/can-you-be-hypnotised.html" target="_blank">Facebook</a>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-box-inner">
+      <div class="author-avatar">CM</div>
+      <div class="author-info">
+        <p class="author-name">Christopher Murray</p>
+        <p class="author-creds">Dip.C.Hyp &middot; HPD &middot; NLP &middot; MNCH</p>
+        <p class="author-bio">Christopher Murray is a cognitive hypnotherapist, NLP practitioner and author of The Confidence Reset. He works with high-functioning individuals internationally from his base in Galle, Sri Lanka.</p>
+        <p class="author-links"><a href="https://www.chrismurrayhypnosis.com">chrismurrayhypnosis.com</a></p>
+      </div>
+    </div>
+  </div>
+
   <div class="article-sources">
     <h3>Sources</h3>
     <ul>
-      <li>Heap, M., & Kirsch, I. (2005). Hypnotherapy: A handbook. Open University Press. Research on hypnotic susceptibility and its correlates.</li>
-      <li><a href="https://www.bscah.com">British Society of Clinical Hypnosis (BSCAH) - Understanding hypnosis and clinical applications</a></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/23342427">Barker, E., et al. (2012). Effects of hypnosis on cognitive performance. PubMed Central</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/11789001/">Personality and hypnotic susceptibility - Journal of Personality and Individual Differences (2002)</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/16749867/">Absorption and hypnotic susceptibility meta-analysis - Psychological Bulletin (2006)</a></li>
+      <li><a href="https://bscah.com/pages/for-hypnotherapists/research/">British Society of Clinical and Academic Hypnosis - Research Resources</a></li>
     </ul>
   </div>
 </main>
+
+<script>
+const menuBtn=document.getElementById('menuBtn'),menuClose=document.getElementById('menuClose'),mobileMenu=document.getElementById('mobileMenu'),menuBackdrop=document.getElementById('menuBackdrop');
+function openMenu(){mobileMenu.classList.add('open');menuBackdrop.classList.add('open');document.body.style.overflow='hidden';}
+function closeMenu(){mobileMenu.classList.remove('open');menuBackdrop.classList.remove('open');document.body.style.overflow='';}
+menuBtn.addEventListener('click',openMenu);menuClose.addEventListener('click',closeMenu);menuBackdrop.addEventListener('click',closeMenu);
+</script>
 </body>
 </html>
