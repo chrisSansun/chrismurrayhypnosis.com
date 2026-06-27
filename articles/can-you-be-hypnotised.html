@@ -66,6 +66,15 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
 .article-sources ul { padding-left: 1.2rem; }
 .article-sources li { margin-bottom: 0.4rem; color: #5a5550; }
 .article-sources a { color: #5a5550; }
+
+  .related-articles { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #e0ddd8; }
+  .related-articles h3 { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #5a5550; margin-bottom: 1rem; font-family: 'Raleway', sans-serif; font-weight: 600; }
+  .related-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 2rem; }
+  .related-list li a { font-size: 0.88rem; color: #1a1a1a; text-decoration: none; display: flex; align-items: flex-start; gap: 0.4rem; line-height: 1.4; }
+  .related-list li a::before { content: '\2192'; color: #8a6d3b; flex-shrink: 0; font-size: 0.75rem; margin-top: 0.1rem; }
+  .related-list li a:hover { color: #8a6d3b; }
+  @media (max-width: 500px) { .related-list { grid-template-columns: 1fr; } }
+
 .back-link { display: inline-block; margin: 5.5rem 1.5rem 0; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5550; text-decoration: none; }
 @media (min-width: 1024px) { .nav-links { display: flex; } .hamburger { display: none; } .article-wrap { padding: 5.5rem 2rem 5rem; } }
 </style>
@@ -166,6 +175,15 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
     <p>Can you be hypnotised? Almost certainly. Whether hypnosis is the right approach for your specific situation, with your particular goals, with the right practitioner for you - that requires genuine exploration. Most apparent non-responsiveness reflects poor fit, limited explanation of mechanism or practitioner skill limitations rather than true inability. If you're curious and genuinely willing to engage with the process, you likely have more capacity than you think.</p>
   </article>
 
+  <div class="related-articles">
+    <h3>Related Articles</h3>
+    <ul class="related-list">
+      <li><a href="what-is-hypnosis.html">What Is Hypnosis?</a></li>
+      <li><a href="hypnosis-myths.html">Common Myths About Hypnosis</a></li>
+      <li><a href="first-hypnotherapy-session.html">Your First Session: What to Expect</a></li>
+      <li><a href="is-hypnotherapy-safe.html">Is Hypnotherapy Safe?</a></li>
+    </ul>
+  </div>
   <div class="share-bar">
     <span class="share-label">Share This Article</span>
     <div class="share-links">
