@@ -22,7 +22,7 @@ jobs:
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $OUTPUT
 
           for file in $(find . -name "*.html" | sort); do
-            if echo "$file" | grep -q "^./tools/"; then
+            if echo "$file" | grep -q "^./tools/\|^./free/"; then
               continue
             fi
             if [ "$file" = "./admin.html" ] || [ "$file" = "./client-portal.html" ]; then

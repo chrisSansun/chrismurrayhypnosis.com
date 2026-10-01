@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Free Recording | Chris Murray Precision Hypnosis</title>
+<meta name="description" content="A free self-hypnosis recording from Chris Murray, Cognitive Hypnotherapist.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A free recording from Chris Murray">
+<meta property="og:description" content="A guided self-hypnosis recording from Chris Murray, Cognitive Hypnotherapist.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --ink:#1a1a1a; --charcoal:#2e2e2e; --smoke:#f7f5f2; --warm:#ede9e3; --gold:#8a6d3b; --gold2:#b8955a; --mid:#5a5550; --light:#d0cdc8; --pad:1.5rem; }
+body { background: var(--smoke); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem var(--pad); background: rgba(247,245,242,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(200,195,188,0.5); }
+.nav-wordmark { display: flex; text-decoration: none; }
+.nav-logo { height: 38px; width: auto; display: block; }
+.nav-links { display: none; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); text-decoration: none; }
+.nav-book { color: var(--smoke) !important; background: var(--ink); padding: 0.65rem 1.3rem; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 7.5rem 1.5rem 4rem; }
+.eyebrow { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.9rem; }
+h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(2rem, 6vw, 2.9rem); line-height: 1.1; margin-bottom: 1.2rem; }
+h1 em { color: var(--gold); }
+.lede { font-size: 1rem; line-height: 1.8; margin-bottom: 1.2rem; }
+.meta { display: flex; gap: 1.4rem; flex-wrap: wrap; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid); font-weight: 600; margin: 1.6rem 0 2.2rem; padding: 1rem 0; border-top: 1px solid var(--light); border-bottom: 1px solid var(--light); }
+.card { background: var(--charcoal); color: var(--smoke); padding: 2rem 1.6rem; border-radius: 4px; }
+.card h2 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.4rem; margin-bottom: 0.5rem; }
+.card p { font-size: 0.9rem; line-height: 1.7; color: var(--light); margin-bottom: 1.3rem; }
+label { display: block; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold2); font-weight: 600; margin-bottom: 0.45rem; }
+input[type=text], input[type=email] { width: 100%; background: transparent; border: 1px solid rgba(208,205,200,0.35); color: var(--smoke); font-family: 'Raleway', sans-serif; font-size: 1rem; padding: 0.85rem 0.9rem; margin-bottom: 1.1rem; border-radius: 2px; }
+input:focus { outline: none; border-color: var(--gold2); }
+.btn { display: inline-block; width: 100%; background: var(--gold); color: #fff; border: none; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; padding: 1rem 1.4rem; text-decoration: none; text-align: center; border-radius: 2px; }
+.btn:hover { background: var(--gold2); }
+.btn[disabled] { opacity: 0.6; cursor: wait; }
+.fine { font-size: 0.75rem !important; color: #a9a59f !important; margin: 1rem 0 0 !important; }
+.err { color: #f0997b; font-size: 0.85rem; margin-top: 0.8rem; display: none; }
+#player { display: none; }
+audio { width: 100%; margin: 0.4rem 0 1.2rem; }
+.dl { background: transparent; border: 1px solid var(--gold2); color: var(--smoke); }
+.dl:hover { background: rgba(184,149,90,0.15); }
+.howto { margin-top: 2.4rem; }
+.howto h3 { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--mid); font-weight: 600; margin-bottom: 1rem; }
+.howto ul { list-style: none; }
+.howto li { font-size: 0.93rem; line-height: 1.7; padding: 0.7rem 0 0.7rem 1.4rem; border-bottom: 1px solid var(--warm); position: relative; }
+.howto li::before { content: '\2192'; position: absolute; left: 0; color: var(--gold); font-size: 0.8rem; top: 0.85rem; }
+.cta { margin-top: 2.6rem; background: var(--warm); padding: 1.8rem 1.6rem; border-radius: 4px; }
+.cta p { font-family: 'Playfair Display', serif; font-size: 1.2rem; line-height: 1.45; margin-bottom: 1.2rem; }
+.cta .btn { background: var(--ink); width: auto; }
+.cta .btn:hover { background: var(--charcoal); }
+footer { text-align: center; padding: 2.5rem 1.5rem 3rem; margin-top: 3rem; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--light); background: var(--charcoal); }
+footer img { height: 40px; opacity: 0.6; display: block; margin: 0 auto 1rem; }
+@media (min-width: 1024px) { .nav-links { display: flex; } .card { padding: 2.4rem 2.2rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index" class="nav-wordmark"><img src="../images/logo.webp" alt="Chris Murray Precision Hypnosis" class="nav-logo"></a>
+  <ul class="nav-links">
+    <li><a href="../index#services">Services</a></li>
+    <li><a href="../index#about">About</a></li>
+    <li><a href="../articles/index">Articles</a></li>
+    <li><a href="../index#contact" class="nav-book">Book a Call</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+  <span class="eyebrow">A free recording from Chris</span>
+  <h1 id="title">Health <em>Maintenance</em></h1>
+  <p class="lede" id="lede">Most of us spend our days maintaining everything except ourselves. I made this recording to give you some of that time back. It guides you down into a deep, settled state, takes you through an inner smile body scan, and leaves you with a simple breath cue you can use whenever you need it.</p>
+
+  <div class="meta"><span id="length">12 minutes</span><span>Self-hypnosis</span><span>Headphones recommended</span></div>
+
+  <section class="card" id="gate">
+    <h2>Listen free</h2>
+    <p>Pop your details in and the recording opens straight away. I'll also let you know when I release new ones.</p>
+    <form id="gateForm" action="https://formspree.io/f/mkoqknvr" method="POST" novalidate>
+      <input type="hidden" name="_subject" id="subject" value="Free recording: Health Maintenance">
+      <input type="hidden" name="recording" id="recordingField" value="Health Maintenance">
+      <input type="hidden" name="source" value="Free recording page">
+      <label for="fname">First name</label>
+      <input type="text" id="fname" name="name" autocomplete="given-name" required>
+      <label for="femail">Email</label>
+      <input type="email" id="femail" name="email" autocomplete="email" required>
+      <button type="submit" class="btn" id="gateBtn">Listen now</button>
+      <div class="err" id="gateErr"></div>
+      <p class="fine">Occasional emails only. Unsubscribe any time.</p>
+    </form>
+  </section>
+
+  <section class="card" id="player">
+    <h2>Your recording</h2>
+    <p>Find somewhere quiet, settle in, and press play.</p>
+    <audio controls preload="none" id="audio"><source id="audioSrc" src="audio/health-maintenance.mp3" type="audio/mpeg"></audio>
+    <a class="btn dl" id="dlLink" href="audio/health-maintenance.mp3" download="Chris Murray - Health Maintenance.mp3">Download the MP3</a>
+  </section>
+
+  <section class="howto">
+    <h3>Getting the most from it</h3>
+    <ul>
+      <li>Listen somewhere you can relax completely. Never while driving or operating machinery.</li>
+      <li>Headphones help you stay with my voice and shut out the room.</li>
+      <li>Once a day for a week works better than once. Each listen builds on the last.</li>
+      <li>You'll hear a soft click at certain points. That's part of the recording, and it takes you deeper.</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <p>A recording is the same for everyone. Session work is built around you.</p>
+    <a class="btn" href="../index#contact">Book a Consultation</a>
+  </section>
+</main>
+
+<footer>
+  <img src="../nch-logow.png" alt="National Council for Hypnotherapy member">
+  Chris Murray &middot; Precision Hypnosis
+</footer>
+
+<script>
+(function () {
+  var RECORDINGS = {
+    'health-maintenance': {
+      title: 'Health <em>Maintenance</em>', name: 'Health Maintenance', length: '12 minutes',
+      file: 'audio/health-maintenance.mp3',
+      lede: 'Most of us spend our days maintaining everything except ourselves. I made this recording to give you some of that time back. It guides you down into a deep, settled state, takes you through an inner smile body scan, and leaves you with a simple breath cue you can use whenever you need it.'
+    }
+  };
+  var key = (new URLSearchParams(location.search).get('r') || 'health-maintenance').toLowerCase();
+  var rec = RECORDINGS[key] || RECORDINGS['health-maintenance'];
+  var $ = function (id) { return document.getElementById(id); };
+  $('title').innerHTML = rec.title;
+  $('lede').textContent = rec.lede;
+  $('length').textContent = rec.length;
+  $('subject').value = 'Free recording: ' + rec.name;
+  $('recordingField').value = rec.name;
+  $('audioSrc').src = rec.file;
+  $('audio').load();
+  $('dlLink').href = rec.file;
+  $('dlLink').setAttribute('download', 'Chris Murray - ' + rec.name + '.mp3');
+  document.title = rec.name + ' | Free Recording | Chris Murray';
+
+  function unlock(scroll) { $('gate').style.display = 'none'; $('player').style.display = 'block'; if (scroll) { window.scrollTo({ top: $('player').getBoundingClientRect().top + window.pageYOffset - 110, behavior: 'smooth' }); } }
+  try { if (localStorage.getItem('cmh_free_unlocked') === '1') unlock(); } catch (e) {}
+
+  $('gateForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var err = $('gateErr'); err.style.display = 'none';
+    var name = $('fname').value.trim(), email = $('femail').value.trim();
+    if (!name) { err.textContent = 'Please add your first name.'; err.style.display = 'block'; $('fname').focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please check your email address.'; err.style.display = 'block'; $('femail').focus(); return; }
+    var btn = $('gateBtn'); btn.disabled = true; btn.textContent = 'Opening...';
+    fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error('bad');
+        try { localStorage.setItem('cmh_free_unlocked', '1'); } catch (e) {}
+        unlock(true);
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = 'Listen now';
+        err.textContent = 'Something went wrong sending that. Please try again.'; err.style.display = 'block';
+      });
+  });
+})();
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243959808.js"></script>
+</body>
+</html>
