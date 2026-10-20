@@ -78,7 +78,8 @@
 html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--g) var(--soft);-webkit-text-size-adjust:100%}
 body{font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:450;font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--w);caret-color:var(--g)}
 ::selection{background:var(--gold);color:var(--g2)}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:3px solid var(--g);outline-offset:3px;border-radius:6px}
+.hero :focus-visible,.stats :focus-visible,.method :focus-visible,.cpanel :focus-visible,.plan.top :focus-visible,footer :focus-visible,.menu :focus-visible{outline-color:var(--gold)}
 a{color:inherit}
 img{display:block;max-width:100%}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
@@ -121,6 +122,7 @@ nav{position:absolute;top:0;left:0;right:0;z-index:50;color:#fff;border-bottom:1
 .menu a.cta{color:var(--gold)}
 @media(min-width:1080px){.links{display:flex}.nav-end{display:none}}
 
+@media(max-width:420px){.nav-end>.btn{display:none}}
 @media(max-width:600px){.logo{gap:9px}.logo b{font-size:19px;white-space:nowrap}.logo i{height:26px}.logo span{font-size:11px;letter-spacing:.12em}.nav-end .btn{padding:.55rem .85rem;font-size:.75rem}.nav-end{gap:.4rem}.burger{width:2.4rem;height:2.4rem}}
 /* HERO */
 .hero{position:relative;background:radial-gradient(ellipse 36% 72px at 66% 40px,rgba(125,30,8,.72) 0%,rgba(125,30,8,.45) 55%,rgba(125,30,8,0) 100%),linear-gradient(90deg,rgba(115,28,8,.32) 0%,rgba(115,28,8,.32) 48%,rgba(115,28,8,0) 60%),radial-gradient(ellipse 42% 75% at 78% 52%,rgba(255,206,110,.7) 0%,rgba(255,180,80,.32) 42%,rgba(255,160,60,0) 70%),var(--amber);color:var(--w);overflow:hidden;padding-top:5rem}
@@ -307,19 +309,19 @@ h2{font-size:clamp(2.2rem,4.6vw,3.8rem)}
 .vpanel .more p{color:var(--forest2);font-weight:500}
 .vpanel .more{border-top-color:rgba(255,255,255,.3)}
 .vpanel .more figure{background:rgba(255,255,255,.82);border-radius:20px;padding:1.6rem}
-/* prices: cream */
-.prices{background:var(--cream)}
-.plist{background:#fff;border:0;box-shadow:0 30px 60px -40px rgba(15,58,46,.5)}
+/* prices: white (testimonials above are cream) */
+.prices{background:#fff}
+.plist{background:#fff;border:0;box-shadow:0 0 0 1px rgba(15,58,46,.1),0 30px 60px -40px rgba(15,58,46,.5)}
 .plan.top{background:var(--forest)}
-/* articles: white with amber counts */
-.arts{background:#fff}
-.alink{background:var(--cream)}
+/* articles: cream with amber counts */
+.arts{background:var(--cream)}
+.alink{background:#fff}
 .alink em{color:#B23A17;font-size:2rem}
 /* contact: amber panel with forest form card */
 .contact{background:#fff;padding-bottom:clamp(4rem,8vw,6.5rem)}
-.cpanel{background:radial-gradient(ellipse 45% 90% at 90% 60%,rgba(255,206,110,.5),rgba(255,160,60,0) 70%),var(--amber)}
+.cpanel{background:linear-gradient(90deg,rgba(115,28,8,.32) 0%,rgba(115,28,8,.32) 46%,rgba(115,28,8,0) 72%),radial-gradient(ellipse 45% 90% at 90% 60%,rgba(255,206,110,.5),rgba(255,160,60,0) 70%),var(--amber)}
 .cpanel .lead,.cpanel .where{color:#fff}
-.cpanel .free{color:#FFD9A8}
+.cpanel .free{color:#FFE7CC}
 .cpanel form{background:var(--forest2);border-radius:24px;padding:1.8rem}
 .cpanel .btn.amber{background:#fff;color:var(--forest2)}
 .note2{color:#A9D3C3}
@@ -332,16 +334,17 @@ h2{font-size:clamp(2.2rem,4.6vw,3.8rem)}
 /* About v3: photo opens into a half-width orange field that blends down */
 .about{padding:0;background:#fff;overflow:hidden}
 .about-grid{max-width:none;padding:0;gap:0}
-.about-photo{position:relative;background:linear-gradient(180deg,#EA6419 0%,#F27020 45%,#FC7A26 78%,#FBF4EC 100%)}
+.about-photo{position:relative;background:linear-gradient(180deg,#EA6419 0%,#F27020 45%,#FC7A26 78%,#fff 100%)}
 .about-photo img{display:block;width:100%;height:auto;aspect-ratio:auto;border-radius:0;box-shadow:none;
  -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
 .about-text{padding:clamp(3rem,6vw,5.5rem) var(--pad)}
 @media(min-width:900px){
  .about-grid{grid-template-columns:1fr 1fr;align-items:stretch}
- .about-photo{background:linear-gradient(180deg,#EA6419 0%,#F27020 45%,#FC7A26 75%,#FBF4EC 100%)}
+ .about-photo{background:linear-gradient(180deg,#EA6419 0%,#F27020 45%,#FC7A26 75%,#fff 100%)}
  .about-photo img{position:sticky;top:0;width:100%;height:auto;max-height:none}
  .about-text{padding:clamp(4rem,7vw,6.5rem) clamp(2.5rem,5vw,5rem);max-width:720px}
 }
+@media(min-width:1800px){.about-grid{grid-template-columns:minmax(0,900px) 1fr}}
 /* Testimonials v3: calm cream, forest text, amber accents */
 .voices{background:#FBF4EC!important;padding-top:clamp(4rem,8vw,6.5rem)}
 .vpanel h2{color:var(--forest)}
@@ -530,7 +533,7 @@ h2{font-size:clamp(2.2rem,4.6vw,3.8rem)}
   </div>
 </section>
 
-<section class="news" id="newsletter" aria-labelledby="newsTitle" hidden><!-- hidden until the HubSpot form is connected -->
+<section class="news" id="newsletter" hidden aria-labelledby="newsTitle">
   <div class="wrap">
     <div>
       <h2 id="newsTitle">Notes on the mind, once a month.</h2>
@@ -583,7 +586,7 @@ nf.addEventListener('submit',e=>{
   e.preventDefault();ne.style.display='none';
   const em=document.getElementById('newsEmail');
   if(!em.checkValidity()){newsFail('Please enter a valid email address.');em.focus();return}
-  if(!NEWS_FORM){newsDone();return} // preview only: no HubSpot form connected yet
+  if(!NEWS_FORM){newsFail('Preview only: the newsletter is not connected yet.');return}
   const hutk=(document.cookie.match(/hubspotutk=([^;]+)/)||[])[1];
   fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${NEWS_FORM}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:[{name:'email',value:em.value}],context:{pageUri:location.href,pageName:document.title,...(hutk&&{hutk})}})})
   .then(r=>r.ok?newsDone():newsFail('Something went wrong. Please try again.')).catch(()=>newsFail('Something went wrong. Please try again.'))
