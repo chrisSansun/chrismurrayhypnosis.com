@@ -46,14 +46,14 @@
     box.innerHTML =
       '<button class="x" type="button" aria-label="Close">&#x2715;</button>' +
       '<div class="ask">' +
-        '<h2 id="cmhSiTitle">Notes on the mind, once a month.</h2>' +
-        '<p>Join my newsletter: one short email a month on patterns, performance and change. As a thank-you, you&rsquo;ll get the <strong>Ten Minute Reset</strong>, a guided audio to settle a racing mind, free.</p>' +
+        '<h2 id="cmhSiTitle">Notes on the mind, every week.</h2>' +
+        '<p>Join my newsletter: one short email a week on patterns, performance and change. As a thank-you, you&rsquo;ll get the <strong>Ten Minute Reset</strong>, a guided audio to settle a racing mind, free.</p>' +
         '<form novalidate>' +
           '<label for="cmhSiEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>' +
           '<input type="email" id="cmhSiEmail" placeholder="your@email.com" autocomplete="email" required>' +
           '<button class="go" type="submit">Join the newsletter</button>' +
           '<p class="err" role="alert"></p>' +
-          '<p class="fine">By joining, you agree to receive my monthly newsletter by email. Unsubscribe anytime. <a href="/privacy">Privacy notice</a>.</p>' +
+          '<p class="fine">By joining, you agree to receive my weekly newsletter by email. Unsubscribe anytime. <a href="/privacy">Privacy notice</a>.</p>' +
         '</form>' +
       '</div>' +
       '<div class="done" hidden role="status">' +
