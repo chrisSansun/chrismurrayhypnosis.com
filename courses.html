@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#8E2410">
+<title>Courses | Chris Murray | Precision Hypnosis</title>
+<meta name="description" content="Self-paced courses from cognitive hypnotherapist Chris Murray, built on the same method as his one-to-one work. Coming soon: join the waitlist.">
+<link rel="canonical" href="https://www.chrismurrayhypnosis.com/courses">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.chrismurrayhypnosis.com/courses">
+<meta property="og:title" content="Courses | Chris Murray | Precision Hypnosis">
+<meta property="og:description" content="Self-paced courses built on the same method as the one-to-one work. Coming soon: join the waitlist.">
+<meta property="og:image" content="https://www.chrismurrayhypnosis.com/images/og-image.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Hanken Grotesk";src:url("/fonts/hanken-grotesk-latin.woff2") format("woff2");font-weight:300 700;font-display:swap}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--g:#0F3A2E;--g2:#0B2B22;--gold:#F6AE45;--amber:linear-gradient(115deg,#8E2410 0%,#B23A17 25%,#D2561E 50%,#EA8128 75%,#F6AE45 100%);--glow:radial-gradient(ellipse 55% 75% at 72% 55%,rgba(255,196,92,.55) 0%,rgba(255,168,64,.25) 40%,rgba(255,150,50,0) 70%);--amber-deep:linear-gradient(115deg,#7E1F0E 0%,#9E3013 35%,#B9461A 70%,#CC5A1E 100%);--ink:#10271F;--soft:#EEF3F0;--text2:#3B5249;--onG:#E4ECE8;--w:#fff;--pad:clamp(1.25rem,4vw,2.5rem);--max:1360px;--r:28px}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--g) var(--soft);-webkit-text-size-adjust:100%}
+body{font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:450;font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--w);caret-color:var(--g)}
+::selection{background:var(--gold);color:var(--g2)}
+:focus-visible{outline:3px solid var(--g);outline-offset:3px;border-radius:6px}
+.hero :focus-visible,.stats :focus-visible,.method :focus-visible,.cpanel :focus-visible,.plan.top :focus-visible,footer :focus-visible,.menu :focus-visible{outline-color:var(--gold)}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1.05;text-wrap:balance}
+h2{font-size:clamp(2rem,4vw,3.1rem)}
+p{max-width:64ch}
+.br{display:none}@media(min-width:960px){.br{display:inline}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font:inherit;font-weight:700;font-size:.9375rem;padding:1rem 1.6rem;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:var(--g);color:#fff}
+.btn.gold:hover{background:var(--g2)}
+.btn.amber{background:var(--amber-deep);color:#fff}
+.btn.dark{background:var(--g2);color:var(--w)}
+.btn.line{background:rgba(11,43,34,.28);border-color:rgba(255,255,255,.45);color:var(--w)}
+.btn.line:hover{background:rgba(11,43,34,.45)}
+.btn.line:hover{border-color:var(--w)}
+.btn.outline{border-color:var(--g);color:var(--g)}
+.btn.outline:hover{background:var(--g);color:var(--w)}
+
+/* NAV */
+nav{position:absolute;top:0;left:0;right:0;z-index:50;color:#fff;border-bottom:1px solid rgba(255,255,255,.2)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}.logo b{font-size:26px;font-weight:700;letter-spacing:-.025em;line-height:1}.logo i{width:1.5px;height:28px;background:currentColor;opacity:.6}.logo span{font-size:11px;font-weight:600;letter-spacing:.14em;line-height:1.35;text-transform:uppercase}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:5rem}
+.nav-in img{height:40px;width:auto}
+.links{display:none;list-style:none;gap:1.9rem;align-items:center}
+.links a{font-size:.875rem;font-weight:600;text-decoration:none}
+.links a:hover{color:#fff;text-decoration:underline;text-underline-offset:.35em;text-decoration-thickness:2px}
+.links .btn{padding:.7rem 1.2rem;font-size:.875rem;color:var(--w)}
+.links .btn:hover{text-decoration:none;color:var(--w)}
+.nav-end{display:flex;gap:.6rem;align-items:center}
+.nav-end .btn{padding:.6rem 1rem;font-size:.8125rem;white-space:nowrap}
+.burger{width:2.75rem;height:2.75rem;border-radius:999px;border:2px solid #fff;background:none;display:grid;place-content:center;gap:5px;cursor:pointer}
+.burger span{width:18px;height:2px;background:#fff;display:block}
+.menu{position:fixed;inset:0;z-index:60;background:var(--g);color:var(--w);padding:1.25rem var(--pad);display:none;flex-direction:column}
+.menu.open{display:flex}
+.menu-top{display:flex;justify-content:flex-end;margin-bottom:1rem}
+.menu-top button{font:inherit;font-weight:700;color:var(--w);background:none;border:2px solid rgba(255,255,255,.5);border-radius:999px;padding:.5rem 1rem;cursor:pointer}
+.menu a{font-size:1.75rem;font-weight:700;text-decoration:none;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.menu a.cta{color:var(--gold)}
+@media(min-width:1180px){.links{display:flex}.nav-end{display:none}}
+
+@media(max-width:420px){.nav-end>.btn{display:none}}
+@media(max-width:600px){.logo{gap:9px}.logo b{font-size:19px;white-space:nowrap}.logo i{height:26px}.logo span{font-size:11px;letter-spacing:.12em}.nav-end .btn{padding:.55rem .85rem;font-size:.75rem}.nav-end{gap:.4rem}.burger{width:2.4rem;height:2.4rem}}
+/* HERO */
+.hero{position:relative;background:radial-gradient(ellipse 36% 72px at 66% 40px,rgba(125,30,8,.72) 0%,rgba(125,30,8,.45) 55%,rgba(125,30,8,0) 100%),linear-gradient(90deg,rgba(115,28,8,.32) 0%,rgba(115,28,8,.32) 48%,rgba(115,28,8,0) 60%),radial-gradient(ellipse 42% 75% at 78% 52%,rgba(255,206,110,.7) 0%,rgba(255,180,80,.32) 42%,rgba(255,160,60,0) 70%),var(--amber);color:var(--w);overflow:hidden;padding-top:5rem}
+.panel{position:relative;max-width:var(--max);margin:0 auto;padding:0 var(--pad);min-height:760px;display:grid;grid-template-columns:1fr}
+.copy{position:relative;z-index:2;padding:4rem 0 2rem}
+h1{font-size:clamp(2.6rem,6vw,5.6rem);line-height:1;letter-spacing:-.04em}
+h1 .kw{display:block;font-size:clamp(1.05rem,1.6vw,1.35rem);font-weight:500;letter-spacing:-.01em;line-height:1.3;margin-top:1.4rem;color:#fff}
+.lede{font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.55;color:#fff;font-weight:600;max-width:34em;margin-top:1rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+h1 .h1a{font-weight:500}
+.reassure{margin-top:.9rem;font-size:.9375rem;font-weight:500;color:#fff}
+.card{position:relative;z-index:3;margin:0 0 2rem;background:var(--g);color:#fff;border-radius:22px;padding:1.4rem 1.5rem;max-width:340px}
+.card b{display:block;font-size:1.15rem;margin-bottom:.3rem}.card span{display:block;font-size:.875rem;color:#A9D3C3;line-height:1.5}
+.card a{display:inline-block;margin-top:.9rem;background:#fff;color:var(--g);font-weight:700;font-size:.875rem;text-decoration:none;padding:.6rem 1.1rem;border-radius:999px}
+.card a:hover{background:var(--gold)}
+.cut{position:relative;z-index:1;justify-self:center;width:min(70%,360px);align-self:end}
+.cut img{width:100%;height:auto}
+@media(min-width:960px){
+ .panel{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+ .copy{padding-top:7.5rem}
+ .cut{grid-column:2;grid-row:1;width:auto;align-self:end;justify-self:center}
+ .cut img{height:740px;width:auto;max-width:none}
+ .card{position:absolute;right:var(--pad);bottom:5rem;margin:0}
+}
+@media(prefers-reduced-motion:no-preference){
+ .cut img{animation:rise .9s cubic-bezier(.16,1,.3,1) both}
+ @keyframes rise{from{transform:translateY(28px)}to{transform:none}}
+}
+
+section{padding:clamp(4rem,8vw,6.5rem) 0}
+.head{display:grid;gap:1.25rem;margin-bottom:2.75rem}
+@media(min-width:900px){.head{grid-template-columns:1fr 1fr;align-items:end}}
+.head p{font-size:1.125rem;color:var(--text2)}
+
+/* HELP */
+.rows{border-top:2px solid var(--g)}
+.row{display:grid;gap:.5rem 2rem;padding:1.75rem 0;border-bottom:1px solid rgba(23,58,48,.2);text-decoration:none;align-items:start}
+@media(min-width:900px){.row{grid-template-columns:20rem 1fr auto}}
+.row h3{font-size:1.4rem;letter-spacing:-.02em}
+.row p{color:var(--text2)}
+.row .go{font-weight:700;color:var(--g);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
+.row:hover h3{color:var(--g)}
+.row:hover .go svg{transform:translateX(4px)}
+.go svg{transition:transform .2s ease}
+
+/* METHOD */
+.method{background:var(--soft)}
+.steps{display:grid;gap:1.25rem;counter-reset:s}
+@media(min-width:900px){.steps{grid-template-columns:repeat(3,1fr);gap:1.5rem}}
+.step{background:var(--w);border-radius:20px;padding:2rem}
+.step .n{display:inline-grid;place-content:center;width:3rem;height:3rem;border-radius:50%;background:var(--amber);color:#fff;font-weight:700;margin-bottom:1.1rem}
+.step h3{font-size:1.5rem;margin-bottom:.6rem}
+.step p{color:var(--text2)}
+.method .note{margin-top:1.75rem;font-weight:600}
+
+/* ABOUT */
+.about-grid{display:grid;gap:2.5rem}
+@media(min-width:900px){.about-grid{grid-template-columns:5fr 7fr;gap:4.5rem;align-items:center}}
+.about img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;border-radius:var(--r)}
+.about h2{margin-bottom:1.4rem}
+.about p+p{margin-top:1rem}
+.about .q{font-size:clamp(1.25rem,2vw,1.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.3;color:var(--g);margin:1.75rem 0;max-width:28ch}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem;list-style:none}
+.pills li{background:var(--soft);color:var(--g);font-size:.875rem;font-weight:600;padding:.45rem .9rem;border-radius:999px}
+
+/* VOICES */
+.voices{padding-top:0}
+.vpanel{background:var(--g2);color:var(--onG);border-radius:var(--r);padding:clamp(2rem,5vw,4rem)}
+.vpanel h2{color:var(--w)}
+.vpanel .feature{color:var(--w)}
+.vpanel .feature-by,.vpanel cite{color:var(--gold)}
+.voices h2{margin-bottom:2rem}
+.feature{font-size:clamp(1.35rem,2.6vw,2.1rem);font-weight:700;letter-spacing:-.02em;line-height:1.3;max-width:34em}
+.feature-by{margin-top:1.1rem;font-weight:600}
+.more{display:grid;gap:1.5rem;margin-top:2.75rem;padding-top:2rem;border-top:2px solid rgba(255,255,255,.18)}
+@media(min-width:900px){.more{grid-template-columns:1fr 1fr;gap:3rem}}
+.more p{font-weight:500}
+.more cite{display:block;margin-top:.6rem;font-style:normal;font-weight:700;font-size:.9375rem}
+
+/* PRICES */
+.prices .terms{display:grid;gap:1rem;margin-bottom:2.25rem;color:var(--text2)}
+
+.plist{border-radius:var(--r);border:2px solid var(--g);overflow:hidden}
+.plan{display:grid;gap:.75rem 2rem;padding:1.6rem clamp(1.25rem,3vw,2.25rem);border-bottom:1px solid rgba(23,58,48,.18);align-items:center}
+.plan:last-child{border-bottom:0}
+@media(min-width:900px){.plan{grid-template-columns:minmax(0,1.6fr) 6rem 8rem 8rem auto}}
+.plan h3{font-size:1.3rem}
+.plan .d{font-size:.9375rem;color:var(--text2);margin-top:.35rem}
+.plan .k{font-size:.75rem;font-weight:700;color:var(--text2);display:block}
+.plan .v{font-size:1.35rem;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.plan.top{background:var(--g);color:var(--w)}
+.plan.top .d,.plan.top .k{color:var(--onG)}
+.tag{display:inline-block;margin-left:.6rem;background:var(--amber-deep);color:#fff;font-size:.75rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;vertical-align:middle;letter-spacing:0}
+.inc{grid-column:1/-1;font-size:.875rem;color:var(--text2);list-style:none;display:flex;flex-wrap:wrap;gap:.35rem 1.25rem}
+.plan.top .inc{color:var(--onG)}
+.inc li::before{content:"";display:inline-block;width:.45rem;height:.45rem;border-radius:50%;background:#E07A26;margin-right:.5rem;vertical-align:middle}
+
+/* ARTICLES */
+.arts{background:var(--soft)}
+.alist{display:grid;gap:1rem}
+@media(min-width:900px){.alist{grid-template-columns:repeat(2,1fr);gap:1.25rem}}
+.alink{display:flex;justify-content:space-between;gap:1.5rem;align-items:center;background:var(--w);border-radius:18px;padding:1.4rem 1.6rem;text-decoration:none}
+.alink b{display:block;font-size:1.2rem;font-weight:700;letter-spacing:-.02em}
+.alink span{font-size:.9375rem;color:var(--text2)}
+.alink em{font-style:normal;font-weight:700;font-size:1.6rem;color:var(--g);letter-spacing:-.02em;white-space:nowrap}
+.alink:hover b{color:var(--g)}
+.all{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.75rem;font-weight:700;color:var(--g)}
+
+/* CONTACT */
+.contact{padding-top:clamp(4rem,8vw,6.5rem)}
+.cpanel{background:var(--g);color:var(--w);border-radius:var(--r);padding:clamp(2rem,5vw,4rem);display:grid;gap:2.5rem}
+@media(min-width:900px){.cpanel{grid-template-columns:1fr 1fr;gap:4rem}}
+.cpanel h2{color:#fff;margin-bottom:1.2rem}
+.cpanel .lead{color:var(--onG);font-size:1.0625rem}
+.cpanel .free{margin-top:1.25rem;font-weight:700;color:var(--gold)}
+.cpanel .where{margin-top:1.5rem;font-size:.9375rem;color:var(--onG)}
+.fg{margin-bottom:1.1rem}
+.fg label{display:block;font-size:.8125rem;font-weight:700;margin-bottom:.4rem}
+.fg input,.fg select,.fg textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--w);border:2px solid transparent;border-radius:999px;padding:.8rem .9rem}
+.fg textarea{border-radius:20px}
+.fg select{appearance:none;-webkit-appearance:none;padding-right:2.6rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%230F3A2E' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1.1rem center}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:0;border-color:var(--gold)}
+.fg input::placeholder,.fg textarea::placeholder{color:#5C6F68}
+.cpanel .btn{width:100%;justify-content:center;font-size:1rem}
+.btn{justify-content:center}
+@media(max-width:899px){.plan{grid-template-columns:repeat(3,1fr);gap:.4rem 1rem}.plan>div:first-child,.plan .inc,.plan>.btn{grid-column:1/-1}.plan>.btn{margin-top:.6rem}}
+.note2{margin-top:.8rem;font-size:.875rem;color:var(--onG)}
+.ok{display:none}.ok h3{font-size:2rem;color:var(--gold)}.ok p{margin-top:.8rem}
+
+footer{margin-top:0;background:var(--g2);color:var(--onG);padding:3rem 0 2.5rem}
+.f-grid{display:grid;gap:2rem;align-items:center}
+@media(min-width:900px){.f-grid{grid-template-columns:auto 1fr auto auto;gap:2.5rem}}
+.f-logo{height:46px;width:auto;margin-left:-41px}
+.f-word{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}.f-word b{font-size:22px;font-weight:700;letter-spacing:-.02em}.f-word i{width:1.5px;height:30px;background:currentColor;opacity:.5}.f-word span{font-size:11px;font-weight:600;letter-spacing:.14em;line-height:1.5;text-transform:uppercase;opacity:.85}
+.f-links{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem}
+.f-links a{font-size:.875rem;font-weight:600;text-decoration:none}
+.f-links a:hover{color:var(--gold)}
+.f-nch{height:44px;width:auto;opacity:.8}
+.social{display:flex;gap:1.1rem}.social a{display:flex}.social a:hover{color:var(--gold)}
+.social svg{width:20px;height:20px;fill:currentColor}
+.copy-r{margin-top:2rem;font-size:.8125rem;color:#A9BDB4}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.go svg{transition:none}.btn:hover{transform:none}}
+
+/* ===== v2 section system: carry the hero down the page ===== */
+:root{--cream:#FBF4EC;--ink:#14231E;--forest:#0F3A2E;--forest2:#0B2B22}
+section{position:relative}
+.eye{display:none}
+h2{font-size:clamp(2.2rem,4.6vw,3.8rem)}
+/* stats band */
+.stats{background:var(--forest);color:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;padding-top:2.4rem;padding-bottom:2.4rem}
+@media(min-width:900px){.stats .wrap{grid-template-columns:repeat(4,1fr)}}
+.stat b{display:block;font-size:clamp(2rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-.03em;color:#F39A4A;line-height:1.1}
+.stat span{font-size:.9375rem;color:#A9D3C3}
+/* help: cream with big hover rows */
+#help{background:var(--cream)}
+.rows{border-top:0}
+.rows{border-top:2px solid var(--forest)}
+.row{background:none;border-radius:0;padding:2rem 0;margin:0;border-bottom:1px solid rgba(15,58,46,.18)}
+.row h3{transition:color .2s ease}.row:hover h3{color:#A8361A}
+.row h3{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.row .go{color:#A8361A}
+/* method: dark forest with amber numerals */
+.method{background:var(--forest2);color:#fff}
+.method .head p{color:#A9D3C3}
+.method .head{text-align:center;justify-items:center}.method .head p{margin:0 auto}
+@media(min-width:900px){.method .head{grid-template-columns:1fr}}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:2.2rem}
+.step .n{background:none;width:auto;height:auto;border-radius:0;color:#F39A4A;font-size:4.5rem;font-weight:600;letter-spacing:-.05em;line-height:1;margin-bottom:1rem}
+.step h3{color:#fff;font-size:1.8rem}.step p{color:#C9DBD3}
+.method .note{color:#F6AE45}
+/* about: seated studio photo on its orange */
+.about{background:#fff}
+.about img{aspect-ratio:auto;object-fit:cover;border-radius:28px;box-shadow:0 30px 60px -30px rgba(142,36,16,.55)}
+.about .q{color:#A8361A}
+.pills li{background:var(--cream);color:var(--forest)}
+/* voices: amber field */
+.voices{padding-top:clamp(4rem,8vw,6.5rem);background:radial-gradient(ellipse 45% 80% at 92% 30%,rgba(255,206,110,.5),rgba(255,160,60,0) 70%),linear-gradient(100deg,#8E2410 0%,#A9361A 35%,#C24B1C 55%,#E07A27 80%,#F6AE45 100%)}
+.vpanel{position:relative}
+.vpanel{background:transparent;padding:0}
+.vpanel h2{color:#fff}.vpanel .feature{color:#fff;max-width:640px}
+.vpanel .feature{font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:500;letter-spacing:-.02em}
+.vpanel .feature-by{color:#fff;font-weight:700}.vpanel cite{color:var(--forest2);font-weight:700}
+.vpanel .more p{color:var(--forest2);font-weight:500}
+.vpanel .more{border-top-color:rgba(255,255,255,.3)}
+.vpanel .more figure{background:rgba(255,255,255,.82);border-radius:20px;padding:1.6rem}
+/* prices: white (testimonials above are cream) */
+.prices{background:#fff}
+.plist{background:#fff;border:0;box-shadow:0 0 0 1px rgba(15,58,46,.1),0 30px 60px -40px rgba(15,58,46,.5)}
+.plan.top{background:var(--forest)}
+/* articles: cream with amber counts */
+.arts{background:var(--cream)}
+.alink{background:#fff}
+.alink em{color:#B23A17;font-size:2rem}
+/* contact: amber panel with forest form card */
+.contact{background:#fff;padding-bottom:clamp(4rem,8vw,6.5rem)}
+.cpanel{background:linear-gradient(90deg,rgba(115,28,8,.32) 0%,rgba(115,28,8,.32) 46%,rgba(115,28,8,0) 72%),radial-gradient(ellipse 45% 90% at 90% 60%,rgba(255,206,110,.5),rgba(255,160,60,0) 70%),var(--amber)}
+.cpanel .lead,.cpanel .where{color:#fff}
+.cpanel .free{color:#FFE7CC}
+.cpanel form{background:var(--forest2);border-radius:24px;padding:1.8rem}
+.cpanel .btn.amber{background:#fff;color:var(--forest2)}
+.note2{color:#A9D3C3}
+
+@media(max-width:899px){
+ .hero{background:radial-gradient(ellipse 80% 40% at 70% 78%,rgba(255,200,100,.45),rgba(255,160,60,0) 70%),linear-gradient(180deg,#8E2410 0%,#9E2E13 26%,#A9341A 34%,#D2561E 50%,#EA8128 66%,#F6AE45 86%)}
+ .cpanel{background:linear-gradient(180deg,#7E1F0E 0%,#9A2E13 35%,#B23A17 55%,#D2561E 80%,#EA8128 100%)}
+}
+
+/* About v3: photo opens into a half-width orange field that blends down */
+.about{padding:0;background:#fff;overflow:hidden}
+.about-grid{max-width:none;padding:0;gap:0}
+.about-photo{position:relative;background:linear-gradient(180deg,#EA6419 0%,#F27020 45%,#FC7A26 78%,#fff 100%)}
+.about-photo img{display:block;width:100%;height:auto;aspect-ratio:auto;border-radius:0;box-shadow:none;
+ -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
+.about-text{padding:clamp(3rem,6vw,5.5rem) var(--pad)}
+@media(min-width:900px){
+ .about-grid{grid-template-columns:1fr 1fr;align-items:stretch}
+ .about-photo{background:linear-gradient(180deg,#EA6419 0%,#F27020 45%,#FC7A26 75%,#fff 100%)}
+ .about-photo img{position:sticky;top:0;width:100%;height:auto;max-height:none}
+ .about-text{padding:clamp(4rem,7vw,6.5rem) clamp(2.5rem,5vw,5rem);max-width:720px}
+}
+@media(min-width:1800px){.about-grid{grid-template-columns:minmax(0,900px) 1fr}}
+/* Testimonials v3: calm cream, forest text, amber accents */
+.voices{background:#FBF4EC!important;padding-top:clamp(4rem,8vw,6.5rem)}
+.vpanel h2{color:var(--forest)}
+.vpanel .feature{color:var(--forest);font-weight:500;max-width:880px;text-shadow:none;padding-left:1.6rem;border-left:4px solid #E07A26}
+.vpanel .feature-by{color:#A8361A}
+.vpanel .more{border-top:1px solid rgba(15,58,46,.15)}
+.vpanel .more figure{background:#fff;box-shadow:0 18px 40px -30px rgba(15,58,46,.5)}
+.vpanel .more p{color:#14231E;font-weight:450}
+.vpanel cite{color:#A8361A}
+/* Newsletter strip: cream, forest action, HubSpot */
+.news{background:var(--cream);padding:clamp(2.75rem,5vw,3.75rem) 0;border-top:1px solid rgba(15,58,46,.12)}
+.news .wrap{display:grid;gap:1.5rem 4rem;align-items:center}
+@media(min-width:900px){.news .wrap{grid-template-columns:1fr 1fr}}
+.news h2{font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.02em;color:var(--forest)}
+.news .nl{margin-top:.6rem;color:var(--text2)}
+.nform{display:flex;flex-wrap:wrap;gap:.6rem}
+.nform input{flex:1 1 16rem;min-width:0;font:inherit;font-size:1rem;color:var(--ink);background:#fff;border:2px solid rgba(15,58,46,.18);border-radius:999px;padding:.9rem 1.1rem}
+.nform input::placeholder{color:#5C6F68}
+.nform input:focus{outline:0;border-color:var(--forest)}
+.nform .btn{flex:0 0 auto}
+@media(max-width:600px){.nform .btn{flex-basis:100%}}
+.nconsent{flex-basis:100%;margin-top:.35rem;font-size:.8125rem;color:var(--text2)}
+.nok{display:none;background:#fff;border-radius:20px;padding:1.4rem 1.5rem;box-shadow:0 0 0 1px rgba(15,58,46,.12)}
+.nok-title{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;color:var(--forest)}
+.nok audio{width:100%;margin:.8rem 0 .4rem}
+.nok-meta{font-size:.9375rem;color:var(--text2)}.nok-meta a{color:var(--forest);font-weight:700}
+.nok-safe{margin-top:.6rem;font-size:.8125rem;color:var(--text2)}
+.nok-after{display:none;margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid rgba(15,58,46,.14)}
+.nok-after p{margin-top:.45rem;color:var(--text2)}.nok-after .nok-title{margin-top:0}.nok-after .btn{margin-top:1rem}
+.nok-after.show{display:block}
+.nerr{display:none;flex-basis:100%;font-size:.875rem;font-weight:600;color:#A8361A}
+/* Testimonials moved up (21 Oct): rebalance cream and white */
+.voices{background:#fff!important}
+.vpanel .more figure{background:var(--cream);box-shadow:none}
+.prices{background:var(--cream)}
+.arts{background:#fff}
+.alink{background:var(--cream)}
+.more-plans{margin-top:1.25rem;font-size:1rem;color:var(--text2);max-width:64ch}
+
+/* COURSES PAGE */
+.c-hero{position:relative;color:#fff;padding:5rem 0 0;background:radial-gradient(ellipse 45% 90% at 85% 55%,rgba(255,206,110,.55),rgba(255,160,60,0) 70%),linear-gradient(90deg,rgba(115,28,8,.32) 0 50%,rgba(115,28,8,0) 64%),var(--amber);overflow:hidden}
+.c-hero .wrap{padding-top:clamp(3.5rem,8vw,6rem);padding-bottom:clamp(3.5rem,7vw,5.5rem)}
+.c-hero .eyebrow{font-size:.9375rem;font-weight:600;color:#FFD9A8;margin-bottom:.8rem}
+.c-hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1;letter-spacing:-.04em;max-width:14ch}
+.c-hero p.sub{margin-top:1.2rem;font-size:clamp(1.05rem,1.5vw,1.25rem);font-weight:500;max-width:40ch;color:#fff}
+@media(max-width:899px){.c-hero{background:linear-gradient(180deg,#8E2410 0%,#A9341A 45%,#D2561E 80%,#EA8128 100%)}}
+.courses{background:var(--cream)}
+.c-grid{display:grid;gap:1.25rem}
+@media(min-width:700px){.c-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.c-grid{grid-template-columns:repeat(3,1fr)}}
+.c-card{background:#fff;border-radius:22px;box-shadow:0 0 0 1px rgba(15,58,46,.12);padding:1.75rem;display:flex;flex-direction:column;gap:.75rem;min-height:15rem}
+.c-card .tag{align-self:flex-start;margin:0;font-size:.75rem;font-weight:700;padding:.25rem .7rem;border-radius:999px}
+.c-card .tag.live{background:#E3F0EA;color:#1E5B44}
+.c-card .tag.soon{background:#F4E9DC;color:var(--text2)}
+.c-card h2{font-size:clamp(1.3rem,2vw,1.55rem);letter-spacing:-.02em;line-height:1.12;color:var(--forest)}
+.c-card p{color:var(--text2);font-size:1rem}
+.c-card .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:.5rem}
+.c-card .price{font-size:1.6rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.c-card.featured{box-shadow:0 0 0 2px var(--forest),0 30px 60px -40px rgba(15,58,46,.55)}
+@media(min-width:1080px){.c-card.featured{grid-column:span 2}}
+.c-card.soon{opacity:.72}
+.c-card.soon:hover{opacity:1}
+.c-card .notify{font-weight:700;color:var(--forest);text-decoration:underline;text-underline-offset:.2em}
+.c-note{margin-top:1.75rem;color:var(--text2);max-width:64ch}
+.c-cta{background:var(--forest2);color:#fff;padding:clamp(3rem,6vw,4.5rem) 0}
+.c-cta .wrap{display:grid;gap:1.5rem;align-items:center}
+@media(min-width:900px){.c-cta .wrap{grid-template-columns:1fr auto}}
+.c-cta h2{font-size:clamp(1.7rem,3vw,2.4rem);color:#fff}
+.c-cta p{margin-top:.6rem;color:#E4ECE8;max-width:58ch}
+.c-cta .btn{background:#fff;color:var(--forest2)}.c-cta .btn:hover{background:var(--gold)}
+.c-card .price small{font-size:.875rem;font-weight:600;color:var(--text2);letter-spacing:0}
+.c-hero .hero-wl{margin-top:1.6rem;background:var(--forest2);color:#fff}.c-hero .hero-wl:hover{background:var(--forest)}
+.wl{background:var(--cream);padding:0 0 clamp(3rem,6vw,4.5rem)}
+.wl-box{background:#fff;border-radius:22px;box-shadow:0 0 0 2px var(--forest);padding:clamp(1.5rem,4vw,2.5rem);scroll-margin-top:1.5rem}
+.wl h2{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em;color:var(--forest)}
+.wl-ask>p,.wl-done p{margin-top:.5rem;color:var(--text2);max-width:60ch}
+.wl fieldset{border:0;padding:0;margin:1.4rem 0 0;display:grid;gap:.6rem}
+@media(min-width:700px){.wl fieldset{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.wl fieldset{grid-template-columns:repeat(3,1fr)}}
+.wl legend{font-weight:700;color:var(--ink);margin-bottom:.6rem}
+.wl-opt{display:flex;gap:.65rem;align-items:center;padding:.75rem .9rem;border-radius:14px;box-shadow:0 0 0 1px rgba(15,58,46,.18);cursor:pointer;font-weight:600;color:var(--ink)}
+.wl-opt:has(input:checked){box-shadow:0 0 0 2px var(--forest);background:#F3F8F5}
+.wl input[type=checkbox]{width:1.15rem;height:1.15rem;accent-color:var(--forest);flex:none}
+.wl-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem}
+.wl-row input{flex:1 1 16rem;font:inherit;font-size:1rem;color:var(--ink);background:#fff;border:2px solid rgba(15,58,46,.25);border-radius:999px;padding:.85rem 1.1rem;outline:none}
+.wl-row input:focus{border-color:var(--forest)}
+.wl-row .btn{background:var(--forest2);color:#fff;border:0;cursor:pointer;font:inherit;font-weight:700}
+.wl-row .btn:hover{background:var(--forest)}.wl-row .btn:disabled{opacity:.6;cursor:wait}
+.wl-news{display:flex;gap:.65rem;align-items:flex-start;margin-top:1rem;color:var(--text2);cursor:pointer}
+.wl-news input{margin-top:.2rem}
+.wl-err{display:none;margin-top:.8rem;font-weight:600;color:#A32A12}
+.wl-fine{margin-top:.8rem;font-size:.8125rem;color:var(--text2)}.wl-fine a,.wl-gift a{color:var(--forest);font-weight:700}
+.wl .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-top"><button id="menuClose">Close</button></div>
+  <a href="/#help">How I can help</a>
+  <a href="/#voices">What clients say</a>
+  <a href="/#method">Method</a>
+  <a href="/#about">About Chris</a>
+  <a href="/#pricing">Investment</a>
+  <a href="/articles/index">Articles</a>
+  <a href="/courses" aria-current="page">Courses</a>
+  <a href="/client-portal">Client Portal</a>
+  <a href="/#contact" class="cta">Request a free call</a>
+</div>
+
+<header class="c-hero">
+<nav aria-label="Main">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Chris Murray Precision Hypnosis, home"><b>Chris Murray</b><i></i><span>Precision<br>Hypnosis</span></a>
+    <ul class="links">
+      <li><a href="/#help">How I can help</a></li>
+      <li><a href="/#method">Method</a></li>
+      <li><a href="/#about">About Chris</a></li>
+      <li><a href="/#pricing">Investment</a></li>
+      <li><a href="/articles/index">Articles</a></li>
+      <li><a href="/courses" aria-current="page">Courses</a></li>
+      <li><a href="/client-portal">Client Portal</a></li>
+      <li><a href="/#contact" class="btn dark">Free intro call</a></li>
+    </ul>
+    <div class="nav-end"><a href="/#contact" class="btn dark">Free intro call</a><button class="burger" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+  </div>
+</nav>
+  <div class="wrap">
+    <p class="eyebrow">Courses &middot; coming soon</p>
+    <h1>Precision Learning</h1>
+    <p class="sub">Structured programmes built on the same method as my one-to-one work, so you can start in your own time.</p>
+    <a href="#waitlist" class="btn hero-wl">Join the waitlist</a>
+  </div>
+</header>
+
+<main>
+<section class="courses" id="courses">
+  <div class="wrap">
+    <div class="c-grid">
+      <article class="c-card featured">
+        <p class="tag live">Opening first</p>
+        <h2>Attachment &amp; Identity: Reframing the Stories We Live By</h2>
+        <p>Why the same relationship patterns keep replaying, and how to change the story underneath them.</p>
+        <div class="foot"><span class="price">$47 <small>at launch</small></span><a class="btn gold" href="#waitlist" data-course="attachment-identity">Join the waitlist</a></div>
+      </article>
+      <article class="c-card soon">
+        <p class="tag soon">Coming soon</p>
+        <h2>The Anxiety Architecture</h2>
+        <p>Understand how chronic worry is built, and take it apart piece by piece.</p>
+        <div class="foot"><a class="notify" href="#waitlist" data-course="anxiety-architecture">Join the waitlist</a></div>
+      </article>
+      <article class="c-card soon">
+        <p class="tag soon">Coming soon</p>
+        <h2>The Inner Critic Protocol</h2>
+        <p>Find the voice that runs the show, and change what it says.</p>
+        <div class="foot"><a class="notify" href="#waitlist" data-course="inner-critic-protocol">Join the waitlist</a></div>
+      </article>
+      <article class="c-card soon">
+        <p class="tag soon">Coming soon</p>
+        <h2>The Confidence Reset</h2>
+        <p>The companion course to the book.</p>
+        <div class="foot"><a class="notify" href="#waitlist" data-course="confidence-reset">Join the waitlist</a></div>
+      </article>
+      <article class="c-card soon">
+        <p class="tag soon">Coming soon</p>
+        <h2>Patterns Under Pressure</h2>
+        <p>Why you slip back into old habits under stress, and how to change that.</p>
+        <div class="foot"><a class="notify" href="#waitlist" data-course="patterns-under-pressure">Join the waitlist</a></div>
+      </article>
+      <article class="c-card soon">
+        <p class="tag soon">Coming soon</p>
+        <h2>Sleep and the Quiet Mind</h2>
+        <p>Hypnosis-based work to help a busy mind settle into sleep.</p>
+        <div class="foot"><a class="notify" href="#waitlist" data-course="sleep-quiet-mind">Join the waitlist</a></div>
+      </article>
+    </div>
+    <p class="c-note">Courses are self-paced and educational. They aren&rsquo;t a substitute for medical or psychological care.</p>
+  </div>
+</section>
+
+<section class="wl" id="waitlist" aria-labelledby="wlTitle">
+  <div class="wrap">
+    <div class="wl-box">
+      <div class="wl-ask">
+        <h2 id="wlTitle">Join the waitlist</h2>
+        <p>Pick the courses you&rsquo;re interested in and I&rsquo;ll email you when each one opens. Waitlist members hear first.</p>
+        <form id="wlForm" novalidate>
+          <fieldset>
+            <legend>Courses</legend>
+          <label class="wl-opt"><input type="checkbox" name="course" value="attachment-identity"><span>Attachment &amp; Identity</span></label>
+          <label class="wl-opt"><input type="checkbox" name="course" value="anxiety-architecture"><span>The Anxiety Architecture</span></label>
+          <label class="wl-opt"><input type="checkbox" name="course" value="inner-critic-protocol"><span>The Inner Critic Protocol</span></label>
+          <label class="wl-opt"><input type="checkbox" name="course" value="confidence-reset"><span>The Confidence Reset</span></label>
+          <label class="wl-opt"><input type="checkbox" name="course" value="patterns-under-pressure"><span>Patterns Under Pressure</span></label>
+          <label class="wl-opt"><input type="checkbox" name="course" value="sleep-quiet-mind"><span>Sleep and the Quiet Mind</span></label>
+          </fieldset>
+          <div class="wl-row">
+            <label for="wlEmail" class="sr">Email address</label>
+            <input type="email" id="wlEmail" placeholder="your@email.com" autocomplete="email" required>
+            <button type="submit" class="btn">Join the waitlist</button>
+          </div>
+          <label class="wl-news"><input type="checkbox" id="wlNews"><span>Also send me my weekly newsletter, with the free Ten Minute Reset audio as a thank-you.</span></label>
+          <p class="wl-err" role="alert"></p>
+          <p class="wl-fine">I&rsquo;ll only email you about the courses you pick, unless you also tick the newsletter. Unsubscribe anytime. <a href="/privacy#waitlist">Privacy notice</a>.</p>
+        </form>
+      </div>
+      <div class="wl-done" hidden role="status" tabindex="-1">
+        <h2>You&rsquo;re on the waitlist.</h2>
+        <p>I&rsquo;ll email you as soon as your course opens.</p>
+        <p class="wl-gift" hidden>Thank you for joining the newsletter too. Here&rsquo;s your <a href="/audio/ten-minute-reset-cfbb2a64604e.mp3" download="Ten Minute Reset - Chris Murray.mp3">Ten Minute Reset</a> (MP3, 10 minutes). Please only listen somewhere you can safely close your eyes, never while driving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="c-cta">
+  <div class="wrap">
+    <div>
+      <h2>Prefer to work one-to-one?</h2>
+      <p>Every course uses the same method as my private sessions. If you&rsquo;d rather work on your own pattern directly, start with a free 30-minute intro call. No pressure, no scripts.</p>
+    </div>
+    <a href="/#contact" class="btn">Book a free call</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <a href="/" class="f-word"><b>Chris Murray</b><i></i><span>Precision<br>Hypnosis</span></a>
+      <ul class="f-links"><li><a href="/#help">How I can help</a></li><li><a href="/#voices">What clients say</a></li><li><a href="/#method">Method</a></li><li><a href="/#about">About</a></li><li><a href="/courses">Courses</a></li><li><a href="/#contact">Contact</a></li><li><a href="/client-portal">Client Portal</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/#" onclick="(window._hsp=window._hsp||[]).push(['showBanner']);return false">Cookie settings</a></li></ul>
+      <img src="/nch-logow.png" alt="Certified Registered NCH Member" class="f-nch">
+      <div class="social">
+        <a href="https://www.linkedin.com/in/chrismurrayhypnosis/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.instagram.com/chrismurrayhypnosis" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="https://www.facebook.com/chrismurrayhypnosis" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.tiktok.com/@chrismurrayhypnosis" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        <a href="https://www.youtube.com/@chrismurrayhypnosis" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      </div>
+    </div>
+    <p class="copy-r">&copy; 2026 Christopher Murray | Precision Hypnosis. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const menu=document.getElementById('menu'),mb=document.getElementById('menuBtn');
+function setMenu(o){menu.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+mb.addEventListener('click',()=>setMenu(true));
+document.getElementById('menuClose').addEventListener('click',()=>setMenu(false));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243959808.js"></script>
+<script>
+(function(){
+  var HS='https://api.hsforms.com/submissions/v3/integration/submit/243959808/4c5205dd-9895-43d8-8494-60931de14d53';
+  var form=document.getElementById('wlForm'),box=document.querySelector('.wl-box');
+  // Course buttons tick their course, then jump to the form.
+  document.querySelectorAll('[data-course]').forEach(function(a){a.addEventListener('click',function(){
+    var c=form.querySelector('input[value="'+a.dataset.course+'"]');if(c)c.checked=true;
+  });});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=document.getElementById('wlEmail'),err=form.querySelector('.wl-err'),btn=form.querySelector('button');
+    var picked=[].map.call(form.querySelectorAll('input[name=course]:checked'),function(i){return i.value;});
+    var news=document.getElementById('wlNews').checked;
+    err.style.display='none';
+    if(!picked.length){err.textContent='Please pick at least one course.';err.style.display='block';return;}
+    if(!em.checkValidity()){err.textContent='Please enter a valid email address.';err.style.display='block';em.focus();return;}
+    btn.disabled=true;
+    // The waitlist uses the newsletter form; the chosen courses and newsletter choice travel in the page address,
+    // so HubSpot lists can filter on "form submitted on page URL contains waitlist=..." and "newsletter=yes".
+    var uri='https://www.chrismurrayhypnosis.com/courses?waitlist='+picked.join(',')+'&newsletter='+(news?'yes':'no');
+    var hutk=(document.cookie.match(/hubspotutk=([^;]+)/)||[])[1];
+    var ctx={pageUri:uri,pageName:'Courses waitlist'};if(hutk)ctx.hutk=hutk;
+    fetch(HS,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:[{name:'email',value:em.value}],context:ctx})})
+    .then(function(r){
+      if(!r.ok)throw 0;
+      box.querySelector('.wl-ask').hidden=true;
+      var d=box.querySelector('.wl-done');d.hidden=false;
+      if(news){d.querySelector('.wl-gift').hidden=false;try{localStorage.setItem('cmh-news',JSON.stringify({joined:Date.now()}));}catch(x){}}
+      d.focus();
+    }).catch(function(){btn.disabled=false;err.textContent='Something went wrong. Please try again.';err.style.display='block';});
+  });
+})();
+</script>
+</body>
+</html>
