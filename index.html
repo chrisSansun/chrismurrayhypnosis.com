@@ -372,7 +372,14 @@ h2{font-size:clamp(2.2rem,4.6vw,3.8rem)}
 .nform .btn{flex:0 0 auto}
 @media(max-width:600px){.nform .btn{flex-basis:100%}}
 .nconsent{flex-basis:100%;margin-top:.35rem;font-size:.8125rem;color:var(--text2)}
-.nok{display:none;font-weight:700;color:var(--forest)}.nok span{display:block;font-weight:450;color:var(--text2);margin-top:.3rem}
+.nok{display:none;background:#fff;border-radius:20px;padding:1.4rem 1.5rem;box-shadow:0 0 0 1px rgba(15,58,46,.12)}
+.nok-title{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;color:var(--forest)}
+.nok audio{width:100%;margin:.8rem 0 .4rem}
+.nok-meta{font-size:.9375rem;color:var(--text2)}.nok-meta a{color:var(--forest);font-weight:700}
+.nok-safe{margin-top:.6rem;font-size:.8125rem;color:var(--text2)}
+.nok-after{display:none;margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid rgba(15,58,46,.14)}
+.nok-after p{margin-top:.45rem;color:var(--text2)}.nok-after .nok-title{margin-top:0}.nok-after .btn{margin-top:1rem}
+.nok-after.show{display:block}
 .nerr{display:none;flex-basis:100%;font-size:.875rem;font-weight:600;color:#A8361A}
 /* Testimonials moved up (21 Oct): rebalance cream and white */
 .voices{background:#fff!important}
@@ -548,18 +555,29 @@ h2{font-size:clamp(2.2rem,4.6vw,3.8rem)}
 <section class="news" id="newsletter" aria-labelledby="newsTitle">
   <div class="wrap">
     <div>
-      <h2 id="newsTitle">Notes on the mind, once a month.</h2>
-      <p class="nl">One short email a month on patterns, performance and change. No spam, unsubscribe anytime.</p>
+      <h2 id="newsTitle">Get the 10-Minute Mental Reset, free.</h2>
+      <p class="nl">A guided audio from me to settle a racing mind, plus one short email a month on patterns, performance and change. No spam, unsubscribe anytime.</p>
     </div>
     <div>
       <form class="nform" id="newsForm" novalidate>
         <label for="newsEmail" class="sr">Email address</label>
         <input type="email" id="newsEmail" name="email" placeholder="your@email.com" autocomplete="email" required>
-        <button type="submit" class="btn gold">Subscribe</button>
+        <button type="submit" class="btn gold">Get the free audio</button>
         <p class="nerr" id="newsErr" role="alert"></p>
-        <p class="nconsent">By subscribing you agree to receive a monthly email from Chris Murray. Every email has an unsubscribe link. See the <a href="/privacy">privacy notice</a>.</p>
+        <p class="nconsent">By signing up you agree to receive a monthly email from Chris Murray. Every email has an unsubscribe link. See the <a href="/privacy">privacy notice</a>.</p>
       </form>
-      <p class="nok" id="newsOk" role="status">You&rsquo;re on the list.<span>The first letter will arrive in your inbox.</span></p>
+      <div class="nok" id="newsOk" role="status">
+        <p class="nok-title">Here&rsquo;s your reset.</p>
+        <audio id="resetAudio" controls preload="none" src="/audio/ten-minute-reset-cfbb2a64604e.mp3"></audio>
+        <p class="nok-meta"><a href="/audio/ten-minute-reset-cfbb2a64604e.mp3" download="Ten Minute Reset - Chris Murray.mp3">Download the MP3</a> &middot; 10 minutes</p>
+        <p class="nok-safe">Please only listen somewhere you can safely close your eyes, never while driving. This is a way to pause and settle, not a substitute for medical or psychological care.</p>
+        <div class="nok-after" id="resetAfter">
+          <p class="nok-title">How does that feel?</p>
+          <p>Most people notice something settle, even the first time. Use it again tomorrow: it works better each time, as your mind learns the route.</p>
+          <p>If there&rsquo;s a pattern that keeps coming back, that&rsquo;s what we&rsquo;d work on together.</p>
+          <a href="#contact" class="btn gold">Book a free 30-minute intro call</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -592,7 +610,7 @@ function handleSubmit(e){e.preventDefault();const f=e.target;fetch(f.action,{met
 // Newsletter: HubSpot Forms API. Paste the form's GUID from HubSpot (Marketing > Forms) into NEWS_FORM.
 const HS_PORTAL='243959808',NEWS_FORM='4c5205dd-9895-43d8-8494-60931de14d53';
 const nf=document.getElementById('newsForm'),ne=document.getElementById('newsErr');
-function newsDone(){nf.style.display='none';document.getElementById('newsOk').style.display='block'}
+function newsDone(){nf.style.display='none';document.getElementById('newsOk').style.display='block';const a=document.getElementById('resetAudio');a&&a.addEventListener('ended',()=>document.getElementById('resetAfter').classList.add('show'))}
 function newsFail(m){ne.textContent=m;ne.style.display='block'}
 nf.addEventListener('submit',e=>{
   e.preventDefault();ne.style.display='none';
