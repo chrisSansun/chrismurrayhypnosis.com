@@ -5,143 +5,143 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Client Dashboard | Chris Murray</title>
 <meta name="robots" content="noindex, nofollow">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Raleway:wght@200;300;400;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --ink: #1a1a1a; --charcoal: #2e2e2e; --smoke: #f7f5f2; --warm: #ede9e3;
-  --gold: #8a6d3b; --gold2: #b8955a; --mid: #5a5550; --light: #d0cdc8;
-}
-body { background: var(--smoke); color: var(--ink); font-family: 'Raleway', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+@font-face{font-family:"Hanken Grotesk";src:url("/fonts/hanken-grotesk-latin.woff2") format("woff2");font-weight:300 700;font-display:swap}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--forest:#0F3A2E;--forest2:#0B2B22;--cream:#FBF4EC;--ink:#14231E;--moss:#3B5249;--line:rgba(15,58,46,.14);--rust:#A8361A;--honey:#F6AE45;--mint:#A9D3C3;
+--amber:linear-gradient(115deg,#8E2410 0%,#B23A17 25%,#D2561E 50%,#EA8128 75%,#F6AE45 100%)}
+body{background:var(--cream);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:450;font-size:1rem;line-height:1.55;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:3px solid var(--forest);outline-offset:3px;border-radius:6px}
 
 /* NAV */
-nav { background: var(--charcoal); padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-.nav-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--smoke); }
-.nav-title span { font-family: 'Raleway', sans-serif; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold2); display: block; margin-top: 0.2rem; }
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-#adminEmail { font-size: 0.65rem; color: var(--light); letter-spacing: 0.1em; }
-#signOutBtn { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; background: none; border: 1px solid #4a4a4a; color: var(--light); padding: 0.4rem 0.9rem; cursor: pointer; font-family: 'Raleway', sans-serif; transition: border-color 0.2s; }
-#signOutBtn:hover { border-color: var(--gold2); color: var(--gold2); }
+nav{background:var(--forest2);color:#fff;padding:0 clamp(1.25rem,4vw,2.5rem);height:4.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.logo b{font-size:22px;font-weight:700;letter-spacing:-.025em;line-height:1}
+.logo i{width:1.5px;height:26px;background:currentColor;opacity:.6}
+.logo span{font-size:10px;font-weight:600;letter-spacing:.14em;line-height:1.35;text-transform:uppercase}
+.nav-tag{font-size:.8125rem;font-weight:600;color:var(--mint);margin-left:1rem;padding-left:1rem;border-left:1px solid rgba(255,255,255,.2)}
+.nav-left{display:flex;align-items:center}
+.nav-right{display:flex;align-items:center;gap:1rem}
+#adminEmail{font-size:.8125rem;color:var(--mint)}
+#signOutBtn{font:inherit;font-size:.8125rem;font-weight:700;background:none;border:2px solid rgba(255,255,255,.45);color:#fff;padding:.45rem 1rem;border-radius:999px;cursor:pointer}
+#signOutBtn:hover{border-color:#fff}
+@media(max-width:640px){.nav-tag,#adminEmail{display:none}.logo b{font-size:18px}}
 
 /* LOGIN */
-.login-wrap { display: flex; align-items: center; justify-content: center; min-height: 90vh; padding: 2rem; }
-.login-box { width: 100%; max-width: 380px; }
-.login-label { font-size: 0.6rem; letter-spacing: 0.36em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-.login-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); margin-bottom: 2rem; }
-.login-title em { font-style: italic; color: var(--gold2); }
-.field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
-.field label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
-.field input { background: #fff; border: 1px solid var(--light); color: var(--ink); padding: 0.75rem 1rem; font-family: 'Raleway', sans-serif; font-size: 0.84rem; font-weight: 300; outline: none; }
-.field input:focus { border-color: var(--gold); }
-.login-btn { width: 100%; padding: 0.9rem; background: var(--ink); color: var(--smoke); font-family: 'Raleway', sans-serif; font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; border: none; cursor: pointer; margin-top: 0.5rem; transition: background 0.2s; }
-.login-btn:hover { background: var(--gold); }
-.login-err { font-size: 0.72rem; color: #c0392b; margin-top: 0.5rem; min-height: 1.2em; }
+.login-wrap{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 4.5rem);padding:2rem 1.25rem;background:radial-gradient(ellipse 45% 90% at 85% 60%,rgba(255,206,110,.5),rgba(255,160,60,0) 70%),var(--amber)}
+.login-box{width:100%;max-width:400px;background:var(--forest2);color:#fff;border-radius:24px;padding:2rem}
+.login-label{font-size:.875rem;font-weight:600;color:var(--mint);margin-bottom:.4rem}
+.login-title{font-size:2rem;font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.5rem}
+.login-title em{font-style:normal}
+.field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.field label{font-size:.8125rem;font-weight:700}
+.field input{background:#fff;border:2px solid transparent;color:var(--ink);padding:.8rem 1rem;border-radius:999px;font:inherit;font-size:1rem;outline:none}
+.field input:focus{border-color:var(--honey)}
+.field input::placeholder{color:#5C6F68}
+.login-btn{width:100%;padding:.95rem;background:#fff;color:var(--forest2);font:inherit;font-weight:700;font-size:1rem;border:none;border-radius:999px;cursor:pointer;margin-top:.5rem}
+.login-btn:hover{background:var(--honey)}
+.login-err{font-size:.875rem;font-weight:600;color:#FFD9A8;margin-top:.5rem;min-height:1.3em}
 
 /* DASHBOARD */
-.dashboard { display: none; padding: 2rem; max-width: 1100px; margin: 0 auto; }
-.dash-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
-.dash-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; }
-.dash-title em { font-style: italic; color: var(--gold2); }
-.dash-count { font-size: 0.72rem; color: var(--mid); letter-spacing: 0.1em; }
+.dashboard{display:none;padding:clamp(2rem,4vw,3rem) clamp(1.25rem,4vw,2.5rem);max-width:1180px;margin:0 auto}
+.dash-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.75rem;flex-wrap:wrap;gap:1rem}
+.dash-title{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;letter-spacing:-.03em;line-height:1.05;color:var(--forest)}
+.dash-title em{font-style:normal}
+.dash-count{font-size:.9375rem;font-weight:600;color:var(--moss)}
 
 /* CLIENT CARDS */
-.clients-list { display: flex; flex-direction: column; gap: 1px; background: var(--light); }
-.client-card { background: var(--smoke); cursor: pointer; transition: background 0.2s; }
-.client-card:hover { background: var(--warm); }
-.client-summary { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 1rem; align-items: center; padding: 1.2rem 1.5rem; }
-.client-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; }
-.client-meta { font-size: 0.7rem; color: var(--mid); margin-top: 0.2rem; letter-spacing: 0.06em; }
-.score-pill { text-align: center; }
-.score-pill-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
-.score-pill-val { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--ink); }
-.score-pill-band { font-size: 0.58rem; letter-spacing: 0.1em; padding: 0.15rem 0.5rem; display: inline-block; margin-top: 0.2rem; }
-.band-minimal  { background: #e8f5e9; color: #2e7d32; }
-.band-mild     { background: #fff8e1; color: #f57f17; }
-.band-moderate { background: #fff3e0; color: #e65100; }
-.band-severe   { background: #fce4ec; color: #c62828; }
-.band-low      { background: #fce4ec; color: #c62828; }
-.band-medium   { background: #fff8e1; color: #f57f17; }
-.band-high     { background: #e8f5e9; color: #2e7d32; }
-.rst-dominant-pill { text-align: center; }
-.rst-dominant-pill .score-pill-label { color: var(--gold); }
-.rst-dominant-pill .rst-val { font-size: 0.85rem; font-weight: 600; color: var(--ink); letter-spacing: 0.08em; }
-.expand-icon { color: var(--light); font-size: 1rem; text-align: right; transition: transform 0.2s; }
-.client-card.open .expand-icon { transform: rotate(180deg); }
+.clients-list{display:flex;flex-direction:column;gap:.75rem}
+.client-card{background:#fff;border-radius:18px;box-shadow:0 0 0 1px var(--line);overflow:hidden}
+.client-summary{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 2rem;gap:1rem;align-items:center;padding:1.1rem 1.5rem;cursor:pointer}
+.client-summary:hover{background:#FFFBF6}
+.client-name{font-size:1.2rem;font-weight:700;letter-spacing:-.02em}
+.client-meta{font-size:.875rem;color:var(--moss);margin-top:.15rem}
+.score-pill,.rst-dominant-pill{text-align:center}
+.score-pill-label{font-size:.75rem;font-weight:700;color:var(--moss);margin-bottom:.15rem}
+.score-pill-val{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.score-pill-band{font-size:.75rem;font-weight:700;padding:.15rem .6rem;border-radius:999px;display:inline-block;margin-top:.3rem}
+.band-minimal,.band-high{background:#E3F0EA;color:#1E5B44}
+.band-mild,.band-medium{background:#FDF0DC;color:#8A5A12}
+.band-moderate{background:#FBE6D6;color:#A8361A}
+.band-severe,.band-low{background:#F7DCD6;color:#8E2410}
+.rst-dominant-pill .rst-val{font-size:.9375rem;font-weight:700}
+.expand-icon{color:var(--moss);font-size:.85rem;text-align:right;transition:transform .2s}
+.client-card.open .expand-icon{transform:rotate(180deg)}
 
 /* EXPANDED DETAIL */
-.client-detail { display: none; border-top: 1px solid var(--light); background: #fff; padding: 2rem 1.5rem; }
-.client-card.open .client-detail { display: block; }
-.detail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem 2rem; margin-bottom: 2rem; }
-.detail-block { display: flex; flex-direction: column; gap: 0.3rem; }
-.detail-label { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
-.detail-value { font-size: 0.84rem; color: var(--ink); line-height: 1.6; }
-.detail-value.long { font-size: 0.8rem; color: var(--mid); line-height: 1.8; }
-.detail-section { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--ink); margin: 1.5rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--light); }
-.yn-list { display: flex; flex-direction: column; gap: 0.4rem; }
-.yn-item { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--mid); padding: 0.3rem 0; border-bottom: 1px solid #f5f2ee; }
-.yn-item span:last-child { font-weight: 600; color: var(--ink); }
-.yn-item span.yes { color: #2e7d32; }
-.yn-item span.no  { color: #c62828; }
+.client-detail{display:none;border-top:1px solid var(--line);padding:1.75rem 1.5rem 2rem}
+.client-card.open .client-detail{display:block}
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem 2rem;margin-bottom:1rem}
+.detail-block{display:flex;flex-direction:column;gap:.2rem}
+.detail-label{font-size:.8125rem;font-weight:700;color:var(--rust)}
+.detail-value{font-size:1rem;color:var(--ink);line-height:1.55;overflow-wrap:anywhere}
+.detail-value.long{color:var(--moss);max-width:72ch;white-space:pre-wrap}
+.detail-section{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;color:var(--forest);margin:1.75rem 0 .75rem;padding-bottom:.5rem;border-bottom:2px solid var(--forest)}
+.yn-list{display:flex;flex-direction:column}
+.yn-item{display:flex;justify-content:space-between;gap:1rem;font-size:.9375rem;color:var(--moss);padding:.55rem 0;border-bottom:1px solid var(--line)}
+.yn-item span:last-child{font-weight:700;color:var(--ink)}
+.yn-item span.yes{color:#1E5B44}
+.yn-item span.no{color:var(--rust)}
 
 /* SCORES DETAIL */
-.scores-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
-.score-card { background: var(--warm); padding: 1.2rem; }
-.score-card-label { font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
-.score-card-name { font-size: 0.72rem; color: var(--mid); margin-bottom: 0.6rem; }
-.score-card-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); }
-.score-card-max { font-size: 0.7rem; color: var(--mid); }
+.scores-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem}
+.score-card{background:var(--cream);border-radius:18px;padding:1.2rem 1.3rem}
+.score-card-label{font-size:.8125rem;font-weight:700;color:var(--rust)}
+.score-card-name{font-size:.875rem;color:var(--moss);margin-bottom:.5rem}
+.score-card-num{font-size:2.2rem;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.score-card-max{font-size:.875rem;font-weight:600;color:var(--moss);letter-spacing:0}
 
 /* RST BARS */
-.rst-detail { background: var(--charcoal); padding: 1.2rem 1.5rem; margin-top: 1rem; }
-.rst-detail-title { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold2); margin-bottom: 1rem; }
-.rst-bar-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.6rem; }
-.rst-bar-label { font-size: 0.65rem; letter-spacing: 0.1em; color: var(--light); width: 130px; flex-shrink: 0; }
-.rst-bar-label.dom { color: var(--gold2); font-weight: 600; }
-.rst-track { flex: 1; background: rgba(255,255,255,0.1); height: 5px; border-radius: 3px; overflow: hidden; }
-.rst-fill { height: 100%; background: var(--gold); border-radius: 3px; }
-.rst-fill.dom { background: var(--gold2); }
-.rst-score { font-size: 0.72rem; color: var(--light); width: 20px; text-align: right; }
+.rst-detail{background:var(--forest2);color:#fff;border-radius:18px;padding:1.3rem 1.5rem;margin-top:1rem}
+.rst-detail-title{font-size:.9375rem;font-weight:700;color:var(--honey);margin-bottom:1rem}
+.rst-bar-row{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem}
+.rst-bar-label{font-size:.875rem;color:#E4ECE8;width:140px;flex-shrink:0}
+.rst-bar-label.dom{color:var(--honey);font-weight:700}
+.rst-track{flex:1;background:rgba(255,255,255,.12);height:6px;border-radius:3px;overflow:hidden}
+.rst-fill{height:100%;background:#7FA897;border-radius:3px}
+.rst-fill.dom{background:var(--honey)}
+.rst-score{font-size:.875rem;color:#E4ECE8;width:24px;text-align:right;font-variant-numeric:tabular-nums}
+.rst-note{font-size:.875rem;color:var(--honey);margin-top:.8rem}
+.more-label{margin-bottom:.25rem}
 
 /* PRINT */
-@media print {
-  nav { display: none; }
-  .client-card { break-inside: avoid; }
-  .client-detail { display: block !important; }
-  .expand-icon { display: none; }
-}
+@media print{nav{display:none}body{background:#fff}.client-card{break-inside:avoid;box-shadow:none;border:1px solid #ccc}.client-detail{display:block!important}.expand-icon{display:none}}
 
-/* LOADER */
-.loader { text-align: center; padding: 4rem; color: var(--mid); font-size: 0.8rem; letter-spacing: 0.1em; }
+.loader{text-align:center;padding:4rem 1rem;color:var(--moss);font-size:1rem}
 
-@media (max-width: 700px) {
-  .client-summary { grid-template-columns: 1fr 1fr; }
-  .score-pill:nth-child(n+4) { display: none; }
-  .scores-row { grid-template-columns: 1fr 1fr; }
+@media(max-width:760px){
+ .client-summary{grid-template-columns:1fr 1fr 1fr 2rem}
+ .client-summary>div:first-child{grid-column:1/-1}
+ .rst-dominant-pill{display:none}
+ .scores-row{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-title">
-    Client Dashboard
-    <span>Precision Hypnosis · Admin</span>
+  <div class="nav-left">
+    <a href="/" class="logo" aria-label="Chris Murray Precision Hypnosis, home"><b>Chris Murray</b><i></i><span>Precision<br>Hypnosis</span></a>
+    <span class="nav-tag">Client dashboard</span>
   </div>
   <div class="nav-right">
     <span id="adminEmail"></span>
-    <button id="signOutBtn" style="display:none;" onclick="doSignOut()">Sign Out</button>
+    <button id="signOutBtn" style="display:none;" onclick="doSignOut()">Sign out</button>
   </div>
 </nav>
 
 <!-- LOGIN -->
 <div class="login-wrap" id="loginWrap">
   <div class="login-box">
-    <p class="login-label">Admin Access</p>
-    <h1 class="login-title">Client <em>Dashboard</em></h1>
-    <div class="field"><label>Email</label><input type="email" id="adminLoginEmail" placeholder="your@email.com" autocomplete="email"></div>
-    <div class="field"><label>Password</label><input type="password" id="adminLoginPass" placeholder="Password" autocomplete="current-password"></div>
+    <p class="login-label">Admin access</p>
+    <h1 class="login-title">Client dashboard</h1>
+    <div class="field"><label for="adminLoginEmail">Email</label><input type="email" id="adminLoginEmail" placeholder="your@email.com" autocomplete="email"></div>
+    <div class="field"><label for="adminLoginPass">Password</label><input type="password" id="adminLoginPass" placeholder="Password" autocomplete="current-password"></div>
     <div class="login-err" id="loginErr"></div>
-    <button class="login-btn" onclick="adminSignIn()">Sign In</button>
+    <button class="login-btn" onclick="adminSignIn()">Sign in</button>
   </div>
 </div>
 
@@ -149,7 +149,7 @@ nav { background: var(--charcoal); padding: 1.2rem 2rem; display: flex; justify-
 <div class="dashboard" id="dashboard">
   <div class="dash-header">
     <div>
-      <h2 class="dash-title">Client <em>Submissions</em></h2>
+      <h2 class="dash-title">Client submissions</h2>
     </div>
     <span class="dash-count" id="clientCount"></span>
   </div>
@@ -237,24 +237,25 @@ function yn(val) {
   if (!val) return '<span>—</span>';
   return val === 'yes' ? '<span class="yes">Yes</span>' : '<span class="no">No</span>';
 }
-function safe(v) { return v || '<span style="color:#bbb">Not provided</span>'; }
+function esc(v) { return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function safe(v) { return v ? esc(v) : '<span style="color:#5C6F68">Not provided</span>'; }
 function date(d) { return d?.seconds ? new Date(d.seconds*1000).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '—'; }
 
 function renderCard(d, i) {
   const s = d.scores || {};
   const rst = s.rst || {};
   const domMap = { V:'Visual', A:'Auditory', K:'Kinaesthetic', Ad:'Auditory Digital' };
-  const dominant = rst.dominant ? domMap[rst.dominant] || rst.dominant : '—';
-  const gad7  = s.gad7  ?? '—';
-  const phq9  = s.phq9  ?? '—';
-  const wemwbs= s.wemwbs ?? '—';
+  const dominant = rst.dominant ? esc(domMap[rst.dominant] || rst.dominant) : '—';
+  const gad7  = s.gad7  != null ? esc(s.gad7)  : '—';
+  const phq9  = s.phq9  != null ? esc(s.phq9)  : '—';
+  const wemwbs= s.wemwbs != null ? esc(s.wemwbs) : '—';
 
   return `
   <div class="client-card" id="card${i}">
     <div class="client-summary">
       <div>
-        <div class="client-name">${d.firstName || ''} ${d.lastName || ''}</div>
-        <div class="client-meta">${date(d.submittedAt)} &nbsp;·&nbsp; ${d.nationality || ''}</div>
+        <div class="client-name">${esc(d.firstName)} ${esc(d.lastName)}</div>
+        <div class="client-meta">${date(d.submittedAt)} &nbsp;·&nbsp; ${esc(d.nationality)}</div>
       </div>
       <div class="score-pill">
         <div class="score-pill-label">GAD-7</div>
@@ -280,7 +281,7 @@ function renderCard(d, i) {
 
     <div class="client-detail">
       <div class="detail-grid">
-        <div class="detail-block"><div class="detail-label">Full Name</div><div class="detail-value">${d.firstName} ${d.lastName}</div></div>
+        <div class="detail-block"><div class="detail-label">Full Name</div><div class="detail-value">${esc(d.firstName)} ${esc(d.lastName)}</div></div>
         <div class="detail-block"><div class="detail-label">Date of Birth</div><div class="detail-value">${safe(d.dob)}</div></div>
         <div class="detail-block"><div class="detail-label">Location</div><div class="detail-value">${safe(d.nationality)}</div></div>
         <div class="detail-block"><div class="detail-label">Phone / WhatsApp</div><div class="detail-value">${safe(d.phone)}</div></div>
@@ -298,15 +299,15 @@ function renderCard(d, i) {
         <div class="yn-item"><span>Epilepsy diagnosis</span>${yn(d.epilepsy)}</div>
         <div class="yn-item"><span>Psychiatric diagnosis</span>${yn(d.psychiatricDx)}</div>
       </div>
-      ${d.mentalHistory ? `<div style="margin-top:0.8rem;"><div class="detail-label" style="margin-bottom:0.3rem;">Mental health history</div><div class="detail-value long">${d.mentalHistory}</div></div>` : ''}
-      ${d.medications   ? `<div style="margin-top:0.8rem;"><div class="detail-label" style="margin-bottom:0.3rem;">Medications</div><div class="detail-value long">${d.medications}</div></div>` : ''}
+      ${d.mentalHistory ? `<div style="margin-top:0.8rem;"><div class="detail-label more-label">Mental health history</div><div class="detail-value long">${esc(d.mentalHistory)}</div></div>` : ''}
+      ${d.medications   ? `<div style="margin-top:0.8rem;"><div class="detail-label more-label">Medications</div><div class="detail-value long">${esc(d.medications)}</div></div>` : ''}
 
       <div class="detail-section">Presenting Issue</div>
       <div style="display:flex;flex-direction:column;gap:1rem;">
-        ${d.presentingIssue ? `<div><div class="detail-label" style="margin-bottom:0.3rem;">What brings them here</div><div class="detail-value long">${d.presentingIssue}</div></div>` : ''}
-        ${d.duration       ? `<div><div class="detail-label" style="margin-bottom:0.3rem;">Duration</div><div class="detail-value">${d.duration}</div></div>` : ''}
-        ${d.prevAttempts   ? `<div><div class="detail-label" style="margin-bottom:0.3rem;">Previous attempts</div><div class="detail-value long">${d.prevAttempts}</div></div>` : ''}
-        ${d.successVision  ? `<div><div class="detail-label" style="margin-bottom:0.3rem;">What success looks like</div><div class="detail-value long">${d.successVision}</div></div>` : ''}
+        ${d.presentingIssue ? `<div><div class="detail-label more-label">What brings them here</div><div class="detail-value long">${esc(d.presentingIssue)}</div></div>` : ''}
+        ${d.duration       ? `<div><div class="detail-label more-label">Duration</div><div class="detail-value">${esc(d.duration)}</div></div>` : ''}
+        ${d.prevAttempts   ? `<div><div class="detail-label more-label">Previous attempts</div><div class="detail-value long">${esc(d.prevAttempts)}</div></div>` : ''}
+        ${d.successVision  ? `<div><div class="detail-label more-label">What success looks like</div><div class="detail-value long">${esc(d.successVision)}</div></div>` : ''}
       </div>
 
       <div class="detail-section">Outcome Scores</div>
@@ -337,10 +338,10 @@ function renderCard(d, i) {
         ${[['V','Visual',rst.V],['A','Auditory',rst.A],['K','Kinaesthetic',rst.K],['Ad','Auditory Digital',rst.Ad]].map(([k,label,score])=>`
           <div class="rst-bar-row">
             <div class="rst-bar-label ${k===rst.dominant?'dom':''}">${label} ${k===rst.dominant?'★':''}</div>
-            <div class="rst-track"><div class="rst-fill ${k===rst.dominant?'dom':''}" style="width:${Math.round((score/20)*100)}%"></div></div>
-            <div class="rst-score">${score}</div>
+            <div class="rst-track"><div class="rst-fill ${k===rst.dominant?'dom':''}" style="width:${Math.max(0,Math.min(100,Math.round((Number(score)||0)/20*100)))}%"></div></div>
+            <div class="rst-score">${esc(score)}</div>
           </div>`).join('')}
-        <div style="font-size:0.7rem;color:var(--gold2);margin-top:0.8rem;">Dominant: ${dominant} — score ${rst[rst.dominant]}/20</div>
+        <div class="rst-note">Dominant: ${dominant}, score ${esc(rst[rst.dominant])}/20</div>
       </div>` : ''}
     </div>
   </div>`;
