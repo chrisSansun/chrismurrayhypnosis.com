@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#8E2410">
+<title>Privacy Notice | Chris Murray | Precision Hypnosis</title>
+<meta name="description" content="How Chris Murray | Precision Hypnosis collects, uses and protects your personal information, including the contact form, analytics, newsletter and client portal.">
+<link rel="canonical" href="https://www.chrismurrayhypnosis.com/privacy">
+<link rel="preload" href="/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Hanken Grotesk";src:url("/fonts/hanken-grotesk-latin.woff2") format("woff2");font-weight:300 700;font-display:swap}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--forest:#0F3A2E;--forest2:#0B2B22;--honey:#F6AE45;--cream:#FBF4EC;--ink:#14231E;--moss:#3B5249;--rust:#A8361A;--ember:#B23A17;--mist:#E4ECE8;--mint:#A9D3C3;--peach:#FFD9A8;--w:#fff;--pad:clamp(1.25rem,4vw,2.5rem);--max:1360px;
+ --amber:linear-gradient(115deg,#8E2410 0%,#B23A17 25%,#D2561E 50%,#EA8128 75%,#F6AE45 100%);
+ --band:radial-gradient(ellipse 50% 84px at 72% 40px,rgba(125,30,8,.7) 0%,rgba(125,30,8,.4) 55%,rgba(125,30,8,0) 100%),radial-gradient(ellipse 24% 120% at 98% 100%,rgba(255,206,110,.8) 0%,rgba(255,176,76,.42) 40%,rgba(255,160,60,0) 72%),linear-gradient(115deg,#7E1F0E 0%,#8E2410 30%,#9E2D14 52%,#B23A17 70%,#D2561E 86%,#EA8128 100%)}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--forest) var(--cream);-webkit-text-size-adjust:100%}
+body{font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:450;font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--w);caret-color:var(--forest);overflow-x:clip;-webkit-font-smoothing:antialiased}
+::selection{background:var(--honey);color:var(--forest2)}
+:focus-visible{outline:3px solid var(--honey);outline-offset:3px;border-radius:6px}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1.05;text-wrap:balance}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:inherit;font-weight:700;font-size:.9375rem;line-height:1.2;padding:1rem 1.6rem;border-radius:999px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease,color .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.dark{background:var(--forest2);color:var(--w)}
+.btn.white{background:var(--w);color:var(--forest2)}
+.btn.white:hover{background:var(--honey)}
+
+/* NAV (homepage chrome) */
+nav[aria-label="Main"]{position:absolute;top:0;left:0;right:0;z-index:50;color:#fff;border-bottom:1px solid rgba(255,255,255,.2)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}.logo b{font-size:26px;font-weight:700;letter-spacing:-.025em;line-height:1}.logo i{width:1.5px;height:28px;background:currentColor;opacity:.6}.logo span{font-size:11px;font-weight:600;letter-spacing:.14em;line-height:1.35;text-transform:uppercase}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:5rem}
+.links{display:none;list-style:none;gap:1.9rem;align-items:center}
+.links a{font-size:.875rem;font-weight:600;text-decoration:none}
+.links a:hover,.links a[aria-current]{text-decoration:underline;text-underline-offset:.35em;text-decoration-thickness:2px}
+.links .btn{padding:.7rem 1.2rem;font-size:.875rem}
+.links .btn:hover{text-decoration:none}
+.nav-end{display:flex;gap:.6rem;align-items:center}
+.nav-end .btn{padding:.6rem 1rem;font-size:.8125rem;white-space:nowrap}
+.burger{width:2.75rem;height:2.75rem;border-radius:999px;border:2px solid #fff;background:none;display:grid;place-content:center;gap:5px;cursor:pointer}
+.burger span{width:18px;height:2px;background:#fff;display:block}
+.menu{position:fixed;inset:0;z-index:60;background:var(--forest);color:var(--w);padding:1.25rem var(--pad);display:none;flex-direction:column;overflow-y:auto}
+.menu.open{display:flex}
+.menu-top{display:flex;justify-content:flex-end;margin-bottom:1rem}
+.menu-top button{font:inherit;font-weight:700;color:var(--w);background:none;border:2px solid rgba(255,255,255,.5);border-radius:999px;padding:.5rem 1rem;cursor:pointer}
+.menu a{font-size:1.75rem;font-weight:700;text-decoration:none;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.menu a.cta{color:var(--honey)}
+@media(min-width:1080px){.links{display:flex}.nav-end{display:none}}
+@media(max-width:600px){.logo{gap:9px}.logo b{font-size:19px;white-space:nowrap}.logo i{height:26px}.logo span{font-size:11px;letter-spacing:.12em}.nav-end .btn{padding:.55rem .85rem;font-size:.75rem}.nav-end{gap:.4rem}.burger{width:2.4rem;height:2.4rem}}
+
+/* CLOSING CALL TO ACTION: amber panel, forest card */
+.talk{padding:clamp(3.5rem,7vw,5.5rem) 0}
+.tpanel{background:linear-gradient(90deg,rgba(115,28,8,.32) 0 48%,transparent 60%),radial-gradient(ellipse 45% 90% at 92% 60%,rgba(255,206,110,.55),rgba(255,160,60,0) 70%),var(--amber);color:#fff;border-radius:28px;padding:clamp(2rem,5vw,4rem);display:grid;gap:2rem;align-items:center}
+@media(min-width:900px){.tpanel{grid-template-columns:1.25fr 1fr;gap:4rem}}
+.tpanel h2{font-size:clamp(2rem,4vw,3.2rem);color:#fff;max-width:14ch}
+.tpanel .lead{margin-top:1.1rem;color:#fff;font-weight:500;max-width:34em}
+.tcard{background:var(--forest);border-radius:22px;padding:1.6rem 1.7rem;max-width:400px;justify-self:end;width:100%}
+.tcard b{display:block;font-size:1.2rem;letter-spacing:-.02em;margin-bottom:.35rem}
+.tcard span{display:block;font-size:.9375rem;color:var(--mint);line-height:1.5}
+.tcard .btn{margin-top:1.2rem;width:100%}
+@media(max-width:899px){.tpanel{background:linear-gradient(180deg,#7E1F0E 0%,#9A2E13 35%,#B23A17 55%,#D2561E 80%,#EA8128 100%)}.tcard{justify-self:stretch;max-width:none}}
+
+/* FOOTER (homepage chrome) */
+footer{background:var(--forest2);color:var(--mist);padding:3rem 0 2.5rem}
+.f-grid{display:grid;gap:2rem;align-items:center}
+@media(min-width:900px){.f-grid{grid-template-columns:auto 1fr auto auto;gap:2.5rem}}
+.f-word{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}.f-word b{font-size:22px;font-weight:700;letter-spacing:-.02em}.f-word i{width:1.5px;height:30px;background:currentColor;opacity:.5}.f-word span{font-size:11px;font-weight:600;letter-spacing:.14em;line-height:1.5;text-transform:uppercase;opacity:.85}
+.f-links{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem}
+.f-links a{font-size:.875rem;font-weight:600;text-decoration:none}
+.f-links a:hover{color:var(--honey)}
+.f-nch{height:44px;width:auto;opacity:.8}
+.social{display:flex;gap:1.1rem}.social a{display:flex}.social a:hover{color:var(--honey)}
+.social svg{width:20px;height:20px;fill:currentColor}
+.copy-r{margin-top:2rem;font-size:.8125rem;color:#A9BDB4}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
+/* under 900px the masthead turns vertical: rust stays behind the text, the honey glow sits in the corner below it */
+@media(max-width:899px){.a-head,.page-header{background:radial-gradient(ellipse 80% 45% at 90% 115%,rgba(255,190,90,.5),rgba(255,160,60,0) 70%),linear-gradient(180deg,#8E2410 0%,#952812 50%,#A3301A 80%,#B23A17 100%)}}
+
+/* ARTICLE: amber masthead, calm white reading column */
+.article-wrap{font-size:1.125rem;line-height:1.7;max-width:calc(68ch + 2 * var(--pad));margin:0 auto;padding:0 var(--pad) clamp(1rem,3vw,2rem)}
+.a-head{margin-inline:calc(50% - 50vw);padding:calc(5rem + clamp(2.5rem,6vw,4.5rem)) calc(50vw - 50%) clamp(2.75rem,6vw,4.5rem);background:var(--band);color:#fff;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .6rem;font-size:.9375rem;font-weight:600;margin-bottom:1.25rem}
+.back-link{color:#fff;text-decoration:none;opacity:.92}
+.back-link:hover{opacity:1;text-decoration:underline;text-underline-offset:.3em;text-decoration-thickness:2px}
+.article-cat{color:var(--peach)}
+.article-cat::before{content:"/";color:rgba(255,255,255,.5);margin-right:.6rem}
+.a-head h1{font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-.035em;color:#fff;max-width:22ch}
+
+.article-wrap p{margin-bottom:1.15rem}
+.article-wrap article>p:first-of-type{font-size:1.25rem;line-height:1.55;font-weight:500;color:var(--ink)}
+.article-wrap h2{font-size:clamp(1.55rem,2.6vw,2.05rem);letter-spacing:-.025em;line-height:1.12;margin:3.1rem 0 .9rem;scroll-margin-top:1.5rem;color:var(--ink)}
+.article-wrap h3{font-size:1.25rem;letter-spacing:-.02em;line-height:1.25}
+.article-wrap ul,.article-wrap ol{padding-left:1.35rem;margin-bottom:1.15rem}
+.article-wrap li{margin-bottom:.45rem;padding-left:.2rem}
+.article-wrap li::marker{color:var(--ember);font-weight:700}
+.article-wrap strong{font-weight:700}
+.article-wrap a{color:var(--rust);text-decoration-color:rgba(168,54,26,.4);text-underline-offset:.2em;text-decoration-thickness:1px}
+.article-wrap a:hover{text-decoration-color:currentColor;text-decoration-thickness:2px}
+.article-wrap .a-head a{color:#fff}
+
+.key-takeaways{background:var(--cream);border-radius:24px;padding:clamp(1.5rem,4vw,2.25rem);margin:0 0 2.25rem}
+.key-takeaways h3{font-size:1.25rem;color:var(--forest);margin-bottom:1rem}
+.key-takeaways ul{list-style:none;padding:0;margin:0}
+.key-takeaways li{position:relative;padding-left:1.4rem;margin-bottom:.7rem;font-size:1.0625rem;line-height:1.6}
+.key-takeaways li:last-child{margin-bottom:0}
+.key-takeaways li::before{content:"";position:absolute;left:0;top:.62em;width:.5rem;height:.5rem;border-radius:50%;background:#EA8128}
+
+.toc{border-top:2px solid var(--forest);border-bottom:1px solid rgba(15,58,46,.18);padding:1.4rem 0 1.5rem;margin:0 0 2.75rem}
+.toc-label{display:block;font-size:1.0625rem;font-weight:700;color:var(--forest);margin-bottom:.75rem}
+.toc ol{margin:0;padding-left:1.6rem;columns:2 17rem;column-gap:2.5rem}
+.toc li{break-inside:avoid;margin-bottom:.4rem;font-size:1rem;line-height:1.45}
+.toc li::marker{font-variant-numeric:tabular-nums;font-size:.9375rem}
+.article-wrap .toc a{color:var(--ink);text-decoration:none}
+.article-wrap .toc a:hover{color:var(--rust);text-decoration:underline;text-decoration-thickness:2px}
+
+.callout{background:var(--cream);border-radius:18px;padding:1.25rem 1.5rem;margin:1.75rem 0;font-size:1.0625rem;line-height:1.65}
+.callout strong{color:var(--rust)}
+
+.inline-cta{background:var(--forest);color:#fff;border-radius:22px;padding:1.5rem 1.7rem;margin:2.25rem 0;display:flex;flex-direction:column;align-items:flex-start;gap:1rem}
+@media(min-width:700px){.inline-cta{flex-direction:row;align-items:center;justify-content:space-between;gap:2rem}}
+.article-wrap .inline-cta p{margin:0;color:var(--mist);font-size:1.0625rem;line-height:1.55;max-width:38ch}
+.article-wrap .inline-cta a{flex:0 0 auto;display:inline-block;background:#fff;color:var(--forest2);font-weight:700;font-size:.9375rem;text-decoration:none;padding:.85rem 1.35rem;border-radius:999px;transition:background .15s ease,transform .15s ease}
+.article-wrap .inline-cta a:hover{background:var(--honey);transform:translateY(-2px)}
+
+.faq-q{margin:1.75rem 0 .45rem}
+
+.related-articles{margin-top:3.5rem;padding-top:2rem;border-top:2px solid var(--forest)}
+.related-articles h3,.share-label,.article-sources h3{font-size:1.0625rem;font-weight:700;color:var(--forest);margin-bottom:1rem;display:block;letter-spacing:-.01em}
+.article-wrap .related-list{list-style:none;padding:0;margin:0;display:grid;gap:.75rem}
+@media(min-width:620px){.related-list{grid-template-columns:1fr 1fr}}
+.related-list li{margin:0;padding:0}
+.article-wrap .related-list a{display:flex;justify-content:space-between;align-items:center;gap:1rem;height:100%;background:var(--cream);border-radius:18px;padding:1.05rem 1.25rem;color:var(--ink);text-decoration:none;font-weight:700;font-size:1.0625rem;line-height:1.3;letter-spacing:-.01em}
+.article-wrap .related-list a::after{content:"";flex:0 0 16px;height:12px;background:var(--rust);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12'%3E%3Cpath d='M0 6h14M9 1l5 5-5 5' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12'%3E%3Cpath d='M0 6h14M9 1l5 5-5 5' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") no-repeat;transition:transform .2s ease}
+.article-wrap .related-list a:hover{color:var(--rust)}
+.article-wrap .related-list a:hover::after{transform:translateX(4px)}
+
+.share-bar{margin-top:2.75rem}
+.share-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.article-wrap .share-links a{font-size:.875rem;font-weight:700;color:var(--forest);text-decoration:none;border:2px solid rgba(15,58,46,.25);border-radius:999px;padding:.45rem 1rem;transition:border-color .15s ease,background .15s ease,color .15s ease}
+.article-wrap .share-links a:hover{background:var(--forest);border-color:var(--forest);color:#fff}
+
+.author-box{margin-top:2.75rem;background:var(--cream);border-radius:24px;padding:clamp(1.4rem,4vw,2rem)}
+.author-box-inner{display:flex;gap:1.25rem;align-items:flex-start}
+.author-avatar{flex:0 0 56px;width:56px;height:56px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-content:center;font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.article-wrap .author-name{font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.15rem}
+.article-wrap .author-creds{font-size:.9375rem;font-weight:600;color:var(--ember);margin-bottom:.6rem}
+.article-wrap .author-bio{font-size:1rem;line-height:1.6;color:var(--moss);margin-bottom:.6rem}
+.article-wrap .author-links{margin:0;font-size:.9375rem;font-weight:600}
+
+.article-sources{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(15,58,46,.18);font-size:.9375rem;line-height:1.55;color:var(--moss)}
+.article-sources ul{padding-left:1.2rem}
+.article-sources li{margin-bottom:.5rem}
+.article-wrap .article-sources a{color:var(--moss);text-decoration-color:rgba(59,82,73,.4)}
+.article-wrap .article-sources a:hover{color:var(--rust)}
+@media(prefers-reduced-motion:reduce){.article-wrap .related-list a::after,.article-wrap .inline-cta a{transition:none}.article-wrap .inline-cta a:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-top"><button id="menuClose">Close</button></div>
+  <a href="/#help">How I can help</a>
+  <a href="/#method">Method</a>
+  <a href="/#about">About Chris</a>
+  <a href="/#voices">What clients say</a>
+  <a href="/#pricing">Investment</a>
+  <a href="/articles/index">Articles</a>
+  <a href="/client-portal">Client Portal</a>
+  <a href="/#contact" class="cta">Request a free call</a>
+</div>
+
+<nav aria-label="Main">
+  <div class="wrap nav-in">
+    <a href="/" class="logo" aria-label="Chris Murray Precision Hypnosis, home"><b>Chris Murray</b><i></i><span>Precision<br>Hypnosis</span></a>
+    <ul class="links">
+      <li><a href="/#help">How I can help</a></li>
+      <li><a href="/#method">Method</a></li>
+      <li><a href="/#about">About Chris</a></li>
+      <li><a href="/#pricing">Investment</a></li>
+      <li><a href="/articles/index">Articles</a></li>
+      <li><a href="/client-portal">Client Portal</a></li>
+      <li><a href="/#contact" class="btn dark">Free intro call</a></li>
+    </ul>
+    <div class="nav-end"><a href="/#contact" class="btn dark">Free intro call</a><button class="burger" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <article>
+    <header class="a-head">
+      <div class="crumbs"><a href="/" class="back-link">&#8592; Home</a></div>
+      <h1>Privacy Notice</h1>
+    </header>
+
+    <nav class="toc" aria-label="In this notice">
+      <span class="toc-label">In This Notice</span>
+      <ol>
+        <li><a href="#who">Who I Am</a></li>
+        <li><a href="#contact-form">The Contact Form</a></li>
+        <li><a href="#cookies">Website Analytics and Cookies</a></li>
+        <li><a href="#newsletter">The Newsletter</a></li>
+        <li><a href="#portal">The Client Portal and Your Health Information</a></li>
+        <li><a href="#sessions">Sessions, Messages and Payments</a></li>
+        <li><a href="#lawful-bases">Lawful Bases</a></li>
+        <li><a href="#sharing">Who Your Data Is Shared With</a></li>
+        <li><a href="#transfers">International Transfers</a></li>
+        <li><a href="#retention">How Long I Keep Data</a></li>
+        <li><a href="#rights">Your Rights</a></li>
+        <li><a href="#changes">Changes and Contact</a></li>
+      </ol>
+    </nav>
+
+    <p>This notice explains what personal information I collect through chrismurrayhypnosis.com and in the course of working with clients, why I collect it, how I keep it safe, and the rights you have over it. I have tried to write it in plain English. If anything is unclear, please email me.</p>
+
+    <h2 id="who">Who I Am</h2>
+    <p>I am Christopher Murray, a cognitive hypnotherapist trading as Chris Murray | Precision Hypnosis, based in Galle, Sri Lanka and working with clients worldwide. I am the data controller for the personal information described in this notice, which means I decide how and why it is used.</p>
+    <p>Because I offer my services to people in the United Kingdom and my client agreement is governed by the laws of England and Wales, I follow the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018 and the Privacy and Electronic Communications Regulations (PECR).</p>
+    <p>You can contact me about anything in this notice at <a href="mailto:chris@sansungroup.com">chris@sansungroup.com</a>.</p>
+
+    <h2 id="contact-form">The Contact Form</h2>
+    <p>When you use the contact form on the homepage, I receive your name, your email address, the topic you choose under "What brings you here?" and anything you write in the message box. I use this only to reply to you and to arrange a free consultation if you want one.</p>
+    <p>The form is processed by Formspree, a form-handling service that delivers your message to my email inbox. Formspree acts on my behalf and stores submissions in line with its own <a href="https://formspree.io/legal/privacy-policy/">privacy policy</a>.</p>
+    <p>Please do not include detailed health information in the contact form. If you do mention something about your health, I will treat it as confidential and use it only to respond to your enquiry. We can discuss details properly in a consultation.</p>
+
+    <h2 id="cookies">Website Analytics and Cookies</h2>
+    <p>The homepage uses the HubSpot tracking code to help me understand how visitors use the site, for example which pages are visited and how people arrive. HubSpot sets cookies in your browser to do this, including:</p>
+    <ul>
+      <li><strong>__hstc</strong>: the main cookie for tracking visitors, which HubSpot says expires after six months.</li>
+      <li><strong>hubspotutk</strong>: keeps track of a visitor's identity, expiring after six months. If you later submit a HubSpot form, such as the newsletter sign-up, this can link your earlier visits to your email address.</li>
+      <li><strong>__hssc</strong>: keeps track of sessions, expiring after 30 minutes.</li>
+      <li><strong>__hssrc</strong>: helps determine whether you have restarted your browser, expiring at the end of the session.</li>
+    </ul>
+    <p>These cookies are not strictly necessary for the site to work, so under PECR I ask for your consent before setting them, through the cookie banner shown on your first visit. You can change your choice at any time using the Cookie settings link at the bottom of the homepage, and you can also block or delete cookies in your browser settings. HubSpot's own <a href="https://legal.hubspot.com/privacy-policy">privacy policy</a> explains how it handles data.</p>
+
+    <h2 id="newsletter">The Newsletter</h2>
+    <p>If you sign up for my newsletter, I will collect your email address and a record of when and how you gave consent. The newsletter will be sent using HubSpot, which also records whether emails are opened and which links are clicked, so that I can see what readers find useful.</p>
+    <p>I will only send you the newsletter if you have actively opted in. Every email includes an unsubscribe link, and you can also email me to be removed. Unsubscribing does not affect any other relationship we have.</p>
+
+    <h2 id="portal">The Client Portal and Your Health Information</h2>
+    <p>Before we begin working together, I ask clients to create an account in the client portal and complete a confidential intake form. The portal is built on Google Firebase: Firebase Authentication manages your login, and Cloud Firestore stores your form.</p>
+    <p>The intake form asks for:</p>
+    <ul>
+      <li>your name, date of birth, nationality or location, email address and mobile or WhatsApp number</li>
+      <li>the name and contact number of your next of kin, and your GP or doctor if applicable</li>
+      <li>information about your physical and mental health, including any diagnoses, relevant mental health history, prescribed medications and whether you have epilepsy</li>
+      <li>what brings you to hypnotherapy, what you have tried before and what success would look like</li>
+      <li>your answers to an optional NLP preference questionnaire, your agreement to the client terms, and your marketing preference</li>
+    </ul>
+    <p>Information about your health is special category data under UK GDPR and needs extra protection. I collect it because I need it to work with you safely and responsibly: for example, to know whether hypnosis is appropriate for you, whether you are under the care of another professional, and when I may need to suggest medical support.</p>
+    <p>Your password is handled by Firebase Authentication, and I never see it. Your intake form is stored against your own account, and access to client records is limited to me: no one else working on the website can view them.</p>
+    <p>I also keep session notes, which may contain health information. These are kept securely and confidentially in line with professional guidelines, and you can ask to see them.</p>
+
+    <h2 id="sessions">Sessions, Messages and Payments</h2>
+    <p>Online sessions take place by video using Zoom, Google Meet, Microsoft Teams or WhatsApp video, depending on what suits you. Each of these services processes the call under its own privacy terms. Sessions are only recorded with your prior written permission, as set out in the client agreement. If we agree to record a session, the recording is shared only with you and stored securely.</p>
+    <p>If your package includes WhatsApp check-ins, our messages will be handled by WhatsApp, which is end-to-end encrypted. I use email for session-related correspondence.</p>
+    <p>Payments are made by bank transfer or an invoiced payment link. Your bank or the payment provider processes your payment details. I keep records of invoices and payments for tax purposes.</p>
+
+    <h2 id="lawful-bases">Lawful Bases</h2>
+    <p>UK GDPR requires me to have a lawful basis for each use of your data. These are the bases I rely on:</p>
+    <ul>
+      <li><strong>Replying to enquiries and arranging a consultation:</strong> taking steps at your request before entering into a contract, and my legitimate interest in responding to people who contact me.</li>
+      <li><strong>Providing sessions, managing your account and keeping client records:</strong> performance of our contract.</li>
+      <li><strong>Health information in the intake form and session notes:</strong> your explicit consent, which you give when you complete the intake form. You can withdraw consent, but I may then be unable to continue working with you safely, and I may need to keep some records for the reasons set out under retention.</li>
+      <li><strong>Contacting your GP or next of kin when clinically necessary:</strong> only with the permission you give on the intake form, or where there is a serious risk of harm to you or others.</li>
+      <li><strong>Invoices and financial records:</strong> legal obligation, to meet tax requirements.</li>
+      <li><strong>Verifying practice hours with my professional bodies:</strong> my legitimate interest in maintaining my professional registration.</li>
+      <li><strong>Analytics cookies:</strong> your consent, as required by PECR.</li>
+      <li><strong>The newsletter and information about future programmes or publications:</strong> your consent, as required by PECR for electronic marketing. You can withdraw it at any time.</li>
+    </ul>
+
+    <h2 id="sharing">Who Your Data Is Shared With</h2>
+    <p>I do not sell your data, and I do not share it with anyone for their own marketing. I share it only where necessary:</p>
+    <ul>
+      <li>with the service providers described above (Formspree, HubSpot, Google Firebase, my email provider, the video platform we use, WhatsApp and payment providers), who process it on my behalf or as part of providing their service</li>
+      <li>with the National Council for Hypnotherapy (NCH) and the Quest Cognitive Hypnotherapy Practitioners’ Association (QCHPA), to verify practice hours, which may involve your name, email and session dates</li>
+      <li>with clinical supervisors and peer-support groups, using anonymised case material only</li>
+      <li>with your GP or next of kin, only as described above</li>
+      <li>where the law requires it, for example under a court order, or where there is reasonable cause to believe that not disclosing would result in serious harm to you or others</li>
+    </ul>
+
+    <h2 id="transfers">International Transfers</h2>
+    <p>I am based in Sri Lanka, and some of the services I use store or process data in the United States and other countries outside the UK. Where personal data is transferred outside the UK, I rely on the safeguards those providers offer, such as the UK International Data Transfer Addendum to the EU Standard Contractual Clauses or, where a provider is certified, the UK Extension to the EU-US Data Privacy Framework.</p>
+
+    <h2 id="retention">How Long I Keep Data</h2>
+    <ul>
+      <li><strong>Enquiries that do not lead to working together:</strong> 12 months from our last contact, then deleted.</li>
+      <li><strong>Client records, intake forms and session notes:</strong> 8 years after our last session, in line with professional guidelines, then securely deleted.</li>
+      <li><strong>Financial records:</strong> as long as tax law requires, usually 6 years.</li>
+      <li><strong>Newsletter:</strong> until you unsubscribe. After that I keep only your email address on a suppression list, so that you are not contacted again.</li>
+      <li><strong>Analytics cookies:</strong> for the periods described above.</li>
+    </ul>
+
+    <h2 id="rights">Your Rights</h2>
+    <p>Under UK GDPR you have the right to:</p>
+    <ul>
+      <li>ask for a copy of the personal data I hold about you</li>
+      <li>ask me to correct data that is inaccurate or incomplete</li>
+      <li>ask me to delete your data, where there is no overriding reason for me to keep it</li>
+      <li>ask me to restrict how I use your data, or object to my using it</li>
+      <li>ask for your data in a portable format, where this applies</li>
+      <li>withdraw consent at any time, where I rely on consent</li>
+    </ul>
+    <p>To use any of these rights, email <a href="mailto:chris@sansungroup.com">chris@sansungroup.com</a>. I will respond within one month. There is normally no charge.</p>
+    <p>If you are unhappy with how I have handled your data, please tell me first so that I can try to put it right. You also have the right to complain to the Information Commissioner's Office, the UK data protection regulator, at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk/make-a-complaint</a>. If you live outside the UK, you may also be able to complain to the regulator in your own country.</p>
+
+    <h2 id="changes">Changes and Contact</h2>
+    <p>I may update this notice when the way I work changes, for example when the newsletter launches. The date at the top shows when it was last updated.</p>
+    <p>Questions about privacy are welcome. Email <a href="mailto:chris@sansungroup.com">chris@sansungroup.com</a>.</p>
+    <p><em>Last updated: 21 October 2026.</em></p>
+
+  </article>
+</main>
+
+<!-- NEWSLETTER SIGN-UP SLOT
+     The monthly newsletter sign-up goes here later (between the call to action and the footer).
+     Copy the homepage "news" section from new/index.html once the HubSpot form is connected.
+     Not built yet on purpose. -->
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <a href="/" class="f-word"><b>Chris Murray</b><i></i><span>Precision<br>Hypnosis</span></a>
+      <ul class="f-links"><li><a href="/#help">How I can help</a></li><li><a href="/#method">Method</a></li><li><a href="/#about">About</a></li><li><a href="/#voices">What clients say</a></li><li><a href="/articles/index">Articles</a></li><li><a href="/#contact">Contact</a></li><li><a href="/client-portal">Client Portal</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/privacy#cookies">Cookie settings</a></li></ul>
+      <img src="/nch-logow.png" alt="Certified Registered NCH Member" class="f-nch">
+      <div class="social">
+        <a href="https://www.linkedin.com/in/chrismurrayhypnosis/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.instagram.com/chrismurrayhypnosis" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a href="https://www.facebook.com/chrismurrayhypnosis" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+    </div>
+    <p class="copy-r">&copy; 2025 Christopher Murray | Precision Hypnosis. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const menu=document.getElementById('menu'),mb=document.getElementById('menuBtn');
+function setMenu(o){menu.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+mb.addEventListener('click',()=>setMenu(true));
+document.getElementById('menuClose').addEventListener('click',()=>setMenu(false));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+</script>
+</body>
+</html>
