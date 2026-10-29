@@ -689,7 +689,7 @@ nf.addEventListener('submit',e=>{
   if(!NEWS_FORM){newsFail('Preview only: the newsletter is not connected yet.');return}
   const hutk=(document.cookie.match(/hubspotutk=([^;]+)/)||[])[1];
   fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${NEWS_FORM}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:[{name:'email',value:em.value}],context:{pageUri:location.href,pageName:document.title,...(hutk&&{hutk})}})})
-  .then(r=>r.ok?newsDone():newsFail('Something went wrong. Please try again.')).catch(()=>newsFail('Something went wrong. Please try again.'))
+  .then(r=>{if(r.ok){try{fetch('/api/welcome',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em.value}),keepalive:true}).catch(()=>{})}catch(x){}newsDone()}else newsFail('Something went wrong. Please try again.')}).catch(()=>newsFail('Something went wrong. Please try again.'))
 });
 </script>
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243959808.js"></script>

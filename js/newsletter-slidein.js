@@ -103,6 +103,7 @@
       body: JSON.stringify({ fields: [{ name: 'email', value: em.value }], context: ctx })
     }).then(function (r) {
       if (!r.ok) throw 0;
+      try { fetch('/api/welcome', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: em.value }), keepalive: true }).catch(function () {}); } catch (x) {}
       set({ joined: Date.now() });
       box.querySelector('.ask').hidden = true; box.querySelector('.done').hidden = false;
     }).catch(function () {
