@@ -1,9 +1,10 @@
-// Cloudflare Pages Function: sends the CMH newsletter welcome email via Resend.
+// Cloudflare Pages Function: sends the CMH newsletter welcome email via Brevo.
 // Needs these environment variables in Cloudflare Pages (Settings > Variables and Secrets):
-//   RESEND_API_KEY  (secret)  your Resend API key
-//   FROM_ADDRESS    (text)    e.g. Chris Murray <chris@chrismurrayhypnosis.com>  (domain must be verified in Resend)
-//   REPLY_TO        (text)    optional, the inbox that should receive replies
-// Without RESEND_API_KEY the function does nothing, so the site is safe to deploy first.
+//   BREVO_API_KEY  (secret)  your Brevo API key (SMTP & API > API Keys)
+//   FROM_EMAIL     (text)    e.g. chris@chrismurrayhypnosis.com  (must be a verified sender in Brevo)
+//   FROM_NAME      (text)    optional, defaults to Chris Murray
+//   REPLY_TO       (text)    optional, the inbox that should receive replies
+// Without BREVO_API_KEY the function does nothing, so the site is safe to deploy first.
 
 const ALLOWED_ORIGINS = [
   'https://chrismurrayhypnosis.com',
@@ -49,7 +50,7 @@ export async function onRequestPost({ request, env }) {
   if (!ALLOWED_ORIGINS.includes(origin) && !/^https:\/\/[a-z0-9-]+\.pages\.dev$/.test(origin)) {
     return json({ ok: false, error: 'forbidden' }, 403);
   }
-  if (!env.RESEND_API_KEY || !env.FROM_ADDRESS) {
+  if (!env.BREVO_API_KEY || !env.FROM_EMAIL) {
     return json({ ok: true, sent: false, reason: 'not configured' });
   }
 
@@ -60,12 +61,18 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, error: 'invalid email' }, 400);
   }
 
-  const payload = { from: env.FROM_ADDRESS, to: [email], subject: SUBJECT, text: TEXT, html: toHtml(TEXT) };
-  if (env.REPLY_TO) payload.reply_to = env.REPLY_TO;
+  const payload = {
+    sender: { name: env.FROM_NAME || 'Chris Murray', email: env.FROM_EMAIL },
+    to: [{ email }],
+    subject: SUBJECT,
+    textContent: TEXT,
+    htmlContent: toHtml(TEXT),
+  };
+  if (env.REPLY_TO) payload.replyTo = { email: env.REPLY_TO };
 
-  const r = await fetch('https://api.resend.com/emails', {
+  const r = await fetch('https://api.brevo.com/v3/smtp/email', {
     method: 'POST',
-    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    headers: { 'api-key': env.BREVO_API_KEY, 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify(payload),
   });
   if (!r.ok) return json({ ok: false, error: 'send failed' }, 502);
